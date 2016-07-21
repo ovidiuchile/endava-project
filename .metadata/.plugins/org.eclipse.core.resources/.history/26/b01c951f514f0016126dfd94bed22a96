@@ -1,0 +1,8 @@
+package com.endava.learning.dao;
+
+public class TechnologyDAO extends AbstractDAO{
+	protected TechnologyDAO() {
+		super(Technology.class);
+	}
+
+}

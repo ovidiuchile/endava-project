@@ -1,0 +1,9 @@
+package com.endava.learning.model;
+
+@Entity
+@Table(name = "topics")
+public class Topic {
+	@Id
+	private String topic_id;
+
+}

@@ -1,0 +1,8 @@
+package com.endava.learning.dao;
+
+public class UserDAO extends AbstractDAO{
+	protected UserDAO() {
+		super(User.class);
+	}
+
+}

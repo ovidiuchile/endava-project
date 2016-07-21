@@ -1,0 +1,16 @@
+package com.endava.learning.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "kewywords")
+public class Keyword {
+	@Id
+	private String keyword_id;
+	@Column(name = "topic_id")
+	@Column(name = "keyword")
+	private String keyword;
+}
