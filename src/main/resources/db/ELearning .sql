@@ -5,33 +5,34 @@ DROP TABLE Technologies;
 DROP TABLE Users;
 
 CREATE TABLE Technologies (
-    technology_id int NOT NULL,
-    name varchar(30) NOT NULL,
+    technology_id BIGINT NOT NULL,
+    name BIGINT NOT NULL,
     CONSTRAINT Technologies_pk PRIMARY KEY (technology_id)
 );
 
 CREATE TABLE Topics (
-    topic_id int NOT NULL,
+    topic_id BIGINT NOT NULL,
     name varchar(30) NOT NULL,
-    technology_id int NOT NULL,
+    technology_id BIGINT NOT NULL,
     CONSTRAINT Topics_pk PRIMARY KEY (topic_id)
 );
 
 CREATE TABLE Materials (
-    material_id int NOT NULL,
+    material_id BIGINT NOT NULL,
     link varchar(50) NOT NULL,
-    topic_id int NOT NULL,
+    topic_id BIGINT NOT NULL,
     CONSTRAINT Materials_pk PRIMARY KEY (material_id)
 );
 
 CREATE TABLE Keywords (
-    topic_id int NOT NULL,
+	keyword_id BIGINT NOT NULL,
+    topic_id BIGINT NOT NULL,
     keyword varchar(20) NOT NULL,
-    CONSTRAINT Keywords_pk PRIMARY KEY (topic_id,keyword)
+    CONSTRAINT Keywords_pk PRIMARY KEY (keyword_id)
 );
 
 CREATE TABLE Users (
-    user_id int NOT NULL,
+    user_id BIGINT NOT NULL,
     user_type varchar(20) NOT NULL,
     name varchar(30) NOT NULL,
     surname varchar(30) NOT NULL,
