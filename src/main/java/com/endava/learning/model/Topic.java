@@ -2,35 +2,36 @@ package com.endava.learning.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "topics")
 public class Topic {
 	@Id
-	private Long topic_id;
-
-	@Column(name = "technology_id")
-	private Long technology_id;
+	@Column(name = "topic_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(name = "topic_id_seq", sequenceName = "topic_id_seq", allocationSize = 1)
+	private Long id;
 	
 	@Column(name = "name")
 	private String name;
+	
+	@ManyToOne
+	@JoinColumn(name = "technology_id")
+	private Technology technology;
 
 	public Long getTopic_id() {
-		return topic_id;
+		return id;
 	}
 
 	public void setTopic_id(Long topic_id) {
-		this.topic_id = topic_id;
-	}
-
-	public Long getTechnology_id() {
-		return technology_id;
-	}
-
-	public void setTechnology_id(Long technology_id) {
-		this.technology_id = technology_id;
+		this.id = topic_id;
 	}
 
 	public String getName() {
@@ -39,6 +40,14 @@ public class Topic {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Technology getTechnology() {
+		return technology;
+	}
+
+	public void setTechnology(Technology technology) {
+		this.technology = technology;
 	}
 	
 	

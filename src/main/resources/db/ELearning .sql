@@ -6,7 +6,7 @@ DROP TABLE Users;
 
 CREATE TABLE Technologies (
     technology_id BIGINT NOT NULL,
-    name BIGINT NOT NULL,
+    name varchar(30) NOT NULL,
     CONSTRAINT Technologies_pk PRIMARY KEY (technology_id)
 );
 
@@ -20,6 +20,7 @@ CREATE TABLE Topics (
 CREATE TABLE Materials (
     material_id BIGINT NOT NULL,
     link varchar(50) NOT NULL,
+    name varchar(30) NOT NULL,
     topic_id BIGINT NOT NULL,
     CONSTRAINT Materials_pk PRIMARY KEY (material_id)
 );
