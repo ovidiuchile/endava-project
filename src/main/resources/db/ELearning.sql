@@ -37,6 +37,8 @@ CREATE TABLE Materials (
   topic_id bigint NOT NULL,
   title varchar(100) NOT NULL,
   link varchar(100) NOT NULL,
+  upload_date date NOT NULL,
+  content_editor_id bigint NOT NULL,
   CONSTRAINT Materials_pk PRIMARY KEY (material_id)
 );
 
@@ -105,6 +107,10 @@ REFERENCES Questions (question_id);
 -- Reference: Materials_Topic (table: Materials)
 ALTER TABLE Materials ADD CONSTRAINT Materials_Topic FOREIGN KEY (topic_id)
 REFERENCES Topics (topic_id);
+
+-- Reference: Materials_Users (table: Materials)
+ALTER TABLE Materials ADD CONSTRAINT Materials_Users FOREIGN KEY (content_editor_id)
+REFERENCES Users (user_id);
 
 -- Reference: Questions_Tests (table: Questions)
 ALTER TABLE Questions ADD CONSTRAINT Questions_Tests FOREIGN KEY (test_id)

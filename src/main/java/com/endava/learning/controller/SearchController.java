@@ -29,4 +29,15 @@ public class SearchController {
         return model;
     }
 
+    @RequestMapping(value = "/advancedSearchResults", method = RequestMethod.GET)
+    public ModelAndView showAdvancedResults(@RequestParam(value = "s") String s, @RequestParam(value = "param") String param) {
+        ModelAndView model = new ModelAndView("results");
+
+        List<Long> results = searchService.getAdvancedSearchResults(s, param);
+
+        model.addObject("results", results);
+
+        return model;
+    }
+
 }
