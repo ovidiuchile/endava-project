@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="e-learning" />
         <module name="endava-quiz" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="e-learning" target="1.6" />
       <module name="endava-quiz" target="1.6" />
     </bytecodeTargetLevel>
   </component>

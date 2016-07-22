@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/e-learning.iml" filepath="$PROJECT_DIR$/e-learning.iml" />
       <module fileurl="file://$PROJECT_DIR$/endava-quiz.iml" filepath="$PROJECT_DIR$/endava-quiz.iml" />
     </modules>
   </component>
