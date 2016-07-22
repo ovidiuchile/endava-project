@@ -28,7 +28,6 @@ public class TopicControler {
 			@PathVariable("technology_id") Long technology_id) {
 	
 		Resources<Resource<Topic>> topicResources = Resources.wrap(topicService.getTopics(technology_id));
-		
 		return new ResponseEntity<>(topicResources, HttpStatus.OK);
 	}
 
