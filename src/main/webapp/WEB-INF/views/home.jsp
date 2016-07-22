@@ -18,7 +18,11 @@
 		<%@include file="css/style.css"%>
 	</style>
 
-
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
+	
 </head>
 <body>
 
@@ -82,11 +86,65 @@
 					</li>
 				</ol>
 			</div>
+			
+			<!-- The beginning of Dorin's Part!! -->
+			
+			<style>
+				#div_slide{
+					width:100%;
+					height:400px;
+					background-color:yellow;
+				}
+				#div_notes{
+					width: 100%;
+					height: 100px;
+					background-color:yellow;
+					margin-top:5px;
+				}
+				#download_img{
+					height:40px;
+					float:right;
+				}
+			</style>
+			
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script>
+			$(document).ready(function(){
+				var grandparent_height = $('.col-md-9').width();
+			    $('#notes').width( grandparent_height );
+			    $('#button_notes').click(function(){
+			        $("#div_notes").fadeToggle(0);
+			    });
+			    $("#div_notes").fadeToggle(0);
+			});
+			$(window).resize(function(){
+			    var grandparent_height = $('.col-md-9').width();
+			    $('#notes').width( grandparent_height );
+			});
+			</script>
+			
 			<div class="col-md-9">
-				<p>
-					Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-				</p>
+			
+				<div id = "div_slide">
+					
+				</div>
+			
+				<div class="dropdown" id = "drop_notes">
+				  
+				  	<button class="btn btn-primary dropdown-toggle" type="button" id="button_notes">Notes
+				   	<span class="caret"></span></button>
+				    
+				    <img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
+				    
+				 </div>
+				 <div id ="div_notes">
+				 
+				 </div>
+				
 			</div>
+			
+			<!-- The end of Dorin's Part!! -->
+			
 		</div>
 	</div>
 	<script>
