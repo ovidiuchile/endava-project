@@ -1,0 +1,41 @@
+package com.endava.learning.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
+public class User {
+	@Id
+	private String user_id;
+	
+	@Column(name = "user_type")
+	private String user_type;
+	
+	@Column(name = "name")
+	private String name;
+	
+	@Column(name = "surname")
+	private String surname;
+	
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "password")
+	private String password;
+	
+	@Column(name = "city")
+	private String city;
+	
+	@Column(name = "address")
+	private String address;
+	
+	@Column(name = "phoneNumber")
+	private String phoneNumber;
+	
+	@Column(name = "country")
+	private String country;
+
+}

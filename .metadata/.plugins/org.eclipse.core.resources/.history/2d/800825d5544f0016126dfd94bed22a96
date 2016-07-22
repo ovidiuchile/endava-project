@@ -1,0 +1,22 @@
+package com.endava.learning.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
+public class User {
+	@Id
+	private String user_id;
+	
+	@Column(name = "user_type")
+	private String user_type;
+	
+	@Column(name = "name")
+	private String name;
+	
+	@Column
+
+}
