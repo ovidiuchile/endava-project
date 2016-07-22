@@ -35,6 +35,7 @@ CREATE TABLE Keywords (
 CREATE TABLE Materials (
   material_id bigint NOT NULL,
   topic_id bigint NOT NULL,
+  title varchar(100) NOT NULL,
   link varchar(100) NOT NULL,
   CONSTRAINT Materials_pk PRIMARY KEY (material_id)
 );
