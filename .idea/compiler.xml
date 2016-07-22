@@ -27,7 +27,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="e-learning" target="1.6" />
+      <module name="e-learning" target="1.7" />
       <module name="endava-quiz" target="1.6" />
     </bytecodeTargetLevel>
   </component>
