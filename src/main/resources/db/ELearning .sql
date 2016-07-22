@@ -5,13 +5,13 @@ DROP TABLE Technologies;
 DROP TABLE Users;
 
 CREATE TABLE Technologies (
-    technology_id BIGINT NOT NULL,
+    technology_id BIGSERIAL NOT NULL,
     name varchar(30) NOT NULL,
     CONSTRAINT Technologies_pk PRIMARY KEY (technology_id)
 );
 
 CREATE TABLE Topics (
-    topic_id BIGINT NOT NULL,
+    topic_id BIGSERIAL NOT NULL,
     name varchar(30) NOT NULL,
     technology_id BIGINT NOT NULL,
     CONSTRAINT Topics_pk PRIMARY KEY (topic_id)
@@ -20,7 +20,7 @@ CREATE TABLE Topics (
 CREATE TABLE Materials (
     material_id BIGINT NOT NULL,
     link varchar(50) NOT NULL,
-    name varchar(30) NOT NULL,
+    title varchar(30) NOT NULL,
     topic_id BIGINT NOT NULL,
     CONSTRAINT Materials_pk PRIMARY KEY (material_id)
 );
@@ -57,5 +57,10 @@ ALTER TABLE Keywords ADD CONSTRAINT Table_10_Topic FOREIGN KEY (topic_id)
 
 ALTER TABLE Topics ADD CONSTRAINT Topic_Technologies FOREIGN KEY (technology_id)
     REFERENCES Technologies (technology_id) ON DELETE CASCADE;
+
+insert into TECHNOLOGIES values (1,'Java');
+insert into TOPICS values (1,'Topic1',1);
+insert into TOPICS values (2,'Topic2',1);
+insert into TOPICS values (3,'Topic3',1); 
 
 
