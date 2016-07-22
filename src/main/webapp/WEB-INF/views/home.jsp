@@ -54,36 +54,12 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-3">
-				<ol>
-					<li>
-						Lorem ipsum dolor sit amet
-					</li>
-					<li>
-						Consectetur adipiscing elit
-					</li>
-					<li>
-						Integer molestie lorem at massa
-					</li>
-					<li>
-						Facilisis in pretium nisl aliquet
-					</li>
-					<li>
-						Nulla volutpat aliquam velit
-					</li>
-					<li>
-						Faucibus porta lacus fringilla vel
-					</li>
-					<li>
-						Aenean sit amet erat nunc
-					</li>
-					<li>
-						Eget porttitor lorem
-					</li>
-				</ol>
+			<div class="col-md-3" id="Topics">
+				<select class="form-control" id="TopicsDrop">
+				</select>
 			</div>
 			<div class="col-md-9">
-				<p>
+				<p id="Test" style="display: none; ">
 					Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
 				</p>
 			</div>
@@ -92,6 +68,33 @@
 	<script>
 		document.getElementById("faka_you").addEventListener("change", function (e) {
 			var option = document.getElementById('faka_you').value;
+			var addOp = document.getElementById('TopicsDrop');
+			if(option==1)
+			{
+				for(i = 1; i< 10; i++)
+				{
+					var input = document.createElement("option");
+					input.name = option;
+					input.value= i;
+					input.innerHTML=i;
+					addOp.appendChild(input);
+				}
+			}
+			else
+			{
+				for(i=1;i<10;i++)
+				{
+					addOp.removeChild(addOp.childNodes[0]);
+				}
+			}
+
+		})
+		document.getElementById("fakayou").addEventListener("change", function (e) {
+			var option = document.getElementById('fakayou').value;
+			if( option == 1) {
+				document.getElementById('Test').style.display = 'block';
+				document.getElementById('Test').setAttribute("style" ,"color:red");
+			}
 			console.log(option);
 		})
 	</script> 

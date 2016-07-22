@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="endava-quiz:war exploded">
-    <output-path>$PROJECT_DIR$/target/endava-quiz-1.0.0-BUILD-SNAPSHOT</output-path>
+  <artifact type="exploded-war" name="e-learning:war exploded">
+    <output-path>$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="endava-quiz" />
+          <element id="module-output" name="e-learning" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.0.5.RELEASE" />
@@ -54,9 +54,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/endava-quiz-1.0.0-BUILD-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="endava-quiz/web/Web" />
+      <element id="javaee-facet-resources" facet="e-learning/web/Web" />
     </root>
   </artifact>
 </component>
