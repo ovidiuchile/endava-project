@@ -1,9 +1,0 @@
-package com.endava.learning.model;
-
-@Entity
-@Table(name = "users")
-public class User {
-	@Id
-	private String user_id;
-
-}

@@ -1,7 +1,0 @@
-package com.endava.learning.dao;
-
-public class KeywordDAO extends AbstractDAO{
-	protected KeywordDAO() {
-		super(Keyword.class);
-	}
-}

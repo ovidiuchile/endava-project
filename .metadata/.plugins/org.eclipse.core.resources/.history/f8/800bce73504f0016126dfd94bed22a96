@@ -1,7 +1,0 @@
-package com.endava.learning.model;
-
-@Entity
-@Table(name = "kewywords")
-public class Keyword {
-
-}

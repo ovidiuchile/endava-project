@@ -1,9 +1,0 @@
-package com.endava.learning.model;
-
-import javax.persistence.Entity;
-
-@Entity
-@Table(name="Technologies")
-public class Technology {
-
-}
