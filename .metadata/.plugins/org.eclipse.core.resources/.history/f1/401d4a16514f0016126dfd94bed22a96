@@ -1,7 +1,0 @@
-package com.endava.learning.dao;
-
-public class MaterialDAO extends AbstractDAO{
-	protected MaterialDAO() {
-		super(Material.class);
-	}
-}
