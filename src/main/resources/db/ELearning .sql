@@ -39,7 +39,7 @@ CREATE TABLE Users (
     email varchar(50) NOT NULL,
     password varchar(20) NOT NULL,
     city varchar(30) NULL,
-    addres varchar(1000) NULL,
+    address varchar(1000) NULL,
     phoneNumber varchar(13) NULL,
     country varchar(30) NULL,
     CONSTRAINT Users_pk PRIMARY KEY (user_id)
