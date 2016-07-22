@@ -59,7 +59,7 @@
 				</select>
 			</div>
 			<div class="col-md-9">
-				<p id="Test" style="display: none; ">
+				<p id="Test">
 					Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
 				</p>
 			</div>
@@ -71,6 +71,17 @@
 			var addOp = document.getElementById('TopicsDrop');
 			if(option==1)
 			{
+				for(i=1;i<addOp.childElementCount;i++)
+				{
+					try
+					{
+						addOp.removeChild(addOp.childNodes[0]);
+					}
+					catch (e)
+					{
+
+					}
+				}
 				for(i = 1; i< 10; i++)
 				{
 					var input = document.createElement("option");
@@ -84,7 +95,22 @@
 			{
 				for(i=1;i<10;i++)
 				{
-					addOp.removeChild(addOp.childNodes[0]);
+					try
+					{
+						addOp.removeChild(addOp.childNodes[0]);
+					}
+					catch (e)
+					{
+
+					}
+				}
+				for(i = 1; i< 10; i++)
+				{
+					var input = document.createElement("option");
+					input.name = option;
+					input.value= i;
+					input.innerHTML=i*2;
+					addOp.appendChild(input);
 				}
 			}
 
