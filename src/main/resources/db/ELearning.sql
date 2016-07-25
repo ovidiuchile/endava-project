@@ -137,10 +137,10 @@ REFERENCES Users (user_id) ON DELETE CASCADE;
 ALTER TABLE Topics ADD CONSTRAINT Topic_Technologies FOREIGN KEY (technology_id)
 REFERENCES Technologies (technology_id) ON DELETE CASCADE;
 
-INSERT INTO Users VALUES (1, 'normal user', 'name 1', 'surname 1', 'email1@a.com', 'pass1', 'city 1');
-INSERT INTO Users VALUES (2, 'tutor', 'name 2', 'surname 2', 'email2@a.com', 'pass2', 'city 2');
-INSERT INTO Users VALUES (3, 'content editor', 'name 3', 'surname 3', 'email3@a.com', 'pass3');
-INSERT INTO Users VALUES (4, 'normal user', 'name 4', 'surname 4', 'email4@a.com', 'pass4');
+INSERT INTO Users VALUES (1, 'normal user', 'name 1', 'surname 1', 'email1@a.com', 'pass1', 'city 1', 'address 1', '0987654321', 'Country1');
+INSERT INTO Users VALUES (2, 'tutor', 'name 2', 'surname 2', 'email2@a.com', 'pass2', 'city 2', 'address 2', '0987854321', 'Country2');
+INSERT INTO Users VALUES (3, 'content editor', 'name 3', 'surname 3', 'email3@a.com', 'pass3', 'city 3', 'address 3', '0927654321', 'Country3');
+INSERT INTO Users VALUES (4, 'normal user', 'name 4', 'surname 4', 'email4@a.com', 'pass4', 'city 4', 'address 4', '0987654621', 'Country3');
 
 INSERT INTO Technologies VALUES (1, 'Java');
 INSERT INTO Technologies VALUES (2, 'C++');

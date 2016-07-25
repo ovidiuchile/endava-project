@@ -1,5 +1,8 @@
 package com.endava.learning.service;
 
+import com.endava.learning.dao.KeywordDAO;
+import com.endava.learning.model.Keyword;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -14,34 +17,13 @@ import java.util.StringTokenizer;
 @Service
 public class SearchService {
 
+    @Autowired
+    private KeywordDAO keywordDAO;
+
     private DataSource dataSource;
 
-    public DataSource getDataSource() {
-        return dataSource;
-    }
-
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    public ArrayList<Long> getSearchResults(String input) {
-        StringTokenizer st = new StringTokenizer(input);
-        ArrayList<Long> results = new ArrayList<>();
-        try (Connection connection = dataSource.getConnection()) {
-            while (st.hasMoreElements()) {
-                String query = "SELECT k.topic_id FROM keywords k WHERE k.keyword LIKE ?";
-                PreparedStatement statement = connection.prepareStatement(query);
-                statement.setString(1, st.nextElement().toString());
-                ResultSet resultSet = statement.executeQuery();
-                while(resultSet.next()) {
-                    results.add(resultSet.getLong("TOPIC_ID"));
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return results;
+    public List<Keyword> getSearchResults(String input) {
+        return keywordDAO.getSearchResults(input);
     }
 
     public List<Long> getAdvancedSearchResults(String input, String param) {

@@ -22,7 +22,7 @@ public class TechnologyController {
 	@Autowired
 	TechnologyService technologyService;
 
-	@RequestMapping(value = "technologies/", method = RequestMethod.GET)
+	@RequestMapping(value = "technologies", method = RequestMethod.GET)
 	public HttpEntity<Resources<Resource<Technology>>> getTechnologies() {
 
 		Resources<Resource<Technology>> topicResources = Resources.wrap(technologyService.getTechnologies());
@@ -37,6 +37,7 @@ public class TechnologyController {
 		Resource<Technology> technologyResource = new Resource<>(technologyService.getTechnologiesByID(technology_id));
 
 		return new ResponseEntity<>(technologyResource, HttpStatus.OK);
+
 	}
 
 }
