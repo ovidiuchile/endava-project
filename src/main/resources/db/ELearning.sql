@@ -16,9 +16,10 @@ DROP TABLE Users;
 DROP TABLE Technologies;
 
 CREATE TABLE Answers (
-  answer_id bigint ,
-  question_id bigint ,
   text text ,
+  answer_id bigserial ,
+  question_id bigint ,
+  content text,
   correct bool ,
   score int ,
   CONSTRAINT Answers_pk PRIMARY KEY (answer_id)
@@ -26,7 +27,7 @@ CREATE TABLE Answers (
 
 -- Table: Keywords
 CREATE TABLE Keywords (
-  keyword_id bigint ,
+  keyword_id bigserial ,
   topic_id bigint ,
   keyword varchar(50) ,
   CONSTRAINT Keywords_pk PRIMARY KEY (keyword_id)
@@ -34,34 +35,34 @@ CREATE TABLE Keywords (
 
 -- Table: Materials
 CREATE TABLE Materials (
-  material_id bigint ,
-  topic_id bigint ,
-  title varchar(100) ,
-  link varchar(100) ,
-  upload_date date ,
-  content_editor_id bigint ,
+  material_id bigserial,
+  topic_id bigint,
+  title varchar(100),
+  link varchar(100),
+  upload_date date,
+  content_editor_id bigint,
   CONSTRAINT Materials_pk PRIMARY KEY (material_id)
 );
 
 -- Table: Questions
 CREATE TABLE Questions (
-  question_id bigint ,
+  question_id bigserial ,
   test_id bigint ,
   question_type varchar(20) ,
-  text text ,
+  content text ,
   CONSTRAINT Questions_pk PRIMARY KEY (question_id)
 );
 
 -- Table: Technologies
 CREATE TABLE Technologies (
-  technology_id bigserial,
+  technology_id bigserial ,
   name varchar(30) ,
   CONSTRAINT Technologies_pk PRIMARY KEY (technology_id)
 );
 
 -- Table: Tests
 CREATE TABLE Tests (
-  test_id bigint ,
+  test_id bigserial ,
   topic_id bigint ,
   title varchar(100) ,
   CONSTRAINT Tests_pk PRIMARY KEY (test_id)
@@ -69,7 +70,7 @@ CREATE TABLE Tests (
 
 -- Table: Tests_history
 CREATE TABLE Tests_history (
-  test_history_id bigint ,
+  test_history_id bigserial ,
   test_id bigint ,
   user_id bigint ,
   score int ,
@@ -79,6 +80,7 @@ CREATE TABLE Tests_history (
 
 -- Table: Topics
 CREATE TABLE Topics (
+
   topic_id bigserial primary key,
   technology_id bigint ,
   name varchar(30) 
@@ -86,7 +88,8 @@ CREATE TABLE Topics (
 
 -- Table: Users
 CREATE TABLE Users (
-  user_id bigint ,
+
+  user_id bigserial,
   user_type varchar(20) ,
   name varchar(30) ,
   surname varchar(30) ,
@@ -136,10 +139,10 @@ REFERENCES Users (user_id) ON DELETE CASCADE;
 ALTER TABLE Topics ADD CONSTRAINT Topic_Technologies FOREIGN KEY (technology_id)
 REFERENCES Technologies (technology_id) ON DELETE CASCADE;
 
-INSERT INTO Users VALUES (1, 'normal user', 'name 1', 'surname 1', 'email1@a.com', 'pass1', 'city 1');
-INSERT INTO Users VALUES (2, 'tutor', 'name 2', 'surname 2', 'email2@a.com', 'pass2', 'city 2');
-INSERT INTO Users VALUES (3, 'content editor', 'name 3', 'surname 3', 'email3@a.com', 'pass3');
-INSERT INTO Users VALUES (4, 'normal user', 'name 4', 'surname 4', 'email4@a.com', 'pass4');
+INSERT INTO Users VALUES (1, 'normal user', 'name 1', 'surname 1', 'email1@a.com', 'pass1', 'city 1', 'address 1', '0987654321', 'Country1');
+INSERT INTO Users VALUES (2, 'tutor', 'name 2', 'surname 2', 'email2@a.com', 'pass2', 'city 2', 'address 2', '0987854321', 'Country2');
+INSERT INTO Users VALUES (3, 'content editor', 'name 3', 'surname 3', 'email3@a.com', 'pass3', 'city 3', 'address 3', '0927654321', 'Country3');
+INSERT INTO Users VALUES (4, 'normal user', 'name 4', 'surname 4', 'email4@a.com', 'pass4', 'city 4', 'address 4', '0987654621', 'Country3');
 
 INSERT INTO Technologies VALUES (1, 'Java');
 INSERT INTO Technologies VALUES (2, 'C++');

@@ -40,13 +40,10 @@ public class MaterialController {
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/materials", method = RequestMethod.POST, consumes = "application/json")
 	public HttpEntity<Resource<Material>> createMaterial(@PathVariable Long topic_id, @RequestBody Material material){
 
-		material.setTopic(topicService.getTopicByID(topic_id));
+		material.setTopic(topicService.getTopicsByID(topic_id));
+		Material createdMaterial = materialService.createMaterial(material);
 		
-		Material materialCreated = materialService.createMaterial(material);
-		
-		
-		Resource<Material> materialResource = new Resource<>(materialCreated);
-		
+		Resource<Material> materialResource = new Resource<>(createdMaterial);
 		return new ResponseEntity<>(materialResource, HttpStatus.CREATED);
 	}
 	
@@ -54,12 +51,45 @@ public class MaterialController {
 	public HttpEntity<Resource<Material>> getMaterialById(@PathVariable Long technology_id, @PathVariable Long topic_id, @PathVariable Long material_id){
 		Material material = materialService.getMaterialById(material_id);
 		Resource<Material> materialResource = new Resource<>(material);
-	
-        //materialResource.add(linkTo(methodOn(MaterialController.class).getMaterialById(technology_id, topic_id, material_id)).withSelfRel());
-
+		
 		return new ResponseEntity<>(materialResource, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/materials/{material_id}", method = RequestMethod.PUT, consumes = "application/json")
+	public HttpEntity<Resource<Material>> updateMaterial(@PathVariable Long technology_id, 
+			@PathVariable Long topic_id, @PathVariable Long material_id, @RequestBody Material material){
+		Material existingMaterial = materialService.getMaterialById(material_id);
+		
 
-
+		if(material.getMaterial_id() == null){
+			material.setMaterial_id(material_id);
+		}
+		
+		if(material.getTitle() == null){
+			material.setTitle(existingMaterial.getTitle());
+		}
+		if(material.getLink() == null){
+			material.setLink(existingMaterial.getLink());
+		}
+		if(material.getUpload_date() == null){
+			material.setUpload_date(existingMaterial.getUpload_date());
+		}
+		if(material.getContent_editor() == null){
+			material.setContent_editor(existingMaterial.getContent_editor());
+		}
+		if(material.getTopic() == null){
+			material.setTopic(existingMaterial.getTopic());
+		}
+		
+		Material updatedMaterial = materialService.updateMaterial(material);
+		
+		Resource<Material> materialResource = new Resource<>(updatedMaterial);
+		return new ResponseEntity<>(materialResource, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/materials/{material_id}", method = RequestMethod.DELETE, consumes = "application/json")
+	public HttpEntity<Resource<Material>> deleteMaterial(@PathVariable Long technology_id, @PathVariable Long topic_id, @PathVariable Long material_id){
+		materialService.deleteMaterial(material_id);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 }
