@@ -291,7 +291,7 @@
 			<artifactId>spring-hateoas</artifactId>
 			<version>0.20.0.RELEASE</version>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<plugins>

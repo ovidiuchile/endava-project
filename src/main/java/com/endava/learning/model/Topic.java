@@ -7,7 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+<<<<<<< HEAD
 import javax.persistence.SequenceGenerator;
+=======
+>>>>>>> 30b10607af005e2b8aa2661140189f37d8708771
 import javax.persistence.Table;
 
 @Entity

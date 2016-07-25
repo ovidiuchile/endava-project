@@ -4,6 +4,7 @@
 -- tables
 -- Table: Answers
 
+
 DROP TABLE Answers;
 DROP TABLE Keywords;
 DROP TABLE Materials;
@@ -134,6 +135,7 @@ REFERENCES Users (user_id);
 
 -- Reference: Topic_Technologies (table: Topics)
 ALTER TABLE Topics ADD CONSTRAINT Topic_Technologies FOREIGN KEY (technology_id)
+REFERENCES Technologies (technology_id);
 REFERENCES Technologies (technology_id);
 
 INSERT INTO Users VALUES (1, 'normal user', 'name 1', 'surname 1', 'email1@a.com', 'pass1', 'city 1');
