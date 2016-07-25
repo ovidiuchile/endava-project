@@ -54,14 +54,17 @@ public class TechnologyController {
 	public HttpEntity<Resource<Technology>> updateTechnology(@RequestBody Technology technology,
 			@PathVariable("technology_id") Long technology_id) {
 
-		technology.setTechnology_id(technology_id);
-		technologyService.updateTechnology(technology);
+		Technology finalTech = technologyService.getTechnologiesByID(technology_id);
+		if(technology.getName()!=null)
+			finalTech.setName(technology.getName());
 
-		Resource<Technology> technologyResouce = new Resource<>(technology);
+		technologyService.updateTechnology(finalTech);
+
+		Resource<Technology> technologyResouce = new Resource<>(finalTech);
 
 		return new ResponseEntity<>(technologyResouce, HttpStatus.CREATED);
 	}
-	
+
 	@RequestMapping(value = "technologies/{technology_id}", method = RequestMethod.DELETE)
 	public HttpEntity<Resource<Technology>> deleteTopic(@PathVariable("technology_id") Long technology_id) {
 		technologyService.deleteTechnology(technology_id);

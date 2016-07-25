@@ -61,11 +61,13 @@ public class TopicController {
 	public HttpEntity<Resource<Topic>> updateTopic(@RequestBody Topic topic,
 			@PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id) {
 
-		topic.setTechnology(technologyService.getTechnologiesByID(technology_id));
-		topic.setTopic_id(topic_id);
-		topicService.updateTopic(topic);
+		Topic finalTopic = topicService.getTopicByID(topic_id);
+		if(topic.getName()!=null)
+			finalTopic.setName(topic.getName());
 
-		Resource<Topic> topicResouce = new Resource<>(topic);
+		topicService.updateTopic(finalTopic);
+
+		Resource<Topic> topicResouce = new Resource<>(finalTopic);
 
 		return new ResponseEntity<>(topicResouce, HttpStatus.CREATED);
 	}
