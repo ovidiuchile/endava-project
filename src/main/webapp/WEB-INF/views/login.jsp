@@ -201,19 +201,27 @@
 		        <table>
 		            <tr>
 		                <td>*Name:</td>
-		                <td><input type='text' name='username' value=''></td>
+		                <td><input type='text' name='username' value='' id="name"></td>
 		            </tr>
 		            <tr>
 		                <td>*Surname:</td>
-		                <td><input type='password' name='password' /></td>
+		                <td><input type='text' name='password' /></td>
 		            </tr>
 		            <tr>
 		                <td>*E-mail:</td>
-		                <td><input type='text' name='username' value=''></td>
+		                <td><input type='email' name='username' value=''></td>
 		            </tr>
 		            <tr>
 		                <td>*Password:</td>
 		                <td><input type='password' name='password' /></td>
+		            </tr>
+		            <tr>
+		                <td>Phone:</td>
+		                <td><input type='tel' name='username' value=''></td>
+		            </tr>
+		             <tr>
+		                <td>Country:</td>
+		                <td><input type='text' name='password' /></td>
 		            </tr>
 		            <tr>
 		                <td>City:</td>
@@ -224,15 +232,7 @@
 		                <td><input type='password' name='password' /></td>
 		            </tr>
 		            <tr>
-		                <td>Phone:</td>
-		                <td><input type='text' name='username' value=''></td>
-		            </tr>
-		            <tr>
-		                <td>Country:</td>
-		                <td><input type='password' name='password' /></td>
-		            </tr>
-		            <tr>
-		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
+		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" action="#" type="submit"
 		                                       value="Submit" /></td>
 		            </tr>
 		        </table>
@@ -248,6 +248,9 @@
 	<!-- END LOGIN BOX -->
 
 </div>
-
+<script>
+	var check_name = document.getElementById('name');
+	if(check_name.length==0) alert("Please insert a name");
+</script>
 </body>
 </html>
