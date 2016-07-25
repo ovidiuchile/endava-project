@@ -33,28 +33,31 @@
         }
 
         #login-box {
-            width: 300px;
-            padding: 10px;
+            width: 250px;
+            padding: 20px;
+            padding-bottom:0px;
             
             position: absolute;
 		    top: 50%;
 		    left: 50%;
 		    transform: translate(-50%, -50%);
             
-            background: #fff;
+            background: #071226;
             -webkit-border-radius: 5px;
             -moz-border-radius: 5px;
             border: 1px solid #000;
+            opacity: 0.8;
+            color: white;
         }
         
         #menu{
-        	background-color:red;
+        	background-color:#071226;
         	width:calc( 100% - 20px );
         	height:50px;
         	padding:10px;
+        	opacity: 0.8;
         }
         #logo_div{
-        	background-color:yellow;
         	width:100%;
         	height:50px;
         	max-width:1000px;
@@ -69,7 +72,7 @@
         	margin-bottom:20px;
         }
         .button_sign {
-		    background-color: #4CAF50; /* Green */
+		    background-color: #024873; /* Green */
 		    border: none;
 		    color: white;
 		    padding: 10px 10px;
@@ -78,6 +81,20 @@
 		    display: inline-block;
 		    font-size: 16px;
 		} 
+		#background_image{
+			z-index:-1;
+			position:fixed;
+			float:right;
+		}
+		
+		table{
+			color:white;
+			opacity:1;
+		}
+		#submitt{
+			margin-left:90px;
+			margin-top:20px;
+		}
     </style>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -94,12 +111,32 @@
 		        $("#sign_up").hide();
 		        $("#sign_in").show();
 		    });
+		    
+		    if( $( window ).width() < $( window ).height() * 1.5 ){
+		    	$("#background_image").css("height","100%");
+		    	$("#background_image").css("width","auto");
+			}
+		    else{
+		    	$("#background_image").css("width","100%");
+		    	$("#background_image").css("height","auto");
+		    }
 		});
-		
+		$(window).resize(function(){
+			if( $( window ).width() < $( window ).height() * 1.5 ){
+		    	$("#background_image").css("height","100%");
+		    	$("#background_image").css("width","auto");
+			}
+		    else{
+		    	$("#background_image").css("width","100%");
+		    	$("#background_image").css("height","auto");
+		    }
+		});
 	</script>
     
 </head>
 <body onload='document.loginForm.username.focus();'>
+
+<img id = "background_image" src="${pageContext.request.contextPath}/resources/images/background.jpg">
 
 <div id = "menu">
 	<div id = "logo_div">
@@ -139,8 +176,8 @@
 		                <td><input type='password' name='password' /></td>
 		            </tr>
 		            <tr>
-		                <td colspan='2'><input name="submit" type="submit"
-		                                       value="submit" /></td>
+		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
+		                                       value="Submit" /></td>
 		            </tr>
 		        </table>
 		
@@ -195,8 +232,8 @@
 		                <td><input type='password' name='password' /></td>
 		            </tr>
 		            <tr>
-		                <td colspan='2'><input name="submit" type="submit"
-		                                       value="submit" /></td>
+		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
+		                                       value="Submit" /></td>
 		            </tr>
 		        </table>
 		
