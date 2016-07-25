@@ -23,7 +23,7 @@ public class TopicController {
 
 	@Autowired
 	TopicService topicService;
-	
+
 	@Autowired
 	TechnologyService technologyService;
 
@@ -37,26 +37,25 @@ public class TopicController {
 	}
 
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}", method = RequestMethod.GET)
-	public HttpEntity<Resource<Topic>> getTopicsForTechnologyByID(
-			@PathVariable("topic_id") Long topic_id) {
+	public HttpEntity<Resource<Topic>> getTopicsForTechnologyByID(@PathVariable("topic_id") Long topic_id) {
 
 		Resource<Topic> topicResource = new Resource<>(topicService.getTopicsByID(topic_id));
 
 		return new ResponseEntity<>(topicResource, HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "technologies/{technology_id}/topics", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public HttpEntity<Resource<Topic>> addTopic(@RequestBody Topic topic,@PathVariable("technology_id") Long technology_id) {
-		
-		
-		//NU MERGE FARA ID
-		
+	public HttpEntity<Resource<Topic>> addTopic(@RequestBody Topic topic,
+			@PathVariable("technology_id") Long technology_id) {
+
 		topic.setTechnology(technologyService.getTechnologiesByID(technology_id));
+		topic.setTopic_id(null);
+
 		topicService.saveTopic(topic);
-		
-        Resource<Topic> topicResouce = new Resource<>(topic);
-        
-        return new ResponseEntity<>(topicResouce, HttpStatus.CREATED);
-    }
+
+		Resource<Topic> topicResouce = new Resource<>(topic);
+
+		return new ResponseEntity<>(topicResouce, HttpStatus.CREATED);
+	}
 
 }

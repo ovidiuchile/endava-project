@@ -79,10 +79,9 @@ CREATE TABLE Tests_history (
 
 -- Table: Topics
 CREATE TABLE Topics (
-  topic_id bigint NOT NULL,
+  topic_id bigserial primary key,
   technology_id bigint NOT NULL,
-  name varchar(30) NOT NULL,
-  CONSTRAINT Topics_pk PRIMARY KEY (topic_id)
+  name varchar(30) NOT NULL
 );
 
 -- Table: Users

@@ -14,14 +14,14 @@ import javax.persistence.Table;
 @Table(name = "topics")
 public class Topic {
 	@Id
-	@Column(name = "topic_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY, generator="topic_id_seq")
-	@SequenceGenerator(name = "topic_id_seq", sequenceName = "topic_id_seq", allocationSize = 1)
+	@SequenceGenerator(name = "topics_seq", sequenceName = "topics_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "topics_seq")
+	@Column(name = "topic_id", updatable = false)
 	private Long id;
-	
+
 	@Column(name = "name")
 	private String name;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "technology_id")
 	private Technology technology;
@@ -49,6 +49,5 @@ public class Topic {
 	public void setTechnology(Technology technology) {
 		this.technology = technology;
 	}
-	
-	
+
 }
