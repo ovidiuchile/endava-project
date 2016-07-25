@@ -5,7 +5,11 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/spring/root-context.xml</param-value>
   </context-param>
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 116208063026037f9519cf91c388640f859aedc2
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
