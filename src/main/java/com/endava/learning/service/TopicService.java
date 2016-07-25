@@ -35,4 +35,8 @@ public class TopicService {
 	public ArrayList<Topic> getTopics(Long idTechnology) {
 		return (ArrayList<Topic>) topicDAO.getAllTopicForTechnology(idTechnology);
 	}
+	
+	public Topic getTopicsByID(Long idTopic) {
+		return (Topic)topicDAO.findById(idTopic);
+	}
 }

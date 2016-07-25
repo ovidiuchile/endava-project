@@ -19,7 +19,7 @@ public class Technology {
 	
 	@Id
 	@Column(name = "technology_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY,generator="technology_id_seq")
 	@SequenceGenerator(name = "technology_id_seq", sequenceName = "technology_seq", allocationSize = 1)
 	private Long id;
 	
