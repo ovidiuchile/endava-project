@@ -136,6 +136,7 @@
 			<div class="col-md-9">
 			
 				<div id = "div_slide">
+
 					<div id="carousel" >
 					<a href="#"><img src="images/1.jpg" id="item-1" /></a>
 					<a href="#"><img src="images/2.jpg" id="item-2" /></a>
@@ -166,8 +167,8 @@
 				 <div id ="div_notes">
 				 
 				 </div>
-
 			</div>
+			
 			<!-- The end of Dorin's Part!! -->
 			
 

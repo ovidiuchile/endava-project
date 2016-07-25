@@ -1,7 +1,5 @@
 package com.endava.learning.dao;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -49,11 +47,6 @@ public abstract class AbstractDAO<E> {
     @Transactional
     public void delete(final Long id) {
     	em.remove(findById(id));
-    }
-
-    @Transactional
-    public List<E> findAll() {
-        return null;
     }
 
 }
