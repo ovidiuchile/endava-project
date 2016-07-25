@@ -1,5 +1,6 @@
 package com.endava.learning.controller;
 
+import com.endava.learning.model.Keyword;
 import com.endava.learning.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class SearchController {
     public ModelAndView showResults(@RequestParam(value = "s") String s) {
         ModelAndView model = new ModelAndView("results");
 
-        List<Long> results = searchService.getSearchResults(s);
+        List<Keyword> results = searchService.getSearchResults(s);
 
         model.addObject("results", results);
 

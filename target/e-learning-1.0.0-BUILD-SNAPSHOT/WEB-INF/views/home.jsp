@@ -98,7 +98,7 @@
 					</li>
 				</ol>
 			</div>
-<<<<<<< HEAD
+
 			
 			<!-- The beginning of Dorin's Part!! -->
 			
@@ -154,7 +154,7 @@
 				 
 				 </div>
 				
-=======
+
 			<div class="col-md-9" align="center">
 				<div id="carousel" >
 					<a href="#"><img src="images/1.jpg" id="item-1" /></a>
@@ -173,7 +173,7 @@
 				<div class="div_down" style="background-color:black;">
 					div down
 				</div>
->>>>>>> 3fed7afe050e475686b3fdd84cf413c006d290cc
+
 			</div>
 			
 			<!-- The end of Dorin's Part!! -->
