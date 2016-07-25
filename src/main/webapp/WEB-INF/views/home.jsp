@@ -59,7 +59,10 @@
 		<%@include file="css/bootstrap.min.css"%>
 		<%@include file="css/style.css"%>
 	</style>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 116208063026037f9519cf91c388640f859aedc2
 
 </head>
 <body>
@@ -69,6 +72,7 @@
 		<div class="col-md-2">
 			<img src="${pageContext.request.contextPath}/resources/images/1.jpg" id="">
 		</div>
+<<<<<<< HEAD
 		<div class="col-md-8">
 			<ul class="nav nav-pills" >
 				<li class="active">
@@ -124,6 +128,115 @@
 			catch (e) {
 
 			}
+=======
+		<div class="row">
+			<div class="col-md-3" id="Topics">
+					-- aici o sa intre topicurile formate
+			</div>
+
+			
+			<!-- The beginning of Dorin's Part!! -->
+			
+			<style>
+				#div_slide{
+					width:100%;
+					height:400px;
+					background-color:yellow;
+				}
+				#div_notes{
+					width: 100%;
+					height: 100px;
+					background-color:yellow;
+					margin-top:5px;
+				}
+				#download_img{
+					height:40px;
+					float:right;
+				}
+			</style>
+			
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script>
+			$(document).ready(function(){
+				var grandparent_height = $('.col-md-9').width();
+			    $('#notes').width( grandparent_height );
+			    $('#button_notes').click(function(){
+			        $("#div_notes").fadeToggle(0);
+			    });
+			    $("#div_notes").fadeToggle(0);
+			});
+			$(window).resize(function(){
+			    var grandparent_height = $('.col-md-9').width();
+			    $('#notes').width( grandparent_height );
+			});
+			</script>
+			
+			<div class="col-md-9">
+			
+				<div id = "div_slide">
+
+					<div id="carousel" >
+					<a href="#"><img src="images/1.jpg" id="item-1" /></a>
+					<a href="#"><img src="images/2.jpg" id="item-2" /></a>
+					<a href="#"><img src="images/3.jpg" id="item-3" /></a>
+					<a href="#"><img src="images/4.jpg" id="item-4" /></a>
+					<a href="#"><img src="images/5.jpg" id="item-5" /></a>
+					<a href="#"><img src="images/6.jpg" id="item-6" /></a>
+					<a href="#"><img src="images/7.jpg" id="item-7" /></a>
+					<a href="#"><img src="images/8.jpg" id="item-8" /></a>
+					<a href="#"><img src="images/9.jpg" id="item-9" /></a>
+				</div>
+				<a href="#" id="prev">Prev</a> | <a href="#" id="next">Next</a>
+
+				<br/>
+				<div class="div_down" style="background-color:black;">
+					div down
+				</div>
+				</div>
+			
+				<div class="dropdown" id = "drop_notes">
+				  
+				  	<button class="btn btn-primary dropdown-toggle" type="button" id="button_notes">Notes
+				   	<span class="caret"></span></button>
+				    
+				    <img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
+				    
+				 </div>
+				 <div id ="div_notes">
+				 
+				 </div>
+			</div>
+			
+			<!-- The end of Dorin's Part!! -->
+			
+
+	<script>
+		$(".form-control").change(function() {
+			var option = document.getElementById('Language_Selector').value;
+			var AddTopic = document.getElementById('Topics');
+			$.ajax({
+				type:'GET',
+				dataType: 'json',
+				url: "technologies/"+ option+ "/topics"
+			}).then(function(data)
+			{
+				for(i=0;i<data.content.length;i++)
+				{
+					var topic = document.createElement("button");
+					var content= (Object.keys(data.content[i]));
+					topic.innerHTML = content.content.name;
+					AddTopic.appendChild(topic);
+				}
+			});
+		});
+	</script> 
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "250px";
+>>>>>>> 116208063026037f9519cf91c388640f859aedc2
 		}
 		while (AddTopic.childElementCount != 0) {
 			try {
@@ -133,6 +246,7 @@
 
 			}
 		}
+<<<<<<< HEAD
 		$.ajax({
 			type: 'GET',
 			dataType: 'json',
@@ -163,6 +277,34 @@
 					catch (e) {
 
 					}
+=======
+	</script>
+	<!--<script type="text/javascript">
+		Add the % between < and @         <@ include file="http://code.jquery.com/jquery-1.9.1.min.js"%>
+	</script>-->
+	<script type="text/javascript">
+		<%@include file="css/style.css"%>
+		
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var carousel = $("#carousel").waterwheelCarousel({
+				flankingItems: 3,
+				movingToCenter: function ($item) {
+					$('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+				},
+				movedToCenter: function ($item) {
+					$('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
+				},
+				movingFromCenter: function ($item) {
+					$('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
+				},
+				movedFromCenter: function ($item) {
+					$('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
+				},
+				clickedCenter: function ($item) {
+					$('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
+>>>>>>> 116208063026037f9519cf91c388640f859aedc2
 				}
 				$.ajax({
 					type: 'GET',
