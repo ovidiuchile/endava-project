@@ -285,6 +285,13 @@
 			<version>2.2.8</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.hateoas</groupId>
+			<artifactId>spring-hateoas</artifactId>
+			<version>0.20.0.RELEASE</version>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
@@ -307,8 +314,13 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
+<<<<<<< HEAD
 					<source>1.7</source>
 					<target>1.7</target>
+=======
+					<source>1.8</source>
+					<target>1.8</target>
+>>>>>>> 53361d224b7a00c09db0925c8ed1f760a3f7d2be
 					<compilerArgument>-Xlint:all</compilerArgument>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
@@ -324,4 +336,6 @@
 			</plugin>
 		</plugins>
 	</build>
+
+
 </project>
