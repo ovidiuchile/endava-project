@@ -1,3 +1,10 @@
+-- Created by Vertabelo (http://vertabelo.com)
+-- Last modification date: 2016-07-21 15:00:22.037
+
+-- tables
+-- Table: Answers
+
+
 DROP TABLE Answers;
 DROP TABLE Keywords;
 DROP TABLE Materials;
@@ -31,6 +38,8 @@ CREATE TABLE Materials (
   topic_id bigint NOT NULL,
   title varchar(100) NOT NULL,
   link varchar(100) NOT NULL,
+  upload_date date NOT NULL,
+  content_editor_id bigint NOT NULL,
   CONSTRAINT Materials_pk PRIMARY KEY (material_id)
 );
 
@@ -100,6 +109,10 @@ REFERENCES Questions (question_id);
 ALTER TABLE Materials ADD CONSTRAINT Materials_Topic FOREIGN KEY (topic_id)
 REFERENCES Topics (topic_id);
 
+-- Reference: Materials_Users (table: Materials)
+ALTER TABLE Materials ADD CONSTRAINT Materials_Users FOREIGN KEY (content_editor_id)
+REFERENCES Users (user_id);
+
 -- Reference: Questions_Tests (table: Questions)
 ALTER TABLE Questions ADD CONSTRAINT Questions_Tests FOREIGN KEY (test_id)
 REFERENCES Tests (test_id);
@@ -123,3 +136,46 @@ REFERENCES Users (user_id);
 -- Reference: Topic_Technologies (table: Topics)
 ALTER TABLE Topics ADD CONSTRAINT Topic_Technologies FOREIGN KEY (technology_id)
 REFERENCES Technologies (technology_id);
+REFERENCES Technologies (technology_id);
+
+INSERT INTO Users VALUES (1, 'normal user', 'name 1', 'surname 1', 'email1@a.com', 'pass1', 'city 1');
+INSERT INTO Users VALUES (2, 'tutor', 'name 2', 'surname 2', 'email2@a.com', 'pass2', 'city 2');
+INSERT INTO Users VALUES (3, 'content editor', 'name 3', 'surname 3', 'email3@a.com', 'pass3');
+INSERT INTO Users VALUES (4, 'normal user', 'name 4', 'surname 4', 'email4@a.com', 'pass4');
+
+INSERT INTO Technologies VALUES (1, 'Java');
+INSERT INTO Technologies VALUES (2, 'C++');
+INSERT INTO Technologies VALUES (3, 'SQL');
+
+INSERT INTO Topics VALUES (1, 1, 'OOP Principles');
+INSERT INTO Topics VALUES (2, 1, 'Exceptions');
+INSERT INTO Topics VALUES (3, 2, 'Pointers');
+
+INSERT INTO Materials VALUES (1, 1, 'C:\Users\apirvu\Desktop\p.pptx');
+INSERT INTO Materials VALUES (2, 3, 'C:\Users\apirvu\Desktop\download.jpg');
+
+INSERT INTO Keywords VALUES (1, 1, 'OOP');
+INSERT INTO Keywords VALUES (2, 1, 'Inheritance');
+INSERT INTO Keywords VALUES (3, 2, 'Checked');
+INSERT INTO Keywords VALUES (4, 3, 'Unchecked');
+
+INSERT INTO Tests VALUES (1, 1, 'OOP Test');
+INSERT INTO Tests VALUES (2, 1, 'Exceptions Test');
+
+INSERT INTO Questions VALUES (1, 1, 'Multiple Choice', 'This is a question...');
+INSERT INTO Questions VALUES (2, 1, 'Single Choice', 'This is another question...');
+INSERT INTO Questions VALUES (3, 1, 'Written Answer', 'This is a question which is not supposed to have an answer in Answers...');
+
+INSERT INTO Answers VALUES (1, 1, 'Answer no. 1', TRUE , 10);
+INSERT INTO Answers VALUES (2, 1, 'Answer no. 2', TRUE , 10);
+INSERT INTO Answers VALUES (3, 1, 'Answer no. 3', FALSE , 0);
+INSERT INTO Answers VALUES (4, 2, 'Answer no. 1', TRUE , 20);
+INSERT INTO Answers VALUES (5, 2, 'Answer no. 2', FALSE , -5);
+
+INSERT INTO Tests_history VALUES (1, 1, 1, 0, to_date('05.12.2015', 'DD.MM.YYYY'));
+INSERT INTO Tests_history VALUES (2, 1, 1, 20, to_date('19.03.2016', 'DD.MM.YYYY'));
+INSERT INTO Tests_history VALUES (3, 1, 4, 10, to_date('27.06.2016', 'DD.MM.YYYY'));
+INSERT INTO Tests_history VALUES (4, 2, 1, -5, to_date('22.07.2016', 'DD.MM.YYYY'));
+
+-- End of file.
+
