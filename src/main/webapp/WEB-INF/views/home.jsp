@@ -74,12 +74,11 @@
 				url: "technologies/"+ option+ "/topics"
 			}).then(function(data)
 			{
-				alert(data.content);
 				for(i=0;i<data.content.length;i++)
 				{
 					var topic = document.createElement("button");
 					var content= (Object.keys(data.content[i]));
-					topic.name= content.content.name;
+					topic.innerHTML = content.content.name;
 					AddTopic.appendChild(topic);
 				}
 			});
