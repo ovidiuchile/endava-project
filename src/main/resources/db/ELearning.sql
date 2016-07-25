@@ -16,82 +16,82 @@ DROP TABLE Users;
 DROP TABLE Technologies;
 
 CREATE TABLE Answers (
-  answer_id bigint NOT NULL,
-  question_id bigint NOT NULL,
-  text text NOT NULL,
-  correct bool NOT NULL,
-  score int NOT NULL,
+  answer_id bigint ,
+  question_id bigint ,
+  text text ,
+  correct bool ,
+  score int ,
   CONSTRAINT Answers_pk PRIMARY KEY (answer_id)
 );
 
 -- Table: Keywords
 CREATE TABLE Keywords (
-  keyword_id bigint NOT NULL,
-  topic_id bigint NOT NULL,
-  keyword varchar(50) NOT NULL,
+  keyword_id bigint ,
+  topic_id bigint ,
+  keyword varchar(50) ,
   CONSTRAINT Keywords_pk PRIMARY KEY (keyword_id)
 );
 
 -- Table: Materials
 CREATE TABLE Materials (
-  material_id bigint NOT NULL,
-  topic_id bigint NOT NULL,
-  title varchar(100) NOT NULL,
-  link varchar(100) NOT NULL,
-  upload_date date NOT NULL,
-  content_editor_id bigint NOT NULL,
+  material_id bigint ,
+  topic_id bigint ,
+  title varchar(100) ,
+  link varchar(100) ,
+  upload_date date ,
+  content_editor_id bigint ,
   CONSTRAINT Materials_pk PRIMARY KEY (material_id)
 );
 
 -- Table: Questions
 CREATE TABLE Questions (
-  question_id bigint NOT NULL,
-  test_id bigint NOT NULL,
-  question_type varchar(20) NOT NULL,
-  text text NOT NULL,
+  question_id bigint ,
+  test_id bigint ,
+  question_type varchar(20) ,
+  text text ,
   CONSTRAINT Questions_pk PRIMARY KEY (question_id)
 );
 
 -- Table: Technologies
 CREATE TABLE Technologies (
-  technology_id bigint NOT NULL,
-  name varchar(30) NOT NULL,
+  technology_id bigserial,
+  name varchar(30) ,
   CONSTRAINT Technologies_pk PRIMARY KEY (technology_id)
 );
 
 -- Table: Tests
 CREATE TABLE Tests (
-  test_id bigint NOT NULL,
-  topic_id bigint NOT NULL,
-  title varchar(100) NOT NULL,
+  test_id bigint ,
+  topic_id bigint ,
+  title varchar(100) ,
   CONSTRAINT Tests_pk PRIMARY KEY (test_id)
 );
 
 -- Table: Tests_history
 CREATE TABLE Tests_history (
-  test_history_id bigint NOT NULL,
-  test_id bigint NOT NULL,
-  user_id bigint NOT NULL,
-  score int NOT NULL,
-  test_date date NOT NULL,
+  test_history_id bigint ,
+  test_id bigint ,
+  user_id bigint ,
+  score int ,
+  test_date date ,
   CONSTRAINT Tests_history_pk PRIMARY KEY (test_history_id)
 );
 
 -- Table: Topics
 CREATE TABLE Topics (
   topic_id bigserial primary key,
-  technology_id bigint NOT NULL,
-  name varchar(30) NOT NULL
+  technology_id bigint ,
+  name varchar(30) 
 );
 
 -- Table: Users
 CREATE TABLE Users (
-  user_id bigint NOT NULL,
-  user_type varchar(20) NOT NULL,
-  name varchar(30) NOT NULL,
-  surname varchar(30) NOT NULL,
-  email varchar(50) NOT NULL,
-  password varchar(20) NOT NULL,
+  user_id bigint ,
+  user_type varchar(20) ,
+  name varchar(30) ,
+  surname varchar(30) ,
+  email varchar(50) ,
+  password varchar(20) ,
   city varchar(30) NULL,
   address text NULL,
   phoneNumber varchar(13) NULL,

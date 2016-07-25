@@ -40,7 +40,7 @@ public class MaterialController {
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/materials", method = RequestMethod.POST, consumes = "application/json")
 	public HttpEntity<Resource<Material>> createMaterial(@PathVariable Long topic_id, @RequestBody Material material){
 
-		material.setTopic(topicService.getTopicsByID(topic_id));
+		material.setTopic(topicService.getTopicByID(topic_id));
 		
 		Material materialCreated = materialService.createMaterial(material);
 		

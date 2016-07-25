@@ -32,11 +32,16 @@ public class TopicService {
 		topicDAO.remove(topic);
 	}
 
+	@Transactional
+	public void deleteTopic(final Long topic_id){
+		topicDAO.delete(topic_id);
+	}
+	
 	public ArrayList<Topic> getTopics(Long idTechnology) {
 		return (ArrayList<Topic>) topicDAO.getAllTopicForTechnology(idTechnology);
 	}
 	
-	public Topic getTopicsByID(Long idTopic) {
+	public Topic getTopicByID(Long idTopic) {
 		return (Topic)topicDAO.findById(idTopic);
 	}
 }
