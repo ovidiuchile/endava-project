@@ -48,10 +48,9 @@ public class TopicController {
 	@RequestMapping(value = "technologies/{technology_id}/topics", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public HttpEntity<Resource<Topic>> addTopic(@RequestBody Topic topic,@PathVariable("technology_id") Long technology_id) {
 		
-		
-		//NU MERGE FARA ID
-		
 		topic.setTechnology(technologyService.getTechnologiesByID(technology_id));
+		topic.setTopic_id(null);
+		
 		topicService.saveTopic(topic);
 		
         Resource<Topic> topicResouce = new Resource<>(topic);
