@@ -16,83 +16,83 @@ DROP TABLE Users;
 DROP TABLE Technologies;
 
 CREATE TABLE Answers (
-  answer_id bigint NOT NULL,
-  question_id bigint NOT NULL,
-  text text NOT NULL,
-  correct bool NOT NULL,
-  score int NOT NULL,
+  answer_id bigserial ,
+  question_id bigint ,
+  content text,
+  correct bool ,
+  score int ,
   CONSTRAINT Answers_pk PRIMARY KEY (answer_id)
 );
 
 -- Table: Keywords
 CREATE TABLE Keywords (
-  keyword_id bigint NOT NULL,
-  topic_id bigint NOT NULL,
-  keyword varchar(50) NOT NULL,
+  keyword_id bigserial ,
+  topic_id bigint ,
+  keyword varchar(50) ,
   CONSTRAINT Keywords_pk PRIMARY KEY (keyword_id)
 );
 
 -- Table: Materials
 CREATE TABLE Materials (
-  material_id bigint NOT NULL,
-  topic_id bigint NOT NULL,
-  title varchar(100) NOT NULL,
-  link varchar(100) NOT NULL,
-  upload_date date NOT NULL,
-  content_editor_id bigint NOT NULL,
+  material_id bigserial,
+  topic_id bigint,
+  title varchar(100),
+  link varchar(100),
+  upload_date date,
+  content_editor_id bigint,
   CONSTRAINT Materials_pk PRIMARY KEY (material_id)
 );
 
 -- Table: Questions
 CREATE TABLE Questions (
-  question_id bigint NOT NULL,
-  test_id bigint NOT NULL,
-  question_type varchar(20) NOT NULL,
-  text text NOT NULL,
+  question_id bigserial ,
+  test_id bigint ,
+  question_type varchar(20) ,
+  content text ,
   CONSTRAINT Questions_pk PRIMARY KEY (question_id)
 );
 
 -- Table: Technologies
 CREATE TABLE Technologies (
-  technology_id bigint NOT NULL,
-  name varchar(30) NOT NULL,
+  technology_id bigserial ,
+  name varchar(30) ,
   CONSTRAINT Technologies_pk PRIMARY KEY (technology_id)
 );
 
 -- Table: Tests
 CREATE TABLE Tests (
-  test_id bigint NOT NULL,
-  topic_id bigint NOT NULL,
-  title varchar(100) NOT NULL,
+  test_id bigserial ,
+  topic_id bigint ,
+  title varchar(100) ,
   CONSTRAINT Tests_pk PRIMARY KEY (test_id)
 );
 
 -- Table: Tests_history
 CREATE TABLE Tests_history (
-  test_history_id bigint NOT NULL,
-  test_id bigint NOT NULL,
-  user_id bigint NOT NULL,
-  score int NOT NULL,
-  test_date date NOT NULL,
+  test_history_id bigserial ,
+  test_id bigint ,
+  user_id bigint ,
+  score int ,
+  test_date date ,
   CONSTRAINT Tests_history_pk PRIMARY KEY (test_history_id)
 );
 
 -- Table: Topics
 CREATE TABLE Topics (
-  topic_id bigint NOT NULL,
-  technology_id bigint NOT NULL,
-  name varchar(30) NOT NULL,
+  topic_id bigserial,
+  technology_id bigint ,
+  name varchar(30) ,
   CONSTRAINT Topics_pk PRIMARY KEY (topic_id)
 );
 
 -- Table: Users
 CREATE TABLE Users (
-  user_id bigint NOT NULL,
-  user_type varchar(20) NOT NULL,
-  name varchar(30) NOT NULL,
-  surname varchar(30) NOT NULL,
-  email varchar(50) NOT NULL,
-  password varchar(20) NOT NULL,
+  user_id bigserial,
+  user_type varchar(20) ,
+  name varchar(30) ,
+  surname varchar(30) ,
+  email varchar(50) ,
+  password varchar(20) ,
   city varchar(30) NULL,
   address text NULL,
   phoneNumber varchar(13) NULL,
@@ -103,40 +103,39 @@ CREATE TABLE Users (
 -- foreign keys
 -- Reference: Answers_Questions (table: Answers)
 ALTER TABLE Answers ADD CONSTRAINT Answers_Questions FOREIGN KEY (question_id)
-REFERENCES Questions (question_id);
+REFERENCES Questions (question_id) ON DELETE CASCADE;
 
 -- Reference: Materials_Topic (table: Materials)
 ALTER TABLE Materials ADD CONSTRAINT Materials_Topic FOREIGN KEY (topic_id)
-REFERENCES Topics (topic_id);
+REFERENCES Topics (topic_id) ON DELETE CASCADE;
 
 -- Reference: Materials_Users (table: Materials)
 ALTER TABLE Materials ADD CONSTRAINT Materials_Users FOREIGN KEY (content_editor_id)
-REFERENCES Users (user_id);
+REFERENCES Users (user_id) ON DELETE CASCADE;
 
 -- Reference: Questions_Tests (table: Questions)
 ALTER TABLE Questions ADD CONSTRAINT Questions_Tests FOREIGN KEY (test_id)
-REFERENCES Tests (test_id);
+REFERENCES Tests (test_id) ON DELETE CASCADE;
 
 -- Reference: Table_10_Topic (table: Keywords)
 ALTER TABLE Keywords ADD CONSTRAINT Table_10_Topic FOREIGN KEY (topic_id)
-REFERENCES Topics (topic_id);
+REFERENCES Topics (topic_id) ON DELETE CASCADE;
 
 -- Reference: Tests_Topics (table: Tests)
 ALTER TABLE Tests ADD CONSTRAINT Tests_Topics FOREIGN KEY (topic_id)
-REFERENCES Topics (topic_id);
+REFERENCES Topics (topic_id) ON DELETE CASCADE;
 
 -- Reference: Tests_history_Tests (table: Tests_history)
 ALTER TABLE Tests_history ADD CONSTRAINT Tests_history_Tests FOREIGN KEY (test_id)
-REFERENCES Tests (test_id);
+REFERENCES Tests (test_id) ON DELETE CASCADE;
 
 -- Reference: Tests_history_Users (table: Tests_history)
 ALTER TABLE Tests_history ADD CONSTRAINT Tests_history_Users FOREIGN KEY (user_id)
-REFERENCES Users (user_id);
+REFERENCES Users (user_id) ON DELETE CASCADE;
 
 -- Reference: Topic_Technologies (table: Topics)
 ALTER TABLE Topics ADD CONSTRAINT Topic_Technologies FOREIGN KEY (technology_id)
-REFERENCES Technologies (technology_id);
-REFERENCES Technologies (technology_id);
+REFERENCES Technologies (technology_id) ON DELETE CASCADE;
 
 INSERT INTO Users VALUES (1, 'normal user', 'name 1', 'surname 1', 'email1@a.com', 'pass1', 'city 1');
 INSERT INTO Users VALUES (2, 'tutor', 'name 2', 'surname 2', 'email2@a.com', 'pass2', 'city 2');
@@ -151,8 +150,8 @@ INSERT INTO Topics VALUES (1, 1, 'OOP Principles');
 INSERT INTO Topics VALUES (2, 1, 'Exceptions');
 INSERT INTO Topics VALUES (3, 2, 'Pointers');
 
-INSERT INTO Materials VALUES (1, 1, 'C:\Users\apirvu\Desktop\p.pptx');
-INSERT INTO Materials VALUES (2, 3, 'C:\Users\apirvu\Desktop\download.jpg');
+INSERT INTO Materials VALUES (1, 1, 'A presentation...', 'C:\Users\apirvu\Desktop\p.pptx', to_date('05.07.2015', 'DD.MM.YYYY'), 3);
+INSERT INTO Materials VALUES (2, 3, 'A picture', 'C:\Users\apirvu\Desktop\download.jpg', to_date('12.12.2015', 'DD.MM.YYYY'), 3);
 
 INSERT INTO Keywords VALUES (1, 1, 'OOP');
 INSERT INTO Keywords VALUES (2, 1, 'Inheritance');

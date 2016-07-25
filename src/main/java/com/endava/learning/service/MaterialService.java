@@ -26,4 +26,13 @@ public class MaterialService {
 		materialDAO.save(material);
 		return material;
 	}
+
+	public Material updateMaterial(Material material) {
+		materialDAO.update(material);
+		return material;
+	}
+
+	public void deleteMaterial(Long material_id) {
+		materialDAO.delete(material_id);
+	}
 }
