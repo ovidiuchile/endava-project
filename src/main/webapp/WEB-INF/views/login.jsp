@@ -112,7 +112,7 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() < $( window ).height() * 1.5 ){
+		    if( $( window ).width() < $( window ).height() * 1.88 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -122,7 +122,7 @@
 		    }
 		});
 		$(window).resize(function(){
-			if( $( window ).width() < $( window ).height() * 1.5 ){
+			if( $( window ).width() < $( window ).height() * 1.88 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -140,7 +140,7 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<img id = "img_logo" src = "http://electrotech.osut.org/wp-content/uploads/2016/03/Endava_logo_cdr.png">
+		<img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png">
 	</div>
 </div>
 
@@ -169,7 +169,7 @@
 		        <table>
 		            <tr>
 		                <td>E-mail:</td>
-		                <td><input type='text' name='username' value=''></td>
+		                <td><input type='email' name='email' value=''></td>
 		            </tr>
 		            <tr>
 		                <td>Password:</td>
