@@ -98,7 +98,7 @@
 					</li>
 				</ol>
 			</div>
-<<<<<<< HEAD
+
 			
 			<!-- The beginning of Dorin's Part!! -->
 			
@@ -139,24 +139,7 @@
 			<div class="col-md-9">
 			
 				<div id = "div_slide">
-					
-				</div>
-			
-				<div class="dropdown" id = "drop_notes">
-				  
-				  	<button class="btn btn-primary dropdown-toggle" type="button" id="button_notes">Notes
-				   	<span class="caret"></span></button>
-				    
-				    <img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
-				    
-				 </div>
-				 <div id ="div_notes">
-				 
-				 </div>
-				
-=======
-			<div class="col-md-9" align="center">
-				<div id="carousel" >
+					<div id="carousel" >
 					<a href="#"><img src="images/1.jpg" id="item-1" /></a>
 					<a href="#"><img src="images/2.jpg" id="item-2" /></a>
 					<a href="#"><img src="images/3.jpg" id="item-3" /></a>
@@ -173,13 +156,23 @@
 				<div class="div_down" style="background-color:black;">
 					div down
 				</div>
->>>>>>> 3fed7afe050e475686b3fdd84cf413c006d290cc
-			</div>
+				</div>
 			
+				<div class="dropdown" id = "drop_notes">
+				  
+				  	<button class="btn btn-primary dropdown-toggle" type="button" id="button_notes">Notes
+				   	<span class="caret"></span></button>
+				    
+				    <img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
+				    
+				 </div>
+				 <div id ="div_notes">
+				 
+				 </div>
+
+			</div>
 			<!-- The end of Dorin's Part!! -->
 			
-		</div>
-	</div>
 	<script>
 		document.getElementById("faka_you").addEventListener("change", function (e) {
 			var option = document.getElementById('faka_you').value;
@@ -204,7 +197,7 @@
 	</script>-->
 	<script type="text/javascript">
 		<%@include file="css/style.css"%>
-		<%@include file="js/jquery.waterwheelCarousel.js"%>
+		
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function () {
