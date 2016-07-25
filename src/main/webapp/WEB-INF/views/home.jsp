@@ -110,67 +110,75 @@
 	</div>
 </div>
 <script>
+	$.ajaxSetup({
+		async: false
+	});
 	var carusel = document.getElementById('carousel');
 	$(".form-control").change(function() {
 		var option = document.getElementById('Language_Selector').value;
 		var AddTopic = document.getElementById('Topics');
-		while(AddTopic.childElementCount!=0)
-		{
-			try
-			{
+		while (carusel.childElementCount != 0) {
+			try {
+				carusel.removeChild(carusel.childNodes[0]);
+			}
+			catch (e) {
+
+			}
+		}
+		while (AddTopic.childElementCount != 0) {
+			try {
 				AddTopic.removeChild(AddTopic.childNodes[0]);
 			}
-			catch (e)
-			{
+			catch (e) {
 
 			}
 		}
 		$.ajax({
-			type:'GET',
+			type: 'GET',
 			dataType: 'json',
-			url: "technologies/"+ option+ "/topics"
-		}).then(function(data)
-		{
-			var j =data.content.length;
-			for(i of data.content)
-			{
+			url: "technologies/" + option + "/topics"
+		}).then(function (data) {
+			var j = data.content.length;
+			for (i of data.content) {
 				var topic = document.createElement("button");
-				topic.name= i.content.name;
-				topic.value=i;
-				topic.innerHTML= i.content.name;
-				if(j>0)
-				{
-					topic.addEventListener("click",function(e)
-					{
-						while(carusel.childElementCount!=0)
-						{
-							try
-							{
-								carusel.removeChild(carusel.childNodes[0]);
-							}
-							catch (e)
-							{
-
-							}
-						}
-						$.ajax({
-							type:'GET',
-							dataType: 'json',
-							url: "technologies/"+ option+ "/topics/" + i.content.name + "/materials"
-						}).then(function(data)
-						{
-							var material = document.createElement("img");
-							material.name="material"
-							material.src=" http://img.memecdn.com/fak-yo-grammer_fb_743674.jpg"
-							carusel.appendChild(material);
-						});
-					});
-					j--;
-				}
+				topic.name = i.content.name;
+				topic.value = j;
+				topic.innerHTML = i.content.name;
 				AddTopic.appendChild(topic);
+				j--;
 			}
 		});
+		var AddTopic = document.getElementById('Topics');
+		var j = AddTopic.childElementCount;
+		console.log(j);
+		console.log(AddTopic.childNodes.length);
+		for (i of AddTopic.childNodes) {
+			var button = i;
+			button.addEventListener("click", function (e) {
+				console.log(j);
+				while (carusel.childElementCount != 0) {
+					try {
+						carusel.removeChild(carusel.childNodes[0]);
+					}
+					catch (e) {
+
+					}
+				}
+				$.ajax({
+					type: 'GET',
+					dataType: 'json',
+					url: "technologies/" + option + "/topics/" + j + "/materials"
+				}).then(function (data) {
+					var material = document.createElement("img");
+					material.name = "material"
+					material.src = " http://img.memecdn.com/fak-yo-grammer_fb_743674.jpg"
+					carusel.appendChild(material);
+				});
+			});
+			j--;
+		}
 	});
+
 </script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
