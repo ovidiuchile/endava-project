@@ -37,6 +37,7 @@ public class TechnologyController {
 		Resource<Technology> technologyResource = new Resource<>(technologyService.getTechnologiesByID(technology_id));
 
 		return new ResponseEntity<>(technologyResource, HttpStatus.OK);
+
 	}
 
 }
