@@ -31,7 +31,7 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(value = "/log", method = RequestMethod.GET)
+    @RequestMapping(value = "log", method = RequestMethod.GET)
     public HttpEntity<Resources<Resource<User>>> getUsers(){
 
         List<User> users = loginService.getUsers();
@@ -42,23 +42,25 @@ public class LoginController {
         return new ResponseEntity<>(usersResources, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public ModelAndView login(@RequestParam(value = "email") String email,
                               @RequestParam(value = "password") String password) {
 
         ModelAndView model = new ModelAndView();
 
         if(loginService.isValidUser(email, password)) {
-            model.setViewName("login");
-        } else {
             model.setViewName("home");
+        } else {
+            model.setViewName("login");
         }
 
         return model;
     }
 	
-	@RequestMapping("/login")
-	public String home(){
-		return "login";
+	@RequestMapping("")
+	public ModelAndView home(){
+		ModelAndView model = new ModelAndView();
+		model.setViewName("login");
+		return model;
 	}
 }
