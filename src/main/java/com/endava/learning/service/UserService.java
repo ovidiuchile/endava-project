@@ -11,10 +11,12 @@ public class UserService {
 	@Autowired
 	private UserDAO userDAO;
 
+	@SuppressWarnings("unchecked")
 	public User createUser(User user) {
 		userDAO.save(user);
 		return user;
 	}
+
 
 	public boolean emailAlreadyExists(String email) {
 		return userDAO.emailAlreadyExists(email);
@@ -22,5 +24,12 @@ public class UserService {
 
 	public User getUserByEmail(String email) {
 		return userDAO.getUserByEmail(email);
+
+	public boolean isValidUserAdmin(String email){
+		return userDAO.isValidUserAdmin(email);
+	}
+	
+	public void updateType(String email, String type){
+		userDAO.updateType(email,type);
 	}
 }
