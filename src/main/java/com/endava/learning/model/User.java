@@ -7,11 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-/*import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;*/
-
-//import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name = "users")
@@ -25,51 +20,27 @@ public class User {
 	@Column(name = "user_type")
 	private String user_type;
 	
-	/*@Size(min=4, max=30)
-	@Pattern(regexp = "[a-zA-Z0-9]*")
-	@NotNull*/
 	@Column(name = "name")
 	private String name;
 	
-	/*@Size(min=4, max=30)
-	@Pattern(regexp = "[a-zA-Z0-9]*")
-	@NotNull*/
 	@Column(name = "surname")
 	private String surname;
 	
-	/*@Size(min=6, max=30)
-	@Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")*/
-	//@Email(message="Please provide a valid email address")
 	@Column(name = "email")
 	private String email;
 	
-	/*@Size(min=8, max=30)
-	@Pattern(regexp = "[a-zA-Z0-9]*")
-	@NotNull*/
 	@Column(name = "password")
 	private String password;
 	
-	/*@Size(min=4, max=30)
-	@Pattern(regexp = "[a-zA-Z]*")
-	@NotNull*/
 	@Column(name = "city")
 	private String city;
 	
-	/*@Size(min=4, max=50)
-	@Pattern(regexp = "[a-zA-Z0-9]*")
-	@NotNull*/
 	@Column(name = "address")
 	private String address;
 	
-	/*@Size(min=4, max=30)
-	@Pattern(regexp = "[0-9]*")
-	@NotNull*/
 	@Column(name = "phoneNumber")
 	private String phoneNumber;
 	
-	/*@Size(min=4, max=30)
-	@Pattern(regexp = "[a-zA-Z]*")
-	@NotNull*/
 	@Column(name = "country")
 	private String country;
 

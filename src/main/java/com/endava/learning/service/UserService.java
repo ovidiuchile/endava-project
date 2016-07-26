@@ -19,4 +19,8 @@ public class UserService {
 	public boolean emailAlreadyExists(String email) {
 		return userDAO.emailAlreadyExists(email);
 	}
+
+	public User getUserByEmail(String email) {
+		return userDAO.getUserByEmail(email);
+	}
 }
