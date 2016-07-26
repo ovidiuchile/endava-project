@@ -32,4 +32,8 @@ public class UserDAO extends AbstractDAO{
         		.setParameter("email", email).setParameter("password", password).getResultList().isEmpty());
     }
 
+	public boolean emailAlreadyExists(String email) {
+		return (!em().createQuery("SELECT user FROM User user WHERE user.email like :email").setParameter("email", email).getResultList().isEmpty());
+	}
+
  }
