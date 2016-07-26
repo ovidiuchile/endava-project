@@ -15,4 +15,12 @@ public class UserService {
 		userDAO.save(user);
 		return user;
 	}
+	
+	public boolean isValidUserAdmin(String email){
+		return userDAO.isValidUserAdmin(email);
+	}
+	
+	public void updateType(String email, String type){
+		userDAO.updateType(email,type);
+	}
 }

@@ -30,5 +30,13 @@ public class UserDAO extends AbstractDAO{
     public boolean isValidUser(String email, String password) {
         return (!em().createQuery("SELECT user FROM User user where user.email like :email AND user.password LIKE :password").setParameter("email", email).setParameter("password", password).getResultList().isEmpty());
     }
-
+    
+    public boolean isValidUserAdmin(String email) {
+        return (!em().createQuery("SELECT user FROM User user where user.email like :email" ).setParameter("email", email).getResultList().isEmpty());
+    }
+    
+    public void updateType(String email, String type){
+    	
+    	System.out.println(em().createNativeQuery("UPDATE Users SET user_type = :type WHERE email = :email").setParameter("type", type).setParameter("email", email).executeUpdate());
+    }
  }
