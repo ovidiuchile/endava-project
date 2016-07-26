@@ -49,7 +49,7 @@ public class TopicController {
 			@PathVariable("technology_id") Long technology_id) {
 
 		topic.setTechnology(technologyService.getTechnologiesByID(technology_id));
-
+		topic.setTopic_id(((long)(Math.random()*1000000000)));
 		topicService.saveTopic(topic);
 
 		Resource<Topic> topicResouce = new Resource<>(topic);

@@ -42,9 +42,8 @@ public class TechnologyController {
 
 	@RequestMapping(value = "technologies", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public HttpEntity<Resource<Technology>> addTechnology(@RequestBody Technology technology) {
-
+		technology.setTechnology_id(((long)(Math.random()*1000000000)));
 		technologyService.saveTechnology(technology);
-
 		Resource<Technology> technologyResouce = new Resource<>(technology);
 
 		return new ResponseEntity<>(technologyResouce, HttpStatus.CREATED);

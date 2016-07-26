@@ -1,13 +1,32 @@
 package com.endava.learning.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-@Controller
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.endava.learning.service.UserService;
+
+@RestController
 public class HomeController {
-	
+	@Autowired
+	UserService userService;
+
 	@RequestMapping("/home")
-	public String home(){
-		return "home";
+	public String home(ServletRequest req) {
+		HttpServletRequest request = (HttpServletRequest) req;
+		HttpSession session = request.getSession(false);
+		String email = (String) session.getAttribute("email");
+		
+		
+		if (email != null) {
+			session.setAttribute("usertype", userService.getUserByEmail(email).getUser_type());
+			return "home";
+		} else {
+			return "login";
+		}
 	}
 }
