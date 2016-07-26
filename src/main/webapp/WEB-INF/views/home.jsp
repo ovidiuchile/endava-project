@@ -108,6 +108,7 @@
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
+
 	</div>
 </div>
 <script>
@@ -160,12 +161,8 @@
 						dataType: 'json',
 						url: "technologies/" + option + "/topics/" + topic.value + "/materials"
 					}).then(function (data) {
-						for(j of data.content)
-						{
-							console.log(data.content);
-						}
 						var carousel = document.getElementById('Carusel');
-						var material = document.createElement("iframe");
+						var material = document.createElement("img");
 						var div = document.createElement("div");
 						div.className= "item active";
 						material.name = "material"
@@ -176,7 +173,7 @@
 						for(k=0;k<=3;k++)
 						{
 							var div2= document.createElement("div");
-							var material = document.createElement("iframe");
+							var material = document.createElement("img");
 							material.name = "material"
 							material.innerHTML= " test";
 							material.src = " http://img.memecdn.com/fak-yo-grammer_fb_743674.jpg"
@@ -205,15 +202,6 @@
 
 
 <script>
-	var carousel = document.getElementById('Carusel');
-	var material = document.createElement("img");
-	var div = document.createElement("div");
-	div.className= "item";
-	material.name = "material"
-	material.innerHTML= " test";
-	material.src = " http://img.memecdn.com/fak-yo-grammer_fb_743674.jpg"
-	div.appendChild(material);
-	carousel.appendChild(div);
 </script>
 
 </body>
