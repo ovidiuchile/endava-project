@@ -2,7 +2,6 @@ package com.endava.learning.controller;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.endava.learning.model.User;
+import com.endava.learning.service.EmailService;
 import com.endava.learning.service.UserService;
 
 @RestController
@@ -17,6 +17,9 @@ import com.endava.learning.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private EmailService emailService;
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ModelAndView createUser(@RequestParam(value = "name") String name,
@@ -28,14 +31,17 @@ public class UserController {
 			user.setName(name);
 			user.setSurname(surname);
 			user.setEmail(email);
-			String password = RandomStringUtils.random(16);
+			String password = RandomStringUtils.randomAlphanumeric(16);
 			user.setPassword(password);
 			user.setPhoneNumber(phone);
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
-			User createdUser = userService.createUser(user);
-			Resource<User> userResource = new Resource<>(createdUser);
+			emailService.send(email, "E-learning - New acount", "Your password is: " + password);
+
+			// User createdUser = userService.createUser(user);
+			// @SuppressWarnings("unused")
+			// Resource<User> userResource = new Resource<>(createdUser);
 		}
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
