@@ -4,6 +4,7 @@
     <title>Login Page</title>
     <style>
     	body,head{
+    		font-family: Arial, Helvetica, sans-serif;
     		height:100%;
     		margin:0px;
     		padding:0px;
@@ -53,13 +54,12 @@
         #menu{
         	background-color:#071226;
         	width:calc( 100% - 20px );
-        	height:50px;
+        	
         	padding:10px;
         	opacity: 0.8;
         }
         #logo_div{
         	width:100%;
-        	height:50px;
         	max-width:1000px;
         	margin:auto;
         }
@@ -95,7 +95,29 @@
 			margin-left:90px;
 			margin-top:20px;
 		}
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    display:inline-block;
+		    float:right;
+		}
 		
+		li {
+		    float: right;
+		}
+		
+		li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		
+		li a:hover {
+		    background-color: #024873;
+		}
     </style>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -113,7 +135,7 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() < $( window ).height() * 1.88 ){
+		    if( $( window ).width() <= $( window ).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -133,43 +155,7 @@
 		    }
 		});
 	</script>
-	
-	<script>
-	function validateForm() {
-		var numbers = /^[0-9]+$/;
-	    var x = document.forms["registerForm"]["name"].value;
-	    if (x == null || x == "") {
-	        alert("Name cannot be empty!");
-	        return false;
-	    }
-	    else{
-	    	var ok=true;
-	    	for(i=0;i<x.length;i++)
-	    		if(x[i]>='0' && x[i]<='9')
-	    			ok=false;
-	    	if(ok==false){
-	    		alert("Name cannot have digits!");
-	    		return false;
-	    	}
-	    	else{
-	    		x=document.forms["registerForm"]["email"].value;
-	    		if(x==null || x==""){
-	    			alert("E-mail cannot be empty!");
-	    			return false;
-	    		}
-	    		else{
-	    			x=document.forms["registerForm"]["phone"];
-	    			if(!x.value.match(numbers)){
-	    				alert("Phone number can only be made of digits!")
-	    				return false;
-	    			}
-	    		}
-			}
-		}
-		return true;
-	}
-	
-	</script>
+    
 </head>
 <body onload='document.loginForm.username.focus();'>
 
@@ -178,6 +164,14 @@
 <div id = "menu">
 	<div id = "logo_div">
 		<img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png">
+		<ul>
+		  <li><a href="#home">Profile</a></li>
+		  <li><a href="#home">Tests</a></li>
+		  <li><a href="#home">Chat rooms</a></li>
+		  <li><a href="#news">Classroom</a></li>
+		  <li><a href="#contact">Try it yourself</a></li>
+		  <li><a href="#about">Learn</a></li>
+		</ul>
 	</div>
 </div>
 
@@ -186,91 +180,30 @@
 	<!-- START LOGIN BOX -->
 	<div id="login-box">
 	    
-	    <div id = "button_div">
-	    	<button class = "button_sign" id = "button_sign_in" type="button">Sign In</button>
-	    	<button class = "button_sign" id = "button_sign_up" type="button">Sign Up</button>
-	    </div>
+	    <p style="font-size:20px;margin-bottom:10px;margin-top:0px;">Admin: set user type</p>
 	    
 		<div id = "sign_in">
-			
-		    <c:if test="${not empty error}">
-		        <div class="error">${error}</div>
-		    </c:if>
-		    <c:if test="${not empty msg}">
-		        <div class="msg">${msg}</div>
-		    </c:if>
+		    
+		    <p style="color:red;">${error}</p>
+		    <p style="color:green;">${success}</p>
 		
 		    <form name='loginForm'
-		          action="<c:url value='/login' />" method='POST'>
+		          action="<c:url value='/admin' />" method='POST'>
 		
 		        <table>
 		            <tr>
 		                <td>E-mail:</td>
-		                <td><input type='email' name='email' value='' required/></td>
-		            </tr>
-		            <tr>
-		                <td>Password:</td>
-		                <td><input type='password' name='password' required/></td>
-		            </tr>
-		            <tr>
-		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Submit" action = "login"/></td>
-		            </tr>
-		        </table>
-		
-		        <input type="hidden" name="${_csrf.parameterName}"
-		               value="${_csrf.token}" />
-		
-		    </form>
-	    </div>
-	    
-	    <div id = "sign_up">
-	    	<c:if test="${not empty error}">
-		        <div class="error">${error}</div>
-		    </c:if>
-		    <c:if test="${not empty msg}">
-		        <div class="msg">${msg}</div>
-		    </c:if>
-		
-		    <form name='registerForm'
-		          action="<c:url value='register' />" method='POST'>
-		
-		        <table>
-		            <tr>
-		                <td>*Name:</td>
-		                <td><input type='text' name='name' value='' id="name" required /></td>
-		                <td id ="nameValidation"></td>
-		            </tr>
-		            <tr>
-		                <td>*Surname:</td>
-
-		                <td><input type='text' name='surname' /></td>
-		            </tr>
-		            <tr>
-		                <td>*E-mail:</td>
 		                <td><input type='email' name='email' value=''></td>
 		            </tr>
 		            <tr>
-		                <td>*Password:</td>
-		                <td><input type='password' name='password' /></td>
-
-		            </tr>
-		            <tr>
-		                <td>Phone:</td>
-		                <td><input type='tel' name='phone' value=''></td>
-		            </tr>
-		             <tr>
-		                <td>Country:</td>
-		                <td><input type='text' name='country' /></td>
-		            </tr>
-		            <tr>
-		                <td>City:</td>
-		                <td><input type='text' name='city' value=''></td>
-		            </tr>
-		            <tr>
-		                <td>Address:</td>
-		                <td><input type='text' name='address' /></td>
-
+		                <td>Type:</td>
+		                <td><select name="type_of_user">
+						    <option value="normal user">Normal user</option>
+						    <option value="tutor">Tutor</option>
+						    <option value="content editor">Content Editor</option>
+						    <option value="admin">Admin</option>
+						  </select>
+		                </td>
 		            </tr>
 		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
@@ -282,16 +215,12 @@
 		               value="${_csrf.token}" />
 		
 		    </form>
-		    <p>* are mandatory</p>
 	    </div>
 	    
 	</div>
 	<!-- END LOGIN BOX -->
 
 </div>
-<script>
-	var check_name = document.getElementById('name');
-	if(check_name.length==0) alert("Please insert a name");
-</script>
+
 </body>
 </html>
