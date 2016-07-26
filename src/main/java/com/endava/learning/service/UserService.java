@@ -11,6 +11,7 @@ public class UserService {
 	@Autowired
 	private UserDAO userDAO;
 
+	@SuppressWarnings("unchecked")
 	public User createUser(User user) {
 		userDAO.save(user);
 		return user;

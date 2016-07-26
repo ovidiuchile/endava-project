@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.endava.learning.model.User;
 import com.endava.learning.service.EmailService;
 import com.endava.learning.service.UserService;
+import com.endava.learning.utils.CryptPassword;
 
 @RestController
 @RequestMapping(value = "/register")
@@ -32,16 +33,14 @@ public class UserController {
 			user.setSurname(surname);
 			user.setEmail(email);
 			String password = RandomStringUtils.randomAlphanumeric(16);
-			user.setPassword(password);
+			emailService.send(user.getEmail(), "E-learning - New acount", "Your password is: " + password);
+			user.setPassword(CryptPassword.encodeMD5(password));
 			user.setPhoneNumber(phone);
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
-			emailService.send(email, "E-learning - New acount", "Your password is: " + password);
 
-			// User createdUser = userService.createUser(user);
-			// @SuppressWarnings("unused")
-			// Resource<User> userResource = new Resource<>(createdUser);
+			userService.createUser(user);
 		}
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
