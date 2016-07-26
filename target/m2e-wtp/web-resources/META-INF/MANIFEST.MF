@@ -1,7 +1,5 @@
 Manifest-Version: 1.0
-
-Built-By: mneghina
-Build-Jdk: 1.8.0_91
->>>>>>> ec5aaeef96f0979f4975b6dfe61c64bd99cf5b83
+Built-By: ajuravle
+Build-Jdk: 1.8.0_101
 Created-By: Maven Integration for Eclipse
 
