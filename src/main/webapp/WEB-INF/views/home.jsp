@@ -4,46 +4,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<style type="text/css">
-		body {
-			font-family:Arial;
-			font-size:12px;
-			background:#ededed;
-		}
-		.example-desc {
-			margin:3px 0;
-			padding:5px;
-		}
-
-		#carousel {
-			width:960px;
-			border:1px solid #222;
-			height:300px;
-			position:relative;
-			clear:both;
-			overflow:hidden;
-			background:#FFF;
-		}
-		#carousel img {
-			visibility:hidden; /* hide images until carousel can handle them */
-			cursor:pointer; /* otherwise it's not as obvious items can be clicked */
-		}
-
-		.split-left {
-			width:450px;
-			float:left;
-		}
-		.split-right {
-			width:400px;
-			float:left;
-			margin-left:10px;
-		}
-		#callback-output {
-			height:250px;
-			overflow:scroll;
-		}
-		textarea#newoptions {
-			width:430px;
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<style>
+		.carousel-inner > .item > img,
+		.carousel-inner > .item > a > img {
+			width: 70%;
+			margin: auto;
 		}
 	</style>
 
@@ -100,20 +71,51 @@
 
 
 		</div>
-		<p class="greeting-id"></p>
-		<div id="carousel">
-			<a href="#"><img src="${pageContext.request.contextPath}/resources/images/1.jpg" id="item-1"></a>
-			<a href="#"><img src="${pageContext.request.contextPath}/resources/images/2.jpg" id="item-2" /></a>
-			<a href="#"><img src="${pageContext.request.contextPath}/resources/images/3.jpg" id="item-3" /></a>
-			<a href="#"><img src="${pageContext.request.contextPath}/resources/images/4.jpg" id="item-4" /></a>
+
+
+	</div>
+
+	<div class="container">
+		<br>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox" id="Carusel">
+				<div class="item active">
+					<img src="img_chania.jpg" alt="Chania" width="460" height="345">
+				</div>
+
+				<div class="item">
+					<img src="img_chania2.jpg" alt="Chania" width="460" height="345">
+				</div>
+
+				<div class="item">
+					<img src="img_flower.jpg" alt="Flower" width="460" height="345">
+				</div>
+
+				<div class="item">
+					<img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
+
 	</div>
 </div>
 <script>
 	$.ajaxSetup({
 		async: false
 	});
-	var carusel = document.getElementById('carousel');
+	var carusel = document.getElementById('Carusel');
 	$(".form-control").change(function() {
 		var option = document.getElementById('Language_Selector').value;
 		var AddTopic = document.getElementById('Topics');
@@ -144,90 +146,76 @@
 				topic.name = i.content.name;
 				topic.value = j;
 				topic.innerHTML = i.content.name;
-				AddTopic.appendChild(topic);
+				handleelement(j,topic,option);
 				j--;
+				AddTopic.appendChild(topic);
 			}
 		});
-		var AddTopic = document.getElementById('Topics');
-		var j = AddTopic.childElementCount;
-		console.log(j);
-		console.log(AddTopic.childNodes.length);
-		for (i of AddTopic.childNodes) {
-			var button = i;
-			button.addEventListener("click", function (e) {
-				console.log(j);
-				while (carusel.childElementCount != 0) {
-					try {
-						carusel.removeChild(carusel.childNodes[0]);
-					}
-					catch (e) {
-
-					}
-				}
-				$.ajax({
-					type: 'GET',
-					dataType: 'json',
-					url: "technologies/" + option + "/topics/" + j + "/materials"
-				}).then(function (data) {
-					var material = document.createElement("img");
-					material.name = "material"
-					material.src = " http://img.memecdn.com/fak-yo-grammer_fb_743674.jpg"
-					carusel.appendChild(material);
-				});
-			});
-			j--;
-		}
 	});
+
+
+	function handleelement(i,topic,option)
+	{
+		topic.addEventListener("click", function (e) {
+			console.log(i,topic,option);
+			while (carusel.childElementCount != 0) {
+				try {
+					carusel.removeChild(carusel.childNodes[0]);
+				}
+				catch (e) {
+
+				}
+			}
+			$.ajax({
+				type: 'GET',
+				dataType: 'json',
+				url: "technologies/" + option + "/topics/" + i + "/materials"
+			}).then(function (data) {
+				var test=0;
+				console.log(data.content.length);
+				for(k of data.content) {
+					if (test == 0) {
+						var carousel = document.getElementById('Carusel');
+						var material = document.createElement("img");
+						var div = document.createElement("div");
+						div.className = "item active";
+						material.name = "material"
+						material.innerHTML = " test";
+						material.src = k.content.link;
+						div.appendChild(material);
+						carousel.appendChild(div);
+					}
+					else {
+						var carousel = document.getElementById('Carusel');
+						var div2 = document.createElement("div");
+						var material = document.createElement("img");
+						material.name = "material"
+						material.innerHTML = " test";
+						material.src = k.content.link;
+						div2.className = "item ";
+						console.log(k, material.name);
+						div2.appendChild(material);
+						carousel.appendChild(div2);
+					}
+					test++;
+				}
+			});
+		});
+	}
 
 </script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/jquery.waterwheelCarousel.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/jquery.waterwheelCarousel.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
 	<%@include file="js/jquery.waterwheelCarousel.js"%>
 </script>
-<script type="text/javascript">
-	$(document).ready(function () {
-		var carousel = $("#carousel").waterwheelCarousel({
-			flankingItems: 3,
-			movingToCenter: function ($item) {
-				$('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
-			},
-			movedToCenter: function ($item) {
-				$('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
-			},
-			movingFromCenter: function ($item) {
-				$('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
-			},
-			movedFromCenter: function ($item) {
-				$('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
-			},
-			clickedCenter: function ($item) {
-				$('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
-			}
-		});
 
-		$('#prev').bind('click', function () {
-			carousel.prev();
-			return false
-		});
 
-		$('#next').bind('click', function () {
-			carousel.next();
-			return false;
-		});
-
-		$('#reload').bind('click', function () {
-			newOptions = eval("(" + $('#newoptions').val() + ")");
-			carousel.reload(newOptions);
-			return false;
-		});
-
-	});
+<script>
 </script>
+
 </body>
 </html>

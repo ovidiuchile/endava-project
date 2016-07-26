@@ -4,23 +4,16 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "materials")
 public class Material {
 	@Id
-	@SequenceGenerator(name="material_sequence",sequenceName="material_id_seq", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.IDENTITY,generator="material_sequence")
 	@Column(name="material_id", unique=true, nullable=false)
 	private Long material_id;
 	
