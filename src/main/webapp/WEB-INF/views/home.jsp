@@ -146,55 +146,62 @@
 				topic.name = i.content.name;
 				topic.value = j;
 				topic.innerHTML = i.content.name;
-				topic.addEventListener("click", function (e) {
-					console.log(topic.value);
-					while (carusel.childElementCount != 0) {
-						try {
-							carusel.removeChild(carusel.childNodes[0]);
-						}
-						catch (e) {
-
-						}
-					}
-					$.ajax({
-						type: 'GET',
-						dataType: 'json',
-						url: "technologies/" + option + "/topics/" + topic.value + "/materials"
-					}).then(function (data) {
-						var test=0;
-						for(k of data.content) {
-							if (test == 0) {
-								var carousel = document.getElementById('Carusel');
-								var material = document.createElement("img");
-								var div = document.createElement("div");
-								div.className = "item active";
-								material.name = "material"
-								material.innerHTML = " test";
-								material.src = k.content.link;
-								div.appendChild(material);
-								carousel.appendChild(div);
-							}
-							else {
-								var carousel = document.getElementById('Carusel');
-								var div2 = document.createElement("div");
-								var material = document.createElement("img");
-								material.name = "material"
-								material.innerHTML = " test";
-								material.src = k.content.link;
-								div2.className = "item";
-								console.log(k, material.name);
-								div2.appendChild(material);
-								carousel.appendChild(div2);
-							}
-							test++;
-						}
-					});
-				});
+				handleelement(j,topic,option);
 				j--;
 				AddTopic.appendChild(topic);
 			}
 		});
 	});
+
+
+	function handleelement(i,topic,option)
+	{
+		topic.addEventListener("click", function (e) {
+			console.log(i,topic,option);
+			while (carusel.childElementCount != 0) {
+				try {
+					carusel.removeChild(carusel.childNodes[0]);
+				}
+				catch (e) {
+
+				}
+			}
+			$.ajax({
+				type: 'GET',
+				dataType: 'json',
+				url: "technologies/" + option + "/topics/" + i + "/materials"
+			}).then(function (data) {
+				var test=0;
+				console.log(data.content.length);
+				for(k of data.content) {
+					if (test == 0) {
+						var carousel = document.getElementById('Carusel');
+						var material = document.createElement("img");
+						var div = document.createElement("div");
+						div.className = "item active";
+						material.name = "material"
+						material.innerHTML = " test";
+						material.src = k.content.link;
+						div.appendChild(material);
+						carousel.appendChild(div);
+					}
+					else {
+						var carousel = document.getElementById('Carusel');
+						var div2 = document.createElement("div");
+						var material = document.createElement("img");
+						material.name = "material"
+						material.innerHTML = " test";
+						material.src = k.content.link;
+						div2.className = "item ";
+						console.log(k, material.name);
+						div2.appendChild(material);
+						carousel.appendChild(div2);
+					}
+					test++;
+				}
+			});
+		});
+	}
 
 </script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
