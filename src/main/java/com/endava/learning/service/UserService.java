@@ -15,4 +15,8 @@ public class UserService {
 		userDAO.save(user);
 		return user;
 	}
+
+	public boolean emailAlreadyExists(String email) {
+		return userDAO.emailAlreadyExists(email);
+	}
 }

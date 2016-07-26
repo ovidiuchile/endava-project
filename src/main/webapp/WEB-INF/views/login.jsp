@@ -133,7 +133,43 @@
 		    }
 		});
 	</script>
-    
+	
+	<script>
+	function validateForm() {
+		var numbers = /^[0-9]+$/;
+	    var x = document.forms["registerForm"]["name"].value;
+	    if (x == null || x == "") {
+	        alert("Name cannot be empty!");
+	        return false;
+	    }
+	    else{
+	    	var ok=true;
+	    	for(i=0;i<x.length;i++)
+	    		if(x[i]>='0' && x[i]<='9')
+	    			ok=false;
+	    	if(ok==false){
+	    		alert("Name cannot have digits!");
+	    		return false;
+	    	}
+	    	else{
+	    		x=document.forms["registerForm"]["email"].value;
+	    		if(x==null || x==""){
+	    			alert("E-mail cannot be empty!");
+	    			return false;
+	    		}
+	    		else{
+	    			x=document.forms["registerForm"]["phone"];
+	    			if(!x.value.match(numbers)){
+	    				alert("Phone number can only be made of digits!")
+	    				return false;
+	    			}
+	    		}
+			}
+		}
+		return true;
+	}
+	
+	</script>
 </head>
 <body onload='document.loginForm.username.focus();'>
 
@@ -165,20 +201,20 @@
 		    </c:if>
 		
 		    <form name='loginForm'
-		          action="<c:url value='/j_spring_security_check' />" method='POST'>
+		          action="<c:url value='/login' />" method='POST'>
 		
 		        <table>
 		            <tr>
 		                <td>E-mail:</td>
-		                <td><input type='email' name='email' value=''></td>
+		                <td><input type='email' name='email' value='' required/></td>
 		            </tr>
 		            <tr>
 		                <td>Password:</td>
-		                <td><input type='password' name='password' /></td>
+		                <td><input type='password' name='password' required/></td>
 		            </tr>
 		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Submit" /></td>
+		                                       value="Submit" action = "login"/></td>
 		            </tr>
 		        </table>
 		
@@ -196,44 +232,41 @@
 		        <div class="msg">${msg}</div>
 		    </c:if>
 		
-		    <form name='loginForm'
-		          action="<c:url value='/j_spring_security_check' />" method='POST'>
+		    <form name='registerForm'
+		          action="<c:url value='register' />" method='POST'>
 		
 		        <table>
 		            <tr>
 		                <td>*Name:</td>
-		                <td><input type='text' name='username' value='' id="name"></td>
+		                <td><input type='text' name='name' value='' id="name" required /></td>
+		                <td id ="nameValidation"></td>
 		            </tr>
 		            <tr>
 		                <td>*Surname:</td>
-		                <td><input type='text' name='password' /></td>
+		                <td><input type='text' name='surname' required/></td>
 		            </tr>
 		            <tr>
 		                <td>*E-mail:</td>
-		                <td><input type='email' name='username' value=''></td>
-		            </tr>
-		            <tr>
-		                <td>*Password:</td>
-		                <td><input type='password' name='password' /></td>
+		                <td><input type='email' name='email' value='' required /></td>
 		            </tr>
 		            <tr>
 		                <td>Phone:</td>
-		                <td><input type='tel' name='username' value=''></td>
+		                <td><input type='tel' name='phone' value=''></td>
 		            </tr>
 		             <tr>
 		                <td>Country:</td>
-		                <td><input type='text' name='password' /></td>
+		                <td><input type='text' name='country' /></td>
 		            </tr>
 		            <tr>
 		                <td>City:</td>
-		                <td><input type='text' name='username' value=''></td>
+		                <td><input type='text' name='city' value=''></td>
 		            </tr>
 		            <tr>
 		                <td>Address:</td>
-		                <td><input type='password' name='password' /></td>
+		                <td><input type='text' name='address' /></td>
 		            </tr>
 		            <tr>
-		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" action="#" type="submit"
+		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
 		                                       value="Submit" /></td>
 		            </tr>
 		        </table>
