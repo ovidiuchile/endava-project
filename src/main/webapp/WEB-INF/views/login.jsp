@@ -165,7 +165,7 @@
 		    </c:if>
 		
 		    <form name='loginForm'
-		          action="<c:url value='/j_spring_security_check' />" method='POST'>
+		          action="<c:url value='/login' />" method='POST'>
 		
 		        <table>
 		            <tr>
@@ -196,21 +196,21 @@
 		        <div class="msg">${msg}</div>
 		    </c:if>
 		
-		    <form name='loginForm'
-		          action="<c:url value='/j_spring_security_check' />" method='POST'>
+		    <form name='registerForm'
+		          action="<c:url value='login' />" method='POST'>
 		
 		        <table>
 		            <tr>
 		                <td>*Name:</td>
-		                <td><input type='text' name='username' value='' id="name"></td>
+		                <td><input type='text' name='name' value='' id="name"></td>
 		            </tr>
 		            <tr>
 		                <td>*Surname:</td>
-		                <td><input type='text' name='password' /></td>
+		                <td><input type='text' name='surname' /></td>
 		            </tr>
 		            <tr>
 		                <td>*E-mail:</td>
-		                <td><input type='email' name='username' value=''></td>
+		                <td><input type='email' name='email' value=''></td>
 		            </tr>
 		            <tr>
 		                <td>*Password:</td>
@@ -218,22 +218,22 @@
 		            </tr>
 		            <tr>
 		                <td>Phone:</td>
-		                <td><input type='tel' name='username' value=''></td>
+		                <td><input type='tel' name='phone' value=''></td>
 		            </tr>
 		             <tr>
 		                <td>Country:</td>
-		                <td><input type='text' name='password' /></td>
+		                <td><input type='text' name='country' /></td>
 		            </tr>
 		            <tr>
 		                <td>City:</td>
-		                <td><input type='text' name='username' value=''></td>
+		                <td><input type='text' name='city' value=''></td>
 		            </tr>
 		            <tr>
 		                <td>Address:</td>
-		                <td><input type='password' name='password' /></td>
+		                <td><input type='text' name='address' /></td>
 		            </tr>
 		            <tr>
-		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" action="#" type="submit"
+		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" action="register" type="submit"
 		                                       value="Submit" /></td>
 		            </tr>
 		        </table>
