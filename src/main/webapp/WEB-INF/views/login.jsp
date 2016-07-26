@@ -1,4 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+   String email = request.getParameter( "email" );
+   session.setAttribute( "email", email );
+   
+   
+%>
 <html>
 <head>
     <title>Login Page</title>
@@ -233,7 +239,7 @@
 		    </c:if>
 		
 		    <form name='registerForm'
-		          action="<c:url value='register' />" method='POST'>
+		          action="<c:url value='login' />" method='POST'>
 		
 		        <table>
 		            <tr>

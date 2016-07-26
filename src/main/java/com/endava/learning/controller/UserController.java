@@ -27,6 +27,8 @@ public class UserController {
 			@RequestParam(value = "surname") String surname, @RequestParam(value = "email") String email,
 			@RequestParam(value = "phone") String phone, @RequestParam(value = "country") String country,
 			@RequestParam(value = "city") String city, @RequestParam(value = "address") String address) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("login");
 		if (!userService.emailAlreadyExists(email)) {
 			User user = new User();
 			user.setName(name);
@@ -43,8 +45,7 @@ public class UserController {
 
 			userService.createUser(user);
 		}
-		ModelAndView model = new ModelAndView();
-		model.setViewName("login");
+		
 		return model;
 	}
 }
