@@ -17,7 +17,17 @@ public class UserService {
 		return user;
 	}
 
+
 	public boolean emailAlreadyExists(String email) {
 		return userDAO.emailAlreadyExists(email);
+	}
+
+	
+	public boolean isValidUserAdmin(String email){
+		return userDAO.isValidUserAdmin(email);
+	}
+	
+	public void updateType(String email, String type){
+		userDAO.updateType(email,type);
 	}
 }
