@@ -23,4 +23,8 @@ public class UserService {
 	public void updateType(String email, String type){
 		userDAO.updateType(email,type);
 	}
+
+	public boolean emailAlreadyExists(String email) {
+		return userDAO.emailAlreadyExists(email);
+	}
 }

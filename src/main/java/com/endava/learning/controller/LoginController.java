@@ -39,20 +39,16 @@ public class LoginController {
         return new ResponseEntity<>(usersResources, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public ModelAndView login(@RequestParam(value = "email") String email,
                               @RequestParam(value = "password") String password) {
 
         ModelAndView model = new ModelAndView();
-        
-        
-        
-        if(!loginService.isValidUser(email, password)) {
-        	
-        	
-            model.setViewName("login");
-        } else {
+
+        if(loginService.isValidUser(email, password)) {
             model.setViewName("home");
+        } else {
+            model.setViewName("login");
         }
 
         return model;
