@@ -20,9 +20,6 @@ public class UserDAO extends AbstractDAO{
  	public List<User> getUsers() {
 
         List<User> users = (List<User>) em().createQuery("SELECT user FROM User user").getResultList();
-        for (User user : users) {
-            System.out.println(user.getName());
-        }
         return users;
     }
 

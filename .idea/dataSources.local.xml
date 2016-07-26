@@ -4,8 +4,8 @@
     <data-source name="PostgreSQL - postgres@localhost" uuid="cc68ef77-1f51-41ac-93c9-2476fecc9cd2">
       <secret-storage>memory</secret-storage>
       <user-name>postgres</user-name>
-      <introspection-scope>postgres:public,pg_catalog,postgres</introspection-scope>
-      <resolve-scope>postgres:public,postgres</resolve-scope>
+      <introspection-scope>postgres:pg_catalog,postgres,public</introspection-scope>
+      <resolve-scope>postgres:postgres,public</resolve-scope>
     </data-source>
   </component>
 </project>
