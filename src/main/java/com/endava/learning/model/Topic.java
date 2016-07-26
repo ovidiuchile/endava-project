@@ -2,20 +2,15 @@ package com.endava.learning.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "topics")
 public class Topic {
 	@Id
-	@SequenceGenerator(name = "topics_seq", sequenceName = "topics_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "topics_seq")
 	@Column(name = "topic_id", updatable = false)
 	private Long id;
 
