@@ -26,6 +26,9 @@ public class Material {
 	
 	@Column(name = "link")
 	private String link;
+
+	@Column(name = "type")
+	private int type;
 	
 	@Column(name = "title")
 	private String title;
