@@ -16,7 +16,6 @@ DROP TABLE Users;
 DROP TABLE Technologies;
 
 CREATE TABLE Answers (
-  text text ,
   answer_id bigserial ,
   question_id bigint ,
   content text,
