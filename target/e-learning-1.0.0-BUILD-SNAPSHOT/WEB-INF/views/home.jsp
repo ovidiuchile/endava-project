@@ -64,7 +64,6 @@
 		</div>
 		<div class="col-md-2">
 			<img alt="Bootstrap Image Preview" src="Google+ alt.png" class="img-circle" height="50px">
-<<<<<<< HEAD
 
 	<div class="container-fluid">
 		<div class="row" style="background-color:white;">
@@ -111,8 +110,7 @@
 				</div>
 				<span style="font-size:30px;cursor:pointer" onclick="openNav()"><img alt="Bootstrap Image Preview" src="C:\Users\ochile\Desktop\1469100345.layoutit\layoutit\src\altu.png" class="img-circle" height="50px"></span>
 			</div>
-=======
->>>>>>> 603cfe82126015e433f351a0d55838fa4ca5e0d8
+
 		</div>
 	</div>
 	<div class="row">
@@ -147,7 +145,7 @@
 				</div>
 			</div>
 
-<<<<<<< HEAD
+
 					Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
 				</p>
 			</div>
@@ -166,7 +164,7 @@
 			<a href="#"><img src="${pageContext.request.contextPath}/resources/images/2.jpg" id="item-2" /></a>
 			<a href="#"><img src="${pageContext.request.contextPath}/resources/images/3.jpg" id="item-3" /></a>
 			<a href="#"><img src="${pageContext.request.contextPath}/resources/images/4.jpg" id="item-4" /></a>
-=======
+
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -176,8 +174,9 @@
 				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
->>>>>>> 603cfe82126015e433f351a0d55838fa4ca5e0d8
+
 		</div>
+
 	</div>
 </div>
 <script>
@@ -215,53 +214,62 @@
 				topic.name = i.content.name;
 				topic.value = j;
 				topic.innerHTML = i.content.name;
-				topic.addEventListener("click", function (e) {
-					console.log(topic.value);
-					while (carusel.childElementCount != 0) {
-						try {
-							carusel.removeChild(carusel.childNodes[0]);
-						}
-						catch (e) {
-
-						}
-					}
-					$.ajax({
-						type: 'GET',
-						dataType: 'json',
-						url: "technologies/" + option + "/topics/" + topic.value + "/materials"
-					}).then(function (data) {
-						for(j of data.content)
-						{
-							console.log(data.content);
-						}
-						var carousel = document.getElementById('Carusel');
-						var material = document.createElement("img");
-						var div = document.createElement("div");
-						div.className= "item active";
-						material.name = "material"
-						material.innerHTML= " test";
-						material.src = " http://img.memecdn.com/fak-yo-grammer_fb_743674.jpg"
-						div.appendChild(material);
-						carousel.appendChild(div);
-						for(k=0;k<=3;k++)
-						{
-							var div2= document.createElement("div");
-							var material = document.createElement("img");
-							material.name = "material"
-							material.innerHTML= " test";
-							material.src = " http://img.memecdn.com/fak-yo-grammer_fb_743674.jpg"
-							div2.className="item";
-							console.log(k,material.name);
-							div2.appendChild(material);
-							carousel.appendChild(div2);
-						}
-					});
-				});
+				handleelement(j,topic,option);
 				j--;
 				AddTopic.appendChild(topic);
 			}
 		});
 	});
+
+
+	function handleelement(i,topic,option)
+	{
+		topic.addEventListener("click", function (e) {
+			console.log(i,topic,option);
+			while (carusel.childElementCount != 0) {
+				try {
+					carusel.removeChild(carusel.childNodes[0]);
+				}
+				catch (e) {
+
+				}
+			}
+			$.ajax({
+				type: 'GET',
+				dataType: 'json',
+				url: "technologies/" + option + "/topics/" + i + "/materials"
+			}).then(function (data) {
+				var test=0;
+				console.log(data.content.length);
+				for(k of data.content) {
+					if (test == 0) {
+						var carousel = document.getElementById('Carusel');
+						var material = document.createElement("img");
+						var div = document.createElement("div");
+						div.className = "item active";
+						material.name = "material"
+						material.innerHTML = " test";
+						material.src = k.content.link;
+						div.appendChild(material);
+						carousel.appendChild(div);
+					}
+					else {
+						var carousel = document.getElementById('Carusel');
+						var div2 = document.createElement("div");
+						var material = document.createElement("img");
+						material.name = "material"
+						material.innerHTML = " test";
+						material.src = k.content.link;
+						div2.className = "item ";
+						console.log(k, material.name);
+						div2.appendChild(material);
+						carousel.appendChild(div2);
+					}
+					test++;
+				}
+			});
+		});
+	}
 
 </script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
@@ -273,7 +281,6 @@
 	<%@include file="js/jquery.waterwheelCarousel.js"%>
 </script>
 
-<<<<<<< HEAD
 		$('#reload').bind('click', function () {
 			newOptions = eval("(" + $('#newoptions').val() + ")");
 			carousel.reload(newOptions);
@@ -340,20 +347,9 @@
 
 		});
 	</script>
-=======
 
 <script>
-	var carousel = document.getElementById('Carusel');
-	var material = document.createElement("img");
-	var div = document.createElement("div");
-	div.className= "item";
-	material.name = "material"
-	material.innerHTML= " test";
-	material.src = " http://img.memecdn.com/fak-yo-grammer_fb_743674.jpg"
-	div.appendChild(material);
-	carousel.appendChild(div);
 </script>
 
->>>>>>> 603cfe82126015e433f351a0d55838fa4ca5e0d8
 </body>
 </html>

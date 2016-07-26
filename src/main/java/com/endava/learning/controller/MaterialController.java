@@ -41,6 +41,7 @@ public class MaterialController {
 	public HttpEntity<Resource<Material>> createMaterial(@PathVariable Long topic_id, @RequestBody Material material){
 
 		material.setTopic(topicService.getTopicByID(topic_id));
+		material.setMaterial_id(((long)(Math.random()*1000000000)));
 		Material createdMaterial = materialService.createMaterial(material);
 		
 		Resource<Material> materialResource = new Resource<>(createdMaterial);
