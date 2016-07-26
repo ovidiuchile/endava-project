@@ -32,6 +32,11 @@ public class TechnologyService {
 		technologyDAO.remove(technology);
 	}
 
+	@Transactional
+	public void deleteTechnology(final Long technology_id){
+		technologyDAO.delete(technology_id);
+	}
+	
 	public ArrayList<Technology> getTechnologies() {
 		return (ArrayList<Technology>) technologyDAO.getAllTechnologies();
 	}

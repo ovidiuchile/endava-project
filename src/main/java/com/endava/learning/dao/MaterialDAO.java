@@ -17,7 +17,7 @@ public class MaterialDAO extends AbstractDAO<Material> {
 	
 	@SuppressWarnings("unchecked")
 	public List<Material> getMaterialsByTechnologyAndTopic(Long technologyId, Long topic_id){
-		return em().createQuery("SELECT material FROM Material material where material.topic.topic_id = :topic_id")
-				.setParameter("topic_id", topic_id).getResultList();
+		return em().createQuery("SELECT material FROM Material material where material.topic.id = :id")
+				.setParameter("id", topic_id).getResultList();
 	}
 }

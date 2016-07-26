@@ -39,7 +39,7 @@ public class TopicController {
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}", method = RequestMethod.GET)
 	public HttpEntity<Resource<Topic>> getTopicsForTechnologyByID(@PathVariable("topic_id") Long topic_id) {
 
-		Resource<Topic> topicResource = new Resource<>(topicService.getTopicsByID(topic_id));
+		Resource<Topic> topicResource = new Resource<>(topicService.getTopicByID(topic_id));
 
 		return new ResponseEntity<>(topicResource, HttpStatus.OK);
 	}
@@ -49,13 +49,34 @@ public class TopicController {
 			@PathVariable("technology_id") Long technology_id) {
 
 		topic.setTechnology(technologyService.getTechnologiesByID(technology_id));
-		topic.setTopic_id(null);
 
 		topicService.saveTopic(topic);
 
 		Resource<Topic> topicResouce = new Resource<>(topic);
 
 		return new ResponseEntity<>(topicResouce, HttpStatus.CREATED);
+	}
+
+	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public HttpEntity<Resource<Topic>> updateTopic(@RequestBody Topic topic,
+			@PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id) {
+
+		Topic finalTopic = topicService.getTopicByID(topic_id);
+		if(topic.getName()!=null)
+			finalTopic.setName(topic.getName());
+
+		topicService.updateTopic(finalTopic);
+
+		Resource<Topic> topicResouce = new Resource<>(finalTopic);
+
+		return new ResponseEntity<>(topicResouce, HttpStatus.CREATED);
+	}
+
+	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}", method = RequestMethod.DELETE)
+	public HttpEntity<Resource<Topic>> deleteTopic(@PathVariable("topic_id") Long topic_id) {
+		topicService.deleteTopic(topic_id);
+
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }
