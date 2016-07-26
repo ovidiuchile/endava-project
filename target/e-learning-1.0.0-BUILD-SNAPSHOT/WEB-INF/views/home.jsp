@@ -66,7 +66,6 @@
 </head>
 <body>
 
-<<<<<<< HEAD
 <div class="container-fluid">
 	<div class="row" style="background-color:black;">
 		<div class="col-md-2">
@@ -96,7 +95,7 @@
 		</div>
 		<div class="col-md-2">
 			<img alt="Bootstrap Image Preview" src="Google+ alt.png" class="img-circle" height="50px">
-=======
+
 	<div class="container-fluid">
 		<div class="row" style="background-color:white;">
 			<div class="col-md-3">
@@ -263,8 +262,6 @@
 			</div>
 			
 			<!-- The end of Dorin's Part!! -->
-			
->>>>>>> 116208063026037f9519cf91c388640f859aedc2
 		</div>
 	</div>
 	<div class="row">
@@ -398,11 +395,7 @@
 			carousel.reload(newOptions);
 			return false;
 		});
-
-<<<<<<< HEAD
 	});
-</script>
-=======
 	</script> 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -463,6 +456,5 @@
 
 		});
 	</script>
->>>>>>> 116208063026037f9519cf91c388640f859aedc2
 </body>
 </html>
