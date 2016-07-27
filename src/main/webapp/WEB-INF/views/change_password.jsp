@@ -93,6 +93,14 @@
 <div id = "menu">
 	<div id = "logo_div">
 		<a href="/e-learning/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
+		<ul>
+		  <li><a href="#home">Profile</a></li>
+		  <li><a href="#home">Tests</a></li>
+		  <li><a href="#home">Chat rooms</a></li>
+		  <li><a href="#news">Classroom</a></li>
+		  <li><a href="#contact">Try it yourself</a></li>
+		  <li><a href="#about">Learn</a></li>
+		</ul>
 	</div>
 </div>
 
@@ -102,14 +110,14 @@
 	<div id="login-box">
 	    
 	    <div id = "button_div">
-	    	<p style="margin:0px;margin-bottom:-10px;">Recover password</p>
+	    	<p style="margin:0px;margin-bottom:-10px;">Change password</p>
 	    </div>
 	    
 		<div id = "sign_in">
 			
 		    <p style="color:green;">${msg}</p>
 		
-		    <form name='loginForm' action=" <c:url value='/forgot-password' />" method='POST'>
+		    <form name='loginForm' action=" <c:url value='/change-password' />" method='POST'>
 		
 		        <table>
 		            <tr>
@@ -117,8 +125,17 @@
 		                <td><input type='email' name='email' value='' required/></td>
 		            </tr>
 		            <tr>
+		                <td>Old passwd:</td>
+		                <td><input type='password' name='old_password' value='' required/></td>
+		            </tr>
+		            <tr>
+		                <td>New passwd:</td>
+		                <td><input type='password' name='new_password' value='' required/></td>
+		            </tr>
+		            
+		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Send"/></td>
+		                                       value="Change" style = "margin-left:105px;"/></td>
 		            </tr>
 		        </table>
 		

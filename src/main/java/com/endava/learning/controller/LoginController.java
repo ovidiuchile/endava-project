@@ -96,17 +96,16 @@ public class LoginController {
 		String newPassword = request.getParameter("new_password");
 
 		ModelAndView model = new ModelAndView();
-		model.setViewName("home");
+		model.setViewName("change_password");
 		
 		if (loginService.isValidUser(email, oldPassword)) {
 			User updatedUser = userService.getUserByEmail(email);
 			updatedUser.setPassword(CryptPassword.encodeMD5(newPassword));
 			userService.updateUser(updatedUser);
 			emailService.send(email, "E-learning - New password", "Your password is: " + newPassword);
-			request.setAttribute("success", "Email sent");
+			request.setAttribute("msg", "Password changed");
 		} else {
-			request.setAttribute("error", "Invalid email address or password.");
-			request.setAttribute("success", null);
+			request.setAttribute("msg", "Invalid email address or old password.");
 		}
 		return model;
 	}

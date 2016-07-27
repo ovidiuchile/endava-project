@@ -187,7 +187,7 @@ body,head{
         #menu{
         	background-color:#071226;
         	width:calc( 100% - 20px );
-        	
+        	min-width:720px;
         	padding:10px;
         	opacity: 0.9;
         }

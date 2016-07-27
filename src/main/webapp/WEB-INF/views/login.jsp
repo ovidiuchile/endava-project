@@ -28,7 +28,7 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() < $( window ).height() * 1.88 ){
+		    if( $( window ).width() < $( window ).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -92,7 +92,7 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png">
+		<a href="/e-learning/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 	</div>
 </div>
 
