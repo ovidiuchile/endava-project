@@ -6,7 +6,6 @@ import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,10 +19,11 @@ import com.endava.learning.utils.CryptPassword;
 public class UserController {
 	@Autowired
 	private UserService userService;
+	@Autowired
 	private EmailService emailService;
 	private static boolean x = true;
 	
-	@RequestMapping(value = "/login2", method = RequestMethod.POST)
+	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
 		
 	    
@@ -63,7 +63,6 @@ public class UserController {
 	    	request.setAttribute("error", "This email address already exists");
             request.setAttribute("success", null);
 	    }
-		System.out.println("NEGHINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
 		return model;

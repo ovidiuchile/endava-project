@@ -6,11 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import com.endava.learning.model.Material;
 
-@SuppressWarnings("rawtypes")
 @Repository
 public class MaterialDAO extends AbstractDAO<Material> {
 	
-	@SuppressWarnings("unchecked")
 	protected MaterialDAO() {
 		super(Material.class);
 	}

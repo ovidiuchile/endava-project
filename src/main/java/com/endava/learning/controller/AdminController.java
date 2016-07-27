@@ -17,7 +17,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String handleRequestGet(HttpServletRequest request) {
-		
+
 	    return "admin";
 	}
 	
