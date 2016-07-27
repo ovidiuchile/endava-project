@@ -201,7 +201,7 @@
 		    <p style="color:red;">${error}</p>
 		    <p style="color:green;">${success}</p>
 		
-		    <form name='loginForm' action=" <c:url value='/login1' />" method='POST'>
+		    <form name='loginForm' action=" <c:url value='/login' />" method='POST'>
 		
 		        <table>
 		            <tr>
@@ -228,7 +228,7 @@
 	    	<p style="color:red;">${error}</p>
 		    <p style="color:green;">${success}</p>
 		
-		    <form name='registerForm' action="<c:url value='/login2' />" method='POST'>
+		    <form name='registerForm' action="<c:url value='/register' />" method='POST'>
 		
 		        <table>
 		            <tr>
@@ -243,10 +243,6 @@
 		            <tr>
 		                <td>*E-mail:</td>
 		                <td><input type='email' name='email' value='' required /></td>
-		            </tr>
-		            <tr>
-		                <td>*Password:</td>
-		                <td><input type='password' name='password' required/></td>
 		            </tr>
 		            <tr>
 		                <td>Phone:</td>
