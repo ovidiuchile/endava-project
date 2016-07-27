@@ -68,21 +68,9 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value = "newPassword", method = RequestMethod.GET)
+	@RequestMapping(value = "forgot-password", method = RequestMethod.GET)
 	public ModelAndView newPassordGet(HttpServletRequest request) {
 		
-		ModelAndView model = new ModelAndView();
-		model.setViewName("forgot_password");
-		return model;
-	}
-	
-	@RequestMapping(value = "newPassword", method = RequestMethod.POST)
-	public ModelAndView newPassordPost(HttpServletRequest request) {
-		
-		String email = request.getParameter("email");
-		
-	    request.setAttribute("msg", "If there exists an user registered<br/>with this email, a new password<br/>will be sent to him.");
-	    
 		ModelAndView model = new ModelAndView();
 		model.setViewName("forgot_password");
 		return model;
