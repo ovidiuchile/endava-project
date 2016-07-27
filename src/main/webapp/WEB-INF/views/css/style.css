@@ -180,7 +180,7 @@ body,head{
             -webkit-border-radius: 5px;
             -moz-border-radius: 5px;
             border: 1px solid #000;
-            opacity: 0.8;
+            opacity: 0.9;
             color: white;
         }
         
@@ -189,11 +189,10 @@ body,head{
         	width:calc( 100% - 20px );
         	
         	padding:10px;
-        	opacity: 0.8;
+        	opacity: 0.9;
         }
         #logo_div{
         	width:100%;
-        	max-width:1000px;
         	margin:auto;
         }
         

@@ -102,16 +102,14 @@
 	<div id="login-box">
 	    
 	    <div id = "button_div">
-	    	<button class = "button_sign" id = "button_sign_in" type="button">Sign In</button>
-	    	<button class = "button_sign" id = "button_sign_up" type="button">Sign Up</button>
+	    	<p style="margin:0px;margin-bottom:-10px;">Recover password</p>
 	    </div>
 	    
 		<div id = "sign_in">
 			
-		    <p style="color:red;">${error}</p>
-		    <p style="color:green;">${success}</p>
+		    <p style="color:green;">${msg}</p>
 		
-		    <form name='loginForm' action=" <c:url value='/login' />" method='POST'>
+		    <form name='loginForm' action=" <c:url value='/newPassword' />" method='POST'>
 		
 		        <table>
 		            <tr>
@@ -119,17 +117,8 @@
 		                <td><input type='email' name='email_in' value='' required/></td>
 		            </tr>
 		            <tr>
-		                <td>Password:</td>
-		                <td><input type='password' name='password_in' required/></td>
-		            </tr>
-		           
-		           <tr>
-		                <td><a href = "/e-learning/newPassword" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Recover password</a></td>
-		            </tr>
-		            
-		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Submit" style="margin-top:35px;"/></td>
+		                                       value="Send"/></td>
 		            </tr>
 		        </table>
 		
@@ -137,56 +126,6 @@
 		               value="${_csrf.token}" />
 		
 		    </form>
-		    
-	    </div>
-	    
-	    <div id = "sign_up">
-	    	<p style="color:red;">${error2}</p>
-		    <p style="color:green;">${success}</p>
-		
-		    <form name='registerForm' action="<c:url value='/register' />" method='POST'>
-		
-		        <table>
-		            <tr>
-		                <td>*Name:</td>
-		                <td><input type='text' name='name' value='' id="name" required /></td>
-		                <td id ="nameValidation"></td>
-		            </tr>
-		            <tr>
-		                <td>*Surname:</td>
-		                <td><input type='text' name='surname' required/></td>
-		            </tr>
-		            <tr>
-		                <td>*E-mail:</td>
-		                <td><input type='email' name='email' value='' required /></td>
-		            </tr>
-		            <tr>
-		                <td>Phone:</td>
-		                <td><input type='tel' name='phone' value=''></td>
-		            </tr>
-		             <tr>
-		                <td>Country:</td>
-		                <td><input type='text' name='country' /></td>
-		            </tr>
-		            <tr>
-		                <td>City:</td>
-		                <td><input type='text' name='city' value=''></td>
-		            </tr>
-		            <tr>
-		                <td>Address:</td>
-		                <td><input type='text' name='address' /></td>
-		            <tr>
-		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Submit" /></td>
-		            </tr>
-		        </table>
-		
-		        <input type="hidden" name="${_csrf.parameterName}"
-		               value="${_csrf.token}" />
-		
-		    </form>
-		    <p>* are mandatory</p>
-		    <p>The password is sent via email</p>
 	    </div>
 	    
 	</div>
