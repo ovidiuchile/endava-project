@@ -76,4 +76,11 @@ public class UserController {
 		return model;
 	}
 	
+	@RequestMapping(value = "change-password", method = RequestMethod.GET)
+	public ModelAndView ghangePassordGet(HttpServletRequest request) {
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("change_password");
+		return model;
+	}
 }
