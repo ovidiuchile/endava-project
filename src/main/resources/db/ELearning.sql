@@ -16,11 +16,7 @@ DROP TABLE Users;
 DROP TABLE Technologies;
 
 CREATE TABLE Answers (
-<<<<<<< HEAD
   answer_id bigint ,
-=======
-  answer_id bigserial ,
->>>>>>> 0fb7173189b8c5fccbe315d9b9a24c580215c9e1
   question_id bigint ,
   content text,
   correct bool ,
