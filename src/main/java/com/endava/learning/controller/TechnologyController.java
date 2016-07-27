@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,7 +30,7 @@ public class TechnologyController {
 
 		return new ResponseEntity<>(topicResources, HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "technologies/{technology_id}", method = RequestMethod.GET)
 	public HttpEntity<Resource<Technology>> getTopicsForTechnologyByID(
 			@PathVariable("technology_id") Long technology_id) {
@@ -37,7 +38,37 @@ public class TechnologyController {
 		Resource<Technology> technologyResource = new Resource<>(technologyService.getTechnologiesByID(technology_id));
 
 		return new ResponseEntity<>(technologyResource, HttpStatus.OK);
+	}
 
+	@RequestMapping(value = "technologies", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public HttpEntity<Resource<Technology>> addTechnology(@RequestBody Technology technology) {
+		technology.setTechnology_id(((long)(Math.random()*1000000000)));
+		technologyService.saveTechnology(technology);
+		Resource<Technology> technologyResouce = new Resource<>(technology);
+
+		return new ResponseEntity<>(technologyResouce, HttpStatus.CREATED);
+	}
+
+	@RequestMapping(value = "technologies/{technology_id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public HttpEntity<Resource<Technology>> updateTechnology(@RequestBody Technology technology,
+			@PathVariable("technology_id") Long technology_id) {
+
+		Technology finalTech = technologyService.getTechnologiesByID(technology_id);
+		if(technology.getName()!=null)
+			finalTech.setName(technology.getName());
+
+		technologyService.updateTechnology(finalTech);
+
+		Resource<Technology> technologyResouce = new Resource<>(finalTech);
+
+		return new ResponseEntity<>(technologyResouce, HttpStatus.CREATED);
+	}
+
+	@RequestMapping(value = "technologies/{technology_id}", method = RequestMethod.DELETE)
+	public HttpEntity<Resource<Technology>> deleteTopic(@PathVariable("technology_id") Long technology_id) {
+		technologyService.deleteTechnology(technology_id);
+
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }

@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Technology {
 
 	@Id
-	@Column(name = "technology_id")
+	@Column(name = "technology_id", updatable = false)
 	private Long id;
 
 	@Column(name = "name")
