@@ -40,6 +40,12 @@ public class LoginController {
         return new ResponseEntity<>(usersResources, HttpStatus.OK);
     }
     
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public ModelAndView handleGet(){
+    	ModelAndView model = new ModelAndView();
+    	model.setViewName("login");
+    	return model;
+    }
     @RequestMapping(value = "login", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
 		

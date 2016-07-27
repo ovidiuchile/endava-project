@@ -1,10 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!--%
+<%
    String email = request.getParameter( "email" );
    session.setAttribute( "email", email );
-   
-   
-%-->
+%>
 <html>
 <head>
     <title>Login Page</title>
@@ -214,7 +212,7 @@
 		            </tr>
 		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Submit" action = "login"/></td>
+		                                       value="Submit" action = "home"/></td>
 		            </tr>
 		        </table>
 		
