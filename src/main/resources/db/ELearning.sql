@@ -209,10 +209,12 @@ INSERT INTO Topics VALUES (36, 5, 'Forms');
 INSERT INTO Topics VALUES (37, 5, 'Cookies');
 
 INSERT INTO Materials VALUES (1, 1, 'A presentation...', 'This is just a simple photo', 'http://www.javamex.com/tutorials/cryptography/RSADecryptionTime.png', 0, to_date('05.07.2015', 'DD.MM.YYYY'), 3);
+
 INSERT INTO Materials VALUES (2, 3, 'A picture', 'SQL', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 INSERT INTO Materials VALUES (3, 5, 'The Basics of SQL', 'Simple things', 'http://sqlinstructor.com/wp-content/uploads/2015/01/SQLDMLDDLimage.jpg', 0, to_date('12.06.2013', 'DD.MM.YYYY'), 3);
 INSERT INTO Materials VALUES (4, 10, 'Caesar Cipher', 'Ancient times, simple cipher', 'http://i.imgur.com/tFnX1co.png', 0, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
 INSERT INTO Materials VALUES (5, 12, 'RSA Decryption Time by Key Length', 'This is a graphic', 'http://www.javamex.com/tutorials/cryptography/RSADecryptionTime.png', 0, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
+
 INSERT INTO Materials VALUES (6, 12, 'Diffie Hellman Key Exchange part 1', 'Key exchange part 1', 'https://www.youtube.com/watch?v=MsqqpO9R5Hc', 1, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
 INSERT INTO Materials VALUES (7, 12, 'Diffie Hellman Key Exchange part 2', 'Key exchange part 2', 'https://www.youtube.com/watch?v=M-0qt6tdHzk', 1, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
 INSERT INTO Materials VALUES (8, 31, 'JSON vs XML', 'This is obvious', 'http://cdn2.hubspot.net/hub/126065/file-239461408-png/images/jsonxmlresults.png', 0, to_date('30.07.2015', 'DD.MM.YYYY'), 11);
@@ -221,6 +223,45 @@ INSERT INTO Materials VALUES (10, 26, 'Tutorial Introduction to PL/SQL', 'Just a
 INSERT INTO Materials VALUES (11, 33, 'Types and Classes', 'Haskell is awful!', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('08.10.2016', 'DD.MM.YYYY'), 19);
 INSERT INTO Materials VALUES (12, 35, 'Recursion', 'A picture that explains how recursion works', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('08.10.2016', 'DD.MM.YYYY'), 19);
 INSERT INTO Materials VALUES (13, 1, 'A on...', 'Another picture for topic 1', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('05.07.2015', 'DD.MM.YYYY'), 3);
+
+INSERT INTO Keywords VALUES (1, 1, 'oop');
+INSERT INTO Keywords VALUES (2, 1, 'inheritance');
+INSERT INTO Keywords VALUES (3, 2, 'checked');
+INSERT INTO Keywords VALUES (4, 2, 'unchecked');
+INSERT INTO Keywords VALUES (5, 5, 'create');
+INSERT INTO Keywords VALUES (6, 5, 'drop');
+INSERT INTO Keywords VALUES (7, 5, 'alter');
+INSERT INTO Keywords VALUES (8, 6, 'select');
+INSERT INTO Keywords VALUES (9, 6, 'insert');
+INSERT INTO Keywords VALUES (10, 6, 'update');
+INSERT INTO Keywords VALUES (11, 6, 'delete');
+INSERT INTO Keywords VALUES (12, 9, 'head');
+INSERT INTO Keywords VALUES (13, 9, 'tail');
+INSERT INTO Keywords VALUES (14, 16, 'framework');
+INSERT INTO Keywords VALUES (15, 24, 'button');
+INSERT INTO Keywords VALUES (16, 22, 'div');
+INSERT INTO Keywords VALUES (17, 26, 'procedure');
+INSERT INTO Keywords VALUES (18, 26, 'function');
+INSERT INTO Keywords VALUES (19, 27, 'acid');
+INSERT INTO Keywords VALUES (20, 10, 'frequency');
+INSERT INTO Keywords VALUES (21, 10, 'secrecy');
+INSERT INTO Keywords VALUES (22, 10, 'enigma');
+INSERT INTO Keywords VALUES (23, 11, 'xor');
+INSERT INTO Keywords VALUES (24, 11, 'bitwise');
+INSERT INTO Keywords VALUES (25, 12, 'logarithm');
+INSERT INTO Keywords VALUES (26, 12, 'rsa');
+INSERT INTO Keywords VALUES (27, 12, 'exchange');
+INSERT INTO Keywords VALUES (28, 13, 'modulo');
+INSERT INTO Keywords VALUES (29, 13, 'congruence');
+INSERT INTO Keywords VALUES (30, 13, 'quotient');
+INSERT INTO Keywords VALUES (31, 14, 'prime');
+INSERT INTO Keywords VALUES (32, 14, 'division');
+INSERT INTO Keywords VALUES (33, 15, 'random');
+INSERT INTO Keywords VALUES (34, 15, 'probability');
+INSERT INTO Keywords VALUES (35, 31, 'data');
+INSERT INTO Keywords VALUES (36, 31, 'parse');
+INSERT INTO Keywords VALUES (37, 31, 'pair');
+INSERT INTO Keywords VALUES (38, 31, 'ordered');
 
 INSERT INTO Tests VALUES (1, 1, 'OOP Test');
 INSERT INTO Tests VALUES (2, 1, 'Exceptions Test');
