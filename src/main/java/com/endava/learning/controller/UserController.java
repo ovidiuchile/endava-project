@@ -23,7 +23,7 @@ public class UserController {
 	private EmailService emailService;
 	private static boolean x = true;
 	
-	@RequestMapping(value = "/login2", method = RequestMethod.POST)
+	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
 		
 	    
@@ -63,7 +63,6 @@ public class UserController {
 	    	request.setAttribute("error", "This email address already exists");
             request.setAttribute("success", null);
 	    }
-		System.out.println("NEGHINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
 		return model;
