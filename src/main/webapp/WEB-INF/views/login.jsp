@@ -118,7 +118,7 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() < $( window ).height() * 1.88 ){
+		    if( $( window ).width() < $( window ).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -128,7 +128,7 @@
 		    }
 		});
 		$(window).resize(function(){
-			if( $( window ).width() < $( window ).height() * 1.88 ){
+			if( $( window ).width() < $( window ).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
