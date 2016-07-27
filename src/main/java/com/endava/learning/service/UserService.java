@@ -32,5 +32,6 @@ public class UserService {
 	
 	public void updateType(String email, String type){
 		userDAO.updateType(email,type);
+
 	}
 }
