@@ -16,7 +16,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,7 +29,7 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
     
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @RequestMapping(value = "users", method = RequestMethod.GET)
     public HttpEntity<Resources<Resource<User>>> getUsers(){
 
         List<User> users = loginService.getUsers();
@@ -41,9 +40,7 @@ public class LoginController {
         return new ResponseEntity<>(usersResources, HttpStatus.OK);
     }
     
-    
-    
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "login", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
 		
 	    String email = request.getParameter("email_in");
@@ -63,9 +60,7 @@ public class LoginController {
         return model;
 	}
     
-    
-	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "")
 	public ModelAndView home(){
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");

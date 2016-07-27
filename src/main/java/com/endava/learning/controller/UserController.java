@@ -6,7 +6,6 @@ import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,9 +21,8 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private EmailService emailService;
-	private static boolean x = true;
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
 		
 	    
@@ -58,10 +56,9 @@ public class UserController {
 			request.setAttribute("error", null);
 			request.setAttribute("error2", null);
             request.setAttribute("success", "Successfully created your accound. Please, sign in");
-            x = false;
 		}
 		//insuccessfully created
-	    if(x){
+	    else{
 	    	request.setAttribute("error", "This email address already exists");
 	    	request.setAttribute("error2", "This email address already exists");
             request.setAttribute("success", null);
