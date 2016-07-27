@@ -1,5 +1,7 @@
 package com.endava.learning.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,22 +16,27 @@ import com.endava.learning.service.UserService;
 import com.endava.learning.utils.CryptPassword;
 
 @RestController
-@RequestMapping(value = "/register")
+@RequestMapping(value = "/")
 public class UserController {
 	@Autowired
 	private UserService userService;
-
-	@Autowired
 	private EmailService emailService;
+	private static boolean x = true;
+	
+	@RequestMapping(value = "/login2", method = RequestMethod.POST)
+	public ModelAndView handleRequestPost(HttpServletRequest request) {
+		
+	    
+	    String name = request.getParameter("name");
+		String surname = request.getParameter("surname");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone"); 
+		String country = request.getParameter("country");
+		String city = request.getParameter("city"); 
+		String address = request.getParameter("address");
+	    
 
-	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ModelAndView createUser(@RequestParam(value = "name") String name,
-			@RequestParam(value = "surname") String surname, @RequestParam(value = "email") String email,
-			@RequestParam(value = "phone") String phone, @RequestParam(value = "country") String country,
-			@RequestParam(value = "city") String city, @RequestParam(value = "address") String address) {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("login");
-		if (!userService.emailAlreadyExists(email)) {
+	    if (!userService.emailAlreadyExists(email)) {
 			User user = new User();
 			user.setName(name);
 			user.setSurname(surname);
@@ -41,11 +48,25 @@ public class UserController {
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
-			user.setUser_id(((long)(Math.random()*1000000000)));
 
+			user.setUser_id(((long)(Math.random()*1000000000)));
+			
 			userService.createUser(user);
+			
+			//successfully created
+			request.setAttribute("error", null);
+            request.setAttribute("success", "Successfully created your accound. Please, sign in");
+            x = false;
 		}
-		
+		//insuccessfully created
+	    if(x){
+	    	request.setAttribute("error", "This email address already exists");
+            request.setAttribute("success", null);
+	    }
+		System.out.println("NEGHINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		ModelAndView model = new ModelAndView();
+		model.setViewName("login");
 		return model;
 	}
+	
 }

@@ -5,6 +5,8 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
@@ -27,8 +29,7 @@ public class LoginController {
 
     @Autowired
     private LoginService loginService;
-
-
+    
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public HttpEntity<Resources<Resource<User>>> getUsers(){
 
@@ -39,23 +40,31 @@ public class LoginController {
 
         return new ResponseEntity<>(usersResources, HttpStatus.OK);
     }
-
-    @RequestMapping(value = "login", method = RequestMethod.POST)
-    public ModelAndView login(@RequestParam(value = "email") String email,
-                              @RequestParam(value = "password") String password) {
-
-        ModelAndView model = new ModelAndView();
+    
+    
+    
+    @RequestMapping(value = "/login1", method = RequestMethod.POST)
+	public ModelAndView handleRequestPost(HttpServletRequest request) {
+		
+	    String email = request.getParameter("email_in");
+	    String password = request.getParameter("password_in");
+	    
+	    ModelAndView model = new ModelAndView();
 
         if(loginService.isValidUser(email, password)) {
             model.setViewName("home");
         } else {
             model.setViewName("login");
+            request.setAttribute("error", "Invalid email address or password.");
+            request.setAttribute("success", null);
         }
 
         return model;
-    }
+	}
+    
+    
 	
-	@RequestMapping("")
+	@RequestMapping(value = "/")
 	public ModelAndView home(){
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
