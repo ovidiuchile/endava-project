@@ -19,6 +19,7 @@ import com.endava.learning.utils.CryptPassword;
 public class UserController {
 	@Autowired
 	private UserService userService;
+	@Autowired
 	private EmailService emailService;
 	private static boolean x = true;
 	
