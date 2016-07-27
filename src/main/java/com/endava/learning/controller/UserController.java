@@ -6,7 +6,6 @@ import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,13 +19,11 @@ import com.endava.learning.utils.CryptPassword;
 public class UserController {
 	@Autowired
 	private UserService userService;
+	@Autowired
 	private EmailService emailService;
-	private static boolean x = true;
 	
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
-		
-	    
 	    String name = request.getParameter("name");
 		String surname = request.getParameter("surname");
 		String email = request.getParameter("email");
@@ -34,7 +31,6 @@ public class UserController {
 		String country = request.getParameter("country");
 		String city = request.getParameter("city"); 
 		String address = request.getParameter("address");
-	    
 
 	    if (!userService.emailAlreadyExists(email)) {
 			User user = new User();
@@ -48,18 +44,15 @@ public class UserController {
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
-
 			user.setUser_id(((long)(Math.random()*1000000000)));
-			
 			userService.createUser(user);
 			
 			//successfully created
 			request.setAttribute("error", null);
-            request.setAttribute("success", "Successfully created your accound. Please, sign in");
-            x = false;
+            request.setAttribute("success", "Successfully created your account. Please, sign in");
 		}
-		//insuccessfully created
-	    if(x){
+	    else{
+	    	//insuccessfully created
 	    	request.setAttribute("error", "This email address already exists");
             request.setAttribute("success", null);
 	    }
