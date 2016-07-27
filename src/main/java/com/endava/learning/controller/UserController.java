@@ -24,8 +24,6 @@ public class UserController {
 	
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
-		
-	    
 	    String name = request.getParameter("name");
 		String surname = request.getParameter("surname");
 		String email = request.getParameter("email");
@@ -33,7 +31,6 @@ public class UserController {
 		String country = request.getParameter("country");
 		String city = request.getParameter("city"); 
 		String address = request.getParameter("address");
-	    
 
 	    if (!userService.emailAlreadyExists(email)) {
 			User user = new User();
@@ -47,9 +44,7 @@ public class UserController {
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
-
 			user.setUser_id(((long)(Math.random()*1000000000)));
-			
 			userService.createUser(user);
 			
 			//successfully created
@@ -69,7 +64,7 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value = "newPassword", method = RequestMethod.GET)
+	@RequestMapping(value = "forgot-password", method = RequestMethod.GET)
 	public ModelAndView newPassordGet(HttpServletRequest request) {
 		
 		ModelAndView model = new ModelAndView();
@@ -77,16 +72,11 @@ public class UserController {
 		return model;
 	}
 	
-	@RequestMapping(value = "newPassword", method = RequestMethod.POST)
-	public ModelAndView newPassordPost(HttpServletRequest request) {
+	@RequestMapping(value = "change-password", method = RequestMethod.GET)
+	public ModelAndView ghangePassordGet(HttpServletRequest request) {
 		
-		String email = request.getParameter("email");
-		
-	    request.setAttribute("msg", "If there exists an user registered<br/>with this email, a new password<br/>will be sent to him.");
-	    
 		ModelAndView model = new ModelAndView();
-		model.setViewName("forgot_password");
+		model.setViewName("change_password");
 		return model;
 	}
-	
 }

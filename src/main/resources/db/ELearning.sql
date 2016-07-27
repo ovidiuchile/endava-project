@@ -223,6 +223,46 @@ INSERT INTO Materials VALUES (36, 17, 'Prime numbers density', 'As shown in this
 INSERT INTO Materials VALUES (37, 18, 'Randomized Algorithms', 'Randomized Algorithms Intro', 'https://www.youtube.com/embed/WGMn16TDTjE', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 INSERT INTO Materials VALUES (38, 18, 'Fermat primality test', 'Fermat primality test', 'https://www.youtube.com/embed/xMj3jzFDZ38', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 
+
+INSERT INTO Keywords VALUES (1, 1, 'oop');
+INSERT INTO Keywords VALUES (2, 1, 'inheritance');
+INSERT INTO Keywords VALUES (3, 2, 'checked');
+INSERT INTO Keywords VALUES (4, 2, 'unchecked');
+INSERT INTO Keywords VALUES (5, 5, 'create');
+INSERT INTO Keywords VALUES (6, 5, 'drop');
+INSERT INTO Keywords VALUES (7, 5, 'alter');
+INSERT INTO Keywords VALUES (8, 6, 'select');
+INSERT INTO Keywords VALUES (9, 6, 'insert');
+INSERT INTO Keywords VALUES (10, 6, 'update');
+INSERT INTO Keywords VALUES (11, 6, 'delete');
+INSERT INTO Keywords VALUES (12, 9, 'head');
+INSERT INTO Keywords VALUES (13, 9, 'tail');
+INSERT INTO Keywords VALUES (14, 16, 'framework');
+INSERT INTO Keywords VALUES (15, 24, 'button');
+INSERT INTO Keywords VALUES (16, 22, 'div');
+INSERT INTO Keywords VALUES (17, 26, 'procedure');
+INSERT INTO Keywords VALUES (18, 26, 'function');
+INSERT INTO Keywords VALUES (19, 27, 'acid');
+INSERT INTO Keywords VALUES (20, 10, 'frequency');
+INSERT INTO Keywords VALUES (21, 10, 'secrecy');
+INSERT INTO Keywords VALUES (22, 10, 'enigma');
+INSERT INTO Keywords VALUES (23, 11, 'xor');
+INSERT INTO Keywords VALUES (24, 11, 'bitwise');
+INSERT INTO Keywords VALUES (25, 12, 'logarithm');
+INSERT INTO Keywords VALUES (26, 12, 'rsa');
+INSERT INTO Keywords VALUES (27, 12, 'exchange');
+INSERT INTO Keywords VALUES (28, 13, 'modulo');
+INSERT INTO Keywords VALUES (29, 13, 'congruence');
+INSERT INTO Keywords VALUES (30, 13, 'quotient');
+INSERT INTO Keywords VALUES (31, 14, 'prime');
+INSERT INTO Keywords VALUES (32, 14, 'division');
+INSERT INTO Keywords VALUES (33, 15, 'random');
+INSERT INTO Keywords VALUES (34, 15, 'probability');
+INSERT INTO Keywords VALUES (35, 31, 'data');
+INSERT INTO Keywords VALUES (36, 31, 'parse');
+INSERT INTO Keywords VALUES (37, 31, 'pair');
+INSERT INTO Keywords VALUES (38, 31, 'ordered');
+
 INSERT INTO Tests VALUES (1, 1, 'OOP Test');
 INSERT INTO Tests VALUES (2, 1, 'Exceptions Test');
 
@@ -242,7 +282,4 @@ INSERT INTO Tests_history VALUES (3, 1, 4, 10, to_date('27.06.2016', 'DD.MM.YYYY
 INSERT INTO Tests_history VALUES (4, 2, 1, -5, to_date('22.07.2016', 'DD.MM.YYYY'));
 
 -- End of file.
-
-
-
 

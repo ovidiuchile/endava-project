@@ -28,7 +28,7 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() < $( window ).height() * 1.88 ){
+		    if( $( window ).width() < $( window ).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -92,7 +92,7 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png">
+		<a href="/e-learning/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 	</div>
 </div>
 
@@ -109,12 +109,12 @@
 			
 		    <p style="color:green;">${msg}</p>
 		
-		    <form name='loginForm' action=" <c:url value='/newPassword' />" method='POST'>
+		    <form name='loginForm' action=" <c:url value='/forgot-password' />" method='POST'>
 		
 		        <table>
 		            <tr>
 		                <td>E-mail:</td>
-		                <td><input type='email' name='email_in' value='' required/></td>
+		                <td><input type='email' name='email' value='' required/></td>
 		            </tr>
 		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"

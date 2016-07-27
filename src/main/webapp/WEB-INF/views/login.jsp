@@ -1,10 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!--%
+<%
    String email = request.getParameter( "email" );
    session.setAttribute( "email", email );
-   
-   
-%-->
+%>
 <html>
 <head>
     <title>Login Page</title>
@@ -28,7 +26,7 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() < $( window ).height() * 1.88 ){
+		    if( $( window ).width() < $( window ).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -92,7 +90,7 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png">
+		<a href="/e-learning/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 	</div>
 </div>
 
@@ -124,7 +122,7 @@
 		            </tr>
 		           
 		           <tr>
-		                <td><a href = "/e-learning/newPassword" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Recover password</a></td>
+		                <td><a href = "/e-learning/forgot-password" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Recover password</a></td>
 		            </tr>
 		            
 		            <tr>

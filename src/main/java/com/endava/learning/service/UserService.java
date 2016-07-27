@@ -16,7 +16,12 @@ public class UserService {
 		userDAO.save(user);
 		return user;
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public User updateUser(User user) {
+		userDAO.update(user);
+		return user;
+	}
 
 	public boolean emailAlreadyExists(String email) {
 		return userDAO.emailAlreadyExists(email);
