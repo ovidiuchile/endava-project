@@ -124,7 +124,7 @@
 		            </tr>
 		           
 		           <tr>
-		                <td><a href = "/e-learning/newPassword" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Recover password</a></td>
+		                <td><a href = "/e-learning/forgot-password" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Recover password</a></td>
 		            </tr>
 		            
 		            <tr>

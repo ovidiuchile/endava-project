@@ -73,18 +73,18 @@ public class LoginController {
 
 		String email = request.getParameter("email");
 		ModelAndView model = new ModelAndView();
-		model.setViewName("login");
-
+		model.setViewName("forgot_password");
+		
+		request.setAttribute("msg", "If there exists an user registered<br/>with this email, a new password<br/>will be sent to him.");
+		
 		if (userService.emailAlreadyExists(email)) {
 			String password = RandomStringUtils.randomAlphanumeric(16);
 			User updatedUser = userService.getUserByEmail(email);
 			updatedUser.setPassword(CryptPassword.encodeMD5(password));
 			userService.updateUser(updatedUser);
 			emailService.send(email, "E-learning - New password", "Your password is: " + password);
-			request.setAttribute("success", "Email sent");
-		} else {
-			request.setAttribute("error", "Invalid email address.");
-		}
+		} 
+		
 		return model;
 	}
 

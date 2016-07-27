@@ -109,12 +109,12 @@
 			
 		    <p style="color:green;">${msg}</p>
 		
-		    <form name='loginForm' action=" <c:url value='/newPassword' />" method='POST'>
+		    <form name='loginForm' action=" <c:url value='/forgot-password' />" method='POST'>
 		
 		        <table>
 		            <tr>
 		                <td>E-mail:</td>
-		                <td><input type='email' name='email_in' value='' required/></td>
+		                <td><input type='email' name='email' value='' required/></td>
 		            </tr>
 		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
