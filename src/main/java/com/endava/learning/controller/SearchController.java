@@ -34,7 +34,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/advancedSearchResults", method = RequestMethod.GET)
-    public ModelAndView showAdvancedResults(@RequestParam(value = "s") String s, @RequestParam(value = "typeB") boolean typeB, @RequestParam(value = "dateB") boolean dateB, @RequestParam(value = "contentEditorB") boolean contentEditorB,
+    public HttpEntity<Resources<Resource<Material>>> showAdvancedResults(@RequestParam(value = "s") String s, @RequestParam(value = "typeB") boolean typeB, @RequestParam(value = "dateB") boolean dateB, @RequestParam(value = "contentEditorB") boolean contentEditorB,
                                             @RequestParam(value = "type") int type, @RequestParam(value = "date") String date, @RequestParam(value = "contentEditor") String contentEditor) {
 
         List<Material> results = searchService.getAdvancedSearchResults(s, typeB, dateB, contentEditorB, type, date, contentEditor);

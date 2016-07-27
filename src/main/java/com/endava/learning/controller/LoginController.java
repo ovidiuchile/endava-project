@@ -42,12 +42,9 @@ public class LoginController {
     
     @RequestMapping(value = "login", method = RequestMethod.GET)
 	public ModelAndView handleRequestGET(HttpServletRequest request) {
-		
-	    
-	    
-            request.setAttribute("error", null);
-            request.setAttribute("error2", null);
-            request.setAttribute("success", null);
+        request.setAttribute("error", null);
+        request.setAttribute("error2", null);
+        request.setAttribute("success", null);
         
         ModelAndView model = new ModelAndView();
         model.setViewName("login");

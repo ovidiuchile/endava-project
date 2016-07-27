@@ -66,6 +66,7 @@
 				</div>
 				<span style="font-size:30px;cursor:pointer" onclick="openNav()"><img alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
 			</div>
+
 <div class="container-fluid">
 	<div class="row" style="background-color:black;">
 		<div class="col-md-2">
@@ -96,6 +97,7 @@
 		<div class="col-md-2">
 			<img alt="Bootstrap Image Preview" src="Google+ alt.png" class="img-circle" height="50px">
  
+
 		</div>
 		<hr>
 		<div class="row">
@@ -137,7 +139,7 @@
 				</a>
 			</div>
 
- 
+
 			<div id="material"  style="display:none;">
 			</div>
 
@@ -160,6 +162,7 @@
 					
 				</div>
 
+
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -173,6 +176,10 @@
 		</div>
 	</div>
  
+
+		</div>
+	</div>
+
 	</div>
 	
 	
@@ -184,6 +191,7 @@
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+
 
 </div>
 <script>
@@ -288,6 +296,7 @@
 <script>
 </script>
  
+
 
 </body>
 </html>

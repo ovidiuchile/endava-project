@@ -24,8 +24,9 @@ public class KeywordDAO extends AbstractDAO{
 
 		while (st.hasMoreElements()) {
 
-		    @SuppressWarnings("unchecked")
-			List<Keyword> keywords = (List<Keyword>) em().createQuery("SELECT keyword FROM Keyword keyword WHERE keyword.keyword LIKE :keyword").setParameter("keyword", input).getResultList();
+		    String word = st.nextToken();
+			List<Material> keywords = (List<Material>) em().createQuery("SELECT material FROM Material material WHERE material.title LIKE :word OR material.description LIKE :keyword").setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%").getResultList();
+
             results.addAll(keywords);
 		}
 		return results;
