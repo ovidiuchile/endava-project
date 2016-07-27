@@ -13,6 +13,7 @@
     <ignored path="../.idea/workspace.xml" />
     <ignored path="../.idea/misc.xml" />
     <ignored mask="*.iws" />
+    <ignored mask="*workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -943,12 +944,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1469598951986</updated>
-      <workItem from="1469598956274" duration="1690000" />
+      <workItem from="1469598956274" duration="1938000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1690000" />
+    <option name="totallyTimeSpent" value="1938000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
