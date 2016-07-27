@@ -16,19 +16,22 @@ public class Material {
 	@Id
 	@Column(name="material_id", unique=true, nullable=false)
 	private Long material_id;
-	
+
 	@Column(name = "link")
 	private String link;
 
 	@Column(name = "type")
 	private int type;
-	
+
 	@Column(name = "title")
 	private String title;
-	
+
+	@Column(name = "description")
+	private String description;
+
 	@Column(name = "upload_date")
 	private Date upload_date;
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -40,7 +43,7 @@ public class Material {
 	@ManyToOne
 	@JoinColumn(name = "topic_id")
 	private Topic topic;
-	
+
 	public Topic getTopic() {
 		return topic;
 	}
@@ -64,7 +67,7 @@ public class Material {
 	public void setLink(String link) {
 		this.link = link;
 	}
-	
+
 	@OneToOne
 	@JoinColumn(name = "content_editor_id")
 	private User content_editor;
@@ -83,5 +86,21 @@ public class Material {
 
 	public void setContent_editor(User content_editor) {
 		this.content_editor = content_editor;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 }

@@ -128,18 +128,14 @@ function handleelement(i,topic,option)
 
 function handleMaterial( img, source, type)
 {
+	console.log(type);
 		img.addEventListener("click", function (e) {
 			$("#myCarousel").hide();
 			$("material").show();
 			var showMaterial = document.getElementById('material');
 			showMaterial.style.display = " initial";
 			showMaterial.removeChild(showMaterial.childNodes[0]);
-			var material = document.createElement("iframe");
-			material.width="560";
-			material.height="560";
-			showMaterial.appendChild(material);
-			material.src="https://www.youtube.com/embed/yHVO4tFkNVY";
-			/**if( type==0 )
+			if( type==0 )
 			{
 				var material = document.createElement("img");
 				material.name = "material"
@@ -155,7 +151,14 @@ function handleMaterial( img, source, type)
 				material.src=source;
 				showMaterial.appendChild(material);
 			}
-			*/
+			else if ( type == 2 )
+			{
+				var material = document.createElement("iframe");
+				material.width="560";
+				material.height="560";
+				material.src=source;
+				showMaterial.appendChild(material);
+			}
 		});
 }
 
