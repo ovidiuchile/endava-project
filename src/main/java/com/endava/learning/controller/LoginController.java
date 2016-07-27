@@ -75,7 +75,7 @@ public class LoginController {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("forgot_password");
 		
-		request.setAttribute("msg", "If there exists an user registered<br/>with this email, a new password<br/>will be sent to him.");
+		request.setAttribute("msg", "If there exists an user registered with this email, a new password will be sent to him.");
 		
 		if (userService.emailAlreadyExists(email)) {
 			String password = RandomStringUtils.randomAlphanumeric(16);

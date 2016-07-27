@@ -54,7 +54,7 @@ public class UserController {
 			//successfully created
 			request.setAttribute("error", null);
 			request.setAttribute("error2", null);
-            request.setAttribute("success", "Successfully created your accound.<br/>Please, sign in");
+            request.setAttribute("success", "Successfully created your accound. Please, sign in");
 		}
 		//insuccessfully created
 	    else{
