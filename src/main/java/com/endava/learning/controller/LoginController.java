@@ -40,6 +40,20 @@ public class LoginController {
         return new ResponseEntity<>(usersResources, HttpStatus.OK);
     }
     
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+	public ModelAndView handleRequestGET(HttpServletRequest request) {
+		
+	    
+	    
+            request.setAttribute("error", null);
+            request.setAttribute("error2", null);
+            request.setAttribute("success", null);
+        
+        ModelAndView model = new ModelAndView();
+        model.setViewName("login");
+        return model;
+	}
+    
     @RequestMapping(value = "login", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
 		
@@ -53,6 +67,7 @@ public class LoginController {
         } else {
             model.setViewName("login");
             request.setAttribute("error", "Invalid email address or password.");
+            request.setAttribute("error2", null);
             request.setAttribute("success", null);
         }
 

@@ -21,7 +21,6 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private EmailService emailService;
-	private static boolean x = true;
 	
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
@@ -55,16 +54,38 @@ public class UserController {
 			
 			//successfully created
 			request.setAttribute("error", null);
+			request.setAttribute("error2", null);
             request.setAttribute("success", "Successfully created your accound. Please, sign in");
-            x = false;
 		}
 		//insuccessfully created
-	    if(x){
+	    else{
 	    	request.setAttribute("error", "This email address already exists");
+	    	request.setAttribute("error2", "This email address already exists");
             request.setAttribute("success", null);
 	    }
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
+		return model;
+	}
+	
+	
+	@RequestMapping(value = "newPassword", method = RequestMethod.GET)
+	public ModelAndView newPassordGet(HttpServletRequest request) {
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("forgot_password");
+		return model;
+	}
+	
+	@RequestMapping(value = "newPassword", method = RequestMethod.POST)
+	public ModelAndView newPassordPost(HttpServletRequest request) {
+		
+		String email = request.getParameter("email");
+		
+	    request.setAttribute("msg", "If there exists an user registered<br/>with this email, a new password<br/>will be sent to him.");
+	    
+		ModelAndView model = new ModelAndView();
+		model.setViewName("forgot_password");
 		return model;
 	}
 	
