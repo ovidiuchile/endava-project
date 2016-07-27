@@ -1,4 +1,6 @@
 /target/
 /web.xml
 /workspace.xml
+/.idea/
+/.settings/
 /pom.properties

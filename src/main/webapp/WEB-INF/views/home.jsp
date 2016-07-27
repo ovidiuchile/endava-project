@@ -33,7 +33,7 @@
 							<option value="2">Two</option>
 							<option value="3">Three</option>
 							<option value="4">Four</option>
-							<option value="5">Five</option>
+							<option value="10">Five</option>
 						</select>
 					</li>
 					<li class="" style="">
@@ -69,12 +69,12 @@
 		<hr>
 		<div class="row">
 			
-			<div class="col-md-1 btn-group-vertical" id="Topics" style="width:300px; margin-top:20px;">
+			<div class="col-md-1 btn-group-vertical" id="Topics" style="width:300px; margin-top:20px; ">
 <!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
 			</div>
-		<div class="col-md-8 container" style="padding-left:20px; border-left: 1px solid #eee; height:100%;">
+		<div class="col-md-8 container" style="padding-left:20px; border-left: 1px solid #eee; height:100%; ">
 			<br>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" style="">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" style="z-index:50;">
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox" id="Carusel" >
@@ -105,6 +105,12 @@
 					<span class="sr-only">Next</span>
 				</a>
 			</div>
+
+			<div id="material"  style="display:none;">
+			</div>
+
+
+
 			<br>
 			
 			

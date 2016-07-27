@@ -1,10 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!--%
+<%
    String email = request.getParameter( "email" );
    session.setAttribute( "email", email );
-   
-   
-%-->
+%>
 <html>
 <head>
     <title>Login Page</title>
