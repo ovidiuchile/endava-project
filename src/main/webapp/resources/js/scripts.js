@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	$("#myCarousel").carousel({interval: false});
 	var grandparent_height = $('.col-md-9').width();
 	$('#notes').width( grandparent_height );
 	$('#button_notes').click(function(){
