@@ -24,7 +24,7 @@ public class UserService {
 
 	public User getUserByEmail(String email) {
 		return userDAO.getUserByEmail(email);
-
+	}
 	public boolean isValidUserAdmin(String email){
 		return userDAO.isValidUserAdmin(email);
 	}
