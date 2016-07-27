@@ -30,7 +30,7 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
     
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
     public HttpEntity<Resources<Resource<User>>> getUsers(){
 
         List<User> users = loginService.getUsers();

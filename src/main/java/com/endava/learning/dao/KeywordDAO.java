@@ -17,12 +17,14 @@ public class KeywordDAO extends AbstractDAO{
  	}
 
 	public List<Keyword> getSearchResults(String input) {
-		StringTokenizer st = new StringTokenizer(input);
+		input.toLowerCase();
+        StringTokenizer st = new StringTokenizer(input);
 		List<Keyword> results = new ArrayList<>();
 
 		while (st.hasMoreElements()) {
-			List<Keyword> keywords = em().createQuery("SELECT k FROM Keyword k JOIN Topic t ON k.topic_id = t.id WHERE  = :keyword").getResultList();
-			results.add((Keyword) keywords);
+		    String word = st.nextToken();
+			List<Keyword> keywords = (List<Keyword>) em().createQuery("SELECT keyword FROM Keyword keyword WHERE keyword.keyword LIKE :keyword").setParameter("keyword", input).getResultList();
+            results.addAll(keywords);
 		}
 		return results;
 	}

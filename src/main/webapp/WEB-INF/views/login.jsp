@@ -228,12 +228,7 @@
 	    	<p style="color:red;">${error}</p>
 		    <p style="color:green;">${success}</p>
 		
-<<<<<<< HEAD
 		    <form name='registerForm' action="<c:url value='/login2' />" method='POST'>
-=======
-		    <form name='registerForm'
-		          action="<c:url value='login' />" method='POST'>
->>>>>>> 5337712a3059aa8df3d7baf82fa72dd1a603b518
 		
 		        <table>
 		            <tr>
@@ -243,7 +238,6 @@
 		            </tr>
 		            <tr>
 		                <td>*Surname:</td>
-<<<<<<< HEAD
 		                <td><input type='text' name='surname' required/></td>
 		            </tr>
 		            <tr>
@@ -253,19 +247,6 @@
 		            <tr>
 		                <td>*Password:</td>
 		                <td><input type='password' name='password' required/></td>
-=======
-
-		                <td><input type='text' name='surname' /></td>
-		            </tr>
-		            <tr>
-		                <td>*E-mail:</td>
-		                <td><input type='email' name='email' value=''></td>
-		            </tr>
-		            <tr>
-		                <td>*Password:</td>
-		                <td><input type='password' name='password' /></td>
-
->>>>>>> 5337712a3059aa8df3d7baf82fa72dd1a603b518
 		            </tr>
 		            <tr>
 		                <td>Phone:</td>
@@ -282,11 +263,6 @@
 		            <tr>
 		                <td>Address:</td>
 		                <td><input type='text' name='address' /></td>
-<<<<<<< HEAD
-=======
-
->>>>>>> 5337712a3059aa8df3d7baf82fa72dd1a603b518
-		            </tr>
 		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
 		                                       value="Submit" /></td>
