@@ -25,7 +25,6 @@ public class UserController {
 	
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
-		
 	    
 	    String name = request.getParameter("name");
 		String surname = request.getParameter("surname");
