@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="PostgreSQL - postgres@localhost" uuid="23a0eba5-c008-4551-b8a7-f06017d5437c">
-      <secret-storage>memory</secret-storage>
-      <user-name>postgres</user-name>
-      <introspection-scope>postgres:public,pg_catalog,postgres</introspection-scope>
-      <resolve-scope>postgres:public,postgres</resolve-scope>
-    </data-source>
-    <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="24399e93-605e-4842-ab88-802f2b3d7195">
-      <secret-storage>memory</secret-storage>
+    <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="6791d2df-34b4-4fa3-ac28-7a94254afaf9">
+      <secret-storage>master_key</secret-storage>
       <user-name>interns1</user-name>
-      <introspection-scope>team1:public,pg_catalog,interns1</introspection-scope>
-      <resolve-scope>team1:public,interns1</resolve-scope>
+      <introspection-scope>postgres:interns1,pg_catalog,public</introspection-scope>
+      <resolve-scope>postgres:interns1,public</resolve-scope>
     </data-source>
   </component>
 </project>
