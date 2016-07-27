@@ -1,10 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!--%
+   String email = request.getParameter( "email" );
+   session.setAttribute( "email", email );
+   
+   
+%-->
 <html>
 <head>
     <title>Login Page</title>
-    
     <style>
 		<%@include file="css/style.css"%>
+		
     </style>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -22,7 +28,7 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() <= $( window ).height() * 1.5 ){
+		    if( $( window ).width() < $( window ).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -42,7 +48,43 @@
 		    }
 		});
 	</script>
-    
+	
+	<script>
+	function validateForm() {
+		var numbers = /^[0-9]+$/;
+	    var x = document.forms["registerForm"]["name"].value;
+	    if (x == null || x == "") {
+	        alert("Name cannot be empty!");
+	        return false;
+	    }
+	    else{
+	    	var ok=true;
+	    	for(i=0;i<x.length;i++)
+	    		if(x[i]>='0' && x[i]<='9')
+	    			ok=false;
+	    	if(ok==false){
+	    		alert("Name cannot have digits!");
+	    		return false;
+	    	}
+	    	else{
+	    		x=document.forms["registerForm"]["email"].value;
+	    		if(x==null || x==""){
+	    			alert("E-mail cannot be empty!");
+	    			return false;
+	    		}
+	    		else{
+	    			x=document.forms["registerForm"]["phone"];
+	    			if(!x.value.match(numbers)){
+	    				alert("Phone number can only be made of digits!")
+	    				return false;
+	    			}
+	    		}
+			}
+		}
+		return true;
+	}
+	
+	</script>
 </head>
 <body onload='document.loginForm.username.focus();'>
 
@@ -67,34 +109,33 @@
 	<!-- START LOGIN BOX -->
 	<div id="login-box">
 	    
-	    <p style="font-size:20px;margin-bottom:10px;margin-top:0px;">Admin: set user type</p>
+	    <div id = "button_div">
+	    	<p style="margin:0px;margin-bottom:-10px;">Change password</p>
+	    </div>
 	    
 		<div id = "sign_in">
-		    
-		    <p style="color:red;">${error}</p>
-		    <p style="color:green;">${success}</p>
+			
+		    <p style="color:green;">${msg}</p>
 		
-		    <form name='loginForm'
-		          action="<c:url value='/admin' />" method='POST'>
+		    <form name='loginForm' action=" <c:url value='/change-password' />" method='POST'>
 		
 		        <table>
 		            <tr>
 		                <td>E-mail:</td>
-		                <td><input type='email' name='email' value=''></td>
+		                <td><input type='email' name='email' value='' required/></td>
 		            </tr>
 		            <tr>
-		                <td>Type:</td>
-		                <td><select name="type_of_user">
-						    <option value="normal user">Normal user</option>
-						    <option value="tutor">Tutor</option>
-						    <option value="content editor">Content Editor</option>
-						    <option value="admin">Admin</option>
-						  </select>
-		                </td>
+		                <td>Old passwd:</td>
+		                <td><input type='password' name='old_password' value='' required/></td>
 		            </tr>
+		            <tr>
+		                <td>New passwd:</td>
+		                <td><input type='password' name='new_password' value='' required/></td>
+		            </tr>
+		            
 		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Submit" /></td>
+		                                       value="Change" style = "margin-left:105px;"/></td>
 		            </tr>
 		        </table>
 		
@@ -108,6 +149,9 @@
 	<!-- END LOGIN BOX -->
 
 </div>
-
+<script>
+	var check_name = document.getElementById('name');
+	if(check_name.length==0) alert("Please insert a name");
+</script>
 </body>
 </html>
