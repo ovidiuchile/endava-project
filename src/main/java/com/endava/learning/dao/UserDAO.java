@@ -34,8 +34,11 @@ public class UserDAO extends AbstractDAO{
 		return (!em().createQuery("SELECT user FROM User user WHERE user.email like :email").setParameter("email", email).getResultList().isEmpty());
 	}
 
+	public User getUserByEmail(String email) {
+		return em().find(User.class, email);
+	}
 
-    
+
     public boolean isValidUserAdmin(String email) {
         return (!em().createQuery("SELECT user FROM User user where user.email like :email" ).setParameter("email", email).getResultList().isEmpty());
     }
@@ -44,5 +47,4 @@ public class UserDAO extends AbstractDAO{
     	
     	System.out.println(em().createNativeQuery("UPDATE Users SET user_type = :type WHERE email = :email").setParameter("type", type).setParameter("email", email).executeUpdate());
     }
-
  }
