@@ -25,7 +25,10 @@ public class Material {
 	
 	@Column(name = "title")
 	private String title;
-	
+
+	@Column(name = "description")
+	private String description;
+
 	@Column(name = "upload_date")
 	private Date upload_date;
 	
@@ -83,5 +86,21 @@ public class Material {
 
 	public void setContent_editor(User content_editor) {
 		this.content_editor = content_editor;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 }
