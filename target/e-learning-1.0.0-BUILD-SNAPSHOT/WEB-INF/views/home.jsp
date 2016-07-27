@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<<<<<<< HEAD
+
 	<div class="container-fluid">
 		<div class="row" style="background-color:white;">
 			<div class="col-md-3" style="background-color:white; height:auto;">
@@ -66,7 +66,6 @@
 				</div>
 				<span style="font-size:30px;cursor:pointer" onclick="openNav()"><img alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
 			</div>
-=======
 <div class="container-fluid">
 	<div class="row" style="background-color:black;">
 		<div class="col-md-2">
@@ -96,7 +95,7 @@
 		</div>
 		<div class="col-md-2">
 			<img alt="Bootstrap Image Preview" src="Google+ alt.png" class="img-circle" height="50px">
->>>>>>> 59debf9ec9ece0640c2b698776314a736c0d5547
+ 
 		</div>
 		<hr>
 		<div class="row">
@@ -138,7 +137,7 @@
 				</a>
 			</div>
 
-<<<<<<< HEAD
+ 
 			<div id="material"  style="display:none;">
 			</div>
 
@@ -160,7 +159,7 @@
 				<div id ="div_notes">
 					
 				</div>
-=======
+
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -170,10 +169,10 @@
 				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
->>>>>>> 59debf9ec9ece0640c2b698776314a736c0d5547
+ 
 		</div>
 	</div>
-<<<<<<< HEAD
+ 
 	</div>
 	
 	
@@ -185,7 +184,7 @@
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-=======
+
 </div>
 <script>
 	$.ajaxSetup({
@@ -285,14 +284,10 @@
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript">
-	<%@include file="js/jquery.waterwheelCarousel.js"%>
-</script>
-
 
 <script>
 </script>
->>>>>>> 59debf9ec9ece0640c2b698776314a736c0d5547
+ 
 
 </body>
 </html>
