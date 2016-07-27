@@ -43,7 +43,7 @@ public class LoginController {
     
     
     
-    @RequestMapping(value = "/login1", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
 		
 	    String email = request.getParameter("email_in");
@@ -56,6 +56,7 @@ public class LoginController {
         } else {
             model.setViewName("login");
             request.setAttribute("error", "Invalid email address or password.");
+            request.setAttribute("error2", null);
             request.setAttribute("success", null);
         }
 

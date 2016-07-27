@@ -23,7 +23,7 @@ public class UserController {
 	private EmailService emailService;
 	private static boolean x = true;
 	
-	@RequestMapping(value = "/login2", method = RequestMethod.POST)
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
 		
 	    
@@ -55,15 +55,16 @@ public class UserController {
 			
 			//successfully created
 			request.setAttribute("error", null);
+			request.setAttribute("error2", null);
             request.setAttribute("success", "Successfully created your accound. Please, sign in");
             x = false;
 		}
 		//insuccessfully created
 	    if(x){
 	    	request.setAttribute("error", "This email address already exists");
+	    	request.setAttribute("error2", "This email address already exists");
             request.setAttribute("success", null);
 	    }
-		System.out.println("NEGHINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
 		return model;
