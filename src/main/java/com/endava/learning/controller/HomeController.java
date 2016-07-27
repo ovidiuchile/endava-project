@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.endava.learning.service.UserService;
 
@@ -16,7 +17,8 @@ public class HomeController {
 	UserService userService;
 
 	@RequestMapping("/home")
-	public String home(ServletRequest req) {
+	public ModelAndView home(ServletRequest req) {
+		ModelAndView model = new ModelAndView();
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpSession session = request.getSession(false);
 		String email = (String) session.getAttribute("email");
@@ -24,9 +26,10 @@ public class HomeController {
 		
 		if (email != null) {
 			session.setAttribute("usertype", userService.getUserByEmail(email).getUser_type());
-			return "home";
+			model.setViewName("home");
 		} else {
-			return "login";
+			model.setViewName("login");
 		}
+		return model;
 	}
 }
