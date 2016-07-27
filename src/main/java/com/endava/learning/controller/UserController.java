@@ -20,7 +20,7 @@ import com.endava.learning.utils.CryptPassword;
 public class UserController {
 	@Autowired
 	private UserService userService;
-	
+	private EmailService emailService;
 	private static boolean x = true;
 	
 	@RequestMapping(value = "/login2", method = RequestMethod.POST)
@@ -36,21 +36,7 @@ public class UserController {
 		String address = request.getParameter("address");
 	    
 
-<<<<<<< HEAD
 	    if (!userService.emailAlreadyExists(email)) {
-=======
-	@Autowired
-	private EmailService emailService;
-
-	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ModelAndView createUser(@RequestParam(value = "name") String name,
-			@RequestParam(value = "surname") String surname, @RequestParam(value = "email") String email,
-			@RequestParam(value = "phone") String phone, @RequestParam(value = "country") String country,
-			@RequestParam(value = "city") String city, @RequestParam(value = "address") String address) {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("login");
-		if (!userService.emailAlreadyExists(email)) {
->>>>>>> 5337712a3059aa8df3d7baf82fa72dd1a603b518
 			User user = new User();
 			user.setName(name);
 			user.setSurname(surname);
@@ -62,9 +48,12 @@ public class UserController {
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
-<<<<<<< HEAD
-			User createdUser = userService.createUser(user);
-			Resource<User> userResource = new Resource<>(createdUser);
+
+			user.setUser_id(((long)(Math.random()*1000000000)));
+			
+			userService.createUser(user);
+			
+			//successfully created
 			request.setAttribute("error", null);
             request.setAttribute("success", "Successfully created your accound. Please, sign in");
             x = false;
@@ -77,13 +66,6 @@ public class UserController {
 		System.out.println("NEGHINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
-=======
-			user.setUser_id(((long)(Math.random()*1000000000)));
-
-			userService.createUser(user);
-		}
-		
->>>>>>> 5337712a3059aa8df3d7baf82fa72dd1a603b518
 		return model;
 	}
 	
