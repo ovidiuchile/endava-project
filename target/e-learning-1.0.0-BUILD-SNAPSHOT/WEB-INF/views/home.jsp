@@ -80,26 +80,26 @@
 					</form>				
 				</div>
 			</div>
-		<div class="col-md-8 container" style="padding-left:20px; border-left: 1px solid #eee; height:100%; ">
+		<div class="col-md-8 container" id="Carousel_container" style="padding-left:20px; border-left: 1px solid #eee; height:100% ">
 			<br>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;">
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox" id="Carusel" >
 					<div class="item active">
-						<a href="#1"><img src="${pageContext.request.contextPath}/resources/images/img_chania.jpg" alt="Chania" style="max-width:460; height: 345;"></a>
+						<img src="${pageContext.request.contextPath}/resources/images/img_chania.jpg" alt="Chania" style="max-width:460; height: 345;">
 					</div>
 
 					<div class="item">
-						<a href="#2"><img src="${pageContext.request.contextPath}/resources/images/img_chania2.jpg" alt="Chania" style="max-width:460; height: 345;"></a>
+						<img src="${pageContext.request.contextPath}/resources/images/img_chania2.jpg" alt="Chania" style="max-width:460; height: 345;">
 					</div>
 
 					<div class="item">
-						<a href="#3"><img src="${pageContext.request.contextPath}/resources/images/img_flower.jpg" alt="Flower" style="max-width:460; height: 345;"></a>
+						<img src="${pageContext.request.contextPath}/resources/images/img_flower.jpg" alt="Flower" style="max-width:460; height: 345;">
 					</div>
 
 					<div class="item">
-						<a href="#4"><img src="${pageContext.request.contextPath}/resources/images/img_flower2.jpg" alt="Flower" style="max-width:460; height: 345;"></a>
+						<img src="${pageContext.request.contextPath}/resources/images/img_flower2.jpg" alt="Flower" style="max-width:460; height: 345;">
 					</div>
 				</div>
 
@@ -114,7 +114,7 @@
 				</a>
 			</div>
 
-			<div id="material"  style="display:none;" oncontextmenu="return false;">
+			<div id="material"  style="display:none; height:450px;" oncontextmenu="return false;">
 			</div>
 
 
@@ -122,7 +122,7 @@
 			<br>
 			
 			
-			<div class="dropdown" id = "drop_notes">
+			<div class="dropdown" id = "drop_notes" style="position:static;">
 					
 					<button class="btn btn-primary dropdown-toggle" type="button" id="button_notes">Notes
 						<span class="caret">
