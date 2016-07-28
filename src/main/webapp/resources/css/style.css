@@ -302,5 +302,43 @@ html *
 #material{
 	
 }
+/* End of carousel height management below */
 
 
+@media screen and (max-width: 958px) {
+	hr{
+		margin-top: 50px;
+	}
+}
+@media screen and (max-width: 685px) {
+	hr{
+		margin-top: 20px;
+	}
+	#nav_pills{
+		position: absolute;
+		left:-290px;
+		top:80px;
+		display:block;
+	}
+	#firstli{
+		left:3px;
+	}
+	
+	#nav_pills li{
+		width:290px;
+	}
+	.search_input *{
+		margin-top:220px;
+		margin-left:0px;
+	}
+	#search_input{
+		width:286px;
+	}
+	#submit_input{
+		margin-top:0px;
+		width:286px;
+	}
+}
+@media screen and (min-width: 686px) {
+	
+}

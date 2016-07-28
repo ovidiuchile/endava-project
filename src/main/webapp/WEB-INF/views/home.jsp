@@ -25,8 +25,8 @@
 			</div>
 
 			<div class="col-md-8" style="top:16px; position:absolute; left:300px; ">
-				<ul class="nav nav-pills" >
-					<li class="dropdown" >
+				<ul class="nav nav-pills" id="nav_pills" >
+					<li class="dropdown" id="firstli">
 						<select class="form-control" id="Language_Selector" style="height:40px; " >
 							<option selected disabled hidden>Select language</option>
 							<option value="1">One</option>
@@ -54,7 +54,7 @@
 				</ul>
 			</div>
 			<div class="col-md-1  pull-right" style="position: absolute; top:7px; right:0px;">
-				<div id="mySidenav" class="sidenav">
+				<div id="mySidenav" class="sidenav" style="z-index:99999;">
 					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<a href="#">About</a>
 					<a href="#">Services</a>
@@ -69,16 +69,15 @@
 		<hr>
 		<div class="row">
 			
-			<div class="col-md-1 btn-group-vertical" id="" style="width:300px; margin-top:20px; ">
-				<div id="Topics" class="btn-group-vertical" style="width:270px;">
+			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px; ">
+				<div class="search_input" style="	margin-top: 10px;margin-bottom:10px;">
+						<input id="search_input" type="text" name="searchStuff" placeholder=" Search..." style=" height:32px;">
+						<input id="submit_input" class="btn btn-default" type="submit" value="Submit">				
+				</div>
+				<div id="Topics" class="btn-group-vertical" style="width:286px;">
 <!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
 				</div>
-				<div class="search_input" style="	margin-top: 10px;">
-					<form onsubmit="searchMyStuff()">
-						<input id="search_input" type="text" name="searchStuff" placeholder=" Search..." style="width: 196px; height:32px;">
-						<input id="submit_input" class="btn btn-default" type="submit" value="Submit">
-					</form>				
-				</div>
+				
 			</div>
 		<div class="col-md-8 container" id="Carousel_container" style="padding-left:20px; border-left: 1px solid #eee; height:100% ">
 			<br>
