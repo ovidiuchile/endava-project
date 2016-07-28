@@ -69,8 +69,16 @@
 		<hr>
 		<div class="row">
 			
-			<div class="col-md-1 btn-group-vertical" id="Topics" style="width:300px; margin-top:20px; ">
+			<div class="col-md-1 btn-group-vertical" id="" style="width:300px; margin-top:20px; ">
+				<div id="Topics" class="btn-group-vertical" style="width:270px;">
 <!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
+				</div>
+				<div class="search_input" style="	margin-top: 10px;">
+					<form onsubmit="searchMyStuff()">
+						<input id="search_input" type="text" name="searchStuff" placeholder=" Search..." style="width: 196px; height:32px;">
+						<input id="submit_input" class="btn btn-default" type="submit" value="Submit">
+					</form>				
+				</div>
 			</div>
 		<div class="col-md-8 container" style="padding-left:20px; border-left: 1px solid #eee; height:100%; ">
 			<br>
