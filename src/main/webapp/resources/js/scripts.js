@@ -5,6 +5,39 @@ $(document).ready(function(){
 		$("#div_notes").fadeToggle(0);
 	});
 	$("#div_notes").fadeToggle(0);
+	var AddTech =  document.getElementById("Language_Selector");
+	var AddTechnologyToTopic = document.getElementById("select_tech");
+	var AddTechnologyToMaterial = document.getElementById("select_technology");
+	
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies"
+	}).then(function (data) {
+		for (i of data.content) {
+			var technology = document.createElement("option");
+			var technology1 = document.createElement("option");
+			var technology2 = document.createElement("option");
+			
+			technology.value = i.content.technology_id;
+			technology.innerHTML = i.content.name;
+			
+			technology1.value = i.content.technology_id;
+			technology1.innerHTML = i.content.name;
+			
+			technology2.value = i.content.technology_id;
+			technology2.innerHTML = i.content.name;
+			
+			AddTech.add(technology);
+			
+			if(AddTechnologyToTopic){
+				AddTechnologyToTopic.add(technology1);
+			}
+			if(AddTechnologyToMaterial){
+				AddTechnologyToMaterial.add(technology2)
+			}
+		}
+	});
 });
 $(window).resize(function(){
 	var grandparent_height = $('.col-md-9').width();
@@ -90,7 +123,7 @@ function handleelement(i,topic,option)
 			console.log(data.content.length);
 			for(k of data.content) {
 				if (test == 0) {
-					var carousel = document.getElementById('Carusel');
+					var carrousel = document.getElementById('Carusel');
 					var material = document.createElement("img");
 					var div = document.createElement("div");
 					var type = k.content.type;
@@ -211,7 +244,7 @@ function search(){
 		dataType: 'json',
 		url: "searchResults?s=" + search
 	}).then(function (data) {
-		console.log(data.length);
+		console.log(data.content.length);
 		for (i of data.content) {
 			var div = document.createElement("div");
 			var select = document.createElement("select");
@@ -223,9 +256,18 @@ function search(){
 
 			var material = document.createElement("option");
 			material.value = i.content.material_id;
-
-
-
+			
+			var resultsTitle = document.createElement("h4");
+			resultsTitle.value = i.content.topic.technology.name + " > " + i.content.topic.name + " > " + i.content.title;
+			
+			var text3=document.createTextNode(resultsTitle.value);
+			resultsTitle.appendChild(text3);
+			
+			var resultsDescription = document.createElement("p");
+			resultsDescription.value = i.content.description;
+			
+			var text4=document.createTextNode(resultsDescription.value);
+			resultsDescription.appendChild(text4);
 
 			var text=document.createTextNode(lang.value);
 			lang.appendChild(text);
@@ -240,14 +282,30 @@ function search(){
 			select.add(topic);
 			select.add(material);
 			select.style.display = "none";
+			
 			var buton =  document.createElement("button");
 			buton.onclick= function(){searchResult(lang.value, topic.value, material.value)};
 			buton.innerHTML= " Click me";
 			div.appendChild(select);
+			buton.className = "result-search-button";
+			
+			var str = resultsTitle.innerHTML;
+		    var res = str.replace(search, "BOSS");
+		    resultsTitle.innerHTML = res;
+		    
+		    var str = resultsDescription.innerHTML;
+		    var res = str.replace(search, "<span style = 'background-color:yellow'>" + search + "</span>");
+		    resultsDescription.innerHTML = res;
+			
+			
+			buton.onclick= "searchResult()";
+			div.appendChild(select);
+			
+			div.appendChild(resultsTitle);
+			div.appendChild(resultsDescription);
+
 			div.appendChild(buton);
 			search_output.appendChild(div);
-
-
 
 
 		}
