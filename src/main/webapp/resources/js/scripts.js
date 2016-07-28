@@ -174,7 +174,10 @@ function handleMaterial( img, source, type)
 				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
 			}
+			var container = document.getElementById('search-container');
+			container.style.display="none";
 		});
+
 }
 
 
@@ -197,6 +200,9 @@ function closeNav() {
 
 
 function search(){
+	$("#myCarousel").hide();
+	$("#search-container").show();
+	$("#material").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	console.log('test entrance function');
@@ -211,39 +217,136 @@ function search(){
 			var select = document.createElement("select");
 			var lang = document.createElement("option");
 			lang.value = i.content.topic.technology.technology_id;
-			
+
 			var topic = document.createElement("option");
 			topic.value = i.content.topic.topic_id;
-			
+
 			var material = document.createElement("option");
 			material.value = i.content.material_id;
-			
-			
-			
-			
+
+
+
+
 			var text=document.createTextNode(lang.value);
 			lang.appendChild(text);
-			
+
 			var text1=document.createTextNode(topic.value);
 			topic.appendChild(text1);
-			
+
 			var text2=document.createTextNode(material.value);
 			material.appendChild(text2);
-			
+
 			select.add(lang);
 			select.add(topic);
 			select.add(material);
 			select.style.display = "none";
 			var buton =  document.createElement("button");
-			button.onclick= "searchResult()";
+			buton.onclick= function(){searchResult(lang.value, topic.value, material.value)};
+			buton.innerHTML= " Click me";
 			div.appendChild(select);
-			div.appendChild(button);
+			div.appendChild(buton);
 			search_output.appendChild(div);
-			
 
-			
-			
+
+
+
 		}
 	});
 
 }
+
+function searchResult(langId, topicId, materialId)
+{
+	console.log(langId, topicId, materialId);
+	var materialCont = document.getElementById("material");
+	var searchCont = document.getElementById("search-container");
+	try
+	{
+		while(searchCont.childElementCount!=0)
+		{
+			searchCont.removeChild(searchCont.childNodes[0]);
+		}
+	}
+	catch (e)
+	{
+
+	}
+	$("myCarousel").show();
+	var carusel = document.getElementById('myCarousel');
+	carusel.style.display = " block";
+	$("material").show();
+
+	var AddTopic = document.getElementById('Topics');
+	while (AddTopic.childElementCount != 0) {
+		try {
+			AddTopic.removeChild(AddTopic.childNodes[0]);
+		}
+		catch (e) {
+
+		}
+	}
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + langId + "/topics"
+	}).then(function (data) {
+		for (i of data.content) {
+			var topic = document.createElement("button");
+			var topic_id= i.content.topic_id;
+			topic.className="btn btn-primary";
+			topic.type="button";
+			topic.name = i.content.name;
+			topic.value = topic_id;
+			topic.innerHTML = i.content.name;
+			handleelement(topic_id,topic,langId);
+			AddTopic.appendChild(topic);
+		}
+	});
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + langId + "/topics/" + topicId + "/materials/" + materialId
+		}).then(function (data) {
+
+		var showMaterial = document.getElementById('material');
+		showMaterial.style.display = " initial";
+		showMaterial.removeChild(showMaterial.childNodes[0]);
+		var type = data.content.type;
+		var source = data.content.link;
+			if( type==0 )
+			{
+				var material = document.createElement("img");
+				material.name = "material"
+				material.innerHTML = " test";
+				material.src = source;
+				material.oncontextmenu="return false;"
+				showMaterial.appendChild(material);
+			}
+			else if ( type == 1)
+			{
+				var material = document.createElement("iframe");
+				material.width="600";
+				material.height="360";
+				material.src=source;
+				showMaterial.appendChild(material);
+				material.oncontextmenu="return false;"
+			}
+			else if ( type == 2 )
+			{
+				var material = document.createElement("iframe");
+				material.width="600";
+				material.height="360";
+				material.src=source;
+				showMaterial.appendChild(material);
+				material.oncontextmenu="return false;"
+			}
+
+		$("myCarousel").show();
+		var container = document.getElementById('search-container');
+		container.style.display="none";
+		});
+
+
+
+}
+
