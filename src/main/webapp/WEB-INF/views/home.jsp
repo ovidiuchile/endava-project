@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 
 	<title>Appollo</title>
 
@@ -73,13 +74,13 @@
 				<div id="Topics" class="btn-group-vertical" style="width:270px;">
 <!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
 				</div>
-				<div class="search_input" style="	margin-top: 10px;">
-					<form onsubmit="searchMyStuff()">
+				<div class="search_inputdiv" style="	margin-top: 10px;">
 						<input id="search_input" type="text" name="searchStuff" placeholder=" Search..." style="width: 196px; height:32px;">
-						<input id="submit_input" class="btn btn-default" type="submit" value="Submit">
-					</form>				
+						<input id="submit_input" class="btn btn-default"  value="Submit" onclick="search()">		
 				</div>
 			</div>
+			
+		<!-- primary container -->
 		<div class="col-md-8 container" id="Carousel_container" style="padding-left:20px; border-left: 1px solid #eee; height:100% ">
 			<br>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;">
@@ -135,7 +136,15 @@
 				<div id ="div_notes">
 					
 				</div>
+				
+				<!-- search container -->
+				<div id = "search-container">
+				
+				</div>
+				<!-- end search container -->
 		</div>
+		<!-- end primary container -->
+		
 	</div>
 	</div>
 	

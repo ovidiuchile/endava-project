@@ -193,3 +193,57 @@ function openNav() {
 function closeNav() {
 	document.getElementById("mySidenav").style.width = "0";
 }
+
+
+
+function search(){
+	var search = document.getElementById("search_input").value;
+	var search_output = document.getElementById("search-container");
+	console.log('test entrance function');
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "searchResults?s=" + search
+	}).then(function (data) {
+		console.log(data.length);
+		for (i of data.content) {
+			var div = document.createElement("div");
+			var select = document.createElement("select");
+			var lang = document.createElement("option");
+			lang.value = i.content.topic.technology.technology_id;
+			
+			var topic = document.createElement("option");
+			topic.value = i.content.topic.topic_id;
+			
+			var material = document.createElement("option");
+			material.value = i.content.material_id;
+			
+			
+			
+			
+			var text=document.createTextNode(lang.value);
+			lang.appendChild(text);
+			
+			var text1=document.createTextNode(topic.value);
+			topic.appendChild(text1);
+			
+			var text2=document.createTextNode(material.value);
+			material.appendChild(text2);
+			
+			select.add(lang);
+			select.add(topic);
+			select.add(material);
+			select.style.display = "none";
+			var buton =  document.createElement("button");
+			button.onclick= "searchResult()";
+			div.appendChild(select);
+			div.appendChild(button);
+			search_output.appendChild(div);
+			
+
+			
+			
+		}
+	});
+	
+}
