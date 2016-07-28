@@ -5,6 +5,39 @@ $(document).ready(function(){
 		$("#div_notes").fadeToggle(0);
 	});
 	$("#div_notes").fadeToggle(0);
+	var AddTech =  document.getElementById("Language_Selector");
+	var AddTechnologyToTopic = document.getElementById("select_tech");
+	var AddTechnologyToMaterial = document.getElementById("select_technology");
+	
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies"
+	}).then(function (data) {
+		for (i of data.content) {
+			var technology = document.createElement("option");
+			var technology1 = document.createElement("option");
+			var technology2 = document.createElement("option");
+			
+			technology.value = i.content.technology_id;
+			technology.innerHTML = i.content.name;
+			
+			technology1.value = i.content.technology_id;
+			technology1.innerHTML = i.content.name;
+			
+			technology2.value = i.content.technology_id;
+			technology2.innerHTML = i.content.name;
+			
+			AddTech.add(technology);
+			
+			if(AddTechnologyToTopic){
+				AddTechnologyToTopic.add(technology1);
+			}
+			if(AddTechnologyToMaterial){
+				AddTechnologyToMaterial.add(technology2)
+			}
+		}
+	});
 });
 $(window).resize(function(){
 	var grandparent_height = $('.col-md-9').width();
