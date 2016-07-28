@@ -29,11 +29,6 @@
 					<li class="dropdown" >
 						<select class="form-control" id="Language_Selector" style="height:40px; " >
 							<option selected disabled hidden>Select language</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-							<option value="4">Four</option>
-							<option value="10">Five</option>
 						</select>
 					</li>
 					<li class="" style="">
