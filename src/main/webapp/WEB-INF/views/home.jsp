@@ -82,11 +82,7 @@
 			</div>
 		<div class="col-md-8 container" style="padding-left:20px; border-left: 1px solid #eee; height:100% ">
 			<br>
-<<<<<<< HEAD
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" oncontextmenu="return false;">
-=======
 			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;">
->>>>>>> faa6aa8e510e293bc8eb837b9ed1be2b0e1a61de
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox" id="Carusel" >
