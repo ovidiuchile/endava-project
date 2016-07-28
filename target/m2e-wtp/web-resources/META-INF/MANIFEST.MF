@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: dchiriac
 Build-Jdk: 1.8.0_91
+=======
+Built-By: ochile
+Build-Jdk: 1.8.0_101
+>>>>>>> 1ab012d0e5a9041e50b415e5c377ac7509371e9a
 Created-By: Maven Integration for Eclipse
 

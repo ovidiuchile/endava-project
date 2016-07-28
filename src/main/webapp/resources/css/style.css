@@ -254,8 +254,48 @@ html *
 	}
 }
 
-
-
 #Topics{
 	z-index: 99;
 }
+
+
+
+
+
+/* Carousel height management below */
+
+#Carousel_container{
+	height:100%;
+}
+#myCarousel{
+	height:450px;
+}
+#Carusel{
+	height:450px;
+}
+.item{
+	height:100%;
+	vertical-align: middle; 
+}
+.item a{
+	height:450px;
+	position: relative;
+
+}
+.item img{
+	
+	width:initial !important;
+	position: relative;
+	top: 50%;
+	height:auto;
+	max-height: 450px;
+	transform: translateY(-50%);
+}
+.carousel-control{
+	height:450px;
+}
+material{
+	height:560px !important;
+}
+
+
