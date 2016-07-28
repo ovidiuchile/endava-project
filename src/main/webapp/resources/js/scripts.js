@@ -61,6 +61,7 @@ $(".form-control").change(function() {
 	var option = document.getElementById('Language_Selector').value;
 	var AddTopic = document.getElementById('Topics');
 	var material = document.createElement("img");
+	$("#material").hide();
 	material.src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR8g4PCYI2ssAVPKlJmC9q4T_k84PE7zOHqAWultSDb-BbSy5YfK-5P0I1f";
 	material.className="item active";
 	material.style.display = " none " ;
@@ -123,7 +124,7 @@ function handleelement(i,topic,option)
 			console.log(data.content.length);
 			for(k of data.content) {
 				if (test == 0) {
-					var carrousel = document.getElementById('Carusel');
+					var carousel = document.getElementById('Carusel');
 					var material = document.createElement("img");
 					var div = document.createElement("div");
 					var type = k.content.type;
@@ -296,10 +297,7 @@ function search(){
 		    var str = resultsDescription.innerHTML;
 		    var res = str.replace(search, "<span style = 'background-color:yellow'>" + search + "</span>");
 		    resultsDescription.innerHTML = res;
-			
-			
-			buton.onclick= "searchResult()";
-			div.appendChild(select);
+
 			
 			div.appendChild(resultsTitle);
 			div.appendChild(resultsDescription);
