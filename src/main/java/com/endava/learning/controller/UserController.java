@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.endava.learning.model.User;
 import com.endava.learning.service.EmailService;
+import com.endava.learning.service.LoginService;
 import com.endava.learning.service.UserService;
 import com.endava.learning.utils.CryptPassword;
 
@@ -21,6 +22,9 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private EmailService emailService;
+	
+	@Autowired
+	private LoginService loginService;
 	
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
@@ -77,6 +81,48 @@ public class UserController {
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("change_password");
+		return model;
+	}
+	
+	@RequestMapping(value = "forgot-password", method = RequestMethod.POST)
+	public ModelAndView forgotPassword(HttpServletRequest request) {
+
+		String email = request.getParameter("email");
+		ModelAndView model = new ModelAndView();
+		model.setViewName("forgot_password");
+		
+		request.setAttribute("msg", "If there exists an user registered with this email, a new password will be sent to him.");
+		
+		if (userService.emailAlreadyExists(email)) {
+			String password = RandomStringUtils.randomAlphanumeric(16);
+			User updatedUser = userService.getUserByEmail(email);
+			updatedUser.setPassword(CryptPassword.encodeMD5(password));
+			userService.updateUser(updatedUser);
+			emailService.send(email, "E-learning - New password", "Your password is: " + password);
+		} 
+		
+		return model;
+	}
+
+	@RequestMapping(value = "change-password", method = RequestMethod.POST)
+	public ModelAndView changePassword(HttpServletRequest request) {
+
+		String email = request.getParameter("email");
+		String oldPassword = request.getParameter("old_password");
+		String newPassword = request.getParameter("new_password");
+
+		ModelAndView model = new ModelAndView();
+		model.setViewName("change_password");
+		
+		if (loginService.isValidUser(email, oldPassword)) {
+			User updatedUser = userService.getUserByEmail(email);
+			updatedUser.setPassword(CryptPassword.encodeMD5(newPassword));
+			userService.updateUser(updatedUser);
+			emailService.send(email, "E-learning - New password", "Your password is: " + newPassword);
+			request.setAttribute("msg", "Password changed");
+		} else {
+			request.setAttribute("msg", "Invalid email address or old password.");
+		}
 		return model;
 	}
 }
