@@ -144,7 +144,7 @@ body,head{
     		padding:0px;
     		min-width:330px;
     		min-height:500px;
-    		
+    		background-color: yellow;
     	}
     
         .error {

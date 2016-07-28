@@ -90,13 +90,13 @@ function handleelement(i,topic,option)
 			console.log(data.content.length);
 			for(k of data.content) {
 				if (test == 0) {
-					var carousel = document.getElementById('Carusel');
+					var carrousel = document.getElementById('Carusel');
 					var material = document.createElement("img");
 					var div = document.createElement("div");
 					var type = k.content.type;
 					var source = k.content.link;
 					div.className = "item active";
-					material.name = "material"
+					material.name = "mateial"
 					material.innerHTML = " test";
 					material.src = k.content.link;
 					material.style.zIndex= " 50";
@@ -177,4 +177,9 @@ function openNav() {
 /* Set the width of the side navigation to 0 */
 function closeNav() {
 	document.getElementById("mySidenav").style.width = "0";
+}
+
+
+function search() {
+	var field = document.getElementById('test').value;
 }
