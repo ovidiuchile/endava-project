@@ -168,8 +168,8 @@ function handleMaterial( img, source, type)
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
-				material.width="560";
-				material.height="560";
+				material.width="700";
+				material.height="400";
 				material.src=source;
 				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"

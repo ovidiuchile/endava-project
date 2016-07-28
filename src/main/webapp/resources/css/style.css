@@ -295,7 +295,7 @@ html *
 	height:450px;
 }
 material{
-	height:560px;
+	height:560px !important;
 }
 
 

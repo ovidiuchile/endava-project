@@ -114,7 +114,7 @@
 				</a>
 			</div>
 
-			<div id="material"  style="display:none;" oncontextmenu="return false;">
+			<div id="material"  style="display:none; height:450px;" oncontextmenu="return false;">
 			</div>
 
 
@@ -122,7 +122,7 @@
 			<br>
 			
 			
-			<div class="dropdown" id = "drop_notes">
+			<div class="dropdown" id = "drop_notes" style="position:static;">
 					
 					<button class="btn btn-primary dropdown-toggle" type="button" id="button_notes">Notes
 						<span class="caret">
