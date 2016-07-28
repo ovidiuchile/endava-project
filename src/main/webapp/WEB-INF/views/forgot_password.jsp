@@ -117,6 +117,9 @@
 		                <td><input type='email' name='email' value='' required/></td>
 		            </tr>
 		            <tr>
+		                <td><a href = "/e-learning/" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Go back</a></td>
+		            </tr>
+		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
 		                                       value="Send"/></td>
 		            </tr>

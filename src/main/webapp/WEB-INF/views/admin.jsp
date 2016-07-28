@@ -52,12 +52,7 @@
 	<div id = "logo_div">
 		<a href="/e-learning/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 		<ul>
-		  <li><a href="#home">Profile</a></li>
-		  <li><a href="#home">Tests</a></li>
-		  <li><a href="#home">Chat rooms</a></li>
-		  <li><a href="#news">Classroom</a></li>
-		  <li><a href="#contact">Try it yourself</a></li>
-		  <li><a href="#about">Learn</a></li>
+		  <li><a href="/e-learning/">Back to main page</a></li>
 		</ul>
 	</div>
 </div>
