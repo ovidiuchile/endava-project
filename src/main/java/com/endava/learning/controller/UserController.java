@@ -24,7 +24,6 @@ public class UserController {
 	
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
-	    
 	    String name = request.getParameter("name");
 		String surname = request.getParameter("surname");
 		String email = request.getParameter("email");
@@ -32,7 +31,6 @@ public class UserController {
 		String country = request.getParameter("country");
 		String city = request.getParameter("city"); 
 		String address = request.getParameter("address");
-	    
 
 	    if (!userService.emailAlreadyExists(email)) {
 			User user = new User();
@@ -46,9 +44,7 @@ public class UserController {
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
-
 			user.setUser_id(((long)(Math.random()*1000000000)));
-			
 			userService.createUser(user);
 			
 			//successfully created

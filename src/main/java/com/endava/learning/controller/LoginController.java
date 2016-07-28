@@ -47,7 +47,18 @@ public class LoginController {
 
 		usersResources.add(linkTo(methodOn(LoginController.class).getUsers()).withRel("custom-self"));
 
-		return new ResponseEntity<>(usersResources, HttpStatus.OK);
+        return new ResponseEntity<>(usersResources, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+	public ModelAndView handleRequestGET(HttpServletRequest request) {
+        request.setAttribute("error", null);
+        request.setAttribute("error2", null);
+        request.setAttribute("success", null);
+        
+        ModelAndView model = new ModelAndView();
+        model.setViewName("login");
+        return model;
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
@@ -75,7 +86,7 @@ public class LoginController {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("forgot_password");
 		
-		request.setAttribute("msg", "If there exists an user registered<br/>with this email, a new password<br/>will be sent to him.");
+		request.setAttribute("msg", "If there exists an user registered with this email, a new password will be sent to him.");
 		
 		if (userService.emailAlreadyExists(email)) {
 			String password = RandomStringUtils.randomAlphanumeric(16);
@@ -96,17 +107,16 @@ public class LoginController {
 		String newPassword = request.getParameter("new_password");
 
 		ModelAndView model = new ModelAndView();
-		model.setViewName("home");
+		model.setViewName("change_password");
 		
 		if (loginService.isValidUser(email, oldPassword)) {
 			User updatedUser = userService.getUserByEmail(email);
 			updatedUser.setPassword(CryptPassword.encodeMD5(newPassword));
 			userService.updateUser(updatedUser);
 			emailService.send(email, "E-learning - New password", "Your password is: " + newPassword);
-			request.setAttribute("success", "Email sent");
+			request.setAttribute("msg", "Password changed");
 		} else {
-			request.setAttribute("error", "Invalid email address or password.");
-			request.setAttribute("success", null);
+			request.setAttribute("msg", "Invalid email address or old password.");
 		}
 		return model;
 	}
