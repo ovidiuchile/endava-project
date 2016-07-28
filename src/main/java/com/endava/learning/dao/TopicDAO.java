@@ -22,7 +22,7 @@ public class TopicDAO extends AbstractDAO {
 	public List<Topic> getAllTopicForTechnology(Long idTechnology) {
 		return em()
 				.createQuery(
-						"SELECT t FROM Topic t where t.technology.id = :idTechnology order by t.id desc")
+						"SELECT t FROM Topic t where t.technology.id = :idTechnology")
 				.setParameter("idTechnology", idTechnology)
 				.getResultList();
 	}

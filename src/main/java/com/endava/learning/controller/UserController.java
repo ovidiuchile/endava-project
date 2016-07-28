@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.endava.learning.model.User;
 import com.endava.learning.service.EmailService;
+import com.endava.learning.service.LoginService;
 import com.endava.learning.service.UserService;
 import com.endava.learning.utils.CryptPassword;
 
@@ -21,12 +22,12 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private EmailService emailService;
-	private static boolean x = true;
+	
+	@Autowired
+	private LoginService loginService;
 	
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
-		
-	    
 	    String name = request.getParameter("name");
 		String surname = request.getParameter("surname");
 		String email = request.getParameter("email");
@@ -34,7 +35,6 @@ public class UserController {
 		String country = request.getParameter("country");
 		String city = request.getParameter("city"); 
 		String address = request.getParameter("address");
-	    
 
 	    if (!userService.emailAlreadyExists(email)) {
 			User user = new User();
@@ -48,19 +48,18 @@ public class UserController {
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
-
 			user.setUser_id(((long)(Math.random()*1000000000)));
-			
 			userService.createUser(user);
 			
 			//successfully created
 			request.setAttribute("error", null);
+			request.setAttribute("error2", null);
             request.setAttribute("success", "Successfully created your accound. Please, sign in");
-            x = false;
 		}
 		//insuccessfully created
-	    if(x){
+	    else{
 	    	request.setAttribute("error", "This email address already exists");
+	    	request.setAttribute("error2", "This email address already exists");
             request.setAttribute("success", null);
 	    }
 		ModelAndView model = new ModelAndView();
@@ -68,4 +67,62 @@ public class UserController {
 		return model;
 	}
 	
+	
+	@RequestMapping(value = "forgot-password", method = RequestMethod.GET)
+	public ModelAndView newPassordGet(HttpServletRequest request) {
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("forgot_password");
+		return model;
+	}
+	
+	@RequestMapping(value = "change-password", method = RequestMethod.GET)
+	public ModelAndView ghangePassordGet(HttpServletRequest request) {
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("change_password");
+		return model;
+	}
+	
+	@RequestMapping(value = "forgot-password", method = RequestMethod.POST)
+	public ModelAndView forgotPassword(HttpServletRequest request) {
+
+		String email = request.getParameter("email");
+		ModelAndView model = new ModelAndView();
+		model.setViewName("forgot_password");
+		
+		request.setAttribute("msg", "If there exists an user registered with this email, a new password will be sent to him.");
+		
+		if (userService.emailAlreadyExists(email)) {
+			String password = RandomStringUtils.randomAlphanumeric(16);
+			User updatedUser = userService.getUserByEmail(email);
+			updatedUser.setPassword(CryptPassword.encodeMD5(password));
+			userService.updateUser(updatedUser);
+			emailService.send(email, "E-learning - New password", "Your password is: " + password);
+		} 
+		
+		return model;
+	}
+
+	@RequestMapping(value = "change-password", method = RequestMethod.POST)
+	public ModelAndView changePassword(HttpServletRequest request) {
+
+		String email = request.getParameter("email");
+		String oldPassword = request.getParameter("old_password");
+		String newPassword = request.getParameter("new_password");
+
+		ModelAndView model = new ModelAndView();
+		model.setViewName("change_password");
+		
+		if (loginService.isValidUser(email, oldPassword)) {
+			User updatedUser = userService.getUserByEmail(email);
+			updatedUser.setPassword(CryptPassword.encodeMD5(newPassword));
+			userService.updateUser(updatedUser);
+			emailService.send(email, "E-learning - New password", "Your password is: " + newPassword);
+			request.setAttribute("msg", "Password changed");
+		} else {
+			request.setAttribute("msg", "Invalid email address or old password.");
+		}
+		return model;
+	}
 }

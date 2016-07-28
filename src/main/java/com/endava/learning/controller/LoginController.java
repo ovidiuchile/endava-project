@@ -26,41 +26,51 @@ import com.endava.learning.service.LoginService;
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class LoginController {
 
-    @Autowired
-    private LoginService loginService;
-    
-    @RequestMapping(value = "users", method = RequestMethod.GET)
-    public HttpEntity<Resources<Resource<User>>> getUsers(){
+	@Autowired
+	private LoginService loginService;
 
-        List<User> users = loginService.getUsers();
-        Resources<Resource<User>> usersResources = Resources.wrap(users);
+	@RequestMapping(value = "users", method = RequestMethod.GET)
+	public HttpEntity<Resources<Resource<User>>> getUsers() {
 
-        usersResources.add(linkTo(methodOn(LoginController.class).getUsers()).withRel("custom-self"));
+		List<User> users = loginService.getUsers();
+		Resources<Resource<User>> usersResources = Resources.wrap(users);
+
+		usersResources.add(linkTo(methodOn(LoginController.class).getUsers()).withRel("custom-self"));
 
         return new ResponseEntity<>(usersResources, HttpStatus.OK);
     }
     
-    @RequestMapping(value = "login", method = RequestMethod.POST)
-	public ModelAndView handleRequestPost(HttpServletRequest request) {
-		
-	    String email = request.getParameter("email_in");
-	    String password = request.getParameter("password_in");
-	    
-	    ModelAndView model = new ModelAndView();
-
-        if(loginService.isValidUser(email, password)) {
-            model.setViewName("home");
-        } else {
-            model.setViewName("login");
-            request.setAttribute("error", "Invalid email address or password.");
-            request.setAttribute("success", null);
-        }
-
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+	public ModelAndView handleRequestGET(HttpServletRequest request) {
+        request.setAttribute("error", null);
+        request.setAttribute("error2", null);
+        request.setAttribute("success", null);
+        
+        ModelAndView model = new ModelAndView();
+        model.setViewName("login");
         return model;
 	}
-    
+
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public ModelAndView handleRequestPost(HttpServletRequest request) {
+
+		String email = request.getParameter("email_in");
+		String password = request.getParameter("password_in");
+
+		ModelAndView model = new ModelAndView();
+
+		if (loginService.isValidUser(email, password)) {
+			model.setViewName("home");
+		} else {
+			model.setViewName("login");
+			request.setAttribute("error", "Invalid email address or password.");
+			request.setAttribute("success", null);
+		}
+		return model;
+	}
+
 	@RequestMapping(value = "")
-	public ModelAndView home(){
+	public ModelAndView home() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
 		return model;

@@ -137,4 +137,117 @@ textarea#newoptions {
 }
 
 
+body,head{
+    		font-family: Arial, Helvetica, sans-serif;
+    		height:100%;
+    		margin:0px;
+    		padding:0px;
+    		min-width:330px;
+    		min-height:500px;
+    		
+    	}
+    
+        .error {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
 
+        .msg {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
+
+        #login-box {
+            padding: 20px;
+            padding-bottom:0px;
+            width:258px;
+            position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+            
+            background: #071226;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border: 1px solid #000;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        #menu{
+        	background-color:#071226;
+        	width:calc( 100% - 20px );
+        	min-width:720px;
+        	padding:10px;
+        	opacity: 0.9;
+        }
+        #logo_div{
+        	width:100%;
+        	margin:auto;
+        }
+        
+        #img_logo{
+        	height:50px;
+        }
+        #button_div{
+        	display:inline-block;
+        	margin-bottom:20px;
+        }
+        .button_sign {
+		    background-color: #024873; /* Green */
+		    border: none;
+		    color: white;
+		    padding: 10px 10px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		} 
+		#background_image{
+			z-index:-1;
+			position:fixed;
+			float:right;
+		}
+		
+		table{
+			color:white;
+			opacity:1;
+		}
+		#submitt{
+			margin-left:90px;
+			margin-top:20px;
+		}
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    display:inline-block;
+		    float:right;
+		}
+		
+		li {
+		    float: right;
+		}
+		
+		li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		
+		li a:hover {
+		    background-color: #024873;
+		}
+		

@@ -39,7 +39,6 @@ public class EmailService {
 			message.setSubject(subject);
 			message.setText(email_body);
 			Transport.send(message);
-			System.out.println("message sent");
 		} catch (Exception e) {
 			System.out.println(e);
 		}

@@ -1,105 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!--%
+<%
    String email = request.getParameter( "email" );
    session.setAttribute( "email", email );
-   
-   
-%-->
+%>
 <html>
 <head>
     <title>Login Page</title>
     <style>
-    	body,head{
-    		height:100%;
-    		margin:0px;
-    		padding:0px;
-    		min-width:330px;
-    		min-height:500px;
-    		
-    	}
-    
-        .error {
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            color: #a94442;
-            background-color: #f2dede;
-            border-color: #ebccd1;
-        }
-
-        .msg {
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            color: #31708f;
-            background-color: #d9edf7;
-            border-color: #bce8f1;
-        }
-
-        #login-box {
-            width: 250px;
-            padding: 20px;
-            padding-bottom:0px;
-            
-            position: absolute;
-		    top: 50%;
-		    left: 50%;
-		    transform: translate(-50%, -50%);
-            
-            background: #071226;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border: 1px solid #000;
-            opacity: 0.8;
-            color: white;
-        }
-        
-        #menu{
-        	background-color:#071226;
-        	width:calc( 100% - 20px );
-        	height:50px;
-        	padding:10px;
-        	opacity: 0.8;
-        }
-        #logo_div{
-        	width:100%;
-        	height:50px;
-        	max-width:1000px;
-        	margin:auto;
-        }
-        
-        #img_logo{
-        	height:50px;
-        }
-        #button_div{
-        	display:inline-block;
-        }
-        .button_sign {
-		    background-color: #024873; /* Green */
-		    border: none;
-		    color: white;
-		    padding: 10px 10px;
-		    text-align: center;
-		    text-decoration: none;
-		    display: inline-block;
-		    font-size: 16px;
-		} 
-		#background_image{
-			z-index:-1;
-			position:fixed;
-			float:right;
-		}
-		
-		table{
-			color:white;
-			opacity:1;
-		}
-		#submitt{
-			margin-left:90px;
-			margin-top:20px;
-		}
+		<%@include file="css/style.css"%>
 		
     </style>
     
@@ -118,7 +26,7 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() < $( window ).height() * 1.88 ){
+		    if( $( window ).width() < $( window ).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -128,7 +36,7 @@
 		    }
 		});
 		$(window).resize(function(){
-			if( $( window ).width() < $( window ).height() * 1.88 ){
+			if( $( window ).width() < $( window ).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -182,7 +90,7 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png">
+		<a href="/e-learning/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 	</div>
 </div>
 
@@ -212,9 +120,14 @@
 		                <td>Password:</td>
 		                <td><input type='password' name='password_in' required/></td>
 		            </tr>
+		           
+		           <tr>
+		                <td><a href = "/e-learning/forgot-password" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Recover password</a></td>
+		            </tr>
+		            
 		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Submit" action = "login"/></td>
+		                                       value="Submit" style="margin-top:35px;"/></td>
 		            </tr>
 		        </table>
 		
@@ -222,10 +135,11 @@
 		               value="${_csrf.token}" />
 		
 		    </form>
+		    
 	    </div>
 	    
 	    <div id = "sign_up">
-	    	<p style="color:red;">${error}</p>
+	    	<p style="color:red;">${error2}</p>
 		    <p style="color:green;">${success}</p>
 		
 		    <form name='registerForm' action="<c:url value='/register' />" method='POST'>
@@ -270,6 +184,7 @@
 		
 		    </form>
 		    <p>* are mandatory</p>
+		    <p>The password is sent via email</p>
 	    </div>
 	    
 	</div>
