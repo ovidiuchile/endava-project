@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 
 	<title>Appollo</title>
 
@@ -73,16 +74,16 @@
 				<div id="Topics" class="btn-group-vertical" style="width:270px;">
 <!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
 				</div>
-				<div class="search_input" style="	margin-top: 10px;">
-					<form onsubmit="searchMyStuff()">
+				<div class="search_inputdiv" style="	margin-top: 10px;">
 						<input id="search_input" type="text" name="searchStuff" placeholder=" Search..." style="width: 196px; height:32px;">
-						<input id="submit_input" class="btn btn-default" type="submit" value="Submit">
-					</form>				
+						<input id="submit_input" class="btn btn-default"  value="Submit" onclick="search()">		
 				</div>
 			</div>
+			
+		<!-- primary container -->
 		<div class="col-md-8 container" id="Carousel_container" style="padding-left:20px; border-left: 1px solid #eee; height:100% ">
 			<br>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" align="center">
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox" id="Carusel" >
@@ -112,19 +113,9 @@
 					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 					<span class="sr-only">Next</span>
 				</a>
-			</div>
-
-			<div id="material"  style="display:none; height:450px;" oncontextmenu="return false;">
-			</div>
-
-
-
-			<br>
-			
-			
-			<div class="dropdown" id = "drop_notes" style="position:static;">
+				<div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 					
-					<button class="btn btn-primary dropdown-toggle" type="button" id="button_notes">Notes
+					<button class="btn btn-primary dropdown-toggle" type="button" id="button_notes" style="float:left; ">Notes
 						<span class="caret">
 						</span>
 					</button>
@@ -132,10 +123,23 @@
 					<img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
 					
 				</div>
-				<div id ="div_notes">
+				<div id ="div_notes" style="margin-top:55px;">
 					
 				</div>
+				
+				<!-- search container -->
+				<div id = "search-container">
+				
+				</div>
+				<!-- end search container -->
+			</div>
+
+			<div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
+			</div>
+
 		</div>
+		<!-- end primary container -->
+		
 	</div>
 	</div>
 	
