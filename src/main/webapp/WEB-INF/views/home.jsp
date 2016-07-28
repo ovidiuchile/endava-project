@@ -82,7 +82,7 @@
 			</div>
 		<div class="col-md-8 container" style="padding-left:20px; border-left: 1px solid #eee; height:100%; ">
 			<br>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" style="z-index:50;">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;">
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox" id="Carusel" >
@@ -114,7 +114,7 @@
 				</a>
 			</div>
 
-			<div id="material"  style="display:none;">
+			<div id="material"  style="display:none;" oncontextmenu="return false;">
 			</div>
 
 

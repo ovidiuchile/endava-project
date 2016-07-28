@@ -97,9 +97,15 @@ function handleelement(i,topic,option)
 					var source = k.content.link;
 					div.className = "item active";
 					material.name = "material"
-					material.innerHTML = " test";
-					material.src = k.content.link;
-					material.style.zIndex= " 50";
+					material.innerHTML = " test1";
+					if(type==0)
+					{
+						material.src = k.content.link;
+					}
+					else
+					{
+						material.src="http://az186482.vo.msecnd.net/source/i/source/previewNotAvailableLarge.jpg";
+					}
 					handleMaterial(material,source,type);
 					div.appendChild(material);
 					carousel.appendChild(div);
@@ -111,9 +117,15 @@ function handleelement(i,topic,option)
 					var type = k.content.type;
 					var source = k.content.link;
 					material.name = "material"
-					material.innerHTML = " test";
-					material.src = k.content.link;
-					material.style.zIndex= " 50";
+					material.innerHTML = " test1";
+					if(type==0)
+					{
+						material.src = k.content.link;
+					}
+					else
+					{
+						material.src="http://az186482.vo.msecnd.net/source/i/source/previewNotAvailableLarge.jpg";
+					}
 					div2.className = "item ";
 					handleMaterial(material,source,type);
 					div2.appendChild(material);
@@ -141,6 +153,7 @@ function handleMaterial( img, source, type)
 				material.name = "material"
 				material.innerHTML = " test";
 				material.src = source;
+				material.oncontextmenu="return false;"
 				showMaterial.appendChild(material);
 			}
 			else if ( type == 1)
@@ -150,6 +163,7 @@ function handleMaterial( img, source, type)
 				material.height="560";
 				material.src=source;
 				showMaterial.appendChild(material);
+				material.oncontextmenu="return false;"
 			}
 			else if ( type == 2 )
 			{
@@ -158,6 +172,7 @@ function handleMaterial( img, source, type)
 				material.height="560";
 				material.src=source;
 				showMaterial.appendChild(material);
+				material.oncontextmenu="return false;"
 			}
 		});
 }
