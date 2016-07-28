@@ -21,7 +21,7 @@ public class TechnologyDAO extends AbstractDAO {
 	public List<Technology> getAllTechnologies() {
 		return em()
 				.createQuery(
-						"SELECT t FROM Technology t order by t.id desc")
+						"SELECT t FROM Technology t")
 				.getResultList();
 	}
 }

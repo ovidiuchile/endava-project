@@ -92,7 +92,7 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<a href="/e-learning/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
+		<a href="/${pageContext.request.contextPath}/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 		<ul>
 		  <li><a href="#home">Profile</a></li>
 		  <li><a href="#home">Tests</a></li>

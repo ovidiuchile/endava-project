@@ -171,6 +171,52 @@ INSERT INTO Topics VALUES (3, 2, 'Pointers');
 INSERT INTO Topics VALUES (4, 3, 'Syntax');
 INSERT INTO Topics VALUES (5, 3, 'DDL');
 INSERT INTO Topics VALUES (6, 3, 'DML');
+INSERT INTO Topics VALUES (7, 6, 'Syntax');
+INSERT INTO Topics VALUES (8, 9, 'Syntax');
+INSERT INTO Topics VALUES (9, 9, 'Lists');
+INSERT INTO Topics VALUES (10, 10, 'Ancient Cryptography');
+INSERT INTO Topics VALUES (11, 10, 'Ciphers');
+INSERT INTO Topics VALUES (12, 10, 'Modern Cryptography');
+INSERT INTO Topics VALUES (13, 10, 'Modular Arithmetic');
+INSERT INTO Topics VALUES (14, 10, 'Primality Test');
+INSERT INTO Topics VALUES (15, 10, 'Randomized Algorithms');
+INSERT INTO Topics VALUES (16, 4, 'Architecture');
+INSERT INTO Topics VALUES (17, 4, 'Design Principles');
+INSERT INTO Topics VALUES (18, 5, 'Syntax');
+INSERT INTO Topics VALUES (19, 5, 'Operators');
+INSERT INTO Topics VALUES (20, 5, 'Functions');
+INSERT INTO Topics VALUES (21, 6, 'Variables and Operators');
+INSERT INTO Topics VALUES (22, 7, 'Build your first website!');
+INSERT INTO Topics VALUES (23, 7, 'Selectors');
+INSERT INTO Topics VALUES (24, 7, 'Forms');
+INSERT INTO Topics VALUES (25, 8, 'Overview');
+INSERT INTO Topics VALUES (26, 3, 'PL/SQL');
+INSERT INTO Topics VALUES (27, 3, 'Transactions');
+INSERT INTO Topics VALUES (28, 6, 'Functions');
+INSERT INTO Topics VALUES (29, 6, 'Objects');
+INSERT INTO Topics VALUES (30, 6, 'Events');
+INSERT INTO Topics VALUES (31, 6, 'JSON');
+INSERT INTO Topics VALUES (32, 9, 'Functions');
+INSERT INTO Topics VALUES (33, 9, 'Types');
+INSERT INTO Topics VALUES (34, 9, 'Monads');
+INSERT INTO Topics VALUES (35, 9, 'Recursion');
+INSERT INTO Topics VALUES (36, 5, 'Forms');
+INSERT INTO Topics VALUES (37, 5, 'Cookies');
+
+INSERT INTO Materials VALUES (1, 1, 'A presentation...', 'This is just a simple photo', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('05.07.2015', 'DD.MM.YYYY'), 3);
+INSERT INTO Materials VALUES (2, 3, 'A picture', 'SQL', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
+INSERT INTO Materials VALUES (3, 5, 'The Basics of SQL', 'Simple things', 'http://sqlinstructor.com/wp-content/uploads/2015/01/SQLDMLDDLimage.jpg', 0, to_date('12.06.2013', 'DD.MM.YYYY'), 3);
+INSERT INTO Materials VALUES (4, 10, 'Caesar Cipher', 'Ancient times, simple cipher', 'http://i.imgur.com/tFnX1co.png', 0, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
+INSERT INTO Materials VALUES (5, 12, 'RSA Decryption Time by Key Length', 'This is a graphic', 'http://www.javamex.com/tutorials/cryptography/RSADecryptionTime.png', 0, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
+INSERT INTO Materials VALUES (6, 12, 'Diffie Hellman Key Exchange part 1', 'Key exchange part 1', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
+INSERT INTO Materials VALUES (7, 12, 'Diffie Hellman Key Exchange part 2', 'Key exchange part 2', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
+INSERT INTO Materials VALUES (8, 31, 'JSON vs XML', 'This is obvious', 'http://cdn2.hubspot.net/hub/126065/file-239461408-png/images/jsonxmlresults.png', 0, to_date('30.07.2015', 'DD.MM.YYYY'), 11);
+INSERT INTO Materials VALUES (9, 24, 'Login Form', 'A very nice login form', 'https://cdn1.freshdesignweb.com/wp-content/uploads/2015/01/Login-to-Everdwell.jpg', 0, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
+INSERT INTO Materials VALUES (10, 26, 'Tutorial Introduction to PL/SQL', 'Just a video', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
+INSERT INTO Materials VALUES (11, 33, 'Types and Classes', 'Haskell is awful!', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('08.10.2016', 'DD.MM.YYYY'), 19);
+INSERT INTO Materials VALUES (12, 35, 'Recursion', 'A picture that explains how recursion works', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('08.10.2016', 'DD.MM.YYYY'), 19);
+INSERT INTO Materials VALUES (13, 1, 'A on...', 'Another picture for topic 1', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('05.07.2015', 'DD.MM.YYYY'), 3);
+
 INSERT INTO Topics VALUES (7, 3, 'PL/SQL');
 INSERT INTO Topics VALUES (8, 3, 'Transactions');
 INSERT INTO Topics VALUES (9, 4, 'Syntax');
@@ -222,7 +268,6 @@ INSERT INTO Materials VALUES (35, 17, 'Prime Number Theorem', 'Prime Number Theo
 INSERT INTO Materials VALUES (36, 17, 'Prime numbers density', 'As shown in this figure, the densest concentrations of primes seem to occur mainly in curves whose offsets are prime.', 'https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/46025/versions/4/screenshot.jpg', 0, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 INSERT INTO Materials VALUES (37, 18, 'Randomized Algorithms', 'Randomized Algorithms Intro', 'https://www.youtube.com/embed/WGMn16TDTjE', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 INSERT INTO Materials VALUES (38, 18, 'Fermat primality test', 'Fermat primality test', 'https://www.youtube.com/embed/xMj3jzFDZ38', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
-
 
 INSERT INTO Keywords VALUES (1, 1, 'oop');
 INSERT INTO Keywords VALUES (2, 1, 'inheritance');
@@ -282,4 +327,3 @@ INSERT INTO Tests_history VALUES (3, 1, 4, 10, to_date('27.06.2016', 'DD.MM.YYYY
 INSERT INTO Tests_history VALUES (4, 2, 1, -5, to_date('22.07.2016', 'DD.MM.YYYY'));
 
 -- End of file.
-
