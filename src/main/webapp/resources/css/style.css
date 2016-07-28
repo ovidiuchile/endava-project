@@ -269,6 +269,11 @@ html *
 }
 #myCarousel{
 	height:450px;
+	position: relative;
+	display:block;
+    margin-left: 12.5%;
+    margin-right:12.5%;
+    
 }
 #Carusel{
 	height:450px;
@@ -294,8 +299,8 @@ html *
 .carousel-control{
 	height:450px;
 }
-material{
-	height:560px !important;
+#material{
+	
 }
 
 
