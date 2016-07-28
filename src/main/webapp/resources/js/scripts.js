@@ -205,7 +205,7 @@ function search(){
 		dataType: 'json',
 		url: "searchResults?s=" + search
 	}).then(function (data) {
-		console.log(data.length);
+		console.log(data.content.length);
 		for (i of data.content) {
 			var div = document.createElement("div");
 			var select = document.createElement("select");
@@ -218,9 +218,19 @@ function search(){
 			var material = document.createElement("option");
 			material.value = i.content.material_id;
 			
+			var resultsTitle = document.createElement("h4");
+			resultsTitle.value = i.content.topic.technology.name + " > " + i.content.topic.name + " > " + i.content.title;
 			
+			var text3=document.createTextNode(resultsTitle.value);
+			resultsTitle.appendChild(text3);
 			
+			var resultsDescription = document.createElement("p");
+			resultsDescription.value = i.content.description;
 			
+			var text4=document.createTextNode(resultsDescription.value);
+			resultsDescription.appendChild(text4);
+
+			console.log(resultsTitle.value);
 			var text=document.createTextNode(lang.value);
 			lang.appendChild(text);
 			
@@ -234,10 +244,28 @@ function search(){
 			select.add(topic);
 			select.add(material);
 			select.style.display = "none";
+			
 			var buton =  document.createElement("button");
-			button.onclick= "searchResult()";
+			
+			buton.className = "result-search-button";
+			buton.innerHTML = "butonas";
+			
+			var str = resultsTitle.innerHTML;
+		    var res = str.replace(search, "BOSS");
+		    resultsTitle.innerHTML = res;
+		    
+		    var str = resultsDescription.innerHTML;
+		    var res = str.replace(search, "<span style = 'background-color:yellow'>" + search + "</span>");
+		    resultsDescription.innerHTML = res;
+			
+			
+			buton.onclick= "searchResult()";
 			div.appendChild(select);
-			div.appendChild(button);
+			
+			div.appendChild(resultsTitle);
+			div.appendChild(resultsDescription);
+			
+			div.appendChild(buton);
 			search_output.appendChild(div);
 			
 
