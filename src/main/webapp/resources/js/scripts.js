@@ -159,8 +159,8 @@ function handleMaterial( img, source, type)
 			else if ( type == 1)
 			{
 				var material = document.createElement("iframe");
-				material.width="560";
-				material.height="560";
+				material.width="600";
+				material.height="360";
 				material.src=source;
 				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
@@ -168,8 +168,8 @@ function handleMaterial( img, source, type)
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
-				material.width="700";
-				material.height="400";
+				material.width="600";
+				material.height="360";
 				material.src=source;
 				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"

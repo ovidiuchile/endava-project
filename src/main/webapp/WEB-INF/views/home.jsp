@@ -82,7 +82,7 @@
 			</div>
 		<div class="col-md-8 container" id="Carousel_container" style="padding-left:20px; border-left: 1px solid #eee; height:100% ">
 			<br>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" align="center">
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox" id="Carusel" >
@@ -112,19 +112,9 @@
 					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 					<span class="sr-only">Next</span>
 				</a>
-			</div>
-
-			<div id="material"  style="display:none; height:450px;" oncontextmenu="return false;">
-			</div>
-
-
-
-			<br>
-			
-			
-			<div class="dropdown" id = "drop_notes" style="position:static;">
+				<div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 					
-					<button class="btn btn-primary dropdown-toggle" type="button" id="button_notes">Notes
+					<button class="btn btn-primary dropdown-toggle" type="button" id="button_notes" style="float:left; ">Notes
 						<span class="caret">
 						</span>
 					</button>
@@ -132,9 +122,14 @@
 					<img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
 					
 				</div>
-				<div id ="div_notes">
+				<div id ="div_notes" style="margin-top:55px;">
 					
 				</div>
+			</div>
+
+			<div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
+			</div>
+
 		</div>
 	</div>
 	</div>
