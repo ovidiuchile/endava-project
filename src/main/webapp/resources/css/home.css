@@ -1,11 +1,18 @@
 @CHARSET "ISO-8859-1";
 
 #search-container{
-	background-color:#013440;
+	background-color:white;
 	height:500px;;
-	width:100%;
-	color: white;
+	width:orange;
+	color: black;
 	potision:absolute;
 	padding:10px;
-	overflow:scroll;
+	overflow:auto;
+	border: 2px solid #D24429;
+}
+
+.search-div-material{
+	border: 1px solid #D24429;
+	margin:5px;
+	padding:5px;
 }

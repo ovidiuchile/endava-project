@@ -260,6 +260,9 @@ function search(){
 		console.log(data.content.length);
 		for (i of data.content) {
 			var div = document.createElement("div");
+			
+			div.className += "search-div-material";
+			
 			var select = document.createElement("select");
 			var lang = document.createElement("option");
 			lang.value = i.content.topic.technology.technology_id;
@@ -297,7 +300,7 @@ function search(){
 			select.style.display = "none";
 			var buton =  document.createElement("button");
 			searchResult(buton, lang.value, topic.value, material.value);
-			buton.innerHTML= " Click me";
+			buton.innerHTML= "Get material";
 			div.appendChild(select);
 			buton.className = "result-search-button";
 			

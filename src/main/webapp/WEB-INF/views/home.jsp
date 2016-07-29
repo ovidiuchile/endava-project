@@ -71,7 +71,7 @@
 			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px; ">
 				<div class="search_inputdiv" style="	margin-top: 10px;margin-bottom:10px;">
 						<input id="search_input" type="text" name="searchStuff" placeholder="Search..." style=" height:32px;">
-						<input id="submit_input" class="btn btn-default" value="Submit" onclick="search()">				
+						<input id="submit_input" class="btn btn-default" value="Search" onclick="search()">				
 				</div>
 
 				<div id="Topics" class="btn-group-vertical" style="">
@@ -135,7 +135,6 @@
 
 			<!-- search container -->
 			<div id = "search-container" style=" display : none; margin-left:30px;" >
-
 			</div>
 			<!-- end search container -->
 		</div>
