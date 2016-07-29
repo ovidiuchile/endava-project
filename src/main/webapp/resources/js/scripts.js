@@ -103,6 +103,7 @@ $(".form-control").change(function() {
 
 function handleelement(i,topic,option)
 {
+	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
 		$("#myCarousel").show();
 		var showMaterial = document.getElementById('material');
