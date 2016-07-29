@@ -94,7 +94,7 @@
 	<div id = "logo_div">
 		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 		<ul>
-		  <li><a href="${pageContext.request.contextPath}">Back to main page</a></li>
+		  <li><a href="${pageContext.request.contextPath}/home">Back to main page</a></li>
 		</ul>
 	</div>
 </div>
@@ -112,7 +112,7 @@
 			
 		    <p style="color:green;">${msg}</p>
 		
-		    <form name='loginForm' action=" <c:url value='${pageContext.request.contextPath}/change-password' />" method='POST'>
+		    <form name='loginForm' action=" <c:url value='change-password' />" method='POST'>
 		
 		        <table>
 		            <tr>
