@@ -266,6 +266,17 @@ function search(){
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	console.log('test entrance function');
+	try
+	{
+		while(search_output.childElementCount!=0)
+		{
+			search_output.removeChild(search_output.childNodes[0]);
+		}
+	}
+	catch (e)
+	{
+
+	}
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
@@ -309,9 +320,8 @@ function search(){
 			select.add(topic);
 			select.add(material);
 			select.style.display = "none";
-			
 			var buton =  document.createElement("button");
-			buton.onclick= function(){searchResult(lang.value, topic.value, material.value)};
+			searchResult(buton, lang.value, topic.value, material.value);
 			buton.innerHTML= " Click me";
 			div.appendChild(select);
 			buton.className = "result-search-button";
@@ -337,9 +347,11 @@ function search(){
 
 }
 
-function searchResult(langId, topicId, materialId)
+function searchResult(buton, langId, topicId, materialId)
 {
 	console.log(langId, topicId, materialId);
+	buton.addEventListener("click", function(e)
+	{
 	var materialCont = document.getElementById("material");
 	var searchCont = document.getElementById("search-container");
 	try
@@ -428,7 +440,7 @@ function searchResult(langId, topicId, materialId)
 		container.style.display="none";
 		});
 
-
+	});
 
 }
 
