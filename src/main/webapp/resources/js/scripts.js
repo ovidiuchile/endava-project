@@ -45,8 +45,34 @@ $(window).resize(function(){
 });
 
 
+// topics dropdown
+
+$("#select_technology").change(function(){
+	var grandparent_height = $('.col-md-9').width();
+	$('#notes').width( grandparent_height );
+	$('#button_notes').click(function(){
+		$("#div_notes").fadeToggle(0);
+	});
+	$("#div_notes").fadeToggle(0);
+	var AddTopic = document.getElementById("select_topic");
+    var Select_Tech = document.getElementById("select_technology").value;
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + Select_Tech + "/topics"
+	}).then(function (data) {
+		for (i of data.content) {
+			var topic = document.createElement("option");
+
+			topic.value = i.content.topic_id;
+			topic.innerHTML = i.content.name;
 
 
+			AddTopic.add(topic);
+
+		}
+	});
+});
 
 
 
@@ -240,6 +266,17 @@ function search(){
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	console.log('test entrance function');
+	try
+	{
+		while(search_output.childElementCount!=0)
+		{
+			search_output.removeChild(search_output.childNodes[0]);
+		}
+	}
+	catch (e)
+	{
+
+	}
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
@@ -283,15 +320,14 @@ function search(){
 			select.add(topic);
 			select.add(material);
 			select.style.display = "none";
-			
 			var buton =  document.createElement("button");
-			buton.onclick= function(){searchResult(lang.value, topic.value, material.value)};
+			searchResult(buton, lang.value, topic.value, material.value);
 			buton.innerHTML= " Click me";
 			div.appendChild(select);
 			buton.className = "result-search-button";
 			
 			var str = resultsTitle.innerHTML;
-		    var res = str.replace(search, "BOSS");
+		    var res = str.replace(search, "<span style = 'background-color:yellow'>" + search + "</span>");
 		    resultsTitle.innerHTML = res;
 		    
 		    var str = resultsDescription.innerHTML;
@@ -311,9 +347,11 @@ function search(){
 
 }
 
-function searchResult(langId, topicId, materialId)
+function searchResult(buton, langId, topicId, materialId)
 {
 	console.log(langId, topicId, materialId);
+	buton.addEventListener("click", function(e)
+	{
 	var materialCont = document.getElementById("material");
 	var searchCont = document.getElementById("search-container");
 	try
@@ -402,7 +440,7 @@ function searchResult(langId, topicId, materialId)
 		container.style.display="none";
 		});
 
-
+	});
 
 }
 

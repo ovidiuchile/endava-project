@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="6791d2df-34b4-4fa3-ac28-7a94254afaf9" />
+    <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="6791d2df-34b4-4fa3-ac28-7a94254afaf9">
+      <user-name>interns1</user-name>
+    </data-source>
   </component>
 </project>
