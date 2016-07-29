@@ -129,10 +129,10 @@
 				<div id="addMaterial">
 					<h3>Add new material:</h3>
 					<form name="materialForm"
-						action="UploadServlet" method="POST"
+						action="upload" method="POST"
 						enctype="multipart/form-data">
 						<table>
-							<!--  <tr>
+							  <tr>
 								<td>Name of technology:</td>
 								<td><select class="topic-form" id="select_technology" style="height:40px; " >
 							<option>Select language</option>
@@ -147,7 +147,7 @@
 								<td>Name of material:</td>
 								<td><input type='text' name='material' value=''
 									style="margin: 15px;" /></td>
-							</tr>-->
+							</tr>
 							<tr>
 								<input type="file" name="file" size="50" />
 							</tr>
