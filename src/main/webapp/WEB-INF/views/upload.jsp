@@ -22,10 +22,10 @@
 	<div class="container-fluid">
 		<div class="row" style="background-color: white;">
 			<div class="col-md-3" style="background-color: white; height: auto;">
-				<img alt="logo"
+				<a href="${pageContext.request.contextPath}"><img alt="logo"
 					src="${pageContext.request.contextPath}/resources/images/appollo.png"
 					height="auto" width="144px"
-					style="position: relative; top: 6px; left: 40px;">
+					style="position: relative; top: 6px; left: 40px;"></a>
 			</div>
 
 			<div class="col-md-8"
@@ -42,17 +42,22 @@
 					<li class=""><a href="#">Profile</a></li>
 				</ul>
 			</div>
-			<div class="col-md-1  pull-right"
-				style="position: absolute; top: 7px; right: 0px;">
+			<div class="col-md-1  pull-right" style="position: absolute; top:7px; right:0px;">
 				<div id="mySidenav" class="sidenav">
 					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					<a href="#">About</a> <a href="#">Services</a> <a href="#">Clients</a>
-					<a href="#">Contact</a> <br> <a href="logout">Logout</a>
+					<a href="#">About</a>
+					<a href="#">Services</a>
+					<a href="#">Clients</a>
+					<a href="#">Contact</a>
+					<br>
+					<a href="change-password">Change Password</a>
+					<a href="logout">Logout</a>
 				</div>
 				<span style="font-size: 30px; cursor: pointer" onclick="openNav()"><img
 					alt="Bootstrap Image Preview"
 					src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png"
 					class="img-circle" height="50px"></span>
+				
 			</div>
 		</div>
 		<hr>
@@ -124,10 +129,10 @@
 				<div id="addMaterial">
 					<h3>Add new material:</h3>
 					<form name="materialForm"
-						action=" <c:url value='/upload-material' />" method="POST"
+						action="UploadServlet" method="POST"
 						enctype="multipart/form-data">
 						<table>
-							<tr>
+							<!--  <tr>
 								<td>Name of technology:</td>
 								<td><select class="topic-form" id="select_technology" style="height:40px; " >
 							<option>Select language</option>
@@ -142,13 +147,13 @@
 								<td>Name of material:</td>
 								<td><input type='text' name='material' value=''
 									style="margin: 15px;" /></td>
-							</tr>
+							</tr>-->
 							<tr>
 								<input type="file" name="file" size="50" />
 							</tr>
 							<tr>
 								<td><input class="button_sign" name="submit" id="submitt"
-									type="submit" value="Add file" /></td>
+									type="submit" value="Upload File" /></td>
 							</tr>
 						</table>
 					</form>
