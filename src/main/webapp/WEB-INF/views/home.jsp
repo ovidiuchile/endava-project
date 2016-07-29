@@ -46,7 +46,7 @@
 						<a href="#">Tests</a>
 					</li>
 					<li class="">
-						<a href="#">Profile</a>
+						<a href="admin">Profile</a>
 					</li>
 				</ul>
 			</div>

@@ -84,6 +84,7 @@ $.ajaxSetup({
 });
 var carusel = document.getElementById('Carusel');
 $(".form-control").change(function() {
+	$('#myCarousel').hide();
 	var option = document.getElementById('Language_Selector').value;
 	var AddTopic = document.getElementById('Topics');
 	var material = document.createElement("img");
