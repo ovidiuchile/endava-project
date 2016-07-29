@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 
 	<title>Appollo</title>
 
@@ -21,7 +22,7 @@
 	<div class="container-fluid">
 		<div class="row" style="background-color:white;">
 			<div class="col-md-3" style="background-color:white; height:auto;">
-				<img alt="logo" src="${pageContext.request.contextPath}/resources/images/appollo.png" height="auto" width="144px" style="position:relative; top:6px; left: 40px;">
+				<a href="${pageContext.request.contextPath}"><img alt="logo" src="${pageContext.request.contextPath}/resources/images/appollo.png" height="auto" width="144px" style="position:relative; top:6px; left: 40px;"></a>
 			</div>
 
 			<div class="col-md-8" style="top:16px; position:absolute; left:300px; ">
@@ -29,11 +30,6 @@
 					<li class="dropdown" id="firstli">
 						<select class="form-control" id="Language_Selector" style="height:40px; " >
 							<option selected disabled hidden>Select language</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-							<option value="4">Four</option>
-							<option value="10">Five</option>
 						</select>
 					</li>
 					<li class="" style="">
@@ -61,25 +57,30 @@
 					<a href="#">Clients</a>
 					<a href="#">Contact</a>
 					<br>
+					<a href="change-password">Change Password</a>
 					<a href="logout">Logout</a>
 				</div>
 				<span style="font-size:30px;cursor:pointer" onclick="openNav()"><img alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
 			</div>
 		</div>
 		<hr>
+		<div id="vr" style="position:absolute; left:320px;border-left:1px solid #EEE;height:80%"></div>
 		<div class="row">
 			
 			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px; ">
-				<div class="search_input" style="	margin-top: 10px;margin-bottom:10px;">
+				<div class="search_inputdiv" style="	margin-top: 10px;margin-bottom:10px;">
 						<input id="search_input" type="text" name="searchStuff" placeholder=" Search..." style=" height:32px;">
-						<input id="submit_input" class="btn btn-default" type="submit" value="Submit">				
+						<input id="submit_input" class="btn btn-default" value="Submit" onclick="search()">				
 				</div>
+
 				<div id="Topics" class="btn-group-vertical" style="width:286px;">
 <!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
 				</div>
 				
 			</div>
-		<div class="col-md-8 container" id="Carousel_container" style="padding-left:20px; border-left: 1px solid #eee; height:100% ">
+			
+		<!-- primary container -->
+		<div class="col-md-8 container" id="Carousel_container" style=" height:100% ">
 			<br>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" align="center">
 
@@ -122,14 +123,22 @@
 					
 				</div>
 				<div id ="div_notes" style="margin-top:55px;">
-					
-				</div>
-			</div>
 
-			<div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
+				</div>
+
 			</div>
+			<div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
 
 		</div>
+		<!-- end primary container -->
+
+			<!-- search container -->
+			<div id = "search-container">
+
+			</div>
+			<!-- end search container -->
+		</div>
+		
 	</div>
 	</div>
 	

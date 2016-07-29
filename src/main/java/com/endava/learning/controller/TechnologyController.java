@@ -1,5 +1,7 @@
 package com.endava.learning.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
@@ -40,8 +42,10 @@ public class TechnologyController {
 		return new ResponseEntity<>(technologyResource, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "technologies", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public HttpEntity<Resource<Technology>> addTechnology(@RequestBody Technology technology) {
+	@RequestMapping(value = "technologies", method = RequestMethod.POST)
+	public HttpEntity<Resource<Technology>> addTechnology(HttpServletRequest request) {
+		Technology technology = new Technology();
+		technology.setName(request.getParameter("technology"));
 		technology.setTechnology_id(((long)(Math.random()*1000000000)));
 		technologyService.saveTechnology(technology);
 		Resource<Technology> technologyResouce = new Resource<>(technology);

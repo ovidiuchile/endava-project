@@ -262,7 +262,7 @@ html *
 
 
 
-/* Carousel height management below */
+/* Carousel management below */
 
 #Carousel_container{
 	height:100%;
@@ -302,12 +302,17 @@ html *
 #material{
 	
 }
-/* End of carousel height management below */
+/* End of carousel management below */
 
 
-@media screen and (max-width: 958px) {
+@media screen and (max-width: 975px) {
 	hr{
 		margin-top: 50px;
+	}
+}
+@media screen and (max-width: 991px) {
+	#vr{
+		display:none;
 	}
 }
 @media screen and (max-width: 685px) {
@@ -327,7 +332,7 @@ html *
 	#nav_pills li{
 		width:290px;
 	}
-	.search_input *{
+	.search_inputdiv *{
 		margin-top:220px;
 		margin-left:0px;
 	}
@@ -340,5 +345,10 @@ html *
 	}
 }
 @media screen and (min-width: 686px) {
-	
+	#search_input{
+		width:286px;
+	}
+	#submit_input{
+		width:286px;
+	}
 }
