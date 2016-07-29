@@ -92,9 +92,9 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<a href="/${pageContext.request.contextPath}/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
+		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 		<ul>
-		  <li><a href="/e-learning/">Back to main page</a></li>
+		  <li><a href="${pageContext.request.contextPath}">Back to main page</a></li>
 		</ul>
 	</div>
 </div>
@@ -112,7 +112,7 @@
 			
 		    <p style="color:green;">${msg}</p>
 		
-		    <form name='loginForm' action=" <c:url value='/change-password' />" method='POST'>
+		    <form name='loginForm' action=" <c:url value='${pageContext.request.contextPath}/change-password' />" method='POST'>
 		
 		        <table>
 		            <tr>
@@ -120,11 +120,11 @@
 		                <td><input type='email' name='email' value='' required/></td>
 		            </tr>
 		            <tr>
-		                <td>Old passwd:</td>
+		                <td>Old password:</td>
 		                <td><input type='password' name='old_password' value='' required/></td>
 		            </tr>
 		            <tr>
-		                <td>New passwd:</td>
+		                <td>New password:</td>
 		                <td><input type='password' name='new_password' value='' required/></td>
 		            </tr>
 		            
