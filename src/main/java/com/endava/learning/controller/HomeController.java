@@ -14,7 +14,7 @@ public class HomeController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping("/home")
+	@RequestMapping("/")
 	public ModelAndView home(ServletRequest req) {
 		ModelAndView model = new ModelAndView();
 		/*HttpServletRequest request = (HttpServletRequest) req;
