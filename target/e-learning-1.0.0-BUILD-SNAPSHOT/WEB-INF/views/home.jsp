@@ -22,7 +22,7 @@
 	<div class="container-fluid">
 		<div class="row" style="background-color:white;">
 			<div class="col-md-3" style="background-color:white; height:auto;">
-				<img alt="logo" src="${pageContext.request.contextPath}/resources/images/appollo.png" height="auto" width="144px" style="position:relative; top:6px; left: 40px;">
+				<a href="${pageContext.request.contextPath}"><img alt="logo" src="${pageContext.request.contextPath}/resources/images/appollo.png" height="auto" width="144px" style="position:relative; top:6px; left: 40px;"></a>
 			</div>
 
 			<div class="col-md-8" style="top:16px; position:absolute; left:300px; ">
@@ -57,6 +57,7 @@
 					<a href="#">Clients</a>
 					<a href="#">Contact</a>
 					<br>
+					<a href="change-password">Change Password</a>
 					<a href="logout">Logout</a>
 				</div>
 				<span style="font-size:30px;cursor:pointer" onclick="openNav()"><img alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
