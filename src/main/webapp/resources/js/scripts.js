@@ -129,6 +129,7 @@ $(".form-control").change(function() {
 
 function handleelement(i,topic,option)
 {
+	
 	topic.addEventListener("click", function (e) {
 		$("#myCarousel").show();
 		var showMaterial = document.getElementById('material');
@@ -444,3 +445,10 @@ function searchResult(buton, langId, topicId, materialId)
 
 }
 
+
+function testPost()
+{
+	var tech = document.getElementById("select_technology").value;
+	var topic = document.getElementById("select_topic").value;
+	console.log(tech, topic);
+}

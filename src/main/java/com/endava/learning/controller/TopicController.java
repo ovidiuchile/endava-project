@@ -46,11 +46,12 @@ public class TopicController {
 		return new ResponseEntity<>(topicResource, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "technologies/{technology_id}/topics", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "upload", method = RequestMethod.POST)
 	public HttpEntity<Resource<Topic>> addTopic(HttpServletRequest request) {
 
 		Topic topic = new Topic();
         topic.setName(request.getParameter("topic"));
+        topic.setTechnology(technologyService.getTechnologiesByID(Long.parseLong(request.getParameter("select_technology"))));
 		topic.setTopic_id(((long)(Math.random()*1000000000)));
 		topicService.saveTopic(topic);
 

@@ -104,7 +104,7 @@
 				</div>
 				<div id="addTopic">
 					<h3>Add new topic:</h3>
-					<form name="topicForm" action=" <c:url value='/upload-topic' />"
+					<form name="topicForm" action=" <c:url value='/upload' />"
 						method="POST">
 						<table>
 							<tr>
@@ -131,7 +131,7 @@
 				<div id="addMaterial">
 					<h3>Add new material:</h3>
 					<form name="materialForm"
-						action="upload" method="POST"
+						action="UploadServlet" method="POST"
 						enctype="multipart/form-data">
 						<table>
 							  <tr>
@@ -143,7 +143,7 @@
 							<tr>
 								<td>Name of topic:</td>
 								<td>
-									<select class="topic-form"  style="height:40px; " id="select_topic" >
+									<select class="topic-form" name = "select_topic" style="height:40px; " id="select_topic" >
 										<option>Select topic</option>
 									</select></td>
 							</tr>
@@ -157,7 +157,7 @@
 							</tr>
 							<tr>
 								<td><input class="button_sign" name="submit" id="submitt"
-									type="submit" value="Upload File" /></td>
+									type="submit" value="Upload File" onclick="testPost()"/></td>
 							</tr>
 						</table>
 					</form>

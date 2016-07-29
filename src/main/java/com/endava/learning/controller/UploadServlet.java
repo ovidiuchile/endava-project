@@ -40,9 +40,6 @@ public class UploadServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String technology = request.getParameter("technology");
-		String topic = request.getParameter("topic");
-
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
 		if (isMultipart) {
@@ -71,12 +68,12 @@ public class UploadServlet extends HttpServlet {
 						item.write(uploadedFile);
 						
 						Material material = new Material();
-						String topicName = request.getParameter("topic");
+						String topicName = request.getParameter("select_topic");
 						String materialName = request.getParameter("material");
 						
 						material.setTitle("material");
 						System.out.println(topicName);
-						material.setTopic(topicService.getTopicByName(topicName));
+						material.setTopic(topicService.getTopicByID(Long.parseLong(topicName)));
 						material.setType(0);
 						material.setMaterial_id(((long) (Math.random() * 1000000000)));
 						material.setLink(uploadedFile.getAbsolutePath());

@@ -69,7 +69,7 @@ public class LoginController {
 		return model;
 	}
 
-	@RequestMapping(value = "login")
+	@RequestMapping(value = "")
 	public ModelAndView home() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
