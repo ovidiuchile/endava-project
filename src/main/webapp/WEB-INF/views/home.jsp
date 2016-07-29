@@ -129,7 +129,7 @@
 		<!-- end primary container -->
 
 			<!-- search container -->
-			<div id = "search-container">
+			<div id = "search-container" style=" display : none;" >
 
 			</div>
 			<!-- end search container -->
