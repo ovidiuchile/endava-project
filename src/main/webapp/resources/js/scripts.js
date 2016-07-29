@@ -228,8 +228,8 @@ function handleMaterial( img, source, type)
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
-				material.width="600";
-				material.height="360";
+				material.width="1000";
+				material.height="600";
 				material.src=source;
 				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
@@ -428,8 +428,8 @@ function searchResult(buton, langId, topicId, materialId)
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
-				material.width="600";
-				material.height="360";
+				material.width="1000px";
+				material.height="600px";
 				material.src=source;
 				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
