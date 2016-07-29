@@ -48,9 +48,9 @@ public class TechnologyController {
 		technology.setName(request.getParameter("technology"));
 		technology.setTechnology_id(((long)(Math.random()*1000000000)));
 		technologyService.saveTechnology(technology);
-		Resource<Technology> technologyResouce = new Resource<>(technology);
+		Resource<Technology> technologyResource = new Resource<>(technology);
 
-		return new ResponseEntity<>(technologyResouce, HttpStatus.CREATED);
+		return new ResponseEntity<>(technologyResource, HttpStatus.CREATED);
 	}
 
 	@RequestMapping(value = "technologies/{technology_id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
