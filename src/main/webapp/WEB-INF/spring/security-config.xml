@@ -13,7 +13,7 @@
         <security:intercept-url pattern="/login" access="permitAll" />
         
         <security:intercept-url pattern="/forgot-password" access="permitAll" />
-        <security:intercept-url pattern="/**" access="isAutentificated()" />
+        <security:intercept-url pattern="/**" access="permitAll" />
         <security:form-login login-page="/login" 
                              authentication-failure-handler-ref="customAuthenticationFailureHandler" 
                              authentication-success-handler-ref="customAuthenticationSuccessHandler"
