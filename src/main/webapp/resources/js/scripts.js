@@ -45,8 +45,34 @@ $(window).resize(function(){
 });
 
 
+// topics dropdown
+
+$("#select_technology").change(function(){
+	var grandparent_height = $('.col-md-9').width();
+	$('#notes').width( grandparent_height );
+	$('#button_notes').click(function(){
+		$("#div_notes").fadeToggle(0);
+	});
+	$("#div_notes").fadeToggle(0);
+	var AddTopic = document.getElementById("select_topic");
+    var Select_Tech = document.getElementById("select_technology").value;
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + Select_Tech + "/topics"
+	}).then(function (data) {
+		for (i of data.content) {
+			var topic = document.createElement("option");
+
+			topic.value = i.content.topic_id;
+			topic.innerHTML = i.content.name;
 
 
+			AddTopic.add(topic);
+
+		}
+	});
+});
 
 
 
@@ -305,7 +331,7 @@ function search(){
 			buton.className = "result-search-button";
 			
 			var str = resultsTitle.innerHTML;
-			var res = str.replace(search, "<span style = 'background-color:yellow'>" + search + "</span>");
+		    var res = str.replace(search, "<span style = 'background-color:yellow'>" + search + "</span>");
 		    resultsTitle.innerHTML = res;
 		    
 		    var str = resultsDescription.innerHTML;
