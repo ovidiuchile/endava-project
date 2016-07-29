@@ -133,7 +133,7 @@
 		<!-- end primary container -->
 
 			<!-- search container -->
-			<div id = "search-container" style=" display : none;" >
+			<div id = "search-container" style=" display : none; margin-left:30px;" >
 
 			</div>
 			<!-- end search container -->
