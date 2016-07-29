@@ -51,7 +51,10 @@ public class TopicController {
 
 		Topic topic = new Topic();
         topic.setName(request.getParameter("topic"));
-        topic.setTechnology(technologyService.getTechnologiesByID(Long.parseLong(request.getParameter("select_technology"))));
+        
+        String[] paramValues = request.getParameterValues("select_topic");
+        System.out.println(paramValues[0]);
+        topic.setTechnology(technologyService.getTechnologiesByID(Long.parseLong(paramValues[0])));
 		topic.setTopic_id(((long)(Math.random()*1000000000)));
 		topicService.saveTopic(topic);
 
