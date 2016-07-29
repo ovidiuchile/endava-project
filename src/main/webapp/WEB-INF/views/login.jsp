@@ -90,7 +90,7 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<a href="/${pageContext.request.contextPath}/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
+		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 	</div>
 </div>
 

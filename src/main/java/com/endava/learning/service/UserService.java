@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.endava.learning.dao.UserDAO;
 import com.endava.learning.model.User;
+import com.endava.learning.utils.CryptPassword;
 
 @Service
 public class UserService {
@@ -36,6 +37,19 @@ public class UserService {
 	
 	public void updateType(String email, String type){
 		userDAO.updateType(email,type);
-
 	}
+	
+	public User loginUser(String email, String password) {
+        if (password == null || email == null) {
+            return null;
+        }
+        
+        User currentUser = getUserByEmail(email);
+
+        if (currentUser == null) {
+            return null;
+        }
+
+        return CryptPassword.matches(password, currentUser.getPassword()) ? currentUser : null;
+    }
 }
