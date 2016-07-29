@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 
 	<title>Appollo</title>
+	
 
 </head>
 <body>
@@ -70,7 +71,7 @@
 			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px; ">
 				<div class="search_inputdiv" style="	margin-top: 10px;margin-bottom:10px;">
 						<input id="search_input" type="text" name="searchStuff" placeholder="Search..." style=" height:32px;">
-						<input id="submit_input" class="btn btn-default" value="Submit" onclick="search()">				
+						<input id="submit_input" class="btn btn-default" value="Search" onclick="search()">				
 				</div>
 
 				<div id="Topics" class="btn-group-vertical" style="">
@@ -82,7 +83,7 @@
 		<!-- primary container -->
 		<div class="col-md-8 container" id="Carousel_container" style=" height:100% ">
 			<br>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" align="center">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" align="center" >
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox" id="Carusel" >
@@ -129,12 +130,11 @@
 			</div>
 			<div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
 
-		</div>
+			</div>
 		<!-- end primary container -->
 
 			<!-- search container -->
 			<div id = "search-container" style=" display : none; margin-left:30px;" >
-
 			</div>
 			<!-- end search container -->
 		</div>
