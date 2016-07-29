@@ -1,8 +1,9 @@
 @CHARSET "ISO-8859-1";
 
 #search-container{
-	background-color:blue;
+	background-color:#013440;
 	height:450px;;
 	width:100%;
-	color: magenta;
+	color: blue;
+	potision:absolute;
 }
