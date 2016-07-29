@@ -92,7 +92,7 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<a href="/${pageContext.request.contextPath}/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
+		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 	</div>
 </div>
 
@@ -109,7 +109,7 @@
 			
 		    <p style="color:green;">${msg}</p>
 		
-		    <form name='loginForm' action=" <c:url value='/forgot-password' />" method='POST'>
+		    <form name='loginForm' action=" <c:url value='${pageContext.request.contextPath}/forgot-password' />" method='POST'>
 		
 		        <table>
 		            <tr>
@@ -117,7 +117,7 @@
 		                <td><input type='email' name='email' value='' required/></td>
 		            </tr>
 		            <tr>
-		                <td><a href = "/e-learning/" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Go back</a></td>
+		                <td><a href = "${pageContext.request.contextPath}" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Go back</a></td>
 		            </tr>
 		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
