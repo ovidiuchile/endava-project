@@ -69,11 +69,11 @@
 			
 			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px; ">
 				<div class="search_inputdiv" style="	margin-top: 10px;margin-bottom:10px;">
-						<input id="search_input" type="text" name="searchStuff" placeholder=" Search..." style=" height:32px;">
+						<input id="search_input" type="text" name="searchStuff" placeholder="Search..." style=" height:32px;">
 						<input id="submit_input" class="btn btn-default" value="Submit" onclick="search()">				
 				</div>
 
-				<div id="Topics" class="btn-group-vertical" style="width:286px;">
+				<div id="Topics" class="btn-group-vertical" style="">
 <!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
 				</div>
 				

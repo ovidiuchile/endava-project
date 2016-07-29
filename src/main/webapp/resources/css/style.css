@@ -1,14 +1,18 @@
 #search_input::-webkit-input-placeholder {
    font-style: italic;
+   padding-left:2px;
 }
 #search_input:-moz-placeholder {
-   font-style: italic;  
+   font-style: italic;
+   padding-left:2px;  
 }
 #search_input::-moz-placeholder {
-   font-style: italic;  
+   font-style: italic; 
+   padding-left:2px; 
 }
 #search_input:-ms-input-placeholder {  
    font-style: italic; 
+   padding-left:2px;
 }
 
 #submit_input{
@@ -305,7 +309,7 @@ html *
 /* End of carousel management below */
 
 
-@media screen and (max-width: 975px) {
+@media screen and (max-width: 1033px) {
 	hr{
 		margin-top: 50px;
 	}
@@ -315,7 +319,7 @@ html *
 		display:none;
 	}
 }
-@media screen and (max-width: 685px) {
+@media screen and (max-width: 732px) {
 	hr{
 		margin-top: 20px;
 	}
@@ -330,18 +334,18 @@ html *
 	}
 	
 	#nav_pills li{
-		width:290px;
+		width:90vw;
 	}
 	.search_inputdiv *{
 		margin-top:220px;
 		margin-left:0px;
 	}
 	#search_input{
-		width:286px;
+		width:89vw;
 	}
 	#submit_input{
 		margin-top:0px;
-		width:286px;
+		width:89vw;
 	}
 }
 @media screen and (min-width: 686px) {
@@ -350,5 +354,23 @@ html *
 	}
 	#submit_input{
 		width:286px;
+	}
+	#nav_pills{
+		margin-right:30px;
+	}
+}
+#Topics{
+	width:286px;
+}
+@media screen and (max-width: 732px) {
+	#search_input{
+		width:89vw;
+	}
+	#submit_input{
+		margin-top:0px;
+		width:89vw;
+	}
+	#Topics{
+		width:89vw;
 	}
 }
