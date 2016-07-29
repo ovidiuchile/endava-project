@@ -119,21 +119,21 @@
 					
 				</div>
 				<div id ="div_notes" style="margin-top:55px;">
-					
-				</div>
-				
-				<!-- search container -->
-				<div id = "search-container">
-				
-				</div>
-				<!-- end search container -->
-			</div>
 
-			<div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
+				</div>
+
 			</div>
+			<div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
 
 		</div>
 		<!-- end primary container -->
+
+			<!-- search container -->
+			<div id = "search-container">
+
+			</div>
+			<!-- end search container -->
+		</div>
 		
 	</div>
 	</div>

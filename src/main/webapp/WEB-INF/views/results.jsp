@@ -20,12 +20,34 @@
 
 
 </head>
-<body>
+<body >
 
 <div class="container-fluid">
-    <c:forEach var="name" items="${results}">
-        <c:out value="${name}">
-        </c:out>
+    <form name='loginForm' action=" <c:url value='/simpleSearch' />" method='POST'>
+
+        <table>
+            <tr>
+                <td>search:</td>
+                <td><input type='text' name='searchString' value='' required id="test"/></td>
+            </tr>
+            <tr>
+                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
+                                       value="Submit" /></td>
+            </tr>
+        </table>
+
+        <input type="hidden" name="${_csrf.parameterName}"
+               value="${_csrf.token}" />
+
+    </form>
+
+    ${results}
+
+    <c:forEach var="result" items="${results}">
+        <tr>
+            <td>${result.title}</td>
+            <td>${result.description}</td>
+        </tr>
     </c:forEach>
 </div>
 <script src="js/jquery.min.js"></script>
