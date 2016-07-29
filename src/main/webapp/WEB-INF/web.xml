@@ -14,7 +14,7 @@
 	<context-param>
 		<description>Location to store uploaded file</description>
 		<param-name>file-upload</param-name>
-		<param-value>C:\Users\mneghina\Desktop</param-value>
+		<param-value>C:/Users/mneghina/Downloads</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -36,7 +36,7 @@
 	<!-- Upload Servlet -->
 	<servlet>
 		<servlet-name>UploadServlet</servlet-name>
-		<servlet-class>UploadServlet</servlet-class>
+		<servlet-class>com.endava.learning.controller.UploadServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>

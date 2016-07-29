@@ -29,7 +29,7 @@
 			</div>
 
 			<div class="col-md-8"
-				style="top: 16px; position: absolute; left: 300px;">
+				style="top: 16px; display: none; position: absolute; left: 300px;">
 				<ul class="nav nav-pills">
 					<li class="dropdown"><select class="form-control"
 						id="Language_Selector" style="height: 40px;">
@@ -68,7 +68,7 @@
 				<div id="Topics" class="btn-group-vertical" style="width: 270px;">
 					<!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
 				</div>
-				<div class="search_input" style="margin-top: 10px;">
+				<div  class="search_input" style="margin-top: 10px; display: none;">
 					<form onsubmit="searchMyStuff()">
 						<input id="search_input" type="text" name="searchStuff"
 							placeholder=" Search..." style="width: 196px; height: 32px;">
@@ -104,19 +104,21 @@
 				</div>
 				<div id="addTopic">
 					<h3>Add new topic:</h3>
-					<form name="topicForm" action=" <c:url value='/upload-topic' />"
+					<form name="topicForm" action=" <c:url value='/upload' />"
 						method="POST">
 						<table>
 							<tr>
 								<td>Name of technology:</td>
 								<td><select class="topic-form" id="select_tech" style="height:40px; " >
-							<option>Select language</option>
-						</select></td>
+									<option>Select language</option>
+									</select></td>
 							</tr>
 							<tr>
 								<td>Name of topic:</td>
-								<td><input type='text' name='topic' value=''
-									style="margin: 15px;" /></td>
+								<td>
+									<input type='text' name='topic' value=''
+										   style="margin: 15px;"  />
+								</td>
 							</tr>
 							<tr>
 								<td><input class="button_sign" name="submit" id="submitt"
@@ -132,7 +134,7 @@
 						action="UploadServlet" method="POST"
 						enctype="multipart/form-data">
 						<table>
-							<!--  <tr>
+							  <tr>
 								<td>Name of technology:</td>
 								<td><select class="topic-form" id="select_technology" style="height:40px; " >
 							<option>Select language</option>
@@ -140,20 +142,22 @@
 							</tr>
 							<tr>
 								<td>Name of topic:</td>
-								<td><input type='text' name='topic' value=''
-									style="margin: 15px;" /></td>
+								<td>
+									<select class="topic-form" name = "select_topic" style="height:40px; " id="select_topic" >
+										<option>Select topic</option>
+									</select></td>
 							</tr>
 							<tr>
 								<td>Name of material:</td>
 								<td><input type='text' name='material' value=''
 									style="margin: 15px;" /></td>
-							</tr>-->
+							</tr>
 							<tr>
 								<input type="file" name="file" size="50" />
 							</tr>
 							<tr>
 								<td><input class="button_sign" name="submit" id="submitt"
-									type="submit" value="Upload File" /></td>
+									type="submit" value="Upload File" onclick="testPost()"/></td>
 							</tr>
 						</table>
 					</form>

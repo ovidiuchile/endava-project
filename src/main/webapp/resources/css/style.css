@@ -1,14 +1,18 @@
 #search_input::-webkit-input-placeholder {
    font-style: italic;
+   padding-left:2px;
 }
 #search_input:-moz-placeholder {
-   font-style: italic;  
+   font-style: italic;
+   padding-left:2px;  
 }
 #search_input::-moz-placeholder {
-   font-style: italic;  
+   font-style: italic; 
+   padding-left:2px; 
 }
 #search_input:-ms-input-placeholder {  
    font-style: italic; 
+   padding-left:2px;
 }
 
 #submit_input{
@@ -262,7 +266,7 @@ html *
 
 
 
-/* Carousel height management below */
+/* Carousel management below */
 
 #Carousel_container{
 	height:100%;
@@ -302,5 +306,71 @@ html *
 #material{
 	
 }
+/* End of carousel management below */
 
 
+@media screen and (max-width: 1033px) {
+	hr{
+		margin-top: 50px;
+	}
+}
+@media screen and (max-width: 991px) {
+	#vr{
+		display:none;
+	}
+}
+@media screen and (max-width: 732px) {
+	hr{
+		margin-top: 20px;
+	}
+	#nav_pills{
+		position: absolute;
+		left:-290px;
+		top:80px;
+		display:block;
+	}
+	#firstli{
+		left:3px;
+	}
+	
+	#nav_pills li{
+		width:90vw;
+	}
+	.search_inputdiv *{
+		margin-top:220px;
+		margin-left:0px;
+	}
+	#search_input{
+		width:89vw;
+	}
+	#submit_input{
+		margin-top:0px;
+		width:89vw;
+	}
+}
+@media screen and (min-width: 686px) {
+	#search_input{
+		width:286px;
+	}
+	#submit_input{
+		width:286px;
+	}
+	#nav_pills{
+		margin-right:30px;
+	}
+}
+#Topics{
+	width:286px;
+}
+@media screen and (max-width: 732px) {
+	#search_input{
+		width:89vw;
+	}
+	#submit_input{
+		margin-top:0px;
+		width:89vw;
+	}
+	#Topics{
+		width:89vw;
+	}
+}

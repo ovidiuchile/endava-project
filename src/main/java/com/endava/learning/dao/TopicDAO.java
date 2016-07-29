@@ -26,5 +26,12 @@ public class TopicDAO extends AbstractDAO {
 				.setParameter("idTechnology", idTechnology)
 				.getResultList();
 	}
+	
+	@Transactional
+	@SuppressWarnings("unchecked")
+	public Topic getTopicByName(String topicName){
+		return (Topic) em().createQuery("Select t from Topic t where t.name = :topicName")
+				.setParameter("topicName", topicName).getSingleResult();
+	}
 
 }

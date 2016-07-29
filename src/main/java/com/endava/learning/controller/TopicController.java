@@ -17,6 +17,8 @@ import com.endava.learning.model.Topic;
 import com.endava.learning.service.TechnologyService;
 import com.endava.learning.service.TopicService;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TopicController {
@@ -44,17 +46,21 @@ public class TopicController {
 		return new ResponseEntity<>(topicResource, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "technologies/{technology_id}/topics", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public HttpEntity<Resource<Topic>> addTopic(@RequestBody Topic topic,
-			@PathVariable("technology_id") Long technology_id) {
+	@RequestMapping(value = "upload", method = RequestMethod.POST)
+	public HttpEntity<Resource<Topic>> addTopic(HttpServletRequest request) {
 
-		topic.setTechnology(technologyService.getTechnologiesByID(technology_id));
+		Topic topic = new Topic();
+        topic.setName(request.getParameter("topic"));
+        
+        String[] paramValues = request.getParameterValues("select_topic");
+        System.out.println(paramValues[0]);
+        topic.setTechnology(technologyService.getTechnologiesByID(Long.parseLong(paramValues[0])));
 		topic.setTopic_id(((long)(Math.random()*1000000000)));
 		topicService.saveTopic(topic);
 
-		Resource<Topic> topicResouce = new Resource<>(topic);
+		Resource<Topic> topicResource = new Resource<>(topic);
 
-		return new ResponseEntity<>(topicResouce, HttpStatus.CREATED);
+		return new ResponseEntity<>(topicResource, HttpStatus.CREATED);
 	}
 
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)

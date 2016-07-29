@@ -45,8 +45,34 @@ $(window).resize(function(){
 });
 
 
+// topics dropdown
+
+$("#select_technology").change(function(){
+	var grandparent_height = $('.col-md-9').width();
+	$('#notes').width( grandparent_height );
+	$('#button_notes').click(function(){
+		$("#div_notes").fadeToggle(0);
+	});
+	$("#div_notes").fadeToggle(0);
+	var AddTopic = document.getElementById("select_topic");
+    var Select_Tech = document.getElementById("select_technology").value;
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + Select_Tech + "/topics"
+	}).then(function (data) {
+		for (i of data.content) {
+			var topic = document.createElement("option");
+
+			topic.value = i.content.topic_id;
+			topic.innerHTML = i.content.name;
 
 
+			AddTopic.add(topic);
+
+		}
+	});
+});
 
 
 
@@ -103,6 +129,7 @@ $(".form-control").change(function() {
 
 function handleelement(i,topic,option)
 {
+	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
 		$("#myCarousel").show();
 		var showMaterial = document.getElementById('material');
@@ -259,6 +286,9 @@ function search(){
 		console.log(data.content.length);
 		for (i of data.content) {
 			var div = document.createElement("div");
+			
+			div.className += "search-div-material";
+			
 			var select = document.createElement("select");
 			var lang = document.createElement("option");
 			lang.value = i.content.topic.technology.technology_id;
@@ -296,12 +326,12 @@ function search(){
 			select.style.display = "none";
 			var buton =  document.createElement("button");
 			searchResult(buton, lang.value, topic.value, material.value);
-			buton.innerHTML= " Click me";
+			buton.innerHTML= "Get material";
 			div.appendChild(select);
 			buton.className = "result-search-button";
 			
 			var str = resultsTitle.innerHTML;
-			var res = str.replace(search, "<span style = 'background-color:yellow'>" + search + "</span>");
+		    var res = str.replace(search, "<span style = 'background-color:yellow'>" + search + "</span>");
 		    resultsTitle.innerHTML = res;
 		    
 		    var str = resultsDescription.innerHTML;
@@ -418,3 +448,10 @@ function searchResult(buton, langId, topicId, materialId)
 
 }
 
+
+function testPost()
+{
+	var tech = document.getElementById("select_technology").value;
+	var topic = document.getElementById("select_topic").value;
+	console.log(tech, topic);
+}

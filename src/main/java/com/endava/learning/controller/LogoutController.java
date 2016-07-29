@@ -12,7 +12,7 @@ public class LogoutController {
 	@RequestMapping(value = "/logout")
 	public ModelAndView logout(ServletRequest req){
 		ModelAndView model = new ModelAndView();
-		model.setViewName("logout");
+		model.setViewName("login");
 		return model;
 	}
 
