@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 
 	<title>Appollo</title>
+	
 
 </head>
 <body>
@@ -79,7 +80,7 @@
 		<!-- primary container -->
 		<div class="col-md-8 container" id="Carousel_container" style="padding-left:20px; border-left: 1px solid #eee; height:100% ">
 			<br>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" align="center">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" align="center" >
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox" id="Carusel" >
@@ -126,7 +127,7 @@
 			</div>
 			<div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
 
-		</div>
+			</div>
 		<!-- end primary container -->
 
 			<!-- search container -->
