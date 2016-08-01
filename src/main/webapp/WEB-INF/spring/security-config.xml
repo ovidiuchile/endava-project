@@ -11,6 +11,7 @@
 
     <security:http auto-config="true" use-expressions="true">
         <security:intercept-url pattern="/login" access="permitAll" />
+        <security:intercept-url pattern="/register" access="permitAll" />
         <security:intercept-url pattern="/forgot-password" access="permitAll" />
         <security:intercept-url pattern="/**" access="isAuthenticated()" />
         <security:form-login login-page="/login" 
