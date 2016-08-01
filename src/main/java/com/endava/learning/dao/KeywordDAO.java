@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 
 import javax.persistence.Query;
 
+import com.endava.learning.model.User;
 import org.springframework.stereotype.Repository;
 
 import com.endava.learning.model.Keyword;
@@ -43,33 +44,38 @@ public class KeywordDAO extends AbstractDAO{
 		StringTokenizer st = new StringTokenizer(input);
 		List<Material> results = new ArrayList<>();
 		System.out.println("okkkkkkk");
-		int cttEditor = em().createQuery("SELECT user.user_id FROM User user WHERE concat(user.name, ' ||', user.surname) LIKE :editor").setParameter("editor", contentEditor).getFirstResult();
-
-		System.out.println("ok    " + cttEditor);
-		String queryString = "SELECT material FROM Material material";
-
-		if (input != null){
-			queryString += " WHERE (material.title LIKE :word OR material.description LIKE :keyword)";
+		User cttEditor = null;
+		if(contentEditor != null) {
+			cttEditor = (User) em().createQuery("SELECT user FROM User user WHERE user.name LIKE :editor").setParameter("editor", contentEditor).getSingleResult();
+			System.out.println("ceditor: " + cttEditor.getUser_id());
 		}
 
-		if(type.equals(0)){
-		    queryString += " AND material.type = 0";
-		}
-		if(type.equals(1)){
-			queryString += " AND material.type = 1";
-		}
-		if(type.equals(2)){
-			queryString += " AND material.type = 2";
-		}
-		if (date != null) {
-            queryString += " AND to_date(material.upload_date, 'DD.MM.YYYY') = :upload_date";
-		}
-		if (contentEditor != null) {
-            queryString += " AND material.content_editor_id = :editorId";
-		}
-        Query query;
-        query = em().createQuery(queryString);
         while (st.hasMoreElements()) {
+			System.out.println("while");
+			String queryString = "SELECT material FROM Material material";
+
+			if (input != null){
+				queryString += " WHERE (material.title LIKE :word OR material.description LIKE :keyword)";
+			}
+
+			if(type.equals(0)){
+				queryString += " AND material.type = 0";
+			}
+			if(type.equals(1)){
+				queryString += " AND material.type = 1";
+			}
+			if(type.equals(2)){
+				queryString += " AND material.type = 2";
+			}
+			if (date != null) {
+				queryString += " AND to_date(material.upload_date, 'DD.MM.YYYY') = :upload_date";
+			}
+			if (contentEditor != null) {
+				queryString += " AND material.content_editor.user_id = :editorId";
+			}
+			Query query;
+			System.out.println(queryString);
+			query = em().createQuery(queryString);
 			String word = st.nextToken();
             if(input != null) {
 				query.setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%");
@@ -78,7 +84,7 @@ public class KeywordDAO extends AbstractDAO{
                 query.setParameter("upload_date", date);
             }
             if (contentEditor != null) {
-                query.setParameter("editorId", cttEditor);
+                query.setParameter("editorId", cttEditor.getUser_id());
             }
 			results.addAll(query.getResultList());
 		}
