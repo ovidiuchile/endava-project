@@ -17,7 +17,6 @@ public class HomeController {
 	@RequestMapping("/")
 	public ModelAndView home(ServletRequest req) {
 		ModelAndView model = new ModelAndView();
-
 		model.setViewName("home");
 		return model;
 	}
