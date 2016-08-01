@@ -145,7 +145,7 @@ INSERT INTO Users VALUES (4, 'normal user', 'name 4', 'surname 4', 'email4@endav
 INSERT INTO Users VALUES (5, 'admin', 'name 5', 'surname 5', 'email5@endava.com', 'Password5', 'City 5', 'Address 5', '0987654325', 'Country5');
 INSERT INTO Users VALUES (6, 'normal user', 'name 6', 'surname 6', 'email6@endava.com', 'Password6', 'City 6', 'Address 6', '0987654326', 'Country6');
 INSERT INTO Users VALUES (7, 'normal user', 'name 7', 'surname 7', 'email7@endava.com', 'Password7', 'City 7', 'Address 7', '0987654327', 'Country7');
-INSERT INTO Users VALUES (8, 'content editor', 'name 8', 'surname 8', 'email8@endava.com', 'Password8', 'City 8', 'Address 8', '0987654328', 'Country8');
+INSERT INTO Users VALUES (8, 'content editor', 'name', 'surname', 'email8@endava.com', 'Password8', 'City 8', 'Address 8', '0987654328', 'Country8');
 INSERT INTO Users VALUES (9, 'normal user', 'name 9', 'surname 9', 'email9@endava.com', 'Password9', 'City 9', 'Address 9', '0987654329', 'Country9');
 INSERT INTO Users VALUES (10, 'tutor', 'name 10', 'surname 10', 'email10@endava.com', 'Password10', 'City 10', 'Address 10', '0987654310', 'Country10');
 INSERT INTO Users VALUES (11, 'content editor', 'name 11', 'surname 11', 'email11@endava.com', 'Password11', 'City 11', 'Address 11', '0987654311', 'Country11');

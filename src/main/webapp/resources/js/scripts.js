@@ -279,7 +279,15 @@ function search(){
 	var type = document.getElementById("Material_type").value;
 	var date = document.getElementById("datepicker").value;
 	var contentEd = document.getElementById("content_creator").value;
-	console.log('test entrance function');
+	var url = "/advancedSearchResults?s=" + search + "&type=" + type;
+	if(date.length!=0)
+	{
+		url = url + "&date=" + date;
+	}
+	if(contentEd.length!=0)
+	{
+		url = url + "&contentEditor=" + contentEd;
+	}
 	try
 	{
 		while(search_output.childElementCount!=0)
@@ -294,7 +302,7 @@ function search(){
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
-		url: "searchResults?s=" + search + "&type=" + type + "&date=" + date + "&contentEd=" + contentEd
+		url: url
 	}).then(function (data) {
 		console.log(data.content.length);
 		for (i of data.content) {
