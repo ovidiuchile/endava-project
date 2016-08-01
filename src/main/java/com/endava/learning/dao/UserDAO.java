@@ -37,8 +37,13 @@ public class UserDAO extends AbstractDAO {
 	}
 
 	public User getUserByEmail(String email) {
-		User user = (User) em().createQuery("SELECT user FROM User user WHERE user.email like :email")
-				.setParameter("email", email).getSingleResult();
+		User user=null;
+		
+		if (!em().createQuery("SELECT user FROM User user WHERE user.email like :email").setParameter("email", email)
+				.getResultList().isEmpty()) {
+			user = (User) em().createQuery("SELECT user FROM User user WHERE user.email like :email")
+					.setParameter("email", email).getSingleResult();
+		}
 		return user;
 	}
 
