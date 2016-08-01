@@ -1,0 +1,252 @@
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;
+    }
+}
+
+
+
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px; /* Place content 60px from the top */
+    transition: 0.4s; /* 0.4 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+
+
+.example-desc {
+  margin:3px 0;
+  padding:5px;
+}
+
+#carousel {
+  width:600px;
+  border:1px solid #222;
+  height:300px;
+  position:relative;
+  clear:both;
+  overflow:hidden;
+  background:#FFF;
+}
+#carousel img {
+  visibility:hidden; /* hide images until carousel can handle them */
+  cursor:pointer; /* otherwise it's not as obvious items can be clicked */
+}
+
+.split-left {
+  width:450px;
+  float:left;
+}
+.split-right {
+  width:400px;
+  float:left;
+  margin-left:10px;
+}
+#callback-output {
+  height:250px;
+  overflow:scroll;
+}
+textarea#newoptions {
+  width:430px;
+}
+
+
+
+.div_down{
+    margin-top:80px;
+}
+
+
+body,head{
+    		font-family: Arial, Helvetica, sans-serif;
+    		height:100%;
+    		margin:0px;
+    		padding:0px;
+    		min-width:330px;
+    		min-height:500px;
+    	}
+    
+        .error {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+
+        .msg {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
+
+        #login-box {
+            padding: 20px;
+            padding-bottom:0px;
+            width:258px;
+            position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+            
+            background: #071226;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border: 1px solid #000;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        #menu{
+        	background-color:#071226;
+        	width:calc( 100% - 20px );
+        	min-width:730px;
+        	padding:10px;
+        	opacity: 0.9;
+        }
+        #logo_div{
+        	width:100%;
+        	margin:auto;
+        }
+        
+        #img_logo{
+        	height:50px;
+        }
+        #button_div{
+        	display:inline-block;
+        	margin-bottom:20px;
+        }
+        .button_sign {
+		    background-color: #024873; /* Green */
+		    border: none;
+		    color: white;
+		    padding: 10px 10px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		} 
+		#background_image{
+			z-index:-1;
+			position:fixed;
+			float:right;
+		}
+		
+		table{
+			color:white;
+			opacity:1;
+		}
+		#submitt{
+			margin-left:90px;
+			margin-top:20px;
+		}
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    display:inline-block;
+		    float:right;
+		}
+		
+		li {
+		    float: right;
+		}
+		
+		li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		
+		li a:hover {
+		    background-color: #024873;
+		}
+		
