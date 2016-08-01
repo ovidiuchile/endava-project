@@ -84,6 +84,7 @@ $.ajaxSetup({
 });
 var carusel = document.getElementById('Carusel');
 $(".form-control").change(function() {
+	$('#myCarousel').hide();
 	var option = document.getElementById('Language_Selector').value;
 	var AddTopic = document.getElementById('Topics');
 	var material = document.createElement("img");
@@ -448,3 +449,10 @@ function searchResult(buton, langId, topicId, materialId)
 
 }
 
+
+function testPost()
+{
+	var tech = document.getElementById("select_technology").value;
+	var topic = document.getElementById("select_topic").value;
+	console.log(tech, topic);
+}

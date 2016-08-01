@@ -44,4 +44,8 @@ public class TopicService {
 	public Topic getTopicByID(Long idTopic) {
 		return (Topic)topicDAO.findById(idTopic);
 	}
+
+	public Topic getTopicByName(String topicName) {
+		return topicDAO.getTopicByName(topicName);
+	}
 }

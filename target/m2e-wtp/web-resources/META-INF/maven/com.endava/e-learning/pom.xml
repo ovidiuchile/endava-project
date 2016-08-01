@@ -305,12 +305,19 @@
 			<artifactId>javax.mail-api</artifactId>
 			<version>1.5.5</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
 			<version>1.5.1</version>
 		</dependency>
+
+
 
 		<!-- File Upload -->
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->

@@ -1,19 +1,14 @@
 package com.endava.learning.service;
 
-import com.endava.learning.dao.KeywordDAO;
-import com.endava.learning.model.Keyword;
-import com.endava.learning.model.Material;
+import java.util.List;
+
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import com.endava.learning.dao.KeywordDAO;
+import com.endava.learning.model.Material;
 
 @Service
 public class SearchService {
@@ -21,7 +16,8 @@ public class SearchService {
     @Autowired
     private KeywordDAO keywordDAO;
 
-    private DataSource dataSource;
+    @SuppressWarnings("unused")
+	private DataSource dataSource;
 
     public List<Material> getSearchResults(String input) {
         return keywordDAO.getSearchResults(input);

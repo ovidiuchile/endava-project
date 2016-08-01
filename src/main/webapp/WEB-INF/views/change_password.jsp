@@ -112,7 +112,7 @@
 			
 		    <p style="color:green;">${msg}</p>
 		
-		    <form name='loginForm' action=" <c:url value='${pageContext.request.contextPath}/change-password' />" method='POST'>
+		    <form name='loginForm' action=" <c:url value='change-password' />" method='POST'>
 		
 		        <table>
 		            <tr>

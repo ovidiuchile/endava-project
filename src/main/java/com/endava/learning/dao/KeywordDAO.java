@@ -1,13 +1,15 @@
 package com.endava.learning.dao;
 
-import com.endava.learning.model.Keyword;
-import com.endava.learning.model.Material;
-import org.springframework.stereotype.Repository;
-
-import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import javax.persistence.Query;
+
+import org.springframework.stereotype.Repository;
+
+import com.endava.learning.model.Keyword;
+import com.endava.learning.model.Material;
 
 @Repository
 @SuppressWarnings("rawtypes")
@@ -27,6 +29,7 @@ public class KeywordDAO extends AbstractDAO{
 		    String word = st.nextToken();
 
 
+			@SuppressWarnings("unchecked")
 			List<Material> keywords = (List<Material>) em().createQuery("SELECT material FROM Material material WHERE material.title LIKE :word OR material.description LIKE :keyword").setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%").getResultList();
 
             results.addAll(keywords);
@@ -34,6 +37,7 @@ public class KeywordDAO extends AbstractDAO{
 		return results;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Material> getAdvancedSearchResults(String input, boolean typeB, boolean dateB, boolean contentEditorB,
                                                    int type, String date, String contentEditor) {
 		input.replaceAll("[^a-zA-Z1-9 ]", "").toLowerCase().split("\\s+");
