@@ -152,8 +152,8 @@
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 	<script>
-	var name = '<%= session.getAttribute("userName") %>';
-	console.log(name);
+	var user_type = '<%= session.getAttribute("user_type") %>';
+	console.log(user_type);
 	</script>
 </body>
 </html>
