@@ -203,9 +203,9 @@ INSERT INTO Topics VALUES (35, 9, 'Recursion');
 INSERT INTO Topics VALUES (36, 5, 'Forms');
 INSERT INTO Topics VALUES (37, 5, 'Cookies');
 
-INSERT INTO Materials VALUES (1, 1, 'A presentation...', 'This is just a simple photo', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('05.07.2015', 'DD.MM.YYYY'), 3);
-INSERT INTO Materials VALUES (2, 3, 'A picture', 'SQL', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
-INSERT INTO Materials VALUES (3, 5, 'The Basics of SQL', 'Simple things', 'http://sqlinstructor.com/wp-content/uploads/2015/01/SQLDMLDDLimage.jpg', 0, to_date('12.06.2013', 'DD.MM.YYYY'), 3);
+INSERT INTO Materials VALUES (1, 1, 'A presentation...', 'This is just a simple photo', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('2015.07.05', 'YYYY.MM.DD'), 3);
+INSERT INTO Materials VALUES (2, 3, 'A picture', 'SQL', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date(to_date('2015.12.12', 'YYYY.MM.DD')), 16);
+INSERT INTO Materials VALUES (3, 5, 'The Basics of SQL', 'Simple things', 'http://sqlinstructor.com/wp-content/uploads/2015/01/SQLDMLDDLimage.jpg', 0, to_date(to_date('2015.06.12', 'YYYY.MM.DD')), 3);
 INSERT INTO Materials VALUES (4, 10, 'Caesar Cipher', 'Ancient times, simple cipher', 'http://i.imgur.com/tFnX1co.png', 0, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
 INSERT INTO Materials VALUES (5, 12, 'RSA Decryption Time by Key Length', 'This is a graphic', 'http://www.javamex.com/tutorials/cryptography/RSADecryptionTime.png', 0, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
 INSERT INTO Materials VALUES (6, 12, 'Diffie Hellman Key Exchange part 1', 'Key exchange part 1', 'http://s3.amazonaws.com/lyah/maxs.png', 0, to_date('08.01.2016', 'DD.MM.YYYY'), 8);

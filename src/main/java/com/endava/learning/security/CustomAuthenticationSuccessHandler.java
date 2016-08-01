@@ -26,7 +26,9 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         User loggedUser = (User) authentication.getPrincipal();
         
-        request.getSession().setAttribute("user", loggedUser);
+        request.getSession().setAttribute("name", loggedUser.getName());
+        request.getSession().setAttribute("user_type", loggedUser.getUser_type());
+        request.getSession().setAttribute("id", loggedUser.getUser_id());
         
         SavedRequest savedRequest = requestCache.getRequest(request, response);
         

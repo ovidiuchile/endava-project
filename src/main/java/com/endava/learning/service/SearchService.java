@@ -16,9 +16,6 @@ public class SearchService {
     @Autowired
     private KeywordDAO keywordDAO;
 
-    @SuppressWarnings("unused")
-	private DataSource dataSource;
-
     public List<Material> getSearchResults(String input) {
         return keywordDAO.getSearchResults(input);
     }

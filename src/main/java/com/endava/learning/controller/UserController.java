@@ -4,6 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -124,5 +129,12 @@ public class UserController {
 			request.setAttribute("msg", "Invalid email address or old password.");
 		}
 		return model;
+	}
+	
+	@RequestMapping(value = "users/{user_id}", method = RequestMethod.DELETE)
+	public HttpEntity<Resource<User>> deleteUser(@PathVariable("user_id") Long user_id) {
+		userService.deleteUser(user_id);
+
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

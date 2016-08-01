@@ -2,17 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/endava/learning/controller/HomeController.class" afterPath="$PROJECT_DIR$/target/classes/com/endava/learning/controller/HomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/endava/learning/controller/HomeController.class" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/endava/learning/controller/HomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/e_learning_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/e_learning_war_exploded.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.endava/e-learning/pom.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.endava/e-learning/pom.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/e-learning.iml" afterPath="$PROJECT_DIR$/e-learning.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/HomeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UploadServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UploadServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/TopicDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/TopicDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/security/CustomAuthenticationFailureHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/security/CustomAuthenticationFailureHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/security/CustomAuthenticationProvider.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/security/CustomAuthenticationProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/security/CustomAuthenticationSuccessHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/security/CustomAuthenticationSuccessHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/service/SearchService.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/service/SearchService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/service/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/db/ELearning.sql" afterPath="$PROJECT_DIR$/src/main/resources/db/ELearning.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-config.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/root-context.xml" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/root-context.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="e-learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,8 +102,8 @@
       <file leaf-file-name="UploadServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UploadServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+            <state relative-caret-position="272">
+              <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -117,12 +125,12 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1470053104062" expanded="true" signature="59:94648" ph="..." />
-                <marker date="1470053104062" expanded="true" signature="98:192" ph="..." />
-                <marker date="1470053104062" expanded="true" signature="94574:94591" ph="..." />
-                <marker date="1470053104062" expanded="true" signature="94574:94609" ph="..." />
-                <marker date="1470053104062" expanded="true" signature="94574:94622" ph="..." />
-                <marker date="1470053104062" expanded="true" signature="94574:94637" ph="..." />
+                <marker date="1470055343161" expanded="true" signature="59:94665" ph="..." />
+                <marker date="1470055343161" expanded="true" signature="98:192" ph="..." />
+                <marker date="1470055343161" expanded="true" signature="94591:94608" ph="..." />
+                <marker date="1470055343161" expanded="true" signature="94591:94626" ph="..." />
+                <marker date="1470055343161" expanded="true" signature="94591:94639" ph="..." />
+                <marker date="1470055343161" expanded="true" signature="94591:94654" ph="..." />
               </folding>
             </state>
           </provider>
@@ -1161,16 +1169,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1470044871346</updated>
-      <workItem from="1470044873304" duration="6149000" />
+      <workItem from="1470044873304" duration="6177000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7266000" />
+    <option name="totallyTimeSpent" value="7294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1178,11 +1186,11 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33333334" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33333334" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33333334" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1228,12 +1236,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1470053104062" expanded="true" signature="59:94648" ph="..." />
-            <marker date="1470053104062" expanded="true" signature="98:192" ph="..." />
-            <marker date="1470053104062" expanded="true" signature="94574:94591" ph="..." />
-            <marker date="1470053104062" expanded="true" signature="94574:94609" ph="..." />
-            <marker date="1470053104062" expanded="true" signature="94574:94622" ph="..." />
-            <marker date="1470053104062" expanded="true" signature="94574:94637" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="59:94665" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="98:192" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="94591:94608" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="94591:94626" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="94591:94639" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="94591:94654" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1666,20 +1674,20 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1470053104062" expanded="true" signature="59:94648" ph="..." />
-            <marker date="1470053104062" expanded="true" signature="98:192" ph="..." />
-            <marker date="1470053104062" expanded="true" signature="94574:94591" ph="..." />
-            <marker date="1470053104062" expanded="true" signature="94574:94609" ph="..." />
-            <marker date="1470053104062" expanded="true" signature="94574:94622" ph="..." />
-            <marker date="1470053104062" expanded="true" signature="94574:94637" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="59:94665" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="98:192" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="94591:94608" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="94591:94626" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="94591:94639" ph="..." />
+            <marker date="1470055343161" expanded="true" signature="94591:94654" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UploadServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+        <state relative-caret-position="272">
+          <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
           <folding />
         </state>
       </provider>
