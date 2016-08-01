@@ -49,6 +49,8 @@ $(window).resize(function(){
 });
 
 
+
+
 // topics dropdown
 
 $("#select_technology").change(function(){
@@ -58,6 +60,9 @@ $("#select_technology").change(function(){
 		$("#div_notes").fadeToggle(0);
 	});
 	$("#div_notes").fadeToggle(0);
+
+
+	
 	var AddTopic = document.getElementById("select_topic");
     var Select_Tech = document.getElementById("select_technology").value;
 	$.ajax({
@@ -271,9 +276,9 @@ function search(){
 	$("#material").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
-	var type = document.getElementById("type").value;
-	var date = document.getElementById("date").value;
-	var contentEd = document.getElementById("contentEd").value;
+	var type = document.getElementById("Material_type").value;
+	var date = document.getElementById("datepicker").value;
+	var contentEd = document.getElementById("content_creator").value;
 	console.log('test entrance function');
 	try
 	{
@@ -457,10 +462,8 @@ function searchResult(buton, langId, topicId, materialId)
 }
 
 
-function testPost()
+function show()
 {
-	var tech = document.getElementById("select_technology").value;
-	var topic = document.getElementById("select_topic").value;
-	console.log(tech, topic);
+	$("#Adv_search").show();
+	$("#bttn_search").hide();
 }
-
