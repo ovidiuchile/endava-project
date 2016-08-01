@@ -32,10 +32,8 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
         
         if(savedRequest != null) {
         	redirectStrategy.sendRedirect(request, response, savedRequest.getRedirectUrl());
-            //response.getWriter().write(savedRequest.getRedirectUrl());
         } else {
-        	redirectStrategy.sendRedirect(request, response, "/e-learning");
-            //response.getWriter().write("/");
+        	redirectStrategy.sendRedirect(request, response, "/");
         }
     }
 }

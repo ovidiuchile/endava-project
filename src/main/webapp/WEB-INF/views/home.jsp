@@ -156,5 +156,9 @@
 	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
 	<script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
+	<script>
+	var name = '<%= session.getAttribute("userName") %>';
+	console.log(name);
+	</script>
 </body>
 </html>

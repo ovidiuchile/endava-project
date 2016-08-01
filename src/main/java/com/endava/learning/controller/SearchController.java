@@ -3,6 +3,7 @@ package com.endava.learning.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpEntity;
@@ -32,11 +33,11 @@ public class SearchController {
         return new ResponseEntity<>(materialsResources, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/advancedSearchResults", method = RequestMethod.GET)
-    public HttpEntity<Resources<Resource<Material>>> showAdvancedResults(@RequestParam(value = "s") String s, @RequestParam(value = "typeB") boolean typeB, @RequestParam(value = "dateB") boolean dateB, @RequestParam(value = "contentEditorB") boolean contentEditorB,
-                                            @RequestParam(value = "type") int type, @RequestParam(value = "date") String date, @RequestParam(value = "contentEditor") String contentEditor) {
+    @RequestMapping(value = "/advancedSearchResults", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Resources<Resource<Material>>> showAdvancedResults(@RequestParam(value = "s") String s,
+                                                                         @RequestParam(value = "type", required = false) Integer type, @RequestParam(value = "date", required = false) String date, @RequestParam(value = "contentEditor", required = false) String contentEditor) {
 
-        List<Material> results = searchService.getAdvancedSearchResults(s, typeB, dateB, contentEditorB, type, date, contentEditor);
+        List<Material> results = searchService.getAdvancedSearchResults(s, type, date, contentEditor);
 
         Resources<Resource<Material>> materialsResources = Resources.wrap(results);
 

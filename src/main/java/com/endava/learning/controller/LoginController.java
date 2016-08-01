@@ -51,24 +51,6 @@ public class LoginController {
         model.setViewName("login");
         return model;
 	}
-
-	/*@RequestMapping(value = "login", method = RequestMethod.POST)
-	public ModelAndView handleRequestPost(HttpServletRequest request) {
-
-		String email = request.getParameter("email_in");
-		String password = request.getParameter("password_in");
-
-		ModelAndView model = new ModelAndView();
-
-		if (loginService.isValidUser(email, password)) {
-			model.setViewName("home");
-		} else {
-			model.setViewName("login");
-			request.setAttribute("error", "Invalid email address or password.");
-			request.setAttribute("success", null);
-		}
-		return model;
-	}*/
 	
 	@RequestMapping(value = "/logout")
 	public ModelAndView logout(ServletRequest req){

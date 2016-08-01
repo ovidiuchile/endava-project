@@ -38,24 +38,29 @@ public class KeywordDAO extends AbstractDAO{
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Material> getAdvancedSearchResults(String input, boolean typeB, boolean dateB, boolean contentEditorB,
-                                                   int type, String date, String contentEditor) {
+	public List<Material> getAdvancedSearchResults(String input, Integer type, String date, String contentEditor) {
 		input.replaceAll("[^a-zA-Z1-9 ]", "").toLowerCase().split("\\s+");
 		StringTokenizer st = new StringTokenizer(input);
 		List<Material> results = new ArrayList<>();
 
-        int cttEditor = em().createQuery("SELECT user.user_id FROM User user WHERE lower(concat(user.name, ' ||', user.surname)) LIKE :editor").setParameter("editor", contentEditor).getFirstResult();
+        int cttEditor = em().createQuery("SELECT user.user_id FROM User user WHERE concat(user.name, ' ||', user.surname) LIKE :editor").setParameter("editor", contentEditor).getFirstResult();
 
 
-        String queryString = "SELECT material FROM Material material WHERE (lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword)";
+        String queryString = "SELECT material FROM Material material WHERE (material.title LIKE :word OR material.description LIKE :keyword)";
 
-		if(typeB){
-		    queryString += " AND material.type = :materialType";
+		if(type.equals(0)){
+		    queryString += " AND material.type = 0";
 		}
-		if (dateB) {
+		if(type.equals(1)){
+			queryString += " AND material.type = 1";
+		}
+		if(type.equals(2)){
+			queryString += " AND material.type = 2";
+		}
+		if (date != null) {
             queryString += " AND to_date(material.upload_date, 'DD.MM.YYYY') = :upload_date";
 		}
-		if (contentEditorB) {
+		if (contentEditor != null) {
             queryString += " AND material.content_editor_id = :editorId";
 		}
         Query query;
@@ -63,13 +68,10 @@ public class KeywordDAO extends AbstractDAO{
         while (st.hasMoreElements()) {
 			String word = st.nextToken();
             query.setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%");
-            if(typeB){
-                query.setParameter("materialType", type);
-            }
-            if (dateB) {
+            if (date != null) {
                 query.setParameter("upload_date", date);
             }
-            if (contentEditorB) {
+            if (contentEditor != null) {
                 query.setParameter("editorId", cttEditor);
             }
 			results.addAll(query.getResultList());
