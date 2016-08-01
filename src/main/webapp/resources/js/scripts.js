@@ -132,6 +132,7 @@ function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
+		$("#search-container").hide();
 		$("#myCarousel").show();
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " none";
@@ -237,7 +238,7 @@ function handleMaterial( img, source, type)
 				material.oncontextmenu="return false;"
 			}
 			var container = document.getElementById('search-container');
-			container.style.display="none";
+			container.style.display="none ";
 		});
 
 }
@@ -251,7 +252,7 @@ function handleMaterial( img, source, type)
 
 
 function openNav() {
-	document.getElementById("mySidenav").style.width = "200px";
+	document.getElementById("mySidenav").style.width = "190px";
 }
 
 /* Set the width of the side navigation to 0 */
