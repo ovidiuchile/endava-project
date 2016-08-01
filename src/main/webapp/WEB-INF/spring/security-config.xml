@@ -13,13 +13,13 @@
         <security:intercept-url pattern="/login" access="permitAll" />
         
         <security:intercept-url pattern="/forgot-password" access="permitAll" />
-        <security:intercept-url pattern="/**" access="permitAll" />
+        <security:intercept-url pattern="/**" access="isAuthenticated()" />
         <security:form-login login-page="/login" 
                              authentication-failure-handler-ref="customAuthenticationFailureHandler" 
                              authentication-success-handler-ref="customAuthenticationSuccessHandler"
-                             login-processing-url="/home"
-                             password-parameter="password"
-                             username-parameter="email" />
+                             login-processing-url="/securitycheck"
+                             password-parameter="password_in"
+                             username-parameter="email_in" />
         <security:logout invalidate-session="true" logout-url="/logout" logout-success-url="/login" />
         
         <security:session-management> 
