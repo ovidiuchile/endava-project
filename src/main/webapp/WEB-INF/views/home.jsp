@@ -151,6 +151,9 @@
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-
+	<script>
+	var name = '<%= session.getAttribute("userName") %>';
+	console.log(name);
+	</script>
 </body>
 </html>
