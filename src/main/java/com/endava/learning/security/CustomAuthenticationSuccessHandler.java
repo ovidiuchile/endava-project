@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
@@ -18,6 +20,8 @@ import com.endava.learning.model.User;
 public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
     private final RequestCache requestCache = new HttpSessionRequestCache();
     
+    private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+    
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         User loggedUser = (User) authentication.getPrincipal();
@@ -27,11 +31,11 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
         SavedRequest savedRequest = requestCache.getRequest(request, response);
         
         if(savedRequest != null) {
-            response.getWriter().write(savedRequest.getRedirectUrl());
+        	redirectStrategy.sendRedirect(request, response, savedRequest.getRedirectUrl());
+            //response.getWriter().write(savedRequest.getRedirectUrl());
         } else {
-            response.getWriter().write("/");
+        	redirectStrategy.sendRedirect(request, response, "/e-learning");
+            //response.getWriter().write("/");
         }
-        
-        response.setStatus(HttpServletResponse.SC_OK);
     }
 }
