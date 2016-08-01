@@ -23,9 +23,8 @@ public class SearchService {
         return keywordDAO.getSearchResults(input);
     }
 
-    public List<Material> getAdvancedSearchResults(String input, boolean typeB, boolean dateB, boolean contentEditorB,
-                                                   int type, String date, String contentEditor) {
+    public List<Material> getAdvancedSearchResults(String input, Integer type, String date, String contentEditor) {
 
-        return keywordDAO.getAdvancedSearchResults(input, typeB, dateB, contentEditorB, type, date, contentEditor);
+        return keywordDAO.getAdvancedSearchResults(input, type, date, contentEditor);
     }
 }
