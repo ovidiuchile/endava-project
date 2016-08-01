@@ -38,6 +38,10 @@ $(document).ready(function(){
 			}
 		}
 	});
+
+
+	$("#datepicker").Zebra_DatePicker();
+
 });
 $(window).resize(function(){
 	var grandparent_height = $('.col-md-9').width();
@@ -267,6 +271,9 @@ function search(){
 	$("#material").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
+	var type = document.getElementById("type").value;
+	var date = document.getElementById("date").value;
+	var contentEd = document.getElementById("contentEd").value;
 	console.log('test entrance function');
 	try
 	{
@@ -282,7 +289,7 @@ function search(){
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
-		url: "searchResults?s=" + search
+		url: "searchResults?s=" + search + "&type=" + type + "&date=" + date + "&contentEd=" + contentEd
 	}).then(function (data) {
 		console.log(data.content.length);
 		for (i of data.content) {
@@ -456,3 +463,4 @@ function testPost()
 	var topic = document.getElementById("select_topic").value;
 	console.log(tech, topic);
 }
+
