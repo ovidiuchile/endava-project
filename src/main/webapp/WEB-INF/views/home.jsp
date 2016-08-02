@@ -69,7 +69,7 @@
 							<a href="#">Try it yourself</a>
 						</li>
 						<li class="" style="">
-							<a href="#">Upload material</a>
+							<a href="upload">Upload material</a>
 						</li>
 					</ul>
 					<span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
