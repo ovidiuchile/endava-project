@@ -43,5 +43,14 @@
     <orderEntry type="library" name="Maven: org.springframework.hateoas:spring-hateoas:0.20.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: commons-fileupload:commons-fileupload:1.2" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.7.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:4.0.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.0.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:4.0.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.0.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.0.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:javax.mail-api:1.5.5" level="project" />
   </component>
 </module>

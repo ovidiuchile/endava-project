@@ -1,5 +1,11 @@
 package com.endava.learning.controller;
 
+import java.util.Enumeration;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
@@ -16,8 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.endava.learning.model.Topic;
 import com.endava.learning.service.TechnologyService;
 import com.endava.learning.service.TopicService;
-
-import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -46,20 +50,16 @@ public class TopicController {
 		return new ResponseEntity<>(topicResource, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "upload", method = RequestMethod.POST)
+	@RequestMapping(value = "upload-topic", method = RequestMethod.POST)
 	public HttpEntity<Resource<Topic>> addTopic(HttpServletRequest request) {
 
 		Topic topic = new Topic();
         topic.setName(request.getParameter("topic"));
-        
-        String[] paramValues = request.getParameterValues("select_topic");
-        System.out.println(paramValues[0]);
-        topic.setTechnology(technologyService.getTechnologiesByID(Long.parseLong(paramValues[0])));
+        topic.setTechnology(technologyService.getTechnologiesByID(Long.parseLong(request.getParameter("technology"))));
 		topic.setTopic_id(((long)(Math.random()*1000000000)));
 		topicService.saveTopic(topic);
 
 		Resource<Topic> topicResource = new Resource<>(topic);
-
 		return new ResponseEntity<>(topicResource, HttpStatus.CREATED);
 	}
 

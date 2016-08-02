@@ -1,15 +1,39 @@
 
+#Adv_search{
+	background-color:transparent;
+	border: 1px solid pink;
+	width:285px; 
+	margin:5px 0px;
+
+	padding:10px;   
+}
+#Adv_search *{
+	padding:5px;
+}
+#nav_pills li a,#nav_pills li {
+	color:white;
+	opacity:1;
+}
+.Zebra_DatePicker_Icon, .Zebra_DatePicker_Icon_Inside_Right{
+	width:0px;
+	height:0px;
+}
+.dp_visible{
+	z-index:100000;  
+}
+
 div#material{
 	background-color:transparent;
 	width:100%;
 	position: relative;
 	display:block;
-    margin-left: 45px;
+	margin-left: 45px;
 }
 
 html, body{
 	color:white;
 	font-family: Arial, Helvetica, sans-serif;
+
 }
 
 #background_1{
@@ -18,25 +42,25 @@ html, body{
 }
 
 #menu{
-        	background-color:rgb(15,33,52);
-        	padding:10px;
-        	opacity: 1;
-        }
-        #logo_div{
-        	width:100%;
-        	margin:auto;
-        }
-        
-        #img_logo{
-        	height:50px;
-        }
-        
+	background-color:rgb(15,33,52);
+	padding:10px;
+	opacity: 1;
+}
+#logo_div{
+	width:100%;
+	margin:auto;
+}
+
+#img_logo{
+	height:50px;
+}
+
 #img-avatar{
 	margin-top:-25px;
 	margin-right:-10px;
 	margin-left:20px;
 }
-        
+
 .conainter-fluid{
 	margin:0px;
 	padding:0px;
@@ -53,25 +77,33 @@ html, body{
 
 
 #search_input::-webkit-input-placeholder {
-   font-style: italic;
-   padding-left:2px;
+	font-style: italic;
+	padding-left:2px;
 }
 #search_input:-moz-placeholder {
-   font-style: italic;
-   padding-left:2px;  
+	font-style: italic;
+	padding-left:2px;  
 }
 #search_input::-moz-placeholder {
-   font-style: italic; 
-   padding-left:2px; 
+	font-style: italic; 
+	padding-left:2px; 
 }
-#search_input:-ms-input-placeholder {  
-   font-style: italic; 
-   padding-left:2px;
+#search_input:-ms-input-placeholder { 
+	font-style: italic; 
+	padding-left:2px;
 }
 
-#submit_input{
+#submit_input,#bttn_search,#test_input{
 	background-color:rgb(15,33,52);
 	color:rgb(250,250,250);
+	border-radius:0px;
+} 
+#bttn_search{
+	width:150px;
+} 
+#submit_input{
+	margin-left:-3px; 
+	width:133px;
 }
 
 .sidenav {
@@ -208,38 +240,38 @@ html *
 
 
 .carousel-inner > .item > img,
-		.carousel-inner > .item > a > img {
-			width: 70%;
-			margin: auto;
-		}
-		
-		
-		
-		
-		
+.carousel-inner > .item > a > img {
+	width: 70%;
+	margin: auto;
+}
+
+
+
+
+
 #Topics .btn{
 	background-color:rgb(15,33,52);
 	color:rgb(250,250,250);
 	border-color: pink;
 }
 #Topics .btn:focus {
-    outline-color: pink;
-    outline:0;
+	outline-color: pink;
+	outline:0;
 }
 #Topics .btn:active{
 	outline-color: pink;
 }
 
 .nav-pills li a:focus{
-		background-color:#024873;
-	}
+	background-color:#024873;
+}
 
 
 #myCarousel{
 	max-height: 600px;
 }
 .item img{
-	 max-height: 600px;
+	max-height: 600px;
 }
 #material{
 	position: absolute;
@@ -294,7 +326,7 @@ html *
 	height:80vh;
 	position: relative;
 	display:block;
-    margin-left: 45px;
+	margin-left: 45px;
 
 }
 #Carusel{
@@ -322,7 +354,9 @@ html *
 	opacity:0.2;
 }
 /* End of carousel management below */
-
+.search_inputdiv {
+	width:290px; 
+}
 
 @media screen and (max-width: 1033px) {
 
@@ -336,7 +370,7 @@ html *
 
 	#nav_pills{
 		position: absolute;
- 		left:10px;
+		left:10px;
 		top:80px;
 		display:block;
 
@@ -349,7 +383,7 @@ html *
 		width:90vw;
 	}
 	.search_inputdiv *{
-		margin-top:80px;
+		margin-top:110px; 
 		margin-left:0px;
 	}
 	#search_input{
@@ -360,62 +394,89 @@ html *
 		width:89vw;
 	}
 	
+	
 	.nav-pills li a {
-	background-color:rgb(15,33,52);
-	border-radius:0px;
-	color:white;
-	margin-left: 3px;
-	z-index:99999;
-	width:calc( 96vw - 20px);
+		background-color:rgb(15,33,52);
+		border-radius:0px;
+		color:white;
+		margin-left: 3px;
+		z-index:99999;
+		width:calc( 96vw - 20px);
 	}
 
 	.nav-pills li a:hover{
-	background-color:#024873;
-	border-radius:0px;
-	width:calc( 96vw - 20px);
+		background-color:#024873;
+		border-radius:0px;
+		width:calc( 96vw - 20px);
 	}
 	
 	.nav-pills li select{
-	background-color:#024873;
-	color:white;
-	margin-right: 3px;
-	border-radius:0px;
-	width:calc( 96vw - 17px);
-}
+		background-color:#024873;
+		color:white;
+		margin-right: 3px;
+		border-radius:0px;
+		width:calc( 96vw - 17px);
+	}
 }
 
 #Topics{
+	width:286px;
+}
+#search_input{
 	width:286px;
 }
 @media screen and (max-width: 991px) {
 	#search_input{
 		width:calc( 96vw - 20px);
 	}
+	
 	#submit_input{
 		margin-top:0px;
-		width:calc( 96vw - 20px);
+		width:calc( ( 96vw - 22px ) / 2);
+		display:inline-table;
 	}
+	
+	#bttn_search{
+		width:calc( ( 96vw - 22px ) / 2);
+		display:inline-table;
+	} 
+	.search_inputdiv{ 
+		margin-top:110px;
+		width:calc( 96vw - 16px);
+	}
+	.search_inputdiv *{
+		margin:0px;
+	}
+	
 	#Topics{
 		width:calc( 96vw - 20px);
 	}
 	#Carousel_container{
-	width:calc( 100% - 20px );
-	height:60vw;
-	margin-left:-38px;
+		width:calc( 100% - 20px );
+		height:60vw;
+		margin-left:-38px;
 	}
 	#myCarousel{
-	height:60vw;
-
+		height:60vw;
+	}
+	#Carusel{
+		height:60vw;
+	}
+	.carousel-control{
+		height:60vw;
+	}
+	#Adv_search{
+		width:calc( 96vw - 20px);
+	}
+	.td11{
+		width:30px;
+	}
+	.td12{
+		width:calc( 96vw - 122px);
+	}
+	#img-avatar{
+		position:relative;
+		top:9px;
+	}
 }
-#Carusel{
-	height:60vw;
-}
-.carousel-control{
-	height:60vw;
-}
-}
-
-#nav_pills li a,#nav_pills li {
-	color:white;
-	opacity:1;
-}
+ 

@@ -1,6 +1,7 @@
 package com.endava.learning.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -30,10 +31,8 @@ public class KeywordDAO extends AbstractDAO {
 			String word = st.nextToken();
 
 			@SuppressWarnings("unchecked")
-			List<Material> keywords = (List<Material>) em()
-					.createQuery(
-							"SELECT material FROM Material material WHERE material.title LIKE :word OR material.description LIKE :keyword")
-					.setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%").getResultList();
+
+			List<Material> keywords = (List<Material>) em().createQuery("SELECT material FROM Material material WHERE lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword").setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword", "%" + word.toLowerCase() + "%").getResultList();
 
 			results.addAll(keywords);
 		}
@@ -41,7 +40,7 @@ public class KeywordDAO extends AbstractDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Material> getAdvancedSearchResults(String input, Integer type, String date, String contentEditor) {
+	public List<Material> getAdvancedSearchResults(String input, Integer type, String startDate, String finishDate, String contentEditor) {
 		input.replaceAll("[^a-zA-Z1-9 ]", "").toLowerCase().split("\\s+");
 		StringTokenizer st = new StringTokenizer(input);
 		List<Material> results = new ArrayList<>();
@@ -57,8 +56,9 @@ public class KeywordDAO extends AbstractDAO {
 			System.out.println("while");
 			String queryString = "SELECT material FROM Material material";
 
-			if (input != null) {
-				queryString += " WHERE (material.title LIKE :word OR material.description LIKE :keyword)";
+			if (input != null){
+				queryString += " WHERE (lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword)";
+
 			}
 
 			if (type.equals(0)) {
@@ -70,8 +70,8 @@ public class KeywordDAO extends AbstractDAO {
 			if (type.equals(2)) {
 				queryString += " AND material.type = 2";
 			}
-			if (date != null) {
-				queryString += " AND to_date(material.upload_date, 'YYYY-MM-DD') = :upload_date";
+			if (startDate != null && finishDate != null) {
+				queryString += " AND to_date(material.upload_date, 'YYYY-MM-DD') BETWEEN to_date(:startDate, 'YYYY-MM-DD') AND to_date(:finishDate, 'YYYY-MM-DD')";
 			}
 			if (contentEditor != null) {
 				queryString += " AND material.content_editor.user_id = :editorId";
@@ -80,15 +80,18 @@ public class KeywordDAO extends AbstractDAO {
 			System.out.println(queryString);
 			query = em().createQuery(queryString);
 			String word = st.nextToken();
-			if (input != null) {
-				query.setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%");
+
+            if(input != null) {
+				query.setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword", "%" + word.toLowerCase() + "%");
 			}
-			if (date != null) {
-				query.setParameter("upload_date", date);
-			}
-			if (contentEditor != null) {
-				query.setParameter("editorId", cttEditor.getUser_id());
-			}
+            if (startDate != null && finishDate != null) {
+                query.setParameter("startDate", startDate);
+                query.setParameter("finishDate", finishDate);
+            }
+            if (contentEditor != null) {
+                query.setParameter("editorId", cttEditor.getUser_id());
+            }
+
 			results.addAll(query.getResultList());
 		}
 		return results;
