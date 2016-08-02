@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	version="2.5">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -11,10 +11,12 @@
    			/WEB-INF/spring/security-config.xml
 		</param-value>
 	</context-param>
-	<context-param>
-		<description>Location to store uploaded file</description>
-		<param-name>file-upload</param-name>
-		<param-value>C:/Users/mneghina/Downloads</param-value>
+	<context-param> 
+    	<description>Location to store uploaded file</description> 
+    	<param-name>file-upload</param-name> 
+    	<param-value>
+         	/WEB-INF/uploads
+     	</param-value> 
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -34,11 +36,12 @@
 	</servlet-mapping>
 
 	<!-- Upload Servlet -->
+
 	<servlet>
 		<servlet-name>UploadServlet</servlet-name>
-		<servlet-class>com.endava.learning.controller.UploadServlet</servlet-class>
+		<servlet-class>UploadServlet</servlet-class>
 	</servlet>
-
+	
 	<servlet-mapping>
 		<servlet-name>UploadServlet</servlet-name>
 		<url-pattern>/UploadServlet</url-pattern>
