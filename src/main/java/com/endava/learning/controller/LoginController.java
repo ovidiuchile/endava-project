@@ -48,12 +48,15 @@ public class LoginController {
         request.setAttribute("success", null);
         
         ModelAndView model = new ModelAndView();
-        model.setViewName("login");
+        if(request.getSession().getAttribute("name")==null)
+        	model.setViewName("login");
+        else
+        	model.setViewName("redirect:/");
         return model;
 	}
 	
 	@RequestMapping(value = "/logout")
-	public ModelAndView logout(ServletRequest req){
+	public ModelAndView logout(ServletRequest request){
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
 		return model;

@@ -20,7 +20,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 	public Authentication authenticate(Authentication authentication) {
 		String username = authentication.getName();
 		String password = (String) authentication.getCredentials();
-
+		
 		User authenticatedUser;
 		if ((authenticatedUser = userService.loginUser(username, password)) != null) {
 			Authentication confirmedAuthentication;
