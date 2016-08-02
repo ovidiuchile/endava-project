@@ -60,44 +60,9 @@
 <div id = "content_login">
 
 	<!-- START LOGIN BOX -->
-	<div id="login-box">
+	<div id="search-users-box">
 	    
-	    <p style="font-size:20px;margin-bottom:10px;margin-top:0px;">Admin: set user type</p>
 	    
-		<div id = "sign_in">
-		    
-		    <p style="color:red;">${error}</p>
-		    <p style="color:green;">${success}</p>
-		
-		    <form name='loginForm'
-		          action="<c:url value='/admin' />" method='POST'>
-		
-		        <table>
-		            <tr>
-		                <td>E-mail:</td>
-		                <td><input type='email' name='email' value=''></td>
-		            </tr>
-		            <tr>
-		                <td>Type:</td>
-		                <td><select name="type_of_user">
-						    <option value="normal user">Normal user</option>
-						    <option value="tutor">Tutor</option>
-						    <option value="content editor">Content Editor</option>
-						    <option value="admin">Admin</option>
-						  </select>
-		                </td>
-		            </tr>
-		            <tr>
-		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Submit" /></td>
-		            </tr>
-		        </table>
-		
-		        <input type="hidden" name="${_csrf.parameterName}"
-		               value="${_csrf.token}" />
-		
-		    </form>
-	    </div>
 	    
 	</div>
 	<!-- END LOGIN BOX -->
