@@ -74,6 +74,17 @@
 			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px; ">
 				<div class="search_inputdiv" style="	margin-top: 10px;margin-bottom:10px;">
 						<input id="search_input" type="text" name="searchStuff" placeholder="Search..." style=" height:32px;">
+					<button id="bttn_search" onclick="show()"> Advanced Search</button>
+						<div style="width:290px;height:150px;background-color: yellow; display:none;" id="Adv_search">
+							<select id="Material_type">
+								<option value="-1"> Select an Option</option>
+								<option value="0"> Images</option>
+								<option value="1"> Videos</option>
+								<option value="2"> Power point</option>
+							</select>
+							<p>Date: <input type="text" id="datepicker"></p>
+							<p>Content creator</p> <input type="text" id="content_creator"></p>
+						</div>
 						<input id="submit_input" class="btn btn-default" value="Search" onclick="search()">				
 				</div>
 
