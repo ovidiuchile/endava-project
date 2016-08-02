@@ -1,5 +1,6 @@
 package com.endava.learning.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -59,13 +60,34 @@ public class UserDAO extends AbstractDAO {
 	}
 
 	public List<User> getUsersSearchResults(String name, String type) {
+		
+		List<User> results = new ArrayList<>();
+		
+		if (name != null && type != null) {
+			@SuppressWarnings("unchecked")
+			List<User> keywords = (List<User>) em()
+					.createQuery(
+							"SELECT user FROM User user WHERE (lower(user.name) LIKE lower(:name) OR lower(user.surname) LIKE lower(:name)) AND lower(user.user_type) LIKE lower(:type)")
+					.setParameter("name", "%" + name + "%").setParameter("type", "%" + type + "%").getResultList();
+			results.addAll(keywords);
+		}
+		else if (name == null) {
+			@SuppressWarnings("unchecked")
+			List<User> keywords = (List<User>) em()
+					.createQuery("SELECT user FROM User user WHERE lower(user.user_type) LIKE lower(:type)")
+					.setParameter("type", "%" + type + "%").getResultList();
+			results.addAll(keywords);
+		}
 
-		@SuppressWarnings("unchecked")
-		List<User> results = (List<User>) em()
-				.createQuery(
-						"SELECT user FROM User user WHERE user.name LIKE :name OR user.surname LIKE :name OR user.user_type LIKE :type")
-				.setParameter("name", "%" + name + "%").setParameter("type", "%" + type + "%").getResultList();
-
+		else if (type == null) {
+			@SuppressWarnings("unchecked")
+			List<User> keywords = (List<User>) em()
+					.createQuery(
+							"SELECT user FROM User user WHERE lower(user.name) LIKE lower(:name) OR lower(user.surname) LIKE lower(:name)")
+					.setParameter("name", "%" + name + "%").getResultList();
+			results.addAll(keywords);
+		}
+		
 		return results;
 	}
 }
