@@ -23,8 +23,9 @@
 	<script>
 		$(document).ready(function(){
 			$(window).mouseenter(function(){
-		        $(".Zebra_DatePicker_Icon").hide();
-		    });
+				$(".Zebra_DatePicker_Icon").css("left", "10px");
+				$(".Zebra_DatePicker_Icon").css("top", "15px");
+			});
 			if( $( window ).width() <= $( window ).height() * 1.5 ){
 				$("#background_1").css("height","100%");
 				$("#background_1").css("width","auto");
@@ -35,7 +36,7 @@
 			}
 		});
 		$(window).resize(function(){
-		    $("#Adv_search").hide();
+			$("#Adv_search").hide();
 			if( $( window ).width() < $( window ).height() * 1.5 ){
 				$("#background_1").css("height","100%");
 				$("#background_1").css("width","auto");
@@ -67,6 +68,9 @@
 						<li class="" style="">
 							<a href="#">Try it yourself</a>
 						</li>
+						<li class="" style="">
+							<a href="#">Upload material</a>
+						</li>
 					</ul>
 					<span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
 					<div class="col-md-1  pull-right" style="">
@@ -91,28 +95,28 @@
 		
 		<div id="vr" style="position:absolute; left:320px;border-left:1px solid pink; height: calc( 100% - 100px)  ;margin-top:15px;"></div>
 		<div id = "main_div" style="margin-top:10px;">
-			 
+			
 			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
 				<div class="search_inputdiv" >
 					<input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;	">
 					
 					<div style=" display:none;" id="Adv_search">
-						<select id="Material_type" style="color:black;">
-							<option value="-1"> Select an Option</option>
+						<select class = "form-control" id="Material_type" >
+							<option value="-1"> Content type</option>
 							<option value="0"> Images</option>
 							<option value="1"> Videos</option>
 							<option value="2"> Power point</option>
 						</select>
 						<table>
-						<tr>
-						<td><p>From : </p></td><td><input style="color:black;"  type="text" id="datepicker1"></td>
-						</tr>
-						<tr>
-						<td><p>To :</p></td><td><input style="color:black;"  type="text" id="datepicker2">
-						</tr>
-						<tr>
-						<td><p>Content editor:</p></td><td><input type="text" style="color:black;" id="content_creator">
-						</tr>
+							<tr>
+								<td class = "td11"><p>From : </p></td><td><input class = "td12" style="color:#071226;text-align:right;"  type="text" id="datepicker1"></td>
+							</tr>
+							<tr>
+								<td class = "td11"><p>To :</p></td><td><input class = "td12" style="color:#071226; text-align:right;"  type="text" id="datepicker2">
+							</tr>
+							<tr>
+								<td class = "td11"><p>Content editor:</p></td><td><input class = "td12" type="text" style="color:#071226;" id="content_creator">
+							</tr>
 						</table>
 					</div>
 					
