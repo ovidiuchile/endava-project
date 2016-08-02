@@ -37,8 +37,8 @@ public class UserDAO extends AbstractDAO {
 	}
 
 	public User getUserByEmail(String email) {
-		User user=null;
-		
+		User user = null;
+
 		if (!em().createQuery("SELECT user FROM User user WHERE user.email like :email").setParameter("email", email)
 				.getResultList().isEmpty()) {
 			user = (User) em().createQuery("SELECT user FROM User user WHERE user.email like :email")
@@ -56,5 +56,16 @@ public class UserDAO extends AbstractDAO {
 
 		System.out.println(em().createNativeQuery("UPDATE Users SET user_type = :type WHERE email = :email")
 				.setParameter("type", type).setParameter("email", email).executeUpdate());
+	}
+
+	public List<User> getUsersSearchResults(String name, String type) {
+
+		@SuppressWarnings("unchecked")
+		List<User> results = (List<User>) em()
+				.createQuery(
+						"SELECT user FROM User user WHERE user.name LIKE :name OR user.surname LIKE :name OR user.user_type LIKE :type")
+				.setParameter("name", "%" + name + "%").setParameter("type", "%" + type + "%").getResultList();
+
+		return results;
 	}
 }

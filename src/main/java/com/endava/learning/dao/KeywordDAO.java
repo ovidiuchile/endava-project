@@ -14,26 +14,28 @@ import com.endava.learning.model.Material;
 
 @Repository
 @SuppressWarnings("rawtypes")
-public class KeywordDAO extends AbstractDAO{
+public class KeywordDAO extends AbstractDAO {
 	@SuppressWarnings("unchecked")
 	protected KeywordDAO() {
- 		super(Keyword.class);
- 	}
+		super(Keyword.class);
+	}
 
 	public List<Material> getSearchResults(String input) {
 		input.replaceAll("[^a-zA-Z1-9 ]", "").toLowerCase().split("\\s+");
-        StringTokenizer st = new StringTokenizer(input);
+		StringTokenizer st = new StringTokenizer(input);
 		List<Material> results = new ArrayList<>();
 
 		while (st.hasMoreElements()) {
 
-		    String word = st.nextToken();
-
+			String word = st.nextToken();
 
 			@SuppressWarnings("unchecked")
-			List<Material> keywords = (List<Material>) em().createQuery("SELECT material FROM Material material WHERE material.title LIKE :word OR material.description LIKE :keyword").setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%").getResultList();
+			List<Material> keywords = (List<Material>) em()
+					.createQuery(
+							"SELECT material FROM Material material WHERE material.title LIKE :word OR material.description LIKE :keyword")
+					.setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%").getResultList();
 
-            results.addAll(keywords);
+			results.addAll(keywords);
 		}
 		return results;
 	}
@@ -45,26 +47,27 @@ public class KeywordDAO extends AbstractDAO{
 		List<Material> results = new ArrayList<>();
 		System.out.println("okkkkkkk");
 		User cttEditor = null;
-		if(contentEditor != null) {
-			cttEditor = (User) em().createQuery("SELECT user FROM User user WHERE user.name LIKE :editor").setParameter("editor", contentEditor).getSingleResult();
+		if (contentEditor != null) {
+			cttEditor = (User) em().createQuery("SELECT user FROM User user WHERE user.name LIKE :editor")
+					.setParameter("editor", contentEditor).getSingleResult();
 			System.out.println("ceditor: " + cttEditor.getUser_id());
 		}
 
-        while (st.hasMoreElements()) {
+		while (st.hasMoreElements()) {
 			System.out.println("while");
 			String queryString = "SELECT material FROM Material material";
 
-			if (input != null){
+			if (input != null) {
 				queryString += " WHERE (material.title LIKE :word OR material.description LIKE :keyword)";
 			}
 
-			if(type.equals(0)){
+			if (type.equals(0)) {
 				queryString += " AND material.type = 0";
 			}
-			if(type.equals(1)){
+			if (type.equals(1)) {
 				queryString += " AND material.type = 1";
 			}
-			if(type.equals(2)){
+			if (type.equals(2)) {
 				queryString += " AND material.type = 2";
 			}
 			if (date != null) {
@@ -77,15 +80,15 @@ public class KeywordDAO extends AbstractDAO{
 			System.out.println(queryString);
 			query = em().createQuery(queryString);
 			String word = st.nextToken();
-            if(input != null) {
+			if (input != null) {
 				query.setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%");
 			}
-            if (date != null) {
-                query.setParameter("upload_date", date);
-            }
-            if (contentEditor != null) {
-                query.setParameter("editorId", cttEditor.getUser_id());
-            }
+			if (date != null) {
+				query.setParameter("upload_date", date);
+			}
+			if (contentEditor != null) {
+				query.setParameter("editorId", cttEditor.getUser_id());
+			}
 			results.addAll(query.getResultList());
 		}
 		return results;

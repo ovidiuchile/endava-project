@@ -53,11 +53,12 @@ public class UserController {
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
+			user.setUser_type("normal user");
 			user.setUser_id(((long)(Math.random()*1000000000)));
 			userService.createUser(user);
 			
 			//successfully created
-			request.setAttribute("error", null);
+			request.getSession().setAttribute("error", null);
 			request.setAttribute("error2", null);
             request.setAttribute("success", "Successfully created your accound. Please, sign in");
 		}
