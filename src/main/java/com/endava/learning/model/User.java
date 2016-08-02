@@ -1,13 +1,16 @@
 package com.endava.learning.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable{
 	@Id
 	@Column(name = "user_id")
 	private Long user_id;

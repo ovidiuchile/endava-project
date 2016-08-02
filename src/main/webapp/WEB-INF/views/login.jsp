@@ -90,7 +90,7 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<a href="/${pageContext.request.contextPath}/"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
+		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 	</div>
 </div>
 
@@ -109,7 +109,7 @@
 		    <p style="color:red;">${error}</p>
 		    <p style="color:green;">${success}</p>
 		
-		    <form name='loginForm' action=" <c:url value='/login' />" method='POST'>
+		    <form name='loginForm' action="${pageContext.request.contextPath}/securitycheck" method='POST'>
 		
 		        <table>
 		            <tr>
