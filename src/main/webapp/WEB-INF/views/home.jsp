@@ -80,6 +80,7 @@
 								<option value="2"> Power point</option>
 							</select>
 							<p>Date: <input type="text" id="datepicker"></p>
+							<p>Date: <input type="text" id="datepickerend"></p>
 							<p>Content creator</p> <input type="text" id="content_creator"></p>
 						</div>
 						<input id="submit_input" class="btn btn-default" value="Search" onclick="search()">				

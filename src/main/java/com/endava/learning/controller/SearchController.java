@@ -26,7 +26,7 @@ public class SearchController {
     private SearchService searchService;
 
     @RequestMapping(value = "/searchResults", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpEntity<Resources<Resource<Material>>> showResults(@RequestParam(value = "s") String s) {
+    public HttpEntity<Resources<Resource<Material>>>     showResults(@RequestParam(value = "s") String s) {
         List<Material> results = searchService.getSearchResults(s);
 
         Resources<Resource<Material>> materialsResources = Resources.wrap(results);

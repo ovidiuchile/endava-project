@@ -49,8 +49,8 @@ public class KeywordDAO extends AbstractDAO{
 			cttEditor = (User) em().createQuery("SELECT user FROM User user WHERE user.name LIKE :editor").setParameter("editor", contentEditor).getSingleResult();
 			System.out.println("ceditor: " + cttEditor.getUser_id());
 		}
-
-        while (st.hasMoreElements()) {
+		System.out.println(date);
+		while (st.hasMoreElements()) {
 			System.out.println("while");
 			String queryString = "SELECT material FROM Material material";
 
@@ -68,7 +68,7 @@ public class KeywordDAO extends AbstractDAO{
 				queryString += " AND material.type = 2";
 			}
 			if (date != null) {
-				queryString += " AND to_date(material.upload_date, 'YYYY-MM-DD') = :upload_date";
+				queryString += " AND material.upload_date LIKE :upload_date";
 			}
 			if (contentEditor != null) {
 				queryString += " AND material.content_editor.user_id = :editorId";

@@ -30,7 +30,7 @@ public class Material {
 	private String description;
 
 	@Column(name = "upload_date")
-	private Date upload_date;
+	private String upload_date;
 
 	public String getTitle() {
 		return title;
@@ -72,11 +72,11 @@ public class Material {
 	@JoinColumn(name = "content_editor_id")
 	private User content_editor;
 
-	public Date getUpload_date() {
+	public String getUpload_date() {
 		return upload_date;
 	}
 
-	public void setUpload_date(Date upload_date) {
+	public void setUpload_date(String upload_date) {
 		this.upload_date = upload_date;
 	}
 

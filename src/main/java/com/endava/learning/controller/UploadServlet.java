@@ -77,7 +77,7 @@ public class UploadServlet extends HttpServlet {
 						material.setMaterial_id(((long) (Math.random() * 1000000000)));
 						material.setLink(uploadedFile.getAbsolutePath());
 						
-						material.setUpload_date(Calendar.getInstance().getTime());
+						material.setUpload_date(Calendar.getInstance().getTime().toString());
 						
 						
 						Material createdMaterial = materialService.createMaterial(material);

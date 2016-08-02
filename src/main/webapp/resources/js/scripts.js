@@ -40,7 +40,11 @@ $(document).ready(function(){
 	});
 
 
-	$("#datepicker").Zebra_DatePicker();
+	if($("#datepicker").length > 0) {
+		$("#datepicker").Zebra_DatePicker();
+		$("#datepickerend").Zebra_DatePicker();
+	}
+
 
 });
 $(window).resize(function(){
@@ -64,6 +68,14 @@ $("#select_technology").change(function(){
 
 	
 	var AddTopic = document.getElementById("select_topic");
+	while (AddTopic.childElementCount != 0) {
+		try {
+			AddTopic.removeChild(AddTopic.childNodes[0]);
+		}
+		catch (e) {
+
+		}
+	}
     var Select_Tech = document.getElementById("select_technology").value;
 	$.ajax({
 		type: 'GET',
@@ -278,11 +290,12 @@ function search(){
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
 	var date = document.getElementById("datepicker").value;
+	var date2 = document.getElementById("datepickerend").value;
 	var contentEd = document.getElementById("content_creator").value;
 	var url = "/advancedSearchResults?s=" + search + "&type=" + type;
-	if(date.length!=0)
+	if(date.length!=0 && date2.length!=0)
 	{
-		url = url + "&date=" + date;
+		url = url + "&date=" + date + "&dateend=" + date2;
 	}
 	if(contentEd.length!=0)
 	{
