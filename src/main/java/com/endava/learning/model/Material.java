@@ -76,8 +76,8 @@ public class Material {
 		return upload_date;
 	}
 
-	public void setUpload_date(String upload_date) {
-		this.upload_date = upload_date;
+	public void setUpload_date(String date) {
+		this.upload_date = date;
 	}
 
 	public User getContent_editor() {

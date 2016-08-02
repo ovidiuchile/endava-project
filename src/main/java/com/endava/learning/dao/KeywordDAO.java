@@ -1,6 +1,7 @@
 package com.endava.learning.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -14,32 +15,32 @@ import com.endava.learning.model.Material;
 
 @Repository
 @SuppressWarnings("rawtypes")
-public class KeywordDAO extends AbstractDAO{
+public class KeywordDAO extends AbstractDAO {
 	@SuppressWarnings("unchecked")
 	protected KeywordDAO() {
- 		super(Keyword.class);
- 	}
+		super(Keyword.class);
+	}
 
 	public List<Material> getSearchResults(String input) {
 		input.replaceAll("[^a-zA-Z1-9 ]", "").toLowerCase().split("\\s+");
-        StringTokenizer st = new StringTokenizer(input);
+		StringTokenizer st = new StringTokenizer(input);
 		List<Material> results = new ArrayList<>();
 
 		while (st.hasMoreElements()) {
 
-		    String word = st.nextToken();
-
+			String word = st.nextToken();
 
 			@SuppressWarnings("unchecked")
-			List<Material> keywords = (List<Material>) em().createQuery("SELECT material FROM Material material WHERE material.title LIKE :word OR material.description LIKE :keyword").setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%").getResultList();
 
-            results.addAll(keywords);
+			List<Material> keywords = (List<Material>) em().createQuery("SELECT material FROM Material material WHERE lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword").setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword", "%" + word.toLowerCase() + "%").getResultList();
+
+			results.addAll(keywords);
 		}
 		return results;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Material> getAdvancedSearchResults(String input, Integer type, String date, String contentEditor) {
+	public List<Material> getAdvancedSearchResults(String input, Integer type, String startDate, String finishDate, String contentEditor) {
 		input.replaceAll("[^a-zA-Z1-9 ]", "").toLowerCase().split("\\s+");
 		StringTokenizer st = new StringTokenizer(input);
 		List<Material> results = new ArrayList<>();
@@ -50,25 +51,26 @@ public class KeywordDAO extends AbstractDAO{
 			System.out.println("ceditor: " + cttEditor.getUser_id());
 		}
 
-        while (st.hasMoreElements()) {
+		while (st.hasMoreElements()) {
 			System.out.println("while");
 			String queryString = "SELECT material FROM Material material";
 
 			if (input != null){
-				queryString += " WHERE (material.title LIKE :word OR material.description LIKE :keyword)";
+				queryString += " WHERE (lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword)";
+
 			}
 
-			if(type.equals(0)){
+			if (type.equals(0)) {
 				queryString += " AND material.type = 0";
 			}
-			if(type.equals(1)){
+			if (type.equals(1)) {
 				queryString += " AND material.type = 1";
 			}
-			if(type.equals(2)){
+			if (type.equals(2)) {
 				queryString += " AND material.type = 2";
 			}
-			if (date != null) {
-				queryString += " AND material.upload_date = :upload_date";
+			if (startDate != null && finishDate != null) {
+				queryString += " AND to_date(material.upload_date, 'YYYY-MM-DD') BETWEEN to_date(:startDate, 'YYYY-MM-DD') AND to_date(:finishDate, 'YYYY-MM-DD')";
 			}
 			if (contentEditor != null) {
 				queryString += " AND material.content_editor.user_id = :editorId";
@@ -77,15 +79,18 @@ public class KeywordDAO extends AbstractDAO{
 			System.out.println(queryString);
 			query = em().createQuery(queryString);
 			String word = st.nextToken();
+
             if(input != null) {
-				query.setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%");
+				query.setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword", "%" + word.toLowerCase() + "%");
 			}
-            if (date != null) {
-                query.setParameter("upload_date", date);
+            if (startDate != null && finishDate != null) {
+                query.setParameter("startDate", startDate);
+                query.setParameter("finishDate", finishDate);
             }
             if (contentEditor != null) {
                 query.setParameter("editorId", cttEditor.getUser_id());
             }
+
 			results.addAll(query.getResultList());
 		}
 		return results;
