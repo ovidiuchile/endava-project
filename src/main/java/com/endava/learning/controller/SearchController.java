@@ -34,9 +34,9 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/advancedSearchResults", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpEntity<Resources<Resource<Material>>> showAdvancedResults(@RequestParam(value = "s") String s,
+    public HttpEntity<Resources<Resource<Material>>> showAdvancedResults(@RequestParam(value = "s", required = false) String s,
                                                                          @RequestParam(value = "type", required = false) Integer type, @RequestParam(value = "date", required = false) String date, @RequestParam(value = "contentEditor", required = false) String contentEditor) {
-
+        System.out.println("ctrl");
         List<Material> results = searchService.getAdvancedSearchResults(s, type, date, contentEditor);
 
         Resources<Resource<Material>> materialsResources = Resources.wrap(results);
