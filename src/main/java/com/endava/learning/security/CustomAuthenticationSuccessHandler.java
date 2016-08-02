@@ -29,11 +29,11 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
         request.getSession().setAttribute("name", loggedUser.getName());
         request.getSession().setAttribute("user_type", loggedUser.getUser_type());
         request.getSession().setAttribute("id", loggedUser.getUser_id());
-        
+        request.getSession().setAttribute("error", "Wrong creditals");
         SavedRequest savedRequest = requestCache.getRequest(request, response);
         
         if(savedRequest != null) {
-        	redirectStrategy.sendRedirect(request, response, savedRequest.getRedirectUrl());
+        	redirectStrategy.sendRedirect(request, response, "/login");
         } else {
         	redirectStrategy.sendRedirect(request, response, "/");
         }
