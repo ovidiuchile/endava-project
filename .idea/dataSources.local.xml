@@ -4,5 +4,9 @@
     <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="6791d2df-34b4-4fa3-ac28-7a94254afaf9">
       <user-name>interns1</user-name>
     </data-source>
+    <data-source name="PostgreSQL - postgres@localhost" uuid="db454745-53c5-43f3-8ee4-7d9cfd8f7c63">
+      <secret-storage>memory</secret-storage>
+      <first-sync>true</first-sync>
+    </data-source>
   </component>
 </project>

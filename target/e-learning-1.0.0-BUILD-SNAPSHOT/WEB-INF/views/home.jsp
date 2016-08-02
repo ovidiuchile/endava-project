@@ -21,9 +21,6 @@
 <body>
 
 	<div class="container-fluid">
-		<!--  AICI ESTE DATE
-		<p>Date: <input type="text" id="datepicker"></p>
-		-->
 		<div class="row" style="background-color:white;">
 			<div class="col-md-3" style="background-color:white; height:auto;">
 				<a href="${pageContext.request.contextPath}"><img alt="logo" src="${pageContext.request.contextPath}/resources/images/appollo.png" height="auto" width="144px" style="position:relative; top:6px; left: 40px;"></a>
@@ -83,6 +80,7 @@
 								<option value="2"> Power point</option>
 							</select>
 							<p>Date: <input type="text" id="datepicker"></p>
+							<p>Date: <input type="text" id="datepickerend"></p>
 							<p>Content creator</p> <input type="text" id="content_creator"></p>
 						</div>
 						<input id="submit_input" class="btn btn-default" value="Search" onclick="search()">				
@@ -168,13 +166,8 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
 	<script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
 	<script>
-<<<<<<< HEAD
-	var name = '<%= session.getAttribute("userName") %>';
-	console.log(name);
-=======
 	var user_type = '<%= session.getAttribute("user_type") %>';
 	console.log(user_type);
->>>>>>> 9327bc3c94517bc3f39325c5e2e47fbb5c658518
 	</script>
 </body>
 </html>
