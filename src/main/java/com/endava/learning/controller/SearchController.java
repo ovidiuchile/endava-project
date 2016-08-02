@@ -38,7 +38,7 @@ public class SearchController {
     public HttpEntity<Resources<Resource<Material>>> showAdvancedResults(@RequestParam(value = "s", required = false) String s,
                                                                          @RequestParam(value = "type", required = false) Integer type, @RequestParam(value = "startDate", required = false) String startDate,
                                                                          @RequestParam(value = "finishDate", required = false) String finishDate, @RequestParam(value = "contentEditor", required = false) String contentEditor) {
-        System.out.println("ctrl");
+        System.out.println(startDate);
         List<Material> results = searchService.getAdvancedSearchResults(s, type, startDate, finishDate, contentEditor);
 
         Resources<Resource<Material>> materialsResources = Resources.wrap(results);

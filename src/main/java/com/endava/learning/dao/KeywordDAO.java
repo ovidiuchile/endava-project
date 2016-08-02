@@ -32,7 +32,7 @@ public class KeywordDAO extends AbstractDAO{
 
 
 			@SuppressWarnings("unchecked")
-			List<Material> keywords = (List<Material>) em().createQuery("SELECT material FROM Material material WHERE material.title LIKE :word OR material.description LIKE :keyword").setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%").getResultList();
+			List<Material> keywords = (List<Material>) em().createQuery("SELECT material FROM Material material WHERE lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword").setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword", "%" + word.toLowerCase() + "%").getResultList();
 
             results.addAll(keywords);
 		}
@@ -56,7 +56,7 @@ public class KeywordDAO extends AbstractDAO{
 			String queryString = "SELECT material FROM Material material";
 
 			if (input != null){
-				queryString += " WHERE (material.title LIKE :word OR material.description LIKE :keyword)";
+				queryString += " WHERE (lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword)";
 			}
 
 			if(type.equals(0)){
@@ -69,7 +69,7 @@ public class KeywordDAO extends AbstractDAO{
 				queryString += " AND material.type = 2";
 			}
 			if (startDate != null && finishDate != null) {
-				queryString += " AND material.upload_date BETWEEN to_date(:startDate, 'YYYY-MM-DD') AND to_date(:finishDate, 'YYYY-MM-DD')";
+				queryString += " AND to_date(material.upload_date, 'YYYY-MM-DD') BETWEEN to_date(:startDate, 'YYYY-MM-DD') AND to_date(:finishDate, 'YYYY-MM-DD')";
 			}
 			if (contentEditor != null) {
 				queryString += " AND material.content_editor.user_id = :editorId";
@@ -79,7 +79,7 @@ public class KeywordDAO extends AbstractDAO{
 			query = em().createQuery(queryString);
 			String word = st.nextToken();
             if(input != null) {
-				query.setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%");
+				query.setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword", "%" + word.toLowerCase() + "%");
 			}
             if (startDate != null && finishDate != null) {
                 query.setParameter("startDate", startDate);
