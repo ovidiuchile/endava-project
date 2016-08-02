@@ -30,6 +30,11 @@
 		    	$("#background_image").css("width","100%");
 		    	$("#background_image").css("height","auto");
 		    }
+		    
+		    var h1 = $("#search-users-box").height();
+		    var h2 = $("#first_form").height();
+		    var h3 = h1 - h2 - 20 - 15 - 15 - 20;
+		    $("#user_search_div").css("height",h3);
 		});
 		$(window).resize(function(){
 			if( $( window ).width() < $( window ).height() * 1.5 ){
@@ -40,6 +45,10 @@
 		    	$("#background_image").css("width","100%");
 		    	$("#background_image").css("height","auto");
 		    }
+			var h1 = $("#search-users-box").height();
+		    var h2 = $("#first_form").height();
+		    var h3 = h1 - h2 - 20 - 15 - 15 - 20;
+		    $("#user_search_div").css("height",h3);
 		});
 	</script>
     
@@ -62,7 +71,47 @@
 	<!-- START LOGIN BOX -->
 	<div id="search-users-box">
 	    
+	    <p style="font-size:20px;margin-bottom:10px;margin-top:0px;text-align:center;">Admin: set user type</p>
 	    
+		<div id = "first_form">
+		
+		    <form name='loginForm'
+		          action="<c:url value='/admin' />" method='POST'>
+		
+		        <table id = "table_admin">
+		            <tr>
+		                <td>E-mail:</td>
+		                <td><input type='email' name='email' value='' required></td>
+		            </tr>
+		            <tr>
+		                <td>Type:</td>
+		                <td><select name="type_of_user">
+						    <option value="normal user">Normal user</option>
+						    <option value="tutor">Tutor</option>
+						    <option value="content editor">Content Editor</option>
+						    <option value="admin">Admin</option>
+						  </select>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td colspan='2'><input class = "button_sign" name="submit" id = "submittt" type="submit"
+		                                       value="Change" /></td>
+		            </tr>
+		            <tr>
+		                <td><p style="color:red;">${error}</p>
+		    <p style="color:green;">${success}</p></td>
+		            </tr>
+		        </table>
+		
+		        <input type="hidden" name="${_csrf.parameterName}"
+		               value="${_csrf.token}" />
+		
+		    </form>
+	    </div>
+	    
+	    <div id = "user_search_div">
+	    
+	    </div>
 	    
 	</div>
 	<!-- END LOGIN BOX -->
