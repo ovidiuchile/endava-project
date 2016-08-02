@@ -1,5 +1,6 @@
 package com.endava.learning.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -20,8 +21,8 @@ public class SearchService {
         return keywordDAO.getSearchResults(input);
     }
 
-    public List<Material> getAdvancedSearchResults(String input, Integer type, String date, String contentEditor) {
+    public List<Material> getAdvancedSearchResults(String input, Integer type, String startDate, String finishDate, String contentEditor) {
 
-        return keywordDAO.getAdvancedSearchResults(input, type, date, contentEditor);
+        return keywordDAO.getAdvancedSearchResults(input, type, startDate, finishDate, contentEditor);
     }
 }
