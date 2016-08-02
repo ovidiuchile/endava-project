@@ -184,8 +184,8 @@ INSERT INTO Topics VALUES (16, 5, 'Modular Arithmetic');
 INSERT INTO Topics VALUES (17, 5, 'Primality Test');
 INSERT INTO Topics VALUES (18, 5, 'Randomized Algorithms');
 
-INSERT INTO Materials VALUES (1, 1, 'OOP Principles', 'Object-oriented programming is the foundation of many current application development approaches. If you want to succeed with clean coding, agile and design patterns, you have to master OOP.', 'https://www.pluralsight.com/content/dam/pluralsight/resources/blog/2014/07/understanding-object-oriented-programming-in-c/wp/img/figure22.jpg', 0, to_date('2015-07-05', 'YYYY-MM-DD'), 3);
-INSERT INTO Materials VALUES (2, 1, 'What is OOP?', 'OOP Definition', 'http://image.slidesharecdn.com/boost-your-oop-with-fp-111119125254-phpapp02/95/boost-youroopwithfp-30-728.jpg?cb=1321709443', 0, to_date('05.07.2015', 'DD.MM.YYYY'), 3);
+INSERT INTO Materials VALUES (1, 1, 'OOP Principles', 'Object-oriented programming is the foundation of many current application development approaches. If you want to succeed with clean coding, agile and design patterns, you have to master OOP.', 'https://www.pluralsight.com/content/dam/pluralsight/resources/blog/2014/07/understanding-object-oriented-programming-in-c/wp/img/figure22.jpg', 0, '2015-07-05', 3);
+INSERT INTO Materials VALUES (2, 1, 'What is OOP?', 'OOP Definition', 'http://image.slidesharecdn.com/boost-your-oop-with-fp-111119125254-phpapp02/95/boost-youroopwithfp-30-728.jpg?cb=1321709443', 0, to_date('2015-07-05', 'YYYY-MM-DD'), 3);
 INSERT INTO Materials VALUES (3, 2, 'Exception Handling in Java', 'This video tutorial explains about the the Java Exception handling mechanism. I have explained the exception hierarchy, Errors, Checked exceptions and Unchecked Exceptions. An example has been demonstrated for try,catch, finally, throw and throws clause. I have also explained the rules related to catch block and also about creating the new checked exceptions and unchecked exceptions.', 'https://www.youtube.com/embed/4my7mKFaNQs', 1, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
 INSERT INTO Materials VALUES (4, 2, 'Exception Class Hierarchy', 'All exceptions and errors extend from a common java.lang.Throwable parent class. Only Throwable objects can be thrown and caught.', 'https://newcircle.com/static/bookshelf/java_fundamentals_tutorial/images/ExceptionClassHierarchy.png', 0, to_date('08.01.2016', 'DD.MM.YYYY'), 8);
 INSERT INTO Materials VALUES (5, 3, 'SQL for Beginners', 'SQL is a special-purpose programming language designed for managing data in a relational database, and is used by a huge number of apps and organizations. Watch this Video to learn basics of SQL.', 'https://www.youtube.com/embed/7Vtl2WggqOg', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
@@ -220,8 +220,8 @@ INSERT INTO Materials VALUES (33, 16, 'Modular arithmetic', 'Here the cycle cons
 INSERT INTO Materials VALUES (34, 16, 'WW2 Enigma Machine', 'The Enigma Machine', 'https://www.youtube.com/embed/-1ZFVwMXSXY', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 INSERT INTO Materials VALUES (35, 17, 'Prime Number Theorem', 'Prime Number Theorem', 'https://www.youtube.com/embed/7jzCJJIc59E', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 INSERT INTO Materials VALUES (36, 17, 'Prime numbers density', 'As shown in this figure, the densest concentrations of primes seem to occur mainly in curves whose offsets are prime.', 'https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/46025/versions/4/screenshot.jpg', 0, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
-INSERT INTO Materials VALUES (37, 18, 'Randomized Algorithms', 'Randomized Algorithms Intro', 'https://www.youtube.com/embed/WGMn16TDTjE', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
-INSERT INTO Materials VALUES (38, 18, 'Fermat primality test', 'Fermat primality test', 'https://www.youtube.com/embed/xMj3jzFDZ38', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
+INSERT INTO Materials VALUES (37, 18, 'Randomized Algorithms', 'Randomized Algorithms Intro', 'https://www.youtube.com/embed/WGMn16TDTjE', 1, to_date('2015-07-05', 'YYYY-MM-DD'), 16);
+INSERT INTO Materials VALUES (38, 18, 'Fermat primality test', 'Fermat primality test', 'https://www.youtube.com/embed/xMj3jzFDZ38', 1, to_date('2015-07-05', 'YYYY-MM-DD'), 16);
 
 INSERT INTO Keywords VALUES (1, 1, 'oop');
 INSERT INTO Keywords VALUES (2, 1, 'inheritance');

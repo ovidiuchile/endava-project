@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="6791d2df-34b4-4fa3-ac28-7a94254afaf9">
+  <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="54f7ac15-5779-463b-a2c5-b2fe96baee89">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com [2]" uuid="b3d8898e-ef26-4a5b-9f44-298d55f07f91">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
   <data-source name="PostgreSQL - postgres@localhost" uuid="db454745-53c5-43f3-8ee4-7d9cfd8f7c63">

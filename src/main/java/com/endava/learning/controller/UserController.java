@@ -77,6 +77,7 @@ public class UserController {
 	public ModelAndView newPassordGet(HttpServletRequest request) {
 		
 		ModelAndView model = new ModelAndView();
+		request.getSession().setAttribute("error", null);
 		model.setViewName("forgot_password");
 		return model;
 	}
