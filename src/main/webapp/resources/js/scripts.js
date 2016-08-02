@@ -38,11 +38,17 @@ $(document).ready(function(){
 			}
 		}
 	});
+
+
+	$("#datepicker").Zebra_DatePicker();
+
 });
 $(window).resize(function(){
 	var grandparent_height = $('.col-md-9').width();
 	$('#notes').width( grandparent_height );
 });
+
+
 
 
 // topics dropdown
@@ -54,6 +60,9 @@ $("#select_technology").change(function(){
 		$("#div_notes").fadeToggle(0);
 	});
 	$("#div_notes").fadeToggle(0);
+
+
+	
 	var AddTopic = document.getElementById("select_topic");
     var Select_Tech = document.getElementById("select_technology").value;
 	$.ajax({
@@ -268,7 +277,18 @@ function search(){
 	$("#material").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
-	console.log('test entrance function');
+	var type = document.getElementById("Material_type").value;
+	var date = document.getElementById("datepicker").value;
+	var contentEd = document.getElementById("content_creator").value;
+	var url = "/advancedSearchResults?s=" + search + "&type=" + type;
+	if(date.length!=0)
+	{
+		url = url + "&date=" + date;
+	}
+	if(contentEd.length!=0)
+	{
+		url = url + "&contentEditor=" + contentEd;
+	}
 	try
 	{
 		while(search_output.childElementCount!=0)
@@ -283,7 +303,7 @@ function search(){
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
-		url: "searchResults?s=" + search
+		url: url
 	}).then(function (data) {
 		console.log(data.content.length);
 		for (i of data.content) {
@@ -451,9 +471,8 @@ function searchResult(buton, langId, topicId, materialId)
 }
 
 
-function testPost()
+function show()
 {
-	var tech = document.getElementById("select_technology").value;
-	var topic = document.getElementById("select_topic").value;
-	console.log(tech, topic);
+	$("#Adv_search").toggle();
+	//$("#bttn_search").hide();
 }

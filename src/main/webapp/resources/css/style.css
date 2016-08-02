@@ -1,3 +1,4 @@
+
 div#material{
 	background-color:transparent;
 	width:100%;
@@ -49,7 +50,6 @@ html, body{
 	width:auto;
 	margin-top:5px;
 }
-
 
 
 #search_input::-webkit-input-placeholder {

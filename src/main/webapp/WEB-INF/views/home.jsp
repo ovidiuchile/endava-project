@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
 
 	<title>Appollo</title>
 	
@@ -87,19 +88,32 @@
 		
 		<div id="vr" style="position:absolute; left:320px;border-left:1px solid pink; height: calc( 100% - 100px)  ;margin-top:15px;"></div>
 		<div id = "main_div" style="margin-top:10px;">
-			
+			 
 			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
 				<div class="search_inputdiv" >
 					<input id="search_input" type="text" name="searchStuff" placeholder="Search..." style=" height:32px;color:black;	">
+					
+					<div style="width:290px;height:150px;background-color: black; display:none;" id="Adv_search">
+						<select id="Material_type" style="color:black;">
+							<option value="-1"> Select an Option</option>
+							<option value="0"> Images</option>
+							<option value="1"> Videos</option>
+							<option value="2"> Power point</option>
+						</select>
+						<p>Date: <input type="text" id="datepicker"></p>
+						<p>Content creator</p> <input type="text" id="content_creator"></p>
+					</div>
+					
+					<button id="bttn_search" onclick="show()"> Advanced Search</button>
 					<input id="submit_input" class="btn btn-default" value="Search" type="submit" onclick="search()">				
 				</div>
 
 				<div id="Topics" class="btn-group-vertical" style="margin-top:20px;">
 					<!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
 				</div>
-				
+
 			</div>
-			
+
 			<!-- primary container -->
 			<div class="col-md-11 container" id="Carousel_container" >
 				<br>
@@ -134,11 +148,11 @@
 						<span class="sr-only">Next</span>
 					</a>
 					<div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
-						
+
 						<input id="submit_input" class="btn btn-default" value="Test your knowledge" type="submit" onclick="">
-						
+
 						<img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
-						
+
 					</div>
 
 				</div>
@@ -148,15 +162,15 @@
 				<!-- end primary container -->
 
 				<!-- search container -->
-				<div id = "search-container" style=" display : none; margin-left:30px;" >
+				<div id = "search-container" style=" display : none;" >
 				</div>
 				<!-- end search container -->
 			</div>
-			
+
 		</div>
 	</div>
-	
-	
+
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -165,8 +179,10 @@
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-	
-	
-
+	<script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
+	<script>
+		var user_type = '<%= session.getAttribute("user_type") %>';
+		console.log(user_type);
+	</script>
 </body>
 </html>
