@@ -68,7 +68,7 @@ public class KeywordDAO extends AbstractDAO{
 				queryString += " AND material.type = 2";
 			}
 			if (date != null) {
-				queryString += " AND to_date(material.upload_date, 'YYYY-MM-DD') = :upload_date";
+				queryString += " AND material.upload_date = :upload_date";
 			}
 			if (contentEditor != null) {
 				queryString += " AND material.content_editor.user_id = :editorId";
