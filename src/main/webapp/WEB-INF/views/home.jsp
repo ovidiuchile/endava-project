@@ -101,26 +101,10 @@
 							<option value="2"> Power point</option>
 						</select>
 						<p>Date: <input type="text" id="datepicker"></p>
+						<p>Date: <input type="text" id="datepickerend"></p>
 						<p>Content creator</p> <input type="text" id="content_creator"></p>
 					</div>
-					
-					<button id="bttn_search" onclick="show()"> Advanced Search</button>
-<<<<<<< HEAD
-						<div style="width:290px;height:150px;background-color: yellow; display:none;" id="Adv_search">
-							<select id="Material_type">
-								<option value="-1"> Select an Option</option>
-								<option value="0"> Images</option>
-								<option value="1"> Videos</option>
-								<option value="2"> Power point</option>
-							</select>
-							<p>Date: <input type="text" id="datepicker"></p>
-							<p>Date: <input type="text" id="datepickerend"></p>
-							<p>Content creator</p> <input type="text" id="content_creator"></p>
-						</div>
-						<input id="submit_input" class="btn btn-default" value="Search" onclick="search()">				
-=======
-					<input id="submit_input" class="btn btn-default" value="Search" type="submit" onclick="search()">				
->>>>>>> 84eae25e8205d1e63bc76b30c6740c0bde593988
+					<input id="submit_input" class="btn btn-default" value="Search" type="submit" onclick="search()">
 				</div>
 
 				<div id="Topics" class="btn-group-vertical" style="margin-top:20px;">
@@ -164,7 +148,7 @@
 					</a>
 					<div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 
-						<input id="submit_input" class="btn btn-default" value="Test your knowledge" type="submit" onclick="">
+						<input id="submit_input1" class="btn btn-default" value="Test your knowledge" type="submit" onclick="">
 
 						<img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
 

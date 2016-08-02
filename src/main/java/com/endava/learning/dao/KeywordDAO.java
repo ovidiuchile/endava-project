@@ -1,6 +1,7 @@
 package com.endava.learning.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -39,7 +40,7 @@ public class KeywordDAO extends AbstractDAO{
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Material> getAdvancedSearchResults(String input, Integer type, String date, String contentEditor) {
+	public List<Material> getAdvancedSearchResults(String input, Integer type, String startDate, String finishDate, String contentEditor) {
 		input.replaceAll("[^a-zA-Z1-9 ]", "").toLowerCase().split("\\s+");
 		StringTokenizer st = new StringTokenizer(input);
 		List<Material> results = new ArrayList<>();
@@ -49,7 +50,7 @@ public class KeywordDAO extends AbstractDAO{
 			cttEditor = (User) em().createQuery("SELECT user FROM User user WHERE user.name LIKE :editor").setParameter("editor", contentEditor).getSingleResult();
 			System.out.println("ceditor: " + cttEditor.getUser_id());
 		}
-		System.out.println(date);
+		System.out.println(startDate + "      " + finishDate);
 		while (st.hasMoreElements()) {
 			System.out.println("while");
 			String queryString = "SELECT material FROM Material material";
@@ -67,8 +68,8 @@ public class KeywordDAO extends AbstractDAO{
 			if(type.equals(2)){
 				queryString += " AND material.type = 2";
 			}
-			if (date != null) {
-				queryString += " AND material.upload_date LIKE :upload_date";
+			if (startDate != null && finishDate != null) {
+				queryString += " AND material.upload_date BETWEEN to_date(:startDate, 'YYYY-MM-DD') AND to_date(:finishDate, 'YYYY-MM-DD')";
 			}
 			if (contentEditor != null) {
 				queryString += " AND material.content_editor.user_id = :editorId";
@@ -80,8 +81,9 @@ public class KeywordDAO extends AbstractDAO{
             if(input != null) {
 				query.setParameter("word", "%" + word + "%").setParameter("keyword", "%" + word + "%");
 			}
-            if (date != null) {
-                query.setParameter("upload_date", date);
+            if (startDate != null && finishDate != null) {
+                query.setParameter("startDate", startDate);
+                query.setParameter("finishDate", finishDate);
             }
             if (contentEditor != null) {
                 query.setParameter("editorId", cttEditor.getUser_id());
