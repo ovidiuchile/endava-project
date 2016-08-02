@@ -43,3 +43,6 @@ div#search-container{
 ::-webkit-scrollbar-thumb:window-inactive {
 	background: #024873; 
 }
+#content_creator{
+	margin-left:5px;
+}

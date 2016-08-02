@@ -40,7 +40,8 @@ $(document).ready(function(){
 	});
 
 
-	$("#datepicker").Zebra_DatePicker();
+	$("#datepicker1").Zebra_DatePicker();
+	$("#datepicker2").Zebra_DatePicker();
 
 });
 $(window).resize(function(){
@@ -278,12 +279,17 @@ function search(){
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
-	var date = document.getElementById("datepicker").value;
+	var date1 = document.getElementById("datepicker1").value;
+	var date2 = document.getElementById("datepicker2").value;
 	var contentEd = document.getElementById("content_creator").value;
 	var url = "/advancedSearchResults?s=" + search + "&type=" + type;
-	if(date.length!=0)
+	if(date1.length!=0)
 	{
-		url = url + "&date=" + date;
+		url = url + "&date=" + date1;
+	}
+	if(date2.length!=0)
+	{
+		url = url + "&date=" + date2;
 	}
 	if(contentEd.length!=0)
 	{
