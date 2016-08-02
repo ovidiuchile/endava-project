@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 
 	<title>Appollo</title>
+	
 
 </head>
 <body>
@@ -26,8 +27,8 @@
 			</div>
 
 			<div class="col-md-8" style="top:16px; position:absolute; left:300px; ">
-				<ul class="nav nav-pills" >
-					<li class="dropdown" >
+				<ul class="nav nav-pills" id="nav_pills" >
+					<li class="dropdown" id="firstli">
 						<select class="form-control" id="Language_Selector" style="height:40px; " >
 							<option selected disabled hidden>Select language</option>
 						</select>
@@ -45,12 +46,12 @@
 						<a href="#">Tests</a>
 					</li>
 					<li class="">
-						<a href="#">Profile</a>
+						<a href="admin">Profile</a>
 					</li>
 				</ul>
 			</div>
 			<div class="col-md-1  pull-right" style="position: absolute; top:7px; right:0px;">
-				<div id="mySidenav" class="sidenav">
+				<div id="mySidenav" class="sidenav" style="z-index:99999;">
 					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<a href="#">About</a>
 					<a href="#">Services</a>
@@ -64,22 +65,37 @@
 			</div>
 		</div>
 		<hr>
+		<div id="vr" style="position:absolute; left:320px;border-left:1px solid #EEE;height:80%"></div>
 		<div class="row">
 			
-			<div class="col-md-1 btn-group-vertical" id="" style="width:300px; margin-top:20px; ">
-				<div id="Topics" class="btn-group-vertical" style="width:270px;">
+			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px; ">
+				<div class="search_inputdiv" style="	margin-top: 10px;margin-bottom:10px;">
+						<input id="search_input" type="text" name="searchStuff" placeholder="Search..." style=" height:32px;">
+					<button id="bttn_search" onclick="show()"> Advanced Search</button>
+						<div style="width:290px;height:150px;background-color: yellow; display:none;" id="Adv_search">
+							<select id="Material_type">
+								<option value="-1"> Select an Option</option>
+								<option value="0"> Images</option>
+								<option value="1"> Videos</option>
+								<option value="2"> Power point</option>
+							</select>
+							<p>Date: <input type="text" id="datepicker"></p>
+							<p>Date: <input type="text" id="datepickerend"></p>
+							<p>Content creator</p> <input type="text" id="content_creator"></p>
+						</div>
+						<input id="submit_input" class="btn btn-default" value="Search" onclick="search()">				
+				</div>
+
+				<div id="Topics" class="btn-group-vertical" style="">
 <!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
 				</div>
-				<div class="search_inputdiv" style="	margin-top: 10px;">
-						<input id="search_input" type="text" name="searchStuff" placeholder=" Search..." style="width: 196px; height:32px;">
-						<input id="submit_input" class="btn btn-default"  value="Submit" onclick="search()">		
-				</div>
+				
 			</div>
 			
 		<!-- primary container -->
-		<div class="col-md-8 container" id="Carousel_container" style="padding-left:20px; border-left: 1px solid #eee; height:100% ">
+		<div class="col-md-8 container" id="Carousel_container" style=" height:100% ">
 			<br>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" align="center">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" align="center" >
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox" id="Carusel" >
@@ -126,12 +142,11 @@
 			</div>
 			<div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
 
-		</div>
+			</div>
 		<!-- end primary container -->
 
 			<!-- search container -->
-			<div id = "search-container" style=" display : none;" >
-
+			<div id = "search-container" style=" display : none; margin-left:30px;" >
 			</div>
 			<!-- end search container -->
 		</div>
@@ -148,6 +163,11 @@
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
+	<script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
+	<script>
+	var user_type = '<%= session.getAttribute("user_type") %>';
+	console.log(user_type);
+	</script>
 </body>
 </html>

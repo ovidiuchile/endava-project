@@ -11,31 +11,30 @@ import org.springframework.security.core.GrantedAuthority;
 import com.endava.learning.model.User;
 import com.endava.learning.service.UserService;
 
-
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    @Override
-    public Authentication authenticate(Authentication authentication) {
-        String username = authentication.getName();
-        String password = (String) authentication.getCredentials();
-        
-        User authenticatedUser;
-        if((authenticatedUser = userService.loginUser(username, password)) != null ) {
-            
-            Authentication confirmedAuthentication;
-            confirmedAuthentication = new UsernamePasswordAuthenticationToken(authenticatedUser, password, new ArrayList<GrantedAuthority>());
-            return confirmedAuthentication;
-        } else {
-            throw new AuthenticationCredentialsNotFoundException("wrong credentials.");
-        }
-    }
+	@Override
+	public Authentication authenticate(Authentication authentication) {
+		String username = authentication.getName();
+		String password = (String) authentication.getCredentials();
+		
+		User authenticatedUser;
+		if ((authenticatedUser = userService.loginUser(username, password)) != null) {
+			Authentication confirmedAuthentication;
+			confirmedAuthentication = new UsernamePasswordAuthenticationToken(authenticatedUser, password,
+					new ArrayList<GrantedAuthority>());
+			return confirmedAuthentication;
+		} else {
+			throw new AuthenticationCredentialsNotFoundException("wrong credentials.");
+		}
+	}
 
-    @Override
-    public boolean supports(Class<?> authentication) {
-        return authentication.equals(UsernamePasswordAuthenticationToken.class);
-    }
-    
+	@Override
+	public boolean supports(Class<?> authentication) {
+		return authentication.equals(UsernamePasswordAuthenticationToken.class);
+	}
+
 }

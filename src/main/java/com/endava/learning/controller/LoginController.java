@@ -5,6 +5,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 import java.util.List;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,25 +48,17 @@ public class LoginController {
         request.setAttribute("success", null);
         
         ModelAndView model = new ModelAndView();
-        model.setViewName("login");
+        if(request.getSession().getAttribute("name")==null)
+        	model.setViewName("login");
+        else
+        	model.setViewName("redirect:/");
         return model;
 	}
-
-	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public ModelAndView handleRequestPost(HttpServletRequest request) {
-
-		String email = request.getParameter("email_in");
-		String password = request.getParameter("password_in");
-
+	
+	@RequestMapping(value = "/logout")
+	public ModelAndView logout(ServletRequest request){
 		ModelAndView model = new ModelAndView();
-
-		if (loginService.isValidUser(email, password)) {
-			model.setViewName("home");
-		} else {
-			model.setViewName("login");
-			request.setAttribute("error", "Invalid email address or password.");
-			request.setAttribute("success", null);
-		}
+		model.setViewName("login");
 		return model;
 	}
 

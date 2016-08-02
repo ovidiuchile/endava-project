@@ -220,8 +220,8 @@ INSERT INTO Materials VALUES (33, 16, 'Modular arithmetic', 'Here the cycle cons
 INSERT INTO Materials VALUES (34, 16, 'WW2 Enigma Machine', 'The Enigma Machine', 'https://www.youtube.com/embed/-1ZFVwMXSXY', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 INSERT INTO Materials VALUES (35, 17, 'Prime Number Theorem', 'Prime Number Theorem', 'https://www.youtube.com/embed/7jzCJJIc59E', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 INSERT INTO Materials VALUES (36, 17, 'Prime numbers density', 'As shown in this figure, the densest concentrations of primes seem to occur mainly in curves whose offsets are prime.', 'https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/46025/versions/4/screenshot.jpg', 0, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
-INSERT INTO Materials VALUES (37, 18, 'Randomized Algorithms', 'Randomized Algorithms Intro', 'https://www.youtube.com/embed/WGMn16TDTjE', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
-INSERT INTO Materials VALUES (38, 18, 'Fermat primality test', 'Fermat primality test', 'https://www.youtube.com/embed/xMj3jzFDZ38', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
+INSERT INTO Materials VALUES (37, 18, 'Randomized Algorithms', 'Randomized Algorithms Intro', 'https://www.youtube.com/embed/WGMn16TDTjE', 1, to_date('2015-07-05', 'YYYY-MM-DD'), 16);
+INSERT INTO Materials VALUES (38, 18, 'Fermat primality test', 'Fermat primality test', 'https://www.youtube.com/embed/xMj3jzFDZ38', 1, to_date('2015-07-05', 'YYYY-MM-DD'), 16);
 
 INSERT INTO Keywords VALUES (1, 1, 'oop');
 INSERT INTO Keywords VALUES (2, 1, 'inheritance');

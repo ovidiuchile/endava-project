@@ -38,11 +38,20 @@ $(document).ready(function(){
 			}
 		}
 	});
+
+	if($("#datepicker1").length > 0) {
+		$("#datepicker1").Zebra_DatePicker();
+		$("#datepicker2").Zebra_DatePicker();
+	}
+
+
 });
 $(window).resize(function(){
 	var grandparent_height = $('.col-md-9').width();
 	$('#notes').width( grandparent_height );
 });
+
+
 
 
 // topics dropdown
@@ -54,7 +63,18 @@ $("#select_technology").change(function(){
 		$("#div_notes").fadeToggle(0);
 	});
 	$("#div_notes").fadeToggle(0);
+
+
+	
 	var AddTopic = document.getElementById("select_topic");
+	while (AddTopic.childElementCount != 0) {
+		try {
+			AddTopic.removeChild(AddTopic.childNodes[0]);
+		}
+		catch (e) {
+
+		}
+	}
     var Select_Tech = document.getElementById("select_technology").value;
 	$.ajax({
 		type: 'GET',
@@ -132,6 +152,7 @@ function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
+		$("#search-container").hide();
 		$("#myCarousel").show();
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " none";
@@ -230,14 +251,14 @@ function handleMaterial( img, source, type)
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
-				material.width="600";
-				material.height="360";
+				material.width="1000";
+				material.height="600";
 				material.src=source;
 				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
 			}
 			var container = document.getElementById('search-container');
-			container.style.display="none";
+			container.style.display="none ";
 		});
 
 }
@@ -251,7 +272,7 @@ function handleMaterial( img, source, type)
 
 
 function openNav() {
-	document.getElementById("mySidenav").style.width = "200px";
+	document.getElementById("mySidenav").style.width = "190px";
 }
 
 /* Set the width of the side navigation to 0 */
@@ -267,7 +288,19 @@ function search(){
 	$("#material").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
-	console.log('test entrance function');
+	var type = document.getElementById("Material_type").value;
+	var date1 = document.getElementById("datepicker1").value;
+	var date2 = document.getElementById("datepicker2").value;
+	var contentEd = document.getElementById("content_creator").value;
+	var url = "/advancedSearchResults?s=" + search + "&type=" + type;
+	if(date1.length!=0)
+	{
+		url = url + "&startDate=" + date1 + "&finishDate=" + date2;
+	}
+	if(contentEd.length!=0)
+	{
+		url = url + "&contentEditor=" + contentEd;
+	}
 	try
 	{
 		while(search_output.childElementCount!=0)
@@ -279,10 +312,11 @@ function search(){
 	{
 
 	}
+	console.log(url);
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
-		url: "searchResults?s=" + search
+		url: url
 	}).then(function (data) {
 		console.log(data.content.length);
 		for (i of data.content) {
@@ -433,8 +467,8 @@ function searchResult(buton, langId, topicId, materialId)
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
-				material.width="600";
-				material.height="360";
+				material.width="1000px";
+				material.height="600px";
 				material.src=source;
 				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
@@ -450,9 +484,8 @@ function searchResult(buton, langId, topicId, materialId)
 }
 
 
-function testPost()
+function show()
 {
-	var tech = document.getElementById("select_technology").value;
-	var topic = document.getElementById("select_topic").value;
-	console.log(tech, topic);
+	$("#Adv_search").toggle();
+	//$("#bttn_search").hide();
 }

@@ -109,7 +109,7 @@
 		    <p style="color:red;">${error}</p>
 		    <p style="color:green;">${success}</p>
 		
-		    <form name='loginForm' action=" <c:url value='/login' />" method='POST'>
+		    <form name='loginForm' action="${pageContext.request.contextPath}/securitycheck" method='POST'>
 		
 		        <table>
 		            <tr>
