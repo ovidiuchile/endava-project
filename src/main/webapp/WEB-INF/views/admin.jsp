@@ -30,6 +30,11 @@
 		    	$("#background_image").css("width","100%");
 		    	$("#background_image").css("height","auto");
 		    }
+		    
+		    var h1 = $("#search-users-box").height();
+		    var h2 = $("#first_form").height();
+		    var h3 = h1 - h2 - 20 - 15 - 15 - 20;
+		    $("#user_search_div").css("height",h3);
 		});
 		$(window).resize(function(){
 			if( $( window ).width() < $( window ).height() * 1.5 ){
@@ -40,6 +45,10 @@
 		    	$("#background_image").css("width","100%");
 		    	$("#background_image").css("height","auto");
 		    }
+			var h1 = $("#search-users-box").height();
+		    var h2 = $("#first_form").height();
+		    var h3 = h1 - h2 - 20 - 15 - 15 - 20;
+		    $("#user_search_div").css("height",h3);
 		});
 	</script>
     
@@ -60,22 +69,19 @@
 <div id = "content_login">
 
 	<!-- START LOGIN BOX -->
-	<div id="login-box">
+	<div id="search-users-box">
 	    
-	    <p style="font-size:20px;margin-bottom:10px;margin-top:0px;">Admin: set user type</p>
+	    <p style="font-size:20px;margin-bottom:10px;margin-top:0px;text-align:center;">Admin: set user type</p>
 	    
-		<div id = "sign_in">
-		    
-		    <p style="color:red;">${error}</p>
-		    <p style="color:green;">${success}</p>
+		<div id = "first_form">
 		
 		    <form name='loginForm'
 		          action="<c:url value='/admin' />" method='POST'>
 		
-		        <table>
+		        <table id = "table_admin">
 		            <tr>
 		                <td>E-mail:</td>
-		                <td><input type='email' name='email' value=''></td>
+		                <td><input type='email' name='email' value='' required></td>
 		            </tr>
 		            <tr>
 		                <td>Type:</td>
@@ -88,8 +94,12 @@
 		                </td>
 		            </tr>
 		            <tr>
-		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Submit" /></td>
+		                <td colspan='2'><input class = "button_sign" name="submit" id = "submittt" type="submit"
+		                                       value="Change" /></td>
+		            </tr>
+		            <tr>
+		                <td><p style="color:red;">${error}</p>
+		    <p style="color:green;">${success}</p></td>
 		            </tr>
 		        </table>
 		
@@ -97,6 +107,10 @@
 		               value="${_csrf.token}" />
 		
 		    </form>
+	    </div>
+	    
+	    <div id = "user_search_div">
+	    
 	    </div>
 	    
 	</div>

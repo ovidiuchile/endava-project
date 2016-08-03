@@ -45,9 +45,8 @@ public class KeywordDAO extends AbstractDAO {
 		List<Material> results = new ArrayList<>();
 		System.out.println("okkkkkkk");
 		User cttEditor = null;
-		if (contentEditor != null) {
-			cttEditor = (User) em().createQuery("SELECT user FROM User user WHERE user.name LIKE :editor")
-					.setParameter("editor", contentEditor).getSingleResult();
+		if(contentEditor != null) {
+			cttEditor = (User) em().createQuery("SELECT user FROM User user WHERE user.name LIKE :editor OR user.surname LIKE :editor OR concat(user.name, ' ', user.surname) LIKE :editor").setParameter("editor", "%" + contentEditor + "%").getSingleResult();
 			System.out.println("ceditor: " + cttEditor.getUser_id());
 		}
 

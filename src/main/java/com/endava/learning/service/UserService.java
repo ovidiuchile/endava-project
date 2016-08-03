@@ -8,6 +8,8 @@ import com.endava.learning.dao.UserDAO;
 import com.endava.learning.model.User;
 import com.endava.learning.utils.CryptPassword;
 
+import java.util.List;
+
 @Service
 public class UserService {
 	@Autowired
@@ -55,5 +57,9 @@ public class UserService {
 	@Transactional
 	public void deleteUser(final Long user_id){
 		userDAO.delete(user_id);
+	}
+
+	public List<User> getUsers(){
+		return userDAO.getUsers();
 	}
 }
