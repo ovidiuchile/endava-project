@@ -294,7 +294,7 @@ function search(){
 	var date1 = document.getElementById("datepicker1").value;
 	var date2 = document.getElementById("datepicker2").value;
 	var contentEd = document.getElementById("content_creator").value;
-	var url = "/advancedSearchResults?s=" + search + "&type=" + type;
+	var url = "advancedSearchResults?s=" + search + "&type=" + type;
 	if(date1.length!=0)
 	{
 		url = url + "&startDate=" + date1 + "&finishDate=" + date2;
@@ -499,7 +499,7 @@ function searchUser()
 	var usrdiv = document.getElementById("usr_SearchRestults");
 	var type = document.getElementById("User_Type").value;
 	var usrName = document.getElementById("usrSearch_input").value;
-	var url = "/searchUsers?name=" + usrName;
+	var url = "searchUsers?name=" + usrName;
 	if(type!=-1)
 	{
 		url= url+  "&type=" + type ;
