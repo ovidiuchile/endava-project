@@ -104,7 +104,6 @@
 					<table>
 						<tr>
 							<td><p class="td_text">Name of technology:</p></td>
-
 							<td>
 								<input type='text' name='technology' style="" />
 							</td>
@@ -177,7 +176,7 @@
 				<tr>
 					<td><p class="td_text">Description:</p></td>
 					<td>
-						<input type='text' name='material' value='' style="" />	
+						<input type='text' name='description' value='' style="" />	
 					</td>
 				</tr>
 			</table>
