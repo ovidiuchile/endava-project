@@ -1,6 +1,8 @@
 package com.endava.learning.security;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -16,6 +18,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 	@Autowired
 	private UserService userService;
 
+	@SuppressWarnings("serial")
 	@Override
 	public Authentication authenticate(Authentication authentication) {
 		String username = authentication.getName();
@@ -24,8 +27,15 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		User authenticatedUser;
 		if ((authenticatedUser = userService.loginUser(username, password)) != null) {
 			Authentication confirmedAuthentication;
+			List<GrantedAuthority> roles = new ArrayList<>();
+			roles.add(new GrantedAuthority() {
+				@Override
+				public String getAuthority() {
+					return authenticatedUser.getUser_type();
+				}
+			});
 			confirmedAuthentication = new UsernamePasswordAuthenticationToken(authenticatedUser, password,
-					new ArrayList<GrantedAuthority>());
+					roles);
 			return confirmedAuthentication;
 		} else {
 			throw new AuthenticationCredentialsNotFoundException("wrong credentials.");
