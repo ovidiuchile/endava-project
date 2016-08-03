@@ -517,12 +517,22 @@ function searchUser()
 		dataType: 'json',
 		url: url
 	}).then(function (data) {
+		
 		for (i of data.content) {
-			var div = document.createElement("div");
-			var usrInfo = document.createElement("p");
-			usrInfo.innerHTML = i.content.name + " " + i.content.surname +  " " + i.content.email + " "+ i.content.user_type;
-			div.appendChild(usrInfo);
-			usrdiv.appendChild(div);
+			var tr = document.createElement("tr");
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.name;
+			tr.appendChild(usrInfo);
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.surname;
+			tr.appendChild(usrInfo);
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.email;
+			tr.appendChild(usrInfo);
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.user_type;
+			tr.appendChild(usrInfo);
+			usrdiv.appendChild(tr);
 		}
 	});
 
