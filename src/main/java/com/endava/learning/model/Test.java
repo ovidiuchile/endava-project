@@ -1,17 +1,18 @@
 package com.endava.learning.model;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
 public class Test {
-	Map<Question, Answer> questions = new HashMap<>();
+	Map<Question, List<Answer>> questions = new HashMap<>();
 
-	public Map<Question, Answer> getQuestions() {
+	public Map<Question, List<Answer>> getQuestions() {
 		return questions;
 	}
 
-	public void setQuestions(Map<Question, Answer> questions) {
+	public void setQuestions(Map<Question, List<Answer>> questions) {
 		this.questions = questions;
 	}
 }

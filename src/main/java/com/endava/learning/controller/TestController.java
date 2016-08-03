@@ -22,7 +22,7 @@ import com.endava.learning.service.TestService;
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TestController {
 	@Autowired
-	private TestService questionService;
+	private TestService testService;
 	
 	/*@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/test")
 	public ModelAndView getTest(){
