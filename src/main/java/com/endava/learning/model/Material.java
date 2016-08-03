@@ -1,7 +1,6 @@
 package com.endava.learning.model;
 
 import java.io.File;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
