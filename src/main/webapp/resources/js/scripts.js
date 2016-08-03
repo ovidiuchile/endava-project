@@ -497,7 +497,7 @@ function searchUser()
 	var usrdiv = document.getElementById("usr_SearchRestults");
 	var type = document.getElementById("User_Type").value;
 	var usrName = document.getElementById("usrSearch_input").value;
-	var url = "/searchUsers?name=" + usrName;
+	var url = "/e-learning/searchUsers?name=" + usrName;
 	if(type!=-1)
 	{
 		url= url+  "&type=" + type ;
@@ -515,12 +515,22 @@ function searchUser()
 		dataType: 'json',
 		url: url
 	}).then(function (data) {
+		
 		for (i of data.content) {
-			var div = document.createElement("div");
-			var usrInfo = document.createElement("p");
-			usrInfo.innerHTML = i.content.name + " " + i.content.surname +  " " + i.content.email + " "+ i.content.user_type;
-			div.appendChild(usrInfo);
-			usrdiv.appendChild(div);
+			var tr = document.createElement("tr");
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.name;
+			tr.appendChild(usrInfo);
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.surname;
+			tr.appendChild(usrInfo);
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.email;
+			tr.appendChild(usrInfo);
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.user_type;
+			tr.appendChild(usrInfo);
+			usrdiv.appendChild(tr);
 		}
 	});
 

@@ -288,4 +288,12 @@ body,head{
 			overflow: auto;
 			border:1px solid pink;
 			height:70%;
+			padding:10px;
+		}
+		#usr_SearchRestults{
+			width:100%;
+			margin-top:20px; 
+		}
+		#usr_SearchRestults tr th{
+			border-bottom:1px dashed pink;
 		}
