@@ -182,11 +182,27 @@ body,head{
             opacity: 0.9;
             color: white;
         }
+        #search-users-box {
+            padding: 20px;
+            padding-bottom:0px;
+            width:80%;
+            height:70%;
+            position: absolute;
+		    top: calc( 50% + 30px);
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+            
+            background: #071226;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border: 1px solid #000;
+            opacity: 0.9;
+            color: white;
+        }
         
         #menu{
         	background-color:#071226;
         	width:calc( 100% - 20px );
-        	min-width:730px;
         	padding:10px;
         	opacity: 0.9;
         }
@@ -250,3 +266,26 @@ body,head{
 		    background-color: #024873;
 		}
 		
+		#table_admin{
+			margin-top:15px;
+		}
+		
+		#table_admin tr{
+			display:inline-block;
+		}
+		
+		#first_form{
+			width:100%;
+			border-top:1px solid pink;
+			border-bottom:1px solid pink;
+		}
+		#submittt{
+			padding:5px;
+		}
+		
+		#user_search_div{
+			margin-top:15px;
+			overflow: auto;
+			border:1px solid pink;
+			height:70%;
+		}

@@ -1,6 +1,439 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="54f7ac15-5779-463b-a2c5-b2fe96baee89">
+    <database-info product="PostgreSQL" version="9.5.2" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
+      <database id="1" name="team1">
+        <object-id>16394</object-id>
+        <visible>1</visible>
+      </database>
+      <database id="2" name="postgres">
+        <object-id>13294</object-id>
+      </database>
+      <database id="3" name="rdsadmin">
+        <object-id>16384</object-id>
+      </database>
+      <schema id="4" parent="1" name="public">
+        <object-id>2200</object-id>
+        <visible>1</visible>
+        <introspection-state-number>13219</introspection-state-number>
+        <introspection-timestamp>2016-08-02.18:30:51.310</introspection-timestamp>
+      </schema>
+      <schema id="5" parent="1" name="pg_catalog">
+        <object-id>11</object-id>
+      </schema>
+      <schema id="6" parent="1" name="pg_toast">
+        <object-id>99</object-id>
+      </schema>
+      <schema id="7" parent="1" name="pg_temp_1">
+        <object-id>11816</object-id>
+      </schema>
+      <schema id="8" parent="1" name="pg_toast_temp_1">
+        <object-id>11817</object-id>
+      </schema>
+      <schema id="9" parent="1" name="information_schema">
+        <object-id>13002</object-id>
+      </schema>
+      <table id="10" parent="4" name="answers">
+        <object-id>21196</object-id>
+        <state-number>13215</state-number>
+      </table>
+      <table id="11" parent="4" name="kewywords">
+        <object-id>16497</object-id>
+        <state-number>5394</state-number>
+      </table>
+      <table id="12" parent="4" name="keywords">
+        <object-id>21072</object-id>
+        <state-number>12979</state-number>
+      </table>
+      <table id="13" parent="4" name="materials">
+        <object-id>21204</object-id>
+        <state-number>13217</state-number>
+      </table>
+      <table id="14" parent="4" name="questions">
+        <object-id>21212</object-id>
+        <state-number>13218</state-number>
+      </table>
+      <table id="15" parent="4" name="technologies">
+        <object-id>21220</object-id>
+        <state-number>13219</state-number>
+      </table>
+      <table id="16" parent="4" name="tests">
+        <object-id>21098</object-id>
+        <state-number>12981</state-number>
+      </table>
+      <table id="17" parent="4" name="tests_history">
+        <object-id>21103</object-id>
+        <state-number>12982</state-number>
+      </table>
+      <table id="18" parent="4" name="topics">
+        <object-id>21225</object-id>
+        <state-number>13219</state-number>
+      </table>
+      <table id="19" parent="4" name="users">
+        <object-id>21230</object-id>
+        <state-number>13217</state-number>
+      </table>
+      <column id="20" parent="10" name="answer_id">
+        <state-number>13209</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="21" parent="10" name="question_id">
+        <state-number>13209</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="22" parent="10" name="answer_text">
+        <state-number>13209</state-number>
+        <data-type>text|0</data-type>
+      </column>
+      <column id="23" parent="10" name="correct">
+        <state-number>13209</state-number>
+        <data-type>boolean|0</data-type>
+      </column>
+      <index id="24" parent="10" name="answers_pk">
+        <object-id>21202</object-id>
+        <columns>answer_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="25" parent="10" name="answers_pk">
+        <object-id>21203</object-id>
+        <columns>answer_id</columns>
+        <underlying-index>answers_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="26" parent="10" name="answers_questions">
+        <object-id>21238</object-id>
+        <columns>question_id</columns>
+        <ref-key>~.questions.questions_pk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="27" parent="11" name="keyword_id">
+        <state-number>5394</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="28" parent="11" name="keyword">
+        <state-number>5394</state-number>
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="29" parent="11" name="topic_id">
+        <state-number>5394</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <index id="30" parent="11" name="kewywords_pkey">
+        <object-id>16500</object-id>
+        <columns>keyword_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="31" parent="11" name="kewywords_pkey">
+        <object-id>16501</object-id>
+        <columns>keyword_id</columns>
+        <underlying-index>kewywords_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="32" parent="12" name="keyword_id">
+        <state-number>12967</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="33" parent="12" name="topic_id">
+        <state-number>12967</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="34" parent="12" name="keyword">
+        <state-number>12967</state-number>
+        <data-type>varchar(50)|0</data-type>
+      </column>
+      <index id="35" parent="12" name="keywords_pk">
+        <object-id>21075</object-id>
+        <columns>keyword_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="36" parent="12" name="keywords_pk">
+        <object-id>21076</object-id>
+        <columns>keyword_id</columns>
+        <underlying-index>keywords_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="37" parent="13" name="material_id">
+        <state-number>13210</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="38" parent="13" name="topic_id">
+        <state-number>13210</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="39" parent="13" name="title">
+        <state-number>13210</state-number>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="40" parent="13" name="description">
+        <state-number>13210</state-number>
+        <data-type>text|0</data-type>
+      </column>
+      <column id="41" parent="13" name="link">
+        <state-number>13210</state-number>
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="42" parent="13" name="type">
+        <state-number>13210</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="43" parent="13" name="upload_date">
+        <state-number>13210</state-number>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="44" parent="13" name="content_editor_id">
+        <state-number>13210</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <index id="45" parent="13" name="materials_pk">
+        <object-id>21210</object-id>
+        <columns>material_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="46" parent="13" name="materials_pk">
+        <object-id>21211</object-id>
+        <columns>material_id</columns>
+        <underlying-index>materials_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="47" parent="13" name="materials_topic">
+        <object-id>21243</object-id>
+        <columns>topic_id</columns>
+        <ref-key>~.topics.topics_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="48" parent="13" name="materials_users">
+        <object-id>21248</object-id>
+        <columns>content_editor_id</columns>
+        <ref-key>~.users.users_pk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="49" parent="14" name="question_id">
+        <state-number>13211</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="50" parent="14" name="topic_id">
+        <state-number>13211</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="51" parent="14" name="question_text">
+        <state-number>13211</state-number>
+        <data-type>text|0</data-type>
+      </column>
+      <column id="52" parent="14" name="start_date">
+        <state-number>13211</state-number>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="53" parent="14" name="end_date">
+        <state-number>13211</state-number>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <index id="54" parent="14" name="questions_pk">
+        <object-id>21218</object-id>
+        <columns>question_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="55" parent="14" name="questions_pk">
+        <object-id>21219</object-id>
+        <columns>question_id</columns>
+        <underlying-index>questions_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="56" parent="14" name="questions_topic">
+        <object-id>21253</object-id>
+        <columns>topic_id</columns>
+        <ref-key>~.topics.topics_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="57" parent="15" name="technology_id">
+        <state-number>13212</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="58" parent="15" name="name">
+        <state-number>13212</state-number>
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <index id="59" parent="15" name="technologies_pk">
+        <object-id>21223</object-id>
+        <columns>technology_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="60" parent="15" name="technologies_pk">
+        <object-id>21224</object-id>
+        <columns>technology_id</columns>
+        <underlying-index>technologies_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="61" parent="16" name="test_id">
+        <state-number>12971</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="62" parent="16" name="topic_id">
+        <state-number>12971</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="63" parent="16" name="title">
+        <state-number>12971</state-number>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <index id="64" parent="16" name="tests_pk">
+        <object-id>21101</object-id>
+        <columns>test_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="65" parent="16" name="tests_pk">
+        <object-id>21102</object-id>
+        <columns>test_id</columns>
+        <underlying-index>tests_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="66" parent="17" name="test_history_id">
+        <state-number>12972</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="67" parent="17" name="test_id">
+        <state-number>12972</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="68" parent="17" name="user_id">
+        <state-number>12972</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="69" parent="17" name="score">
+        <state-number>12972</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="70" parent="17" name="test_date">
+        <state-number>12972</state-number>
+        <data-type>date|0</data-type>
+      </column>
+      <index id="71" parent="17" name="tests_history_pk">
+        <object-id>21106</object-id>
+        <columns>test_history_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="72" parent="17" name="tests_history_pk">
+        <object-id>21107</object-id>
+        <columns>test_history_id</columns>
+        <underlying-index>tests_history_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="73" parent="17" name="tests_history_tests">
+        <object-id>21151</object-id>
+        <columns>test_id</columns>
+        <ref-key>~.tests.tests_pk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="74" parent="18" name="topic_id">
+        <state-number>13213</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="75" parent="18" name="technology_id">
+        <state-number>13213</state-number>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="76" parent="18" name="name">
+        <state-number>13213</state-number>
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <index id="77" parent="18" name="topics_pkey">
+        <object-id>21228</object-id>
+        <columns>topic_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="78" parent="18" name="topics_pkey">
+        <object-id>21229</object-id>
+        <columns>topic_id</columns>
+        <underlying-index>topics_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="79" parent="18" name="topic_technologies">
+        <object-id>21258</object-id>
+        <columns>technology_id</columns>
+        <ref-key>~.technologies.technologies_pk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="80" parent="19" name="user_id">
+        <state-number>13214</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint|0</data-type>
+      </column>
+      <column id="81" parent="19" name="user_type">
+        <state-number>13214</state-number>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="82" parent="19" name="name">
+        <state-number>13214</state-number>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="83" parent="19" name="surname">
+        <state-number>13214</state-number>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="84" parent="19" name="email">
+        <state-number>13214</state-number>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="85" parent="19" name="password">
+        <state-number>13214</state-number>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="86" parent="19" name="city">
+        <state-number>13214</state-number>
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="87" parent="19" name="address">
+        <state-number>13214</state-number>
+        <data-type>text|0</data-type>
+      </column>
+      <column id="88" parent="19" name="phonenumber">
+        <state-number>13214</state-number>
+        <data-type>varchar(13)|0</data-type>
+      </column>
+      <column id="89" parent="19" name="country">
+        <state-number>13214</state-number>
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <index id="90" parent="19" name="users_pk">
+        <object-id>21236</object-id>
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="91" parent="19" name="users_pk">
+        <object-id>21237</object-id>
+        <columns>user_id</columns>
+        <underlying-index>users_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+    </database-model>
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
   <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com [2]" uuid="b3d8898e-ef26-4a5b-9f44-298d55f07f91">
