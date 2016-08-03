@@ -86,9 +86,9 @@
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-<img id = "background_image" src="${pageContext.request.contextPath}/resources/images/background.jpg">
+<img id = "background_image" src="${pageContext.request.contextPath}/resources/images/background3.jpg">
 
-<div id = "menu">
+<div id = "menu" style = "background-color:transparent;border-bottom:1px solid transparent;">
 	<div id = "logo_div">
 		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 	</div>
