@@ -16,26 +16,26 @@ import org.springframework.security.web.savedrequest.SavedRequest;
 
 import com.endava.learning.model.User;
 
-
 public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
-    private final RequestCache requestCache = new HttpSessionRequestCache();
-    
-    private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-    
-    @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        User loggedUser = (User) authentication.getPrincipal();
-        
-        request.getSession().setAttribute("name", loggedUser.getName());
-        request.getSession().setAttribute("user_type", loggedUser.getUser_type());
-        request.getSession().setAttribute("id", loggedUser.getUser_id());
-        request.getSession().setAttribute("error", null);
-        SavedRequest savedRequest = requestCache.getRequest(request, response);
-        
-        if(savedRequest != null) {
-        	redirectStrategy.sendRedirect(request, response, savedRequest.getRedirectUrl());
-        } else {
-        	redirectStrategy.sendRedirect(request, response, "/");
-        }
-    }
+	private final RequestCache requestCache = new HttpSessionRequestCache();
+
+	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+
+	@Override
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+			Authentication authentication) throws IOException, ServletException {
+		User loggedUser = (User) authentication.getPrincipal();
+
+		request.getSession().setAttribute("name", loggedUser.getName());
+		request.getSession().setAttribute("user_type", loggedUser.getUser_type());
+		request.getSession().setAttribute("id", loggedUser.getUser_id());
+		request.getSession().setAttribute("error", null);
+		SavedRequest savedRequest = requestCache.getRequest(request, response);
+
+		if (savedRequest != null) {
+			redirectStrategy.sendRedirect(request, response, savedRequest.getRedirectUrl());
+		} else {
+			redirectStrategy.sendRedirect(request, response, "/home");
+		}
+	}
 }
