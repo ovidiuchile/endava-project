@@ -52,7 +52,7 @@
 		<%@include file="css/style.css"%>
 	</style>
 </head>
-<body>
+<body style="width:100vw;">
 	<img src="${pageContext.request.contextPath}/resources/images/background1.jpg" id = "background_1">
 	
 	
@@ -62,16 +62,16 @@
 				<a href="${pageContext.request.contextPath}">
 					<img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png">
 				</a>
-				<div class="col-md-89" style="">
+				<div class="col-md-89 pull-right" style="">
 					<ul class="nav nav-pills" id="nav_pills" style="">
 						<li class="" style="left:2px;">
 							<a href="#">Try it yourself</a>
 						</li>
 						<li class="" style="">
-							<a href="upload">Upload material</a>
+							<a href="${pageContext.request.contextPath}">Learn</a>
 						</li>
 					</ul>
-					<span style="font-size:30px;cursor:pointer" onclick="openNav()">
+					<span style="font-size:30px;cursor:pointer; position:absolute; right:20px; top:20px;" onclick="openNav()">
 						<img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px">
 					</span>
 					<div class="col-md-1  pull-right" style=""> 
@@ -91,7 +91,7 @@
 			</div>
 		</div>
 		<!-- ----------------------------------------------------------------- -->		
-		<div  class="container" id="" style="margin-left:0px;padding:0px;">
+		<div  class="container" id="empty_id" style="margin-left:0px;padding:0px;">
 			<div id="" style="margin-left:0px;">
 				<br>
 				<div id="container" style="margin-left:0px;">
