@@ -46,7 +46,7 @@
 				$("#background_1").css("height","auto");
 			}
 		});
-	</script>
+	</script> 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
 </head>
 <body>
@@ -165,7 +165,7 @@
                 </a>
                 <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 
-                    <input id="test_input" class="btn btn-default" value="Test your knowledge" type="submit" onclick="">
+                    <input id="test_input" class="btn btn-default" value="Test your knowledge" type="submit" >
 
                     <img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
 
@@ -181,6 +181,14 @@
             <div id = "search-container" style=" display : none;" >
             </div>
             <!-- end search container -->
+
+
+            <!-- test space -->
+            <div id="testspace" style="display:none">
+
+
+            </div>
+            <!-- test space -->
         </div>
 
     </div>

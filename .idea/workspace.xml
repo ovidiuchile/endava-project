@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/model/Question.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/model/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/KeywordDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/KeywordDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/UserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/UserDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/main.iml" afterPath="$PROJECT_DIR$/src/main/main.iml" />
     </list>
     <ignored path="e-learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/model/Material.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="30" column="31" selection-start-line="29" selection-start-column="4" selection-end-line="30" selection-end-column="31" />
+              <caret line="34" column="31" selection-start-line="33" selection-start-column="4" selection-end-line="34" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -154,11 +149,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/dao/UserDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="23" column="117" selection-start-line="23" selection-start-column="117" selection-end-line="23" selection-end-column="117" />
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="e#443#444#0" expanded="true" />
                 <element signature="e#467#468#0" expanded="true" />
-                <marker date="1470226647349" expanded="true" signature="1889:1944" ph="UPDATE Users... " />
               </folding>
             </state>
           </provider>
@@ -1106,15 +1100,15 @@
       <workItem from="1470205444972" duration="4023000" />
       <workItem from="1470209777380" duration="1315000" />
       <workItem from="1470212509815" duration="2124000" />
-      <workItem from="1470214668802" duration="8889000" />
+      <workItem from="1470214668802" duration="10084000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29956000" />
+    <option name="totallyTimeSpent" value="31151000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1289,9 +1283,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1343">
           <caret line="106" column="48" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1545,7 +1537,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/model/Material.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="30" column="31" selection-start-line="29" selection-start-column="4" selection-end-line="30" selection-end-column="31" />
+          <caret line="34" column="31" selection-start-line="33" selection-start-column="4" selection-end-line="34" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1553,11 +1545,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/dao/UserDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="23" column="117" selection-start-line="23" selection-start-column="117" selection-end-line="23" selection-end-column="117" />
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#443#444#0" expanded="true" />
             <element signature="e#467#468#0" expanded="true" />
-            <marker date="1470226647349" expanded="true" signature="1889:1944" ph="UPDATE Users... " />
           </folding>
         </state>
       </provider>

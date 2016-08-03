@@ -201,7 +201,7 @@ body,head{
         }
         
         #menu{
-        	background-color:#071226;
+        	/*background-color:#071226;*/
         	width:calc( 100% - 20px );
         	padding:10px;
         	opacity: 0.9;
@@ -288,4 +288,23 @@ body,head{
 			overflow: auto;
 			border:1px solid pink;
 			height:70%;
+			padding:10px;
+		}
+		#usr_SearchRestults{
+			width:100%;
+			margin-top:20px; 
+		}
+		#usr_SearchRestults tr th{
+			border-bottom:1px dashed pink;
+		}
+		
+		#test_div{
+			height:calc( 100% - 20px);
+			width:100%;
+			border:1px solid pink;
+		}
+		#system_out_println{
+			height:calc( 50% - 13px);
+			width:calc( 100% - 2px);
+			border:1px solid pink;
 		}

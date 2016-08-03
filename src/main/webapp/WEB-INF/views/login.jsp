@@ -86,7 +86,7 @@
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-<img id = "background_image" src="${pageContext.request.contextPath}/resources/images/background.jpg">
+<img id = "background_image" src="${pageContext.request.contextPath}/resources/images/background2.jpg">
 
 <div id = "menu">
 	<div id = "logo_div">
