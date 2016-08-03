@@ -526,7 +526,6 @@ function searchUser()
 	});
 
 }
-
 function testFunction(topic_id,option)
 {
 	$("#test_input").unbind("click");
