@@ -1,8 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-<script>
-	window.onload = populate;
-</script>
 <head>
     <title>Login Page</title>
     
@@ -114,13 +111,23 @@
 	    </div>
 	    
 	    <div id = "user_search_div">
-	    
+			<input id="usrSearch_input" type="text" name="searchUsrs" placeholder="Search..." style="  height:32px;color:black;	">
+			<select id="User_Type" style="color:black;">
+				<option value="-1"> Select an Option</option>
+				<option value="normal user"> Normal user</option>
+				<option value="content editor"> Content editor</option>
+				<option value="admin"> Administrator</option>
+			</select>
+			<button onclick="searchUser()"> Search for users </button>
+			<div id="usr_SearchRestults">
+				<!--  Aici intra rezultatele -->
+			</div>
 	    </div>
 	    
 	</div>
 	<!-- END LOGIN BOX -->
 
 </div>
-
+<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 </body>
 </html>

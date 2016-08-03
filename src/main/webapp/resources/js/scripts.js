@@ -490,3 +490,39 @@ function show()
 	//$("#bttn_search").hide();
 }
 
+
+
+function searchUser()
+{
+	var usrdiv = document.getElementById("usr_SearchRestults");
+	var type = document.getElementById("User_Type").value;
+	var usrName = document.getElementById("usrSearch_input").value;
+	var url = "/searchUsers?name=" + usrName;
+	if(type!=-1)
+	{
+		url= url+  "&type=" + type ;
+	}
+	while (usrdiv.childElementCount != 0) {
+		try {
+			usrdiv.removeChild(usrdiv.childNodes[0]);
+		}
+		catch (e) {
+
+		}
+	}
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: url
+	}).then(function (data) {
+		for (i of data.content) {
+			var div = document.createElement("div");
+			var usrInfo = document.createElement("p");
+			usrInfo.innerHTML = i.content.name + " " + i.content.surname +  " " + i.content.email + " "+ i.content.user_type;
+			div.appendChild(usrInfo);
+			usrdiv.appendChild(div);
+		}
+	});
+
+}
+
