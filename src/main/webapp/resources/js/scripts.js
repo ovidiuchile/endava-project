@@ -28,7 +28,11 @@ $(document).ready(function(){
 			technology2.value = i.content.technology_id;
 			technology2.innerHTML = i.content.name;
 			
-			AddTech.add(technology);
+			if(AddTech)
+            {
+                AddTech.add(technology);
+            }
+
 			
 			if(AddTechnologyToTopic){
 				AddTechnologyToTopic.add(technology1);
@@ -99,9 +103,6 @@ $("#select_technology").change(function(){
 
 
 
-$.ajaxSetup({
-	async: false
-});
 var carusel = document.getElementById('Carusel');
 $(".form-control").change(function() {
 	$('#myCarousel').hide();
@@ -154,6 +155,7 @@ function handleelement(i,topic,option)
 	topic.addEventListener("click", function (e) {
 		$("#search-container").hide();
 		$("#myCarousel").show();
+		testFunction(i,option);
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " none";
 		while (carusel.childElementCount != 0) {
@@ -292,7 +294,7 @@ function search(){
 	var date1 = document.getElementById("datepicker1").value;
 	var date2 = document.getElementById("datepicker2").value;
 	var contentEd = document.getElementById("content_creator").value;
-	var url = "/advancedSearchResults?s=" + search + "&type=" + type;
+	var url = "advancedSearchResults?s=" + search + "&type=" + type;
 	if(date1.length!=0)
 	{
 		url = url + "&startDate=" + date1 + "&finishDate=" + date2;
@@ -497,7 +499,7 @@ function searchUser()
 	var usrdiv = document.getElementById("usr_SearchRestults");
 	var type = document.getElementById("User_Type").value;
 	var usrName = document.getElementById("usrSearch_input").value;
-	var url = "/searchUsers?name=" + usrName;
+	var url = "searchUsers?name=" + usrName;
 	if(type!=-1)
 	{
 		url= url+  "&type=" + type ;
@@ -515,14 +517,53 @@ function searchUser()
 		dataType: 'json',
 		url: url
 	}).then(function (data) {
+		
 		for (i of data.content) {
-			var div = document.createElement("div");
-			var usrInfo = document.createElement("p");
-			usrInfo.innerHTML = i.content.name + " " + i.content.surname +  " " + i.content.email + " "+ i.content.user_type;
-			div.appendChild(usrInfo);
-			usrdiv.appendChild(div);
+			var tr = document.createElement("tr");
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.name;
+			tr.appendChild(usrInfo);
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.surname;
+			tr.appendChild(usrInfo);
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.email;
+			tr.appendChild(usrInfo);
+			var usrInfo = document.createElement("th");
+			usrInfo.innerHTML = i.content.user_type;
+			tr.appendChild(usrInfo);
+			usrdiv.appendChild(tr);
 		}
 	});
 
 }
+function testFunction(topic_id,option)
+{
+	$("#test_input").unbind("click");
+	var testSpace = document.getElementById("testspace");
+	$("#test_input").bind("click" , function (e) {
+        while (testSpace.childElementCount != 0) {
+			try {
+				testSpace.removeChild(testSpace.childNodes[0]);
+			}
+			catch (e) {
 
+			}
+		}
+		$("#testspace").show();
+		var url = "technologies/" + option + "/topics/" + topic_id + "/test" ;
+		console.log(url);
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: url
+		}).then(function (data) {
+            var k =0;
+			for (i of data.content) {
+				var div = document.createElement("div");
+				var questionText = document.createElement("p");
+			}
+		});
+	});
+
+}

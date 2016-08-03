@@ -33,7 +33,7 @@
 		    
 		    var h1 = $("#search-users-box").height();
 		    var h2 = $("#first_form").height();
-		    var h3 = h1 - h2 - 20 - 15 - 15 - 20;
+		    var h3 = h1 - h2 - 20 - 15 - 15 - 20 - 20;
 		    $("#user_search_div").css("height",h3);
 		});
 		$(window).resize(function(){
@@ -47,7 +47,7 @@
 		    }
 			var h1 = $("#search-users-box").height();
 		    var h2 = $("#first_form").height();
-		    var h3 = h1 - h2 - 20 - 15 - 15 - 20;
+		    var h3 = h1 - h2 - 20 - 15 - 15 - 20 - 20;
 		    $("#user_search_div").css("height",h3);
 		});
 	</script>
@@ -61,7 +61,7 @@
 	<div id = "logo_div">
 		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 		<ul>
-		  <li><a href="${pageContext.request.contextPath}">Back to main page</a></li>
+		  <li><a href="home">Back to main page</a></li>
 		</ul>
 	</div>
 </div>
@@ -111,17 +111,20 @@
 	    </div>
 	    
 	    <div id = "user_search_div">
-			<input id="usrSearch_input" type="text" name="searchUsrs" placeholder="Search..." style="  height:32px;color:black;	">
+	    
+			<input id="usrSearch_input" type="text" name="searchUsrs" placeholder="Search...">
 			<select id="User_Type" style="color:black;">
-				<option value="-1"> Select an Option</option>
+				<option value="-1"> Type filter</option>
 				<option value="normal user"> Normal user</option>
 				<option value="content editor"> Content editor</option>
 				<option value="admin"> Administrator</option>
 			</select>
-			<button onclick="searchUser()"> Search for users </button>
-			<div id="usr_SearchRestults">
+			<button class = "button_sign" onclick="searchUser()" style = "padding:5px;"> Search for users </button>
+			
+			<table id="usr_SearchRestults">
 				<!--  Aici intra rezultatele -->
-			</div>
+			</table>
+			
 	    </div>
 	    
 	</div>

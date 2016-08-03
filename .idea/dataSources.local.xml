@@ -4,14 +4,10 @@
     <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="54f7ac15-5779-463b-a2c5-b2fe96baee89">
       <secret-storage>master_key</secret-storage>
       <user-name>interns1</user-name>
-      <introspection-scope>team1:interns1,pg_catalog,public</introspection-scope>
-      <resolve-scope>team1:interns1,public</resolve-scope>
     </data-source>
     <data-source name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com [2]" uuid="b3d8898e-ef26-4a5b-9f44-298d55f07f91">
       <secret-storage>memory</secret-storage>
       <user-name>interns1</user-name>
-      <introspection-scope>team1:interns1,pg_catalog,public</introspection-scope>
-      <resolve-scope>team1:interns1,public</resolve-scope>
     </data-source>
     <data-source name="PostgreSQL - postgres@localhost" uuid="db454745-53c5-43f3-8ee4-7d9cfd8f7c63" />
   </component>
