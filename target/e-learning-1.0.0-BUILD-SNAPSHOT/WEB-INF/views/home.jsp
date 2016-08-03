@@ -46,7 +46,7 @@
 				$("#background_1").css("height","auto");
 			}
 		});
-	</script>
+	</script> 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
 </head>
 <body>
@@ -181,6 +181,14 @@
             <div id = "search-container" style=" display : none;" >
             </div>
             <!-- end search container -->
+
+
+            <!-- test space -->
+            <div id="testspace" style="display:none">
+
+
+            </div>
+            <!-- test space -->
         </div>
 
     </div>
