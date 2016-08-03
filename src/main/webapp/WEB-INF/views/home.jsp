@@ -50,159 +50,166 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
 </head>
 <body>
-	<img src="${pageContext.request.contextPath}/resources/images/background1.jpg" id = "background_1">
-	
-	
-	<div >
-		
-		<div id = "menu">
-			<div id = "logo_div">
-				<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
-				<div class="col-md-89" style="">
-					<ul class="nav nav-pills" id="nav_pills" >
-						<li class="dropdown" id="firstli" style="z-index:99999;">
-							<select class="form-control" id="Language_Selector" style="height:40px; z-index:99999;" >
-								<option selected disabled hidden>Technologies</option>
-							</select>
-						</li>
-						<li class="" style="">
-							<a href="#">Try it yourself</a>
-						</li>
-						<li class="" style="">
-							<a href="upload">Upload material</a>
-						</li>
-					</ul>
-					<span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
-					<div class="col-md-1  pull-right" style="">
-						<div id="mySidenav" class="sidenav" style="z-index:99999;">
-							<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-							<br>
-
-							<a href="admin">Admin</a>
-
-							<a href="change-password">Change Password</a>
-
-							<a href="logout">Logout</a>
-						</div>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		
-	
-		
-		<div id="vr" style="position:absolute; left:320px;border-left:1px solid pink; height: calc( 100% - 100px)  ;margin-top:15px;">
-		</div>
-		<div id = "main_div" style="margin-top:10px;">
-			
-			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
-				<div class="search_inputdiv" >
-					<input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;	">
-					
-					<div style=" display:none;" id="Adv_search">
-						<select class = "form-control" id="Material_type" >
-							<option value="-1"> Content type</option>
-							<option value="0"> Images</option>
-							<option value="1"> Videos</option>
-							<option value="2"> Power point</option>
-						</select>
-						<table>
-							<tr>
-								<td class = "td11"><p>From : </p></td><td><input class = "td12" style="color:#071226;text-align:right;"  type="text" id="datepicker1"></td>
-							</tr>
-							<tr>
-								<td class = "td11"><p>To :</p></td><td><input class = "td12" style="color:#071226; text-align:right;"  type="text" id="datepicker2">
-							</tr>
-							<tr>
-								<td class = "td11"><p>Content editor:</p></td><td><input class = "td12" type="text" style="color:#071226;" id="content_creator">
-							</tr>
-						</table>
-					</div>
-					
-					<button class="btn btn-default" id="bttn_search" onclick="show()"> Advanced Search</button>
-					<input id="submit_input" class="btn btn-default" value="Search" type="submit" onclick="search()">				
-				</div>
-
-				<div id="Topics" class="btn-group-vertical" style="margin-top:20px;">
-					<!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
-				</div>
-
-			</div>
-
-			<!-- primary container -->
-			<div class="col-md-11 container" id="Carousel_container" >
-				<br>
-				<div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" style="" >
-
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner" role="listbox" id="Carusel" >
-						<div class="item active">
-							<img src="${pageContext.request.contextPath}/resources/images/img_chania.jpg" alt="Chania" >
-						</div>
-
-						<div class="item">
-							<img src="${pageContext.request.contextPath}/resources/images/img_chania2.jpg" alt="Chania" >
-						</div>
-
-						<div class="item">
-							<img src="${pageContext.request.contextPath}/resources/images/img_flower.jpg" alt="Flower" >
-						</div>
-
-						<div class="item">
-							<img src="${pageContext.request.contextPath}/resources/images/img_flower2.jpg" alt="Flower" >
-						</div>
-					</div>
-
-					<!-- Left and right controls -->
-					<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
-					<div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
-
-						<input id="test_input" class="btn btn-default" value="Test your knowledge" type="submit" onclick="">
-
-						<img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
-
-					</div>
-
-				</div>
-				<div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
-
-				</div>
-				<!-- end primary container -->
-
-				<!-- search container -->
-				<div id = "search-container" style=" display : none;" >
-				</div>
-				<!-- end search container -->
-			</div>
-
-		</div>
-		
-		
-	</div>
+<img src="${pageContext.request.contextPath}/resources/images/background1.jpg" id = "background_1">
 
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
-	<script>
-		var user_type = '<%= session.getAttribute("user_type") %>';
-		console.log(user_type);
-	</script>
-	
+<div >
+
+    <div id = "menu">
+        <div id = "logo_div">
+            <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
+            <div class="col-md-89" style="">
+                <ul class="nav nav-pills" id="nav_pills" >
+                    <li class="dropdown" id="firstli" style="z-index:99999;">
+                        <select class="form-control" id="Language_Selector" style="height:40px; z-index:99999;" >
+                            <option selected disabled hidden>Technologies</option>
+                        </select>
+                    </li>
+                    <li class="" style="">
+                        <a href="#">Try it yourself</a>
+                    </li>
+
+                    <li>
+                        <a href="upload"  id="upload" style="display:none"> Upload material</a>
+                    </li>
+                </ul>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
+                <div class="col-md-1  pull-right" style="">
+                    <div id="mySidenav" class="sidenav" style="z-index:99999;">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <br>
+                        <a href="admin">Admin</a>
+
+                        <a href="change-password">Change Password</a>
+
+                        <a href="logout">Logout</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="vr" style="position:absolute; left:320px;border-left:1px solid pink; height: calc( 100% - 100px)  ;margin-top:15px;"></div>
+    <div id = "main_div" style="margin-top:10px;">
+
+        <div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
+            <div class="search_inputdiv" >
+                <input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;	">
+
+                <div style=" display:none;" id="Adv_search">
+                    <select id="Material_type" style="color:black;">
+                        <option value="-1"> Select an Option</option>
+                        <option value="0"> Images</option>
+                        <option value="1"> Videos</option>
+                        <option value="2"> Power point</option>
+                    </select>
+                    <table>
+                        <tr>
+                            <td><p>From : </p></td><td><input style="color:black;"  type="text" id="datepicker1"></td>
+                        </tr>
+                        <tr>
+                            <td><p>To :</p></td><td><input style="color:black;"  type="text" id="datepicker2">
+                        </tr>
+                        <tr>
+                            <td><p>Content editor:</p></td><td><input type="text" style="color:black;" id="content_creator">
+                        </tr>
+                    </table>
+                </div>
+
+                <button class="btn btn-default" id="bttn_search" onclick="show()"> Advanced Search</button>
+                <input id="submit_input" class="btn btn-default" value="Search" type="submit" onclick="search()">
+            </div>
+
+            <div id="Topics" class="btn-group-vertical" style="margin-top:20px;">
+                <!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
+            </div>
+
+        </div>
+
+        <!-- primary container -->
+        <div class="col-md-11 container" id="Carousel_container" >
+            <br>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" style="" >
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox" id="Carusel" >
+                    <div class="item active">
+                        <img src="${pageContext.request.contextPath}/resources/images/img_chania.jpg" alt="Chania" >
+                    </div>
+
+                    <div class="item">
+                        <img src="${pageContext.request.contextPath}/resources/images/img_chania2.jpg" alt="Chania" >
+                    </div>
+
+                    <div class="item">
+                        <img src="${pageContext.request.contextPath}/resources/images/img_flower.jpg" alt="Flower" >
+                    </div>
+
+                    <div class="item">
+                        <img src="${pageContext.request.contextPath}/resources/images/img_flower2.jpg" alt="Flower" >
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
+
+                    <input id="test_input" class="btn btn-default" value="Test your knowledge" type="submit" onclick="">
+
+                    <img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
+
+                </div>
+
+            </div>
+            <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
+
+            </div>
+            <!-- end primary container -->
+
+            <!-- search container -->
+            <div id = "search-container" style=" display : none;" >
+            </div>
+            <!-- end search container -->
+        </div>
+
+    </div>
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
+<script>
+    var user_type = '<%= session.getAttribute("user_type") %>';
+    console.log(user_type);
+    if(user_type="content-editor")
+    {
+        $("#upload").show();
+    }
+    if(user_type="admin")
+    {
+        $("#upload").show();
+    }
+
+</script>
+
 </body>
 
 </html>
