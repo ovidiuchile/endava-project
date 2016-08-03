@@ -1,6 +1,6 @@
 package com.endava.learning.controller;
 
-import java.util.Map;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.endava.learning.model.Answer;
 import com.endava.learning.model.Question;
-import com.endava.learning.service.QuestionService;
+import com.endava.learning.model.Test;
+import com.endava.learning.service.TestService;
 
 @RestController
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
-public class QuestionController {
+public class TestController {
 	@Autowired
-	private QuestionService questionService;
+	private TestService questionService;
 	
 	/*@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/test")
 	public ModelAndView getTest(){
@@ -32,10 +32,10 @@ public class QuestionController {
 	}*/
 	
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/test", method = RequestMethod.GET)
-	public HttpEntity<Resources<Resource<Question>>> getTest(@PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id){
-		Map<Question, Answer> questions = questionService.getTestByTopic(topic_id);		
-		Resources<Resource<Question>> questionResources = Resources.wrap(questions);
-		return new ResponseEntity<>(questionResources, HttpStatus.OK);
+	public HttpEntity<Resource<Test>> getTest(@PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id){
+		Test test = testService.getTestByTopic(topic_id);		
+		Resource<Test> testResource = new Resource<>(test);
+		return new ResponseEntity<>(testResource, HttpStatus.OK);
 	}
 
 }

@@ -14,7 +14,7 @@ import com.endava.learning.model.Answer;
 import com.endava.learning.model.Question;
 
 @Service
-public class QuestionService {
+public class TestService {
 
 	@Autowired
 	private QuestionDAO questionDAO;
