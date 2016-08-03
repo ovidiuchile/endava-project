@@ -61,7 +61,7 @@
 	<div id = "logo_div">
 		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 		<ul>
-		  <li><a href="home">Back to main page</a></li>
+		  <li><a href="${pageContext.request.contextPath}">Back to main page</a></li>
 		</ul>
 	</div>
 </div>
@@ -72,59 +72,13 @@
 
 	<div id="search-users-box">
 	    
-	    <p style="font-size:20px;margin-bottom:10px;margin-top:0px;text-align:center;">Admin: set user type</p>
-	    
-		<div id = "first_form">
-		
-		    <form name='loginForm'
-		          action="<c:url value='/admin' />" method='POST'>
-		
-		        <table id = "table_admin">
-		            <tr>
-		                <td>E-mail:</td>
-		                <td><input type='email' name='email' value='' required></td>
-		            </tr>
-		            <tr>
-		                <td>Type:</td>
-		                <td><select name="type_of_user">
-						    <option value="normal user">Normal user</option>
-						    <option value="tutor">Tutor</option>
-						    <option value="content editor">Content Editor</option>
-						    <option value="admin">Admin</option>
-						  </select>
-		                </td>
-		            </tr>
-		            <tr>
-		                <td colspan='2'><input class = "button_sign" name="submit" id = "submittt" type="submit"
-		                                       value="Change" /></td>
-		            </tr>
-		            <tr>
-		                <td><p style="color:red;">${error}</p>
-		    <p style="color:green;">${success}</p></td>
-		            </tr>
-		        </table>
-		
-		        <input type="hidden" name="${_csrf.parameterName}"
-		               value="${_csrf.token}" />
-		
-		    </form>
-	    </div>
-	    
-	    <div id = "user_search_div">
-	    
-			<input id="usrSearch_input" type="text" name="searchUsrs" placeholder="Search...">
-			<select id="User_Type" style="color:black;">
-				<option value="-1"> Type filter</option>
-				<option value="normal user"> Normal user</option>
-				<option value="content editor"> Content editor</option>
-				<option value="admin"> Administrator</option>
-			</select>
-			<button class = "button_sign" onclick="searchUser()" style = "padding:5px;"> Search for users </button>
-			
-			<table id="usr_SearchRestults">
-				<!--  Aici intra rezultatele -->
-			</table>
-			
+	    <div id = "test_div">
+	    	<form action="action_page.php" >
+				  <textarea name="message" rows="20" cols="80">Write your code here</textarea>
+				  <br>
+				  <input type="submit" value = "Run">
+			</form>
+			<div id = "system_out_println"> ${response} </div>
 	    </div>
 	    
 	</div>

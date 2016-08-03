@@ -101,7 +101,7 @@
 					<p style="color: green;">${success}</p>
 
 					<form id= "technologyForm" name='technologyForm' enctype='application/json' action=" <c:url value='/technologies' />" method='POST' enctype='application/json'>
-					<table>
+					<table style="width:250px">
 						<tr>
 							<td><p class="td_text">Name of technology:</p></td>
 							<td>
@@ -109,7 +109,7 @@
 							</td>
 						</tr>
 					</table>
-					<table>
+					<table style="width:250px">
 						<tr>
 							<td>
 								<input class="button_sign" name="submit" id="submitt1" type = "submit" value="Add technology"/>
@@ -121,7 +121,7 @@
 			<div id="addTopic">
 				<h3 id="h32">Add new topic:</h3>
 				<form name="topicForm" action=" <c:url value='/upload-topic' />" method="POST">
-				<table>
+				<table style="width:250px">
 					<tr>
 						<td><p class="td_text">Name of technology:</p></td>
 						<td>
@@ -137,7 +137,7 @@
 						</td>
 					</tr>
 				</table>
-				<table>
+				<table style="width:250px">
 					<tr>
 						<td>
 							<input class="button_sign" name="submit" id="submitt2" type="submit" value="Add topic" />
@@ -150,7 +150,7 @@
 		<div id="addMaterial" style="">
 			<h3 id="h33">Add new material:</h3>
 			<form name="materialForm" style="" action=" <c:url value='/upload-material' />" method="POST" enctype="multipart/form-data">
-			<table style="">
+			<table style="width:250px">
 				<tr style="">
 					<td style=""><p class="td_text">Name of technology:</p></td>
 					<td>
@@ -180,14 +180,14 @@
 					</td>
 				</tr>
 			</table>
-			<table>
+			<table style="width:250px">
 				<tr>
 					<td>
 						<input id="file_choose" type='file' name='file' size="50000" />
 					</td>
 				</tr>
 			</table>
-			<table>
+			<table style="width:250px">
 				<tr>
 					<td>
 						<input class="button_sign" name="submit" id="submitt3" type="submit" value="Add material" />
