@@ -5,7 +5,8 @@
 %>
 <html>
 <head>
-    <title>Login Page</title>
+    <title>Appollo</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
     <style>
 		<%@include file="css/style.css"%>
 		

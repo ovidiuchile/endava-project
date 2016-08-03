@@ -17,8 +17,8 @@
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
-
-<title>Appollo - logout</title>
+<link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
+<title>Appollo</title>
 
 </head>
 <body>
