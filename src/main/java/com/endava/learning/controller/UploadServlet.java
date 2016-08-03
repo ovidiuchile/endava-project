@@ -120,7 +120,6 @@ public class UploadServlet extends HttpServlet {
 						}
 					}
 				}
-
 				Material createdMaterial = materialService.createMaterial(material);
 			} catch (FileUploadException e1) {
 				// TODO Auto-generated catch block
