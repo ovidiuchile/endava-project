@@ -373,15 +373,15 @@ html *
 		left:10px;
 		top:80px;
 		display:block;
-
+		max-width:550px;
+	}
+	#nav_pills li a{
+		
 	}
 	#firstli{
 		left:3px;
 	}
 	
-	#nav_pills li{
-		width:90vw;
-	}
 	.search_inputdiv *{
 		margin-top:110px; 
 		margin-left:0px;
