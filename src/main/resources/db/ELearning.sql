@@ -24,14 +24,6 @@ CREATE TABLE Answers (
   CONSTRAINT Answers_pk PRIMARY KEY (answer_id)
 );
 
--- Table: Keywords
-CREATE TABLE Keywords (
-  keyword_id BIGINT ,
-  topic_id bigint ,
-  keyword varchar(50) ,
-  CONSTRAINT Keywords_pk PRIMARY KEY (keyword_id)
-);
-
 -- Table: Materials
 CREATE TABLE Materials (
   material_id BIGINT,
@@ -48,9 +40,9 @@ CREATE TABLE Materials (
 -- Table: Questions
 CREATE TABLE Questions (
   question_id BIGINT ,
-  test_id bigint ,
-  question_type varchar(20) ,
-  content text ,
+  question_text text ,
+  topic_id BIGINT ,
+  start_date varchar(20) ,
   CONSTRAINT Questions_pk PRIMARY KEY (question_id)
 );
 
@@ -59,24 +51,6 @@ CREATE TABLE Technologies (
   technology_id BIGINT ,
   name varchar(30) ,
   CONSTRAINT Technologies_pk PRIMARY KEY (technology_id)
-);
-
--- Table: Tests
-CREATE TABLE Tests (
-  test_id BIGINT ,
-  topic_id bigint ,
-  title varchar(100) ,
-  CONSTRAINT Tests_pk PRIMARY KEY (test_id)
-);
-
--- Table: Tests_history
-CREATE TABLE Tests_history (
-  test_history_id BIGINT ,
-  test_id bigint ,
-  user_id bigint ,
-  score int ,
-  test_date date ,
-  CONSTRAINT Tests_history_pk PRIMARY KEY (test_history_id)
 );
 
 -- Table: Topics
@@ -112,26 +86,6 @@ REFERENCES Topics (topic_id) ON DELETE CASCADE;
 
 -- Reference: Materials_Users (table: Materials)
 ALTER TABLE Materials ADD CONSTRAINT Materials_Users FOREIGN KEY (content_editor_id)
-REFERENCES Users (user_id) ON DELETE CASCADE;
-
--- Reference: Questions_Tests (table: Questions)
-ALTER TABLE Questions ADD CONSTRAINT Questions_Tests FOREIGN KEY (test_id)
-REFERENCES Tests (test_id) ON DELETE CASCADE;
-
--- Reference: Table_10_Topic (table: Keywords)
-ALTER TABLE Keywords ADD CONSTRAINT Table_10_Topic FOREIGN KEY (topic_id)
-REFERENCES Topics (topic_id) ON DELETE CASCADE;
-
--- Reference: Tests_Topics (table: Tests)
-ALTER TABLE Tests ADD CONSTRAINT Tests_Topics FOREIGN KEY (topic_id)
-REFERENCES Topics (topic_id) ON DELETE CASCADE;
-
--- Reference: Tests_history_Tests (table: Tests_history)
-ALTER TABLE Tests_history ADD CONSTRAINT Tests_history_Tests FOREIGN KEY (test_id)
-REFERENCES Tests (test_id) ON DELETE CASCADE;
-
--- Reference: Tests_history_Users (table: Tests_history)
-ALTER TABLE Tests_history ADD CONSTRAINT Tests_history_Users FOREIGN KEY (user_id)
 REFERENCES Users (user_id) ON DELETE CASCADE;
 
 -- Reference: Topic_Technologies (table: Topics)
@@ -220,50 +174,8 @@ INSERT INTO Materials VALUES (33, 16, 'Modular arithmetic', 'Here the cycle cons
 INSERT INTO Materials VALUES (34, 16, 'WW2 Enigma Machine', 'The Enigma Machine', 'https://www.youtube.com/embed/-1ZFVwMXSXY', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 INSERT INTO Materials VALUES (35, 17, 'Prime Number Theorem', 'Prime Number Theorem', 'https://www.youtube.com/embed/7jzCJJIc59E', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
 INSERT INTO Materials VALUES (36, 17, 'Prime numbers density', 'As shown in this figure, the densest concentrations of primes seem to occur mainly in curves whose offsets are prime.', 'https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/46025/versions/4/screenshot.jpg', 0, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
-INSERT INTO Materials VALUES (37, 18, 'Randomized Algorithms', 'Randomized Algorithms Intro', 'https://www.youtube.com/embed/WGMn16TDTjE', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
-INSERT INTO Materials VALUES (38, 18, 'Fermat primality test', 'Fermat primality test', 'https://www.youtube.com/embed/xMj3jzFDZ38', 1, to_date('12.12.2015', 'DD.MM.YYYY'), 16);
-
-INSERT INTO Keywords VALUES (1, 1, 'oop');
-INSERT INTO Keywords VALUES (2, 1, 'inheritance');
-INSERT INTO Keywords VALUES (3, 2, 'checked');
-INSERT INTO Keywords VALUES (4, 2, 'unchecked');
-INSERT INTO Keywords VALUES (5, 5, 'create');
-INSERT INTO Keywords VALUES (6, 5, 'drop');
-INSERT INTO Keywords VALUES (7, 5, 'alter');
-INSERT INTO Keywords VALUES (8, 6, 'select');
-INSERT INTO Keywords VALUES (9, 6, 'insert');
-INSERT INTO Keywords VALUES (10, 6, 'update');
-INSERT INTO Keywords VALUES (11, 6, 'delete');
-INSERT INTO Keywords VALUES (12, 9, 'head');
-INSERT INTO Keywords VALUES (13, 9, 'tail');
-INSERT INTO Keywords VALUES (14, 16, 'framework');
-INSERT INTO Keywords VALUES (15, 24, 'button');
-INSERT INTO Keywords VALUES (16, 22, 'div');
-INSERT INTO Keywords VALUES (17, 26, 'procedure');
-INSERT INTO Keywords VALUES (18, 26, 'function');
-INSERT INTO Keywords VALUES (19, 27, 'acid');
-INSERT INTO Keywords VALUES (20, 10, 'frequency');
-INSERT INTO Keywords VALUES (21, 10, 'secrecy');
-INSERT INTO Keywords VALUES (22, 10, 'enigma');
-INSERT INTO Keywords VALUES (23, 11, 'xor');
-INSERT INTO Keywords VALUES (24, 11, 'bitwise');
-INSERT INTO Keywords VALUES (25, 12, 'logarithm');
-INSERT INTO Keywords VALUES (26, 12, 'rsa');
-INSERT INTO Keywords VALUES (27, 12, 'exchange');
-INSERT INTO Keywords VALUES (28, 13, 'modulo');
-INSERT INTO Keywords VALUES (29, 13, 'congruence');
-INSERT INTO Keywords VALUES (30, 13, 'quotient');
-INSERT INTO Keywords VALUES (31, 14, 'prime');
-INSERT INTO Keywords VALUES (32, 14, 'division');
-INSERT INTO Keywords VALUES (33, 15, 'random');
-INSERT INTO Keywords VALUES (34, 15, 'probability');
-INSERT INTO Keywords VALUES (35, 31, 'data');
-INSERT INTO Keywords VALUES (36, 31, 'parse');
-INSERT INTO Keywords VALUES (37, 31, 'pair');
-INSERT INTO Keywords VALUES (38, 31, 'ordered');
-
-INSERT INTO Tests VALUES (1, 1, 'OOP Test');
-INSERT INTO Tests VALUES (2, 1, 'Exceptions Test');
+INSERT INTO Materials VALUES (37, 18, 'Randomized Algorithms', 'Randomized Algorithms Intro', 'https://www.youtube.com/embed/WGMn16TDTjE', 1, to_date('2015-07-05', 'YYYY-MM-DD'), 16);
+INSERT INTO Materials VALUES (38, 18, 'Fermat primality test', 'Fermat primality test', 'https://www.youtube.com/embed/xMj3jzFDZ38', 1, to_date('2015-07-05', 'YYYY-MM-DD'), 16);
 
 INSERT INTO Questions VALUES (1, 1, 'Multiple Choice', 'This is a question...');
 INSERT INTO Questions VALUES (2, 1, 'Single Choice', 'This is another question...');
@@ -274,10 +186,5 @@ INSERT INTO Answers VALUES (2, 1, 'Answer no. 2', TRUE , 10);
 INSERT INTO Answers VALUES (3, 1, 'Answer no. 3', FALSE , 0);
 INSERT INTO Answers VALUES (4, 2, 'Answer no. 1', TRUE , 20);
 INSERT INTO Answers VALUES (5, 2, 'Answer no. 2', FALSE , -5);
-
-INSERT INTO Tests_history VALUES (1, 1, 1, 0, to_date('05.12.2015', 'DD.MM.YYYY'));
-INSERT INTO Tests_history VALUES (2, 1, 1, 20, to_date('19.03.2016', 'DD.MM.YYYY'));
-INSERT INTO Tests_history VALUES (3, 1, 4, 10, to_date('27.06.2016', 'DD.MM.YYYY'));
-INSERT INTO Tests_history VALUES (4, 2, 1, -5, to_date('22.07.2016', 'DD.MM.YYYY'));
 
 -- End of file.

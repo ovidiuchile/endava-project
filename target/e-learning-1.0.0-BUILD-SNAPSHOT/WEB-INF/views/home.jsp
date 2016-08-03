@@ -168,13 +168,8 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
 	<script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
 	<script>
-<<<<<<< HEAD
-	var name = '<%= session.getAttribute("userName") %>';
-	console.log(name);
-=======
 	var user_type = '<%= session.getAttribute("user_type") %>';
 	console.log(user_type);
->>>>>>> 9327bc3c94517bc3f39325c5e2e47fbb5c658518
 	</script>
 </body>
 </html>

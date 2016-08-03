@@ -39,8 +39,11 @@ $(document).ready(function(){
 		}
 	});
 
+	if($("#datepicker1").length > 0) {
+		$("#datepicker1").Zebra_DatePicker();
+		$("#datepicker2").Zebra_DatePicker();
+	}
 
-	$("#datepicker").Zebra_DatePicker();
 
 });
 $(window).resize(function(){
@@ -64,6 +67,14 @@ $("#select_technology").change(function(){
 
 	
 	var AddTopic = document.getElementById("select_topic");
+	while (AddTopic.childElementCount != 0) {
+		try {
+			AddTopic.removeChild(AddTopic.childNodes[0]);
+		}
+		catch (e) {
+
+		}
+	}
     var Select_Tech = document.getElementById("select_technology").value;
 	$.ajax({
 		type: 'GET',
@@ -141,6 +152,7 @@ function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
+		$("#search-container").hide();
 		$("#myCarousel").show();
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " none";
@@ -239,14 +251,14 @@ function handleMaterial( img, source, type)
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
-				material.width="600";
-				material.height="360";
+				material.width="1000";
+				material.height="600";
 				material.src=source;
 				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
 			}
 			var container = document.getElementById('search-container');
-			container.style.display="none";
+			container.style.display="none ";
 		});
 
 }
@@ -260,7 +272,7 @@ function handleMaterial( img, source, type)
 
 
 function openNav() {
-	document.getElementById("mySidenav").style.width = "200px";
+	document.getElementById("mySidenav").style.width = "190px";
 }
 
 /* Set the width of the side navigation to 0 */
@@ -277,12 +289,13 @@ function search(){
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
-	var date = document.getElementById("datepicker").value;
+	var date1 = document.getElementById("datepicker1").value;
+	var date2 = document.getElementById("datepicker2").value;
 	var contentEd = document.getElementById("content_creator").value;
 	var url = "/advancedSearchResults?s=" + search + "&type=" + type;
-	if(date.length!=0)
+	if(date1.length!=0)
 	{
-		url = url + "&date=" + date;
+		url = url + "&startDate=" + date1 + "&finishDate=" + date2;
 	}
 	if(contentEd.length!=0)
 	{
@@ -299,6 +312,7 @@ function search(){
 	{
 
 	}
+	console.log(url);
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
@@ -453,8 +467,8 @@ function searchResult(buton, langId, topicId, materialId)
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
-				material.width="600";
-				material.height="360";
+				material.width="1000px";
+				material.height="600px";
 				material.src=source;
 				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
@@ -472,6 +486,6 @@ function searchResult(buton, langId, topicId, materialId)
 
 function show()
 {
-	$("#Adv_search").show();
-	$("#bttn_search").hide();
+	$("#Adv_search").toggle();
+	//$("#bttn_search").hide();
 }

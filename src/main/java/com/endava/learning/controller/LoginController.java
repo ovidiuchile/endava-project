@@ -29,17 +29,6 @@ public class LoginController {
 
 	@Autowired
 	private LoginService loginService;
-
-	@RequestMapping(value = "users", method = RequestMethod.GET)
-	public HttpEntity<Resources<Resource<User>>> getUsers() {
-
-		List<User> users = loginService.getUsers();
-		Resources<Resource<User>> usersResources = Resources.wrap(users);
-
-		usersResources.add(linkTo(methodOn(LoginController.class).getUsers()).withRel("custom-self"));
-
-        return new ResponseEntity<>(usersResources, HttpStatus.OK);
-    }
     
     @RequestMapping(value = "login", method = RequestMethod.GET)
 	public ModelAndView handleRequestGET(HttpServletRequest request) {
@@ -48,12 +37,15 @@ public class LoginController {
         request.setAttribute("success", null);
         
         ModelAndView model = new ModelAndView();
-        model.setViewName("login");
+        if(request.getSession().getAttribute("name")==null)
+        	model.setViewName("login");
+        else
+        	model.setViewName("redirect:/");
         return model;
 	}
 	
 	@RequestMapping(value = "/logout")
-	public ModelAndView logout(ServletRequest req){
+	public ModelAndView logout(ServletRequest request){
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
 		return model;

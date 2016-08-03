@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml">
-    <data-source source="LOCAL" name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="6791d2df-34b4-4fa3-ac28-7a94254afaf9">
+  <component name="DataSourceManagerImpl" format="xml" hash="1282987616">
+    <data-source source="LOCAL" name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com" uuid="54f7ac15-5779-463b-a2c5-b2fe96baee89">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com:5432/team1</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - team1@interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com [2]" uuid="b3d8898e-ef26-4a5b-9f44-298d55f07f91">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://interns1.ccurb3qhqcn6.eu-central-1.rds.amazonaws.com:5432/team1</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - postgres@localhost" uuid="db454745-53c5-43f3-8ee4-7d9cfd8f7c63">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
     </data-source>
   </component>
 </project>
