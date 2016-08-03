@@ -55,14 +55,14 @@ public class UserDAO extends AbstractDAO {
 
 	public void updateType(String email, String type) {
 
-		System.out.println(em().createNativeQuery("UPDATE Users SET user_type = :type WHERE email = :email")
-				.setParameter("type", type).setParameter("email", email).executeUpdate());
+		em().createNativeQuery("UPDATE Users SET user_type = :type WHERE email = :email").setParameter("type", type)
+				.setParameter("email", email).executeUpdate();
 	}
 
 	public List<User> getUsersSearchResults(String name, String type) {
-		
+
 		List<User> results = new ArrayList<>();
-		
+
 		if (name != null && type != null) {
 			@SuppressWarnings("unchecked")
 			List<User> keywords = (List<User>) em()
@@ -70,8 +70,7 @@ public class UserDAO extends AbstractDAO {
 							"SELECT user FROM User user WHERE (lower(user.name) LIKE lower(:name) OR lower(user.surname) LIKE lower(:name)) AND lower(user.user_type) LIKE lower(:type)")
 					.setParameter("name", "%" + name + "%").setParameter("type", "%" + type + "%").getResultList();
 			results.addAll(keywords);
-		}
-		else if (name == null) {
+		} else if (name == null) {
 			@SuppressWarnings("unchecked")
 			List<User> keywords = (List<User>) em()
 					.createQuery("SELECT user FROM User user WHERE lower(user.user_type) LIKE lower(:type)")
@@ -87,7 +86,7 @@ public class UserDAO extends AbstractDAO {
 					.setParameter("name", "%" + name + "%").getResultList();
 			results.addAll(keywords);
 		}
-		
+
 		return results;
 	}
 }
