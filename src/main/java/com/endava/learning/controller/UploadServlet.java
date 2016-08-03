@@ -1,7 +1,6 @@
 package com.endava.learning.controller;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,8 +40,6 @@ public class UploadServlet extends HttpServlet {
 
 	@Autowired
 	private TopicService topicService;
-
-	private String filePath;
 
 	@RequestMapping(value = "upload", method = RequestMethod.GET)
 	public ModelAndView handleGet() {
@@ -98,6 +95,7 @@ public class UploadServlet extends HttpServlet {
 							File path = new File(root + "/uploads");
 
 							if (!path.exists()) {
+								@SuppressWarnings("unused")
 								boolean status = path.mkdirs();
 							}
 							File file2 = new File(path + "/" + item.getName());
@@ -121,6 +119,7 @@ public class UploadServlet extends HttpServlet {
 					}
 				}
 
+				@SuppressWarnings("unused")
 				Material createdMaterial = materialService.createMaterial(material);
 			} catch (FileUploadException e1) {
 				// TODO Auto-generated catch block

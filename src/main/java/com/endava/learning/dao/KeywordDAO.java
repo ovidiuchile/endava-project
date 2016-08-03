@@ -1,17 +1,16 @@
 package com.endava.learning.dao;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.persistence.Query;
 
-import com.endava.learning.model.User;
 import org.springframework.stereotype.Repository;
 
 import com.endava.learning.model.Keyword;
 import com.endava.learning.model.Material;
+import com.endava.learning.model.User;
 
 @Repository
 @SuppressWarnings("rawtypes")
