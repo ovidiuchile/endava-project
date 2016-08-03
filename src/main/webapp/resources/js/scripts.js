@@ -154,6 +154,7 @@ function handleelement(i,topic,option)
 	topic.addEventListener("click", function (e) {
 		$("#search-container").hide();
 		$("#myCarousel").show();
+        testFunction(i,option);
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " none";
 		while (carusel.childElementCount != 0) {
@@ -526,3 +527,36 @@ function searchUser()
 
 }
 
+
+
+function testFunction(topic_id,option)
+{
+    $("#test_input").unbind("click");
+    var testSpace = document.getElementById("testspace");
+    $("#test_input").bind("click" , function (e) {
+        while (testSpace.childElementCount != 0) {
+            try {
+                testSpace.removeChild(testSpace.childNodes[0]);
+            }
+            catch (e) {
+
+            }
+        }
+        $("#testspace").show();
+        var url = "technologies/" + option + "/topics/" + topic_id + "/test" ;
+        console.log(url);
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: url
+        }).then(function (data) {
+            for (i of data.content) {
+                var div = document.createElement("div");
+                /**
+                 * Will create the div with all the questions
+                 */
+            }
+        });
+    });
+    
+}

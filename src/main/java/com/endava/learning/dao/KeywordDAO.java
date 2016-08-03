@@ -31,7 +31,11 @@ public class KeywordDAO extends AbstractDAO {
 
 			@SuppressWarnings("unchecked")
 
-			List<Material> keywords = (List<Material>) em().createQuery("SELECT material FROM Material material WHERE lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword").setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword", "%" + word.toLowerCase() + "%").getResultList();
+			List<Material> keywords = (List<Material>) em()
+					.createQuery(
+							"SELECT material FROM Material material WHERE lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword")
+					.setParameter("word", "%" + word.toLowerCase() + "%")
+					.setParameter("keyword", "%" + word.toLowerCase() + "%").getResultList();
 
 			results.addAll(keywords);
 		}
@@ -39,58 +43,59 @@ public class KeywordDAO extends AbstractDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Material> getAdvancedSearchResults(String input, Integer type, String startDate, String finishDate, String contentEditor) {
+	public List<Material> getAdvancedSearchResults(String input, Integer type, String startDate, String finishDate,
+												   String contentEditor) {
 		input.replaceAll("[^a-zA-Z1-9 ]", "").toLowerCase().split("\\s+");
-		StringTokenizer st = new StringTokenizer(input);
 		List<Material> results = new ArrayList<>();
-		System.out.println("okkkkkkk");
-		User cttEditor = null;
-		if(contentEditor != null) {
-			cttEditor = (User) em().createQuery("SELECT user FROM User user WHERE user.name LIKE :editor OR user.surname LIKE :editor OR concat(user.name, ' ', user.surname) LIKE :editor").setParameter("editor", "%" + contentEditor + "%").getSingleResult();
-			System.out.println("ceditor: " + cttEditor.getUser_id());
+		List<User> cttEditor = new ArrayList<>();
+		if (contentEditor != null) {
+			cttEditor = (List<User>) em()
+					.createQuery(
+							"SELECT user FROM User user WHERE user.name LIKE :editor OR user.surname LIKE :editor OR concat(user.name, ' ', user.surname) LIKE :editor")
+					.setParameter("editor", "%" + contentEditor + "%").getResultList();
 		}
+		for (User user : cttEditor) {
+			StringTokenizer st = new StringTokenizer(input);
+			System.out.println(user.getName());
+			while (st.hasMoreElements()) {
+				String queryString = "SELECT material FROM Material material";
 
-		while (st.hasMoreElements()) {
-			System.out.println("while");
-			String queryString = "SELECT material FROM Material material";
+				if (input != null) {
+					queryString += " WHERE (lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword)";
+				}
 
-			if (input != null){
-				queryString += " WHERE (lower(material.title) LIKE :word OR lower(material.description) LIKE :keyword)";
+				if (type.equals(0)) {
+					queryString += " AND material.type = 0";
+				}
+				if (type.equals(1)) {
+					queryString += " AND material.type = 1";
+				}
+				if (type.equals(2)) {
+					queryString += " AND material.type = 2";
+				}
+				if (startDate != null && finishDate != null) {
+					queryString += " AND to_date(material.upload_date, 'YYYY-MM-DD') BETWEEN to_date(:startDate, 'YYYY-MM-DD') AND to_date(:finishDate, 'YYYY-MM-DD')";
+				}
+				if (contentEditor != null) {
+					queryString += " AND material.content_editor.user_id = :editorId";
+				}
+				Query query;
+				query = em().createQuery(queryString);
+				String word = st.nextToken();
 
+				if (input != null) {
+					query.setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword",
+							"%" + word.toLowerCase() + "%");
+				}
+				if (startDate != null && finishDate != null) {
+					query.setParameter("startDate", startDate);
+					query.setParameter("finishDate", finishDate);
+				}
+				if (contentEditor != null) {
+					query.setParameter("editorId", user.getUser_id());
+				}
+				results.addAll(query.getResultList());
 			}
-
-			if (type.equals(0)) {
-				queryString += " AND material.type = 0";
-			}
-			if (type.equals(1)) {
-				queryString += " AND material.type = 1";
-			}
-			if (type.equals(2)) {
-				queryString += " AND material.type = 2";
-			}
-			if (startDate != null && finishDate != null) {
-				queryString += " AND to_date(material.upload_date, 'YYYY-MM-DD') BETWEEN to_date(:startDate, 'YYYY-MM-DD') AND to_date(:finishDate, 'YYYY-MM-DD')";
-			}
-			if (contentEditor != null) {
-				queryString += " AND material.content_editor.user_id = :editorId";
-			}
-			Query query;
-			System.out.println(queryString);
-			query = em().createQuery(queryString);
-			String word = st.nextToken();
-
-            if(input != null) {
-				query.setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword", "%" + word.toLowerCase() + "%");
-			}
-            if (startDate != null && finishDate != null) {
-                query.setParameter("startDate", startDate);
-                query.setParameter("finishDate", finishDate);
-            }
-            if (contentEditor != null) {
-                query.setParameter("editorId", cttEditor.getUser_id());
-            }
-
-			results.addAll(query.getResultList());
 		}
 		return results;
 	}
