@@ -67,13 +67,16 @@
                     <li class="" style="">
                         <a href="#">Try it yourself</a>
                     </li>
+
+                    <li>
+                        <a href="upload"  id="upload" style="display:none"> Upload material</a>
+                    </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
                 <div class="col-md-1  pull-right" style="">
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <br>
-
                         <a href="admin">Admin</a>
 
                         <a href="change-password">Change Password</a>
@@ -195,6 +198,15 @@
 <script>
     var user_type = '<%= session.getAttribute("user_type") %>';
     console.log(user_type);
+    if(user_type="content-editor")
+    {
+        $("#upload").show();
+    }
+    if(user_type="admin")
+    {
+        $("#upload").show();
+    }
+
 </script>
 
 </body>

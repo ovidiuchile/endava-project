@@ -489,3 +489,4 @@ function show()
 	$("#Adv_search").toggle();
 	//$("#bttn_search").hide();
 }
+

@@ -1,5 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
+<script>
+	window.onload = populate;
+</script>
 <head>
     <title>Login Page</title>
     
@@ -57,49 +60,24 @@
 	</div>
 </div>
 
-<div id = "content_login">
+<div id = "users">
 
 	<!-- START LOGIN BOX -->
-	<div id="login-box">
-	    
-	    <p style="font-size:20px;margin-bottom:10px;margin-top:0px;">Admin: set user type</p>
-	    
-		<div id = "sign_in">
-		    
-		    <p style="color:red;">${error}</p>
-		    <p style="color:green;">${success}</p>
-		
-		    <form name='loginForm'
-		          action="<c:url value='/admin' />" method='POST'>
-		
-		        <table>
-		            <tr>
-		                <td>E-mail:</td>
-		                <td><input type='email' name='email' value=''></td>
-		            </tr>
-		            <tr>
-		                <td>Type:</td>
-		                <td><select name="type_of_user">
-						    <option value="normal user">Normal user</option>
-						    <option value="tutor">Tutor</option>
-						    <option value="content editor">Content Editor</option>
-						    <option value="admin">Admin</option>
-						  </select>
-		                </td>
-		            </tr>
-		            <tr>
-		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Submit" /></td>
-		            </tr>
-		        </table>
-		
-		        <input type="hidden" name="${_csrf.parameterName}"
-		               value="${_csrf.token}" />
-		
-		    </form>
-	    </div>
-	    
-	</div>
+		<div name="searchusers">
+			<input id="usr_search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;	">
+		</div>
+		<div name="type">
+			<select id="usr_type">
+				<option value="-1"> Select a user type</option>
+				<option value="normal user">Normal user</option>
+				<option value="content-editor"> Content editor</option>
+				<option value="admin"> Admin</option>
+			</select>
+		</div>
+
+		<div id="resultsUsr">
+
+		</div>
 	<!-- END LOGIN BOX -->
 
 </div>
