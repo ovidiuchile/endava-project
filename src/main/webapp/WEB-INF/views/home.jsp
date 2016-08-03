@@ -46,7 +46,7 @@
 				$("#background_1").css("height","auto");
 			}
 		});
-	</script>
+	</script> 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
 </head>
 <body>
