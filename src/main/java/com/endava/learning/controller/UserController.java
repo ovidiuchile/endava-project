@@ -1,10 +1,13 @@
 package com.endava.learning.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +23,9 @@ import com.endava.learning.service.LoginService;
 import com.endava.learning.service.UserService;
 import com.endava.learning.utils.CryptPassword;
 
+import java.util.List;
+
+
 @RestController
 @RequestMapping(value = "/")
 public class UserController {
@@ -30,7 +36,18 @@ public class UserController {
 	
 	@Autowired
 	private LoginService loginService;
-	
+
+	@RequestMapping(value = "users", method = RequestMethod.GET)
+	public HttpEntity<Resources<Resource<User>>> getUsers() {
+
+		List<User> users = userService.getUsers();
+		Resources<Resource<User>> usersResources = Resources.wrap(users);
+
+		usersResources.add(linkTo(methodOn(UserController.class).getUsers()).withRel("custom-self"));
+
+		return new ResponseEntity<>(usersResources, HttpStatus.OK);
+	}
+
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public ModelAndView handleRequestPost(HttpServletRequest request) {
 	    String name = request.getParameter("name");
@@ -53,11 +70,12 @@ public class UserController {
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
+			user.setUser_type("normal user");
 			user.setUser_id(((long)(Math.random()*1000000000)));
 			userService.createUser(user);
 			
 			//successfully created
-			request.setAttribute("error", null);
+			request.getSession().setAttribute("error", null);
 			request.setAttribute("error2", null);
             request.setAttribute("success", "Successfully created your accound. Please, sign in");
 		}

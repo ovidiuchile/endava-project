@@ -4,51 +4,53 @@
 <html lang="en">
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="endava">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="endava">
+	
+	<link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
 
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
-
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
-
-    <title>Appollo</title>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $(window).mouseenter(function(){
-                $(".Zebra_DatePicker_Icon").hide();
-            });
-            if( $( window ).width() <= $( window ).height() * 1.5 ){
-                $("#background_1").css("height","100%");
-                $("#background_1").css("width","auto");
-            }
-            else{
-                $("#background_1").css("width","100%");
-                $("#background_1").css("height","auto");
-            }
-        });
-        $(window).resize(function(){
-            $("#Adv_search").hide();
-            if( $( window ).width() < $( window ).height() * 1.5 ){
-                $("#background_1").css("height","100%");
-                $("#background_1").css("width","auto");
-            }
-            else{
-                $("#background_1").css("width","100%");
-                $("#background_1").css("height","auto");
-            }
-        });
-    </script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+	<title>Appollo</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(window).mouseenter(function(){
+				$(".Zebra_DatePicker_Icon").css("left", "10px");
+				$(".Zebra_DatePicker_Icon").css("top", "15px");
+			});
+			if( $( window ).width() <= $( window ).height() * 1.5 ){
+				$("#background_1").css("height","100%");
+				$("#background_1").css("width","auto");
+			}
+			else{
+				$("#background_1").css("width","100%");
+				$("#background_1").css("height","auto");
+			}
+		});
+		$(window).resize(function(){
+			$("#Adv_search").hide();
+			if( $( window ).width() < $( window ).height() * 1.5 ){
+				$("#background_1").css("height","100%");
+				$("#background_1").css("width","auto");
+			}
+			else{
+				$("#background_1").css("width","100%");
+				$("#background_1").css("height","auto");
+			}
+		});
+	</script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
 </head>
 <body>
+<<<<<<< HEAD
 <img src="${pageContext.request.contextPath}/resources/images/background1.jpg" id = "background_1">
 
 

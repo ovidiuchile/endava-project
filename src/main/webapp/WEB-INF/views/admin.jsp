@@ -55,7 +55,7 @@
 	<div id = "logo_div">
 		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 		<ul>
-		  <li><a href="/e-learning/">Back to main page</a></li>
+		  <li><a href="${pageContext.request.contextPath}">Back to main page</a></li>
 		</ul>
 	</div>
 </div>
