@@ -66,9 +66,10 @@
 	</div>
 </div>
 
-<div id = "content_login">
+<div id = "users">
 
 	<!-- START LOGIN BOX -->
+
 	<div id="search-users-box">
 	    
 	    <p style="font-size:20px;margin-bottom:10px;margin-top:0px;text-align:center;">Admin: set user type</p>
@@ -110,13 +111,23 @@
 	    </div>
 	    
 	    <div id = "user_search_div">
-	    
+			<input id="usrSearch_input" type="text" name="searchUsrs" placeholder="Search..." style="  height:32px;color:black;	">
+			<select id="User_Type" style="color:black;">
+				<option value="-1"> Select an Option</option>
+				<option value="normal user"> Normal user</option>
+				<option value="content editor"> Content editor</option>
+				<option value="admin"> Administrator</option>
+			</select>
+			<button onclick="searchUser()"> Search for users </button>
+			<div id="usr_SearchRestults">
+				<!--  Aici intra rezultatele -->
+			</div>
 	    </div>
 	    
 	</div>
 	<!-- END LOGIN BOX -->
 
 </div>
-
+<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 </body>
 </html>
