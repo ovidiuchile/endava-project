@@ -1,0 +1,47 @@
+@media screen and (max-width: 600px){	
+input, select {
+	color:black;
+	margin-left:0px;
+}
+
+#big_container{  
+
+	
+}
+
+table{
+	width: 16vw;
+}
+tr{
+	width:50px; 
+}
+#addMaterial, #addTopic, #addTechnology, table{
+	width: 280px; 
+	margin: 0px;
+}
+#small_container{
+	position:relative;
+	left:50%;
+	transform:translateX(-50%);
+	width:320px;
+	border: 1px solid pink;
+	padding:10px;
+	margin:10px;
+	margin-left:0px;
+}
+.button_sign{
+	position:relative;
+	left:50%;
+	transform:translateX(-50%);
+}
+
+}
+
+
+
+@media screen and (min-width: 601px){
+input, select {
+	color:black;
+}
+
+}
