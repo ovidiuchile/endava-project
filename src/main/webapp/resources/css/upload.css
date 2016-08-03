@@ -114,10 +114,7 @@ input, select {
 	
 }
 @media screen and (min-width:1190px){
-	table{
-		table-layout: fixed
-	}
-	td{
+	table, tbody, tr, dt, input{
 		width:200px;
 	}
 }

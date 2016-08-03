@@ -28,7 +28,10 @@ $(document).ready(function(){
 			technology2.value = i.content.technology_id;
 			technology2.innerHTML = i.content.name;
 			
-			AddTech.add(technology);
+			if(AddTech)
+			{
+				AddTech.add(technology);
+			}
 			
 			if(AddTechnologyToTopic){
 				AddTechnologyToTopic.add(technology1);
