@@ -1,6 +1,6 @@
 package com.endava.learning.model;
 
-import java.util.Date;
+import java.io.File;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +13,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "materials")
 public class Material {
+	
+	public static final String LOCATION = System.getProperty("catalina.home") + File.separator + "uploads";
+	
 	@Id
 	@Column(name="material_id", unique=true, nullable=false)
 	private Long material_id;
