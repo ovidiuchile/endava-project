@@ -13,6 +13,7 @@
         <security:intercept-url pattern="/login" access="permitAll" />
         <security:intercept-url pattern="/register" access="permitAll" />
         <security:intercept-url pattern="/forgot-password" access="permitAll" />
+        <security:intercept-url pattern="/admin" access="hasRole('admin')" />
         <security:intercept-url pattern="/**" access="isAuthenticated()" />
         <security:form-login login-page="/login" 
                              authentication-failure-handler-ref="customAuthenticationFailureHandler" 
@@ -29,7 +30,7 @@
 
 
     <security:authentication-manager>
-        <security:authentication-provider ref="customAuthenticationProvider" />
+        <security:authentication-provider ref="customAuthenticationProvider" /> 
     </security:authentication-manager>
 
     <bean id="customAuthenticationProvider" class="com.endava.learning.security.CustomAuthenticationProvider" />
