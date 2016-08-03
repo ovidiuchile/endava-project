@@ -90,10 +90,10 @@
 			</div>
 		</div>
 		
+	
 		
-		
-		
-		<div id="vr" style="position:absolute; left:320px;border-left:1px solid pink; height: calc( 100% - 100px)  ;margin-top:15px;"></div>
+		<div id="vr" style="position:absolute; left:320px;border-left:1px solid pink; height: calc( 100% - 100px)  ;margin-top:15px;">
+		</div>
 		<div id = "main_div" style="margin-top:10px;">
 			
 			<div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
@@ -184,6 +184,8 @@
 			</div>
 
 		</div>
+		
+		
 	</div>
 
 

@@ -17,8 +17,4 @@ public class LoginService {
     public boolean isValidUser(String email, String password) {
         return userDAO.isValidUser(email, password);
     }
-
-    public List<User> getUsers(){
-        return userDAO.getUsers();
-    }
 }
