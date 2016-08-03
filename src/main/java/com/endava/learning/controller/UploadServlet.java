@@ -1,7 +1,6 @@
 package com.endava.learning.controller;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,8 +40,6 @@ public class UploadServlet extends HttpServlet {
 
 	@Autowired
 	private TopicService topicService;
-
-	private String filePath;
 
 	@RequestMapping(value = "upload", method = RequestMethod.GET)
 	public ModelAndView handleGet() {
@@ -98,6 +95,7 @@ public class UploadServlet extends HttpServlet {
 							File path = new File(root + "/uploads");
 
 							if (!path.exists()) {
+								@SuppressWarnings("unused")
 								boolean status = path.mkdirs();
 							}
 							File file2 = new File(path + "/" + item.getName());
@@ -105,26 +103,6 @@ public class UploadServlet extends HttpServlet {
 							material.setLink(file2.getAbsolutePath());
 
 							FileOutputStream fop = null;
-
-						File uploadedFile = new File(path + "/" + fileName);
-						System.out.println(uploadedFile.getAbsolutePath());
-						item.write(uploadedFile);
-						
-						Material material = new Material();
-						String topicName = request.getParameter("select_topic");
-						String materialName = request.getParameter("material");
-						
-						material.setTitle("material");
-						System.out.println(topicName);
-						material.setTopic(topicService.getTopicByID(Long.parseLong(topicName)));
-						material.setType(0);
-						material.setMaterial_id(((long) (Math.random() * 1000000000)));
-						material.setLink(uploadedFile.getAbsolutePath());
-						
-						material.setUpload_date(Calendar.getInstance().getTime().toString());
-						
-						
-						Material createdMaterial = materialService.createMaterial(material);
 							fop = new FileOutputStream(file2);
 							if (!file2.exists()) {
 								file2.createNewFile();
@@ -140,6 +118,7 @@ public class UploadServlet extends HttpServlet {
 					}
 				}
 
+				@SuppressWarnings("unused")
 				Material createdMaterial = materialService.createMaterial(material);
 			} catch (FileUploadException e1) {
 				// TODO Auto-generated catch block
