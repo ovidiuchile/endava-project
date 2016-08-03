@@ -50,7 +50,6 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
 </head>
 <body>
-<<<<<<< HEAD
 <img src="${pageContext.request.contextPath}/resources/images/background1.jpg" id = "background_1">
 
 

@@ -105,26 +105,6 @@ public class UploadServlet extends HttpServlet {
 							material.setLink(file2.getAbsolutePath());
 
 							FileOutputStream fop = null;
-
-						File uploadedFile = new File(path + "/" + fileName);
-						System.out.println(uploadedFile.getAbsolutePath());
-						item.write(uploadedFile);
-						
-						Material material = new Material();
-						String topicName = request.getParameter("select_topic");
-						String materialName = request.getParameter("material");
-						
-						material.setTitle("material");
-						System.out.println(topicName);
-						material.setTopic(topicService.getTopicByID(Long.parseLong(topicName)));
-						material.setType(0);
-						material.setMaterial_id(((long) (Math.random() * 1000000000)));
-						material.setLink(uploadedFile.getAbsolutePath());
-						
-						material.setUpload_date(Calendar.getInstance().getTime().toString());
-						
-						
-						Material createdMaterial = materialService.createMaterial(material);
 							fop = new FileOutputStream(file2);
 							if (!file2.exists()) {
 								file2.createNewFile();
