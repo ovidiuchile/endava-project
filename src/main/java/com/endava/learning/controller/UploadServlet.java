@@ -103,7 +103,6 @@ public class UploadServlet extends HttpServlet {
 							material.setLink(file2.getAbsolutePath());
 
 							FileOutputStream fop = null;
-
 							fop = new FileOutputStream(file2);
 							if (!file2.exists()) {
 								file2.createNewFile();
