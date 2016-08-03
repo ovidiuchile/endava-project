@@ -21,7 +21,7 @@ public class UserDAO extends AbstractDAO {
 	@SuppressWarnings("unchecked")
 	public List<User> getUsers() {
 
-		List<User> users = (List<User>) em().createQuery("SELECT user FROM User user").getResultList();
+		List<User> users = (List<User>) em().createQuery("SELECT user FROM User user ORDER BY user.name, user.surname").getResultList();
 		return users;
 	}
 
