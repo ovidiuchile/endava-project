@@ -70,7 +70,7 @@
                     </li>
 
                     <li>
-                        <a href="upload"  id="upload" style="display:none"> Upload material</a>
+                        <a href="upload"  id="uploadbttn"> Upload material</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
@@ -188,6 +188,7 @@
 
 
             </div>
+            <button id="answer_button"> TEST RESULT</button>
             <!-- test space -->
         </div>
 
@@ -205,15 +206,22 @@
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
 <script>
-    var user_type = '<%= session.getAttribute("user_type") %>';
+    var user_type = "<%= session.getAttribute("user_type") %>";
     console.log(user_type);
-    if(user_type="content-editor")
+    if(user_type=="normal user")
     {
-        $("#upload").show();
+        console.log("test");
+        $("#uploadbttn").hide();
     }
-    if(user_type="admin")
+    else if(user_type=="content editor")
     {
-        $("#upload").show();
+        console.log("test1");
+        $("#uploadbttn").show();
+    }
+    else if(user_type=="admin")
+    {
+        console.log("test2");
+        $("#uploadbttn").show();
     }
 
 </script>

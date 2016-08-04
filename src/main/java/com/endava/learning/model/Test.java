@@ -1,7 +1,5 @@
 package com.endava.learning.model;
 
-import org.aspectj.weaver.patterns.TypePatternQuestions;
-
 import java.util.List;
 
 
