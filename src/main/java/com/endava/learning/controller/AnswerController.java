@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,11 +25,21 @@ public class AnswerController {
     @Autowired
     private QuestionService questionService;
 
-    @RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/selectedAnswers", method = RequestMethod.GET)
-    public HttpEntity<Resources<Resource<Answer>>> getSelectedAnswers(@PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id,
-                                                                        @PathVariable("question_id") Long question_id, @RequestParam(value = "selectedAnswers") String selectedAnswers){
+    @RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/selectedAnswers", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Resources<Resource<Float>>> getScore(@PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id,
+                                                                        @RequestParam(value = "selectedAnswers") String selectedAnswers){
+        List<Float> correctAnswers = new ArrayList<>();
         List<Answer> answers = answerService.getSelectedAnswers(selectedAnswers);
-        Resources<Resource<Answer>> answerResource = Resources.wrap(answers);
+        Float score = 0f;
+        for (Answer answer : answers) {
+            if(answer.isCorrect()){
+                float answerScore = answerService.getAnswerScore(answer.getId());
+                score += answerScore;
+            }
+        }
+        correctAnswers.add(score);
+        correctAnswers.addAll(answerService.getCorrectAnswers(selectedAnswers))
+;        Resources<Resource<Float>> answerResource = Resources.wrap(correctAnswers);
 
         return new ResponseEntity<>(answerResource, HttpStatus.OK);
     }

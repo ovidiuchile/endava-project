@@ -5,6 +5,7 @@ import com.endava.learning.model.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -37,5 +38,13 @@ public class AnswerService {
 
     public List<Answer> getSelectedAnswers(String selectedAnswers) {
         return answerDAO.getSelectedAnswers(selectedAnswers);
+    }
+
+    public float getAnswerScore(Long id) {
+        return answerDAO.getAnswerScore(id);
+    }
+
+    public List<Float> getCorrectAnswers(String selectedAnswers) {
+        return answerDAO.getCorrectAnswers(selectedAnswers);
     }
 }

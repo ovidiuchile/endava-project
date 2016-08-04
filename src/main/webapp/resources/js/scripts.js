@@ -618,10 +618,10 @@ function handleButon(option, topic_id)
     $("#answer_button").unbind("click");
     $("#answer_button").bind("click" , function (e) {
         var test="";
-        var url = "technologies/" + option + "/topics/" + topic_id + "/selectedAnswers" ;
         $('input[name="answer"]:checked').each(function() {
-            test = test + this.value + ",";
+            test = test + this.value + " ";
         });
+        var url = "technologies/" + option + "/topics/" + topic_id + "/selectedAnswers?selectedAnswers=" +test;
         $.ajax({
             type: 'GET',
             dataType: 'json',
