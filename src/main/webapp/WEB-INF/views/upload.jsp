@@ -120,7 +120,7 @@
 			</div>
 			<div id="addTopic">
 				<h3 id="h32">Add new topic:</h3>
-				<form name="topicForm" action=" <c:url value='/upload-topic' />" method="POST">
+				<form name="topicForm" action=" <c:url value='/upload' />" method="POST">
 				<table style="width:250px">
 					<tr>
 						<td><p class="td_text">Name of technology:</p></td>
@@ -149,7 +149,7 @@
 
 		<div id="addMaterial" style="">
 			<h3 id="h33">Add new material:</h3>
-			<form name="materialForm" style="" action=" <c:url value='/upload-material' />" method="POST" enctype="multipart/form-data">
+			<form name="materialForm" style="" action=" <c:url value='/upload' />" method="POST" enctype="multipart/form-data">
 			<table style="width:250px">
 				<tr style="">
 					<td style=""><p class="td_text">Name of technology:</p></td>
