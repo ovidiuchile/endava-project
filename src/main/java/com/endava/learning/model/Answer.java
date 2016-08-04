@@ -18,7 +18,7 @@ public class Answer {
     private String answer_text;
 
     @Column(name = "correct")
-    private boolean correct;
+    private Boolean correct;
 
     public Long getId() {
         return id;
@@ -44,11 +44,11 @@ public class Answer {
         this.answer_text = answer_text;
     }
 
-    public boolean isCorrect() {
+    public Boolean isCorrect() {
         return correct;
     }
 
-    public void setCorrect(boolean correct) {
+    public void setCorrect(Boolean correct) {
         this.correct = correct;
     }
 }
