@@ -558,11 +558,15 @@ function testFunction(topic_id,option)
 			dataType: 'json',
 			url: url
 		}).then(function (data) {
-            var k =0;
-			for (i of data.content) {
-				var div = document.createElement("div");
-				var questionText = document.createElement("p");
+			var i=0;
+			var content = data.content.questions.question2;
+			console.log(data.content.questions);
+			console.log(data.content.questions.length);
+			for( j of content)
+			{
+				console.log("2");
 			}
+
 		});
 	});
 
