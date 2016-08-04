@@ -1,5 +1,7 @@
 package com.endava.learning.compilers.JSCompiler;
-import javax.script.Bindings;
+
+import java.io.StringWriter;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -8,14 +10,16 @@ public class JSCompiler {
 	public static String compile(String source) {
 		ScriptEngineManager manager = new ScriptEngineManager();
 		ScriptEngine engine = manager.getEngineByName("js");
-		Bindings bindings = engine.createBindings();
 		String finalResult = new String();
 		try {
-			Object result = engine.eval(source, bindings);
-			finalResult = result.toString();
+			StringWriter sw = new StringWriter();
+			engine.getContext().setWriter(sw);
+			engine.eval(source);
+			finalResult = sw.toString();
 		} catch (ScriptException e) {
 			finalResult = e.getMessage();
-		}catch(NullPointerException e){}
+		} catch (NullPointerException e) {
+		}
 		return finalResult;
 	}
 }
