@@ -62,5 +62,10 @@ public class Question {
     public void setEnd_date(String end_date) {
         this.end_date = end_date;
     }
+    
+    @Override
+    public String toString(){
+    	return "question" + id;
+    }
 
 }
