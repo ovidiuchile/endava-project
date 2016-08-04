@@ -499,7 +499,7 @@ function searchUser()
 	var usrdiv = document.getElementById("usr_SearchRestults");
 	var type = document.getElementById("User_Type").value;
 	var usrName = document.getElementById("usrSearch_input").value;
-	var url = "searchUsers?name=" + usrName;
+	var url = "/searchUsers?name=" + usrName;
 	if(type!=-1)
 	{
 		url= url+  "&type=" + type ;
@@ -542,6 +542,7 @@ function testFunction(topic_id,option)
 	$("#test_input").unbind("click");
 	var testSpace = document.getElementById("testspace");
 	$("#test_input").bind("click" , function (e) {
+        $("#myCarousel").hide();
         while (testSpace.childElementCount != 0) {
 			try {
 				testSpace.removeChild(testSpace.childNodes[0]);
@@ -558,12 +559,75 @@ function testFunction(topic_id,option)
 			dataType: 'json',
 			url: url
 		}).then(function (data) {
-            var k =0;
-			for (i of data.content) {
-				var div = document.createElement("div");
-				var questionText = document.createElement("p");
-			}
+            var nrofQuestion =0;
+			for(i of data.content)
+            {
+                var nextId=i.content.question.id;
+                console.log(nextId,prevId);
+                if(nextId!=prevId)
+                {
+                    nrofQuestion = nrofQuestion + 1;
+                    var Question_numbr = document.createElement("p");
+                    console.log("Test");
+                    var div = document.createElement("div");
+                    Question_numbr.innerHTML = "Question " + nrofQuestion;
+                    div.appendChild(Question_numbr);
+                    var paragraph = document.createElement("p");
+                    var questionText = i.content.question.question_text;
+                    paragraph.innerHTML = questionText;
+                    div.appendChild(paragraph);
+                    var questionAnswer = document.createElement("input");
+                    questionAnswer.setAttribute('type','checkbox');
+                    questionAnswer.name="answer";
+                    div1 = document.createElement("div");
+                    div1.className="answer_div";
+                    div1.appendChild(document.createTextNode(i.content.answer_text));
+                    questionAnswer.value=i.content.id;
+                    div1.appendChild(questionAnswer);
+                    div.appendChild(div1);
+                    testSpace.appendChild(div);
+                }
+                else
+                {
+                    var questionAnswer = document.createElement("input");
+                    questionAnswer.setAttribute('type','checkbox');
+                    questionAnswer.name="answer";
+                    div1 = document.createElement("div");
+                    div1.className="answer_div";
+                    div1.appendChild(document.createTextNode(i.content.answer_text));
+                    questionAnswer.value=i.content.id;
+                    div1.appendChild(questionAnswer);
+                    div.appendChild(div1);
+                    testSpace.appendChild(div);
+                }
+                var prevId =i.content.question.id;
+            }
+
 		});
 	});
+
+    handleButon(option, topic_id);
+
+}
+
+
+
+
+function handleButon(option, topic_id)
+{
+    $("#answer_button").unbind("click");
+    $("#answer_button").bind("click" , function (e) {
+        var test="";
+        var url = "technologies/" + option + "/topics/" + topic_id + "/selectedAnswers" ;
+        $('input[name="answer"]:checked').each(function() {
+            test = test + this.value + ",";
+        });
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: url
+        }).then(function (data) {
+        });
+    });
 
 }
