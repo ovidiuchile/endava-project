@@ -1,10 +1,12 @@
 package com.endava.learning.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "questions")
-public class Question {
+public class Question implements Comparable{
 
     @Id
     @Column(name = "question_id", updatable = false)
@@ -23,7 +25,7 @@ public class Question {
     @Column(name = "end_date")
     private String end_date;
 
-    public Long getId() {
+	public Long getId() {
         return id;
     }
 
@@ -62,5 +64,25 @@ public class Question {
     public void setEnd_date(String end_date) {
         this.end_date = end_date;
     }
+
+	@Override
+	public int compareTo(Object question) {
+		if(!(question instanceof Question)){
+			throw new ClassCastException();
+		}
+		else{
+			if(((Question)question).getId() == this.id){
+				return 0;
+			}
+			else{
+				if(this.id < ((Question)question).getId()){
+					return -1;
+				}
+				else{
+					return 1;
+				}
+			}
+		}
+	}
 
 }

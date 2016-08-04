@@ -73,12 +73,12 @@
 	<div id="search-users-box">
 	    
 	    <div id = "test_div">
-	    	<form action="action_page.php" >
-				  <textarea name="message" rows="20" cols="80">Write your code here</textarea>
+	    	<form name='compilerForm' action="<c:url value='/compiler/js' />" method='POST'>
+				  <textarea name="source" rows="20" cols="80"></textarea>
 				  <br>
 				  <input type="submit" value = "Run">
 			</form>
-			<div id = "system_out_println"> ${response} </div>
+			<div id = "system_out_println"> ${result} </div>
 	    </div>
 	    
 	</div>

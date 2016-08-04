@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.endava.learning.model.Answer;
 import com.endava.learning.model.Question;
-import com.endava.learning.model.Test;
 import com.endava.learning.service.TestService;
 
 @RestController
@@ -24,17 +24,10 @@ public class TestController {
 	@Autowired
 	private TestService testService;
 	
-	/*@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/test")
-	public ModelAndView getTest(){
-		ModelAndView model = new ModelAndView();
-		model.setViewName("test");
-		return model;
-	}*/
-	
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/test", method = RequestMethod.GET)
-	public HttpEntity<Resource<Test>> getTest(@PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id){
-		Test test = testService.getTestByTopic(topic_id);		
-		Resource<Test> testResource = new Resource<>(test);
+	public HttpEntity<Resources<Resource<Answer>>> getTest(@PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id){
+		List<Answer> questions = testService.getTestByTopic(topic_id);		
+		Resources<Resource<Answer>> testResource = Resources.wrap(questions);
 		return new ResponseEntity<>(testResource, HttpStatus.OK);
 	}
 
