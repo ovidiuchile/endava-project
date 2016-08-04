@@ -1,5 +1,6 @@
 package com.endava.learning.security;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,12 +14,12 @@ import org.springframework.security.core.GrantedAuthority;
 import com.endava.learning.model.User;
 import com.endava.learning.service.UserService;
 
-public class CustomAuthenticationProvider implements AuthenticationProvider {
+@SuppressWarnings("serial")
+public class CustomAuthenticationProvider implements AuthenticationProvider,Serializable {
 
 	@Autowired
 	private UserService userService;
 
-	@SuppressWarnings("serial")
 	@Override
 	public Authentication authenticate(Authentication authentication) {
 		String username = authentication.getName();
