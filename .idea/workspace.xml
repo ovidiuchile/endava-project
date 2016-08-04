@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_old___" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.endava/e-learning/pom.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-    </list>
+    <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="" />
     <ignored path="e-learning.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1191,12 +1182,12 @@
       <workItem from="1470212509815" duration="2124000" />
       <workItem from="1470214668802" duration="10084000" />
       <workItem from="1470236823592" duration="372000" />
-      <workItem from="1470291391638" duration="12470000" />
+      <workItem from="1470291391638" duration="12526000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43993000" />
+    <option name="totallyTimeSpent" value="44049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
