@@ -144,6 +144,8 @@ body,head{
     		padding:0px;
     		min-width:330px;
     		min-height:500px;
+    		background-color:#374140;
+    		color:#D9CB9E;
     	}
     
         .error {
@@ -175,13 +177,11 @@ body,head{
 		    left: 50%;
 		    transform: translate(-50%, -50%);
             
-            background: #071226;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border: 1px solid #000;
-            opacity: 0.9;
-            color: white;
+            border:1px solid #D13F32;
+            
+            background: #1E1E20;
         }
+        
         #search-users-box {
             padding: 20px;
             padding-bottom:0px;
@@ -196,15 +196,13 @@ body,head{
             -webkit-border-radius: 5px;
             -moz-border-radius: 5px;
             border: 1px solid #000;
-            opacity: 0.9;
-            color: white;
         }
         
         #menu{
-        	/*background-color:#071226;*/
+        	background-color:#1E1E20;
         	width:calc( 100% - 20px );
         	padding:10px;
-        	opacity: 0.9;
+        	border-bottom:1px solid #D13F32;
         }
         #logo_div{
         	width:100%;
@@ -219,15 +217,16 @@ body,head{
         	margin-bottom:20px;
         }
         .button_sign {
-		    background-color: #024873; /* Green */
+		    background-color: #D13F32; /* Green */
 		    border: none;
-		    color: white;
 		    padding: 10px 10px;
 		    text-align: center;
 		    text-decoration: none;
 		    display: inline-block;
 		    font-size: 16px;
+		    color:#D9CB9E;
 		} 
+		
 		#background_image{
 			z-index:-1;
 			position:fixed;
@@ -235,7 +234,6 @@ body,head{
 		}
 		
 		table{
-			color:white;
 			opacity:1;
 		}
 		#submitt{
@@ -256,7 +254,6 @@ body,head{
 		
 		li a {
 		    display: block;
-		    color: white;
 		    text-align: center;
 		    padding: 14px 16px;
 		    text-decoration: none;
@@ -307,4 +304,8 @@ body,head{
 			height:calc( 50% - 13px);
 			width:calc( 100% - 2px);
 			border:1px solid pink;
+		}
+		input{
+			background-color:#D9CB9E;
+			color:1E1E20;
 		}
