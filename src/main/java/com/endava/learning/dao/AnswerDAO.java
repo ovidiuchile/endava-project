@@ -43,26 +43,48 @@ public class AnswerDAO extends AbstractDAO{
         return answers;
     }
 
-    public float getAnswerScore(Long id) {
+    /*public float getAnswerScore(Long id) {
         Question question = (Question) em().createQuery("SELECT answer.question FROM Answer answer WHERE answer.id = :id").setParameter("id", id).getSingleResult();
         //Long allAnswers = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id").setParameter("question_id", question.getId()).getSingleResult();
         Long correctAnswers = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id AND answer.correct = TRUE").setParameter("question_id", question.getId()).getSingleResult();
-        return Float.valueOf(10 / correctAnswers).floatValue();
+        Long wrongAnswers = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id AND answer.correct = FALSE").setParameter("question_id", question.getId()).getSingleResult();
+        if(wrongAnswers >= correctAnswers){
+            return 0f;
+        }
+        return Float.valueOf(10 / (correctAnswers - wrongAnswers)).floatValue();
+    }*/
+
+    public List<Float> getCorrectAnswers() {
+        List<Float> answers = new ArrayList<>();
+        answers.addAll((List<Float>) em().createQuery("SELECT answer.id FROM Answer answer WHERE answer.correct = TRUE").getResultList());
+        return answers;
     }
 
-    public List<Float> getCorrectAnswers(String selectedAnswers) {
-        selectedAnswers.trim();
-        List<Float> answers = new ArrayList<>();
-        StringTokenizer ans = new StringTokenizer(selectedAnswers);
-        while (ans.hasMoreTokens()) {
-            String s = ans.nextToken();
-            Long id = Long.parseLong(s);
-            Answer answer = this.getAnswerById(id);
-            //= (Answer) em().createQuery("SELECT answer FROM Answer answer WHERE answer.id = :id").setParameter("id", id).getSingleResult();
-            if(answer.isCorrect()){
-                answers.add(Float.valueOf(id.floatValue()));
+    public Float getScore(List<Answer> answers) {
+        List<Long> checkedQuestions = new ArrayList<>();
+        float score = 0, selectedCorrectAnswers, selectedWrongAnswers;
+        for (Answer selectedAnswer : answers) {
+            Long questionId = selectedAnswer.getQuestion().getId();
+            if(!checkedQuestions.contains(questionId)){
+                checkedQuestions.add(questionId);
+                Long correctAnswers = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id AND answer.correct = TRUE").setParameter("question_id", questionId).getSingleResult();
+                selectedCorrectAnswers = selectedWrongAnswers = 0;
+                for (Answer answer :answers) {
+                    if(answer.getQuestion().getId() == questionId) {
+                        if(answer.isCorrect()) {
+                            selectedCorrectAnswers++;
+                        } else {
+                            selectedWrongAnswers++;
+                        }
+                    }
+                }
+                if(selectedWrongAnswers >= selectedCorrectAnswers) {
+                    score += 0f;
+                } else {
+                    score += Float.valueOf((10 / correctAnswers) * (selectedCorrectAnswers - selectedWrongAnswers)).floatValue();
+                }
             }
         }
-        return answers;
+        return score;
     }
 }

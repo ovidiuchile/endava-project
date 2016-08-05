@@ -100,19 +100,19 @@
 					<p style="color: red;">${error}</p>
 					<p style="color: green;">${success}</p>
 
-					<form id= "technologyForm" name='technologyForm' enctype='application/json' action=" <c:url value='/technologies' />" method='POST' enctype='application/json'>
+					<form id= "technologyForm" name='technologyForm' enctype='application/json' action=" <c:url value='/upload-technology' />" method='POST' enctype='application/json'>
 					<table style="width:250px">
 						<tr>
 							<td><p class="td_text">Name of technology:</p></td>
 							<td>
-								<input type='text' name='technology' style="" />
+								<input type='text' name='technology' style="" required/>
 							</td>
 						</tr>
 					</table>
 					<table style="width:250px">
 						<tr>
 							<td>
-								<input class="button_sign" name="submit" id="submitt1" type = "submit" value="Add technology"/>
+								<input class="button_sign" name="submit" id="submitt1" type = "submit" value="Add technology" />
 							</td>
 						</tr>
 					</table>
@@ -120,20 +120,20 @@
 			</div>
 			<div id="addTopic">
 				<h3 id="h32">Add new topic:</h3>
-				<form name="topicForm" action=" <c:url value='/upload' />" method="POST">
+				<form name="topicForm" action=" <c:url value='/upload-topic' />" method="POST">
 				<table style="width:250px">
 					<tr>
 						<td><p class="td_text">Name of technology:</p></td>
 						<td>
-							<select class="topic-form" name = 'technology' id="select_tech" style="" >
-								<option>Select language</option>
+							<select class="topic-form" name = 'technology' id="select_tech" style="" required>
+								<option value = "">Select language</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td><p class="td_text">Name of topic:</p></td>
 						<td>
-							<input type='text' name='topic' value='' style=""  />
+							<input type='text' name='topic' value='' style=""  required/>
 						</td>
 					</tr>
 				</table>
@@ -149,41 +149,41 @@
 
 		<div id="addMaterial" style="">
 			<h3 id="h33">Add new material:</h3>
-			<form name="materialForm" style="" action=" <c:url value='/upload' />" method="POST" enctype="multipart/form-data">
+			<form name="materialForm" style="" action=" <c:url value='/upload-material' />" method="POST" enctype="multipart/form-data">
 			<table style="width:250px">
 				<tr style="">
 					<td style=""><p class="td_text">Name of technology:</p></td>
 					<td>
-						<select class="topic-form" name = "technology" id="select_technology" style="" >
-							<option>Select language</option>
+						<select class="topic-form" name = "technology" id="select_technology" style="" required>
+							<option value = "">Select language</option>
 						</select>
 					</td>
 				</tr>
 				<tr>
 					<td><p class="td_text">Name of topic:</p></td>
 					<td>
-						<select class="topic-form" name = "topic" style="" id="select_topic" >
-							<option>Select topic</option>
+						<select class="topic-form" name = "topic" style="" id="select_topic" required>
+							<option value = "">Select topic</option>
 						</select>
 					</td>
 				</tr>
 				<tr>
 					<td><p class="td_text">Name of material:</p></td>
 					<td>
-						<input type='text' name='material' value='' style="" />
+						<input type='text' name='material' value='' style="" required/>
 					</td>
 				</tr>
 				<tr>
 					<td><p class="td_text">Description:</p></td>
 					<td>
-						<input type='text' name='description' value='' style="" />	
+						<input type='text' name='description' value='' style="" required/>	
 					</td>
 				</tr>
 			</table>
 			<table style="width:250px">
 				<tr>
 					<td>
-						<input id="file_choose" type='file' name='file' size="50000" />
+						<input id="file_choose" type='file' name='file' size="50000" required/>
 					</td>
 				</tr>
 			</table>

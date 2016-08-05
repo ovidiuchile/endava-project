@@ -1,5 +1,7 @@
 package com.endava.learning.controller;
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.MediaType;
@@ -26,14 +28,20 @@ public class CompilerControler {
 	public ModelAndView compilerPOST(HttpServletRequest request, @PathVariable("technology") String technology) {
 		String result = new String();
 		String source = request.getParameter("source");
+		
 		if (technology.equalsIgnoreCase("java"))
 			result = JavaCompiler.compile(source);
 		else if (technology.equalsIgnoreCase("js"))
 			result = JSCompiler.compile(source);
 		else
 			result = "wrong technology";
+		File folder = new File(System.getProperty("catalina.home") + "/compilerDirectory");
+		source += "---->"+folder.getAbsolutePath()+" "+folder.exists()+"<----";
+		
 		request.setAttribute("result", result);
 		request.setAttribute("source", source);
+		
+		
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("compiler");

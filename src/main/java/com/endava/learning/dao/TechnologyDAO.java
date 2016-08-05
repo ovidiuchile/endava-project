@@ -24,4 +24,18 @@ public class TechnologyDAO extends AbstractDAO {
 						"SELECT t FROM Technology t")
 				.getResultList();
 	}
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Technology> getTechnologyByName(String technologyName){
+		return em().createQuery("SELECT t FROM Technology t WHERE t.name LIKE :technologyName")
+				.setParameter("technologyName", technologyName).getResultList();
+	}
+
+	@Transactional
+	public void deleteByName(String technologyName) {
+		List<Technology> technologies = this.getTechnologyByName(technologyName);
+		for(Technology technology : technologies){
+			em().remove(findById(technology.getTechnology_id()));
+		}
+	}
 }

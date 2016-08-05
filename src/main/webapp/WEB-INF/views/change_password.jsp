@@ -7,7 +7,8 @@
 %-->
 <html>
 <head>
-    <title>Login Page</title>
+    <title>Appollo</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
     <style>
 		<%@include file="css/style.css"%>
 		
@@ -92,9 +93,9 @@
 
 <div id = "menu">
 	<div id = "logo_div">
-		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
+		<a href="home"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 		<ul>
-		  <li><a href="${pageContext.request.contextPath}">Back to main page</a></li>
+		  <li><a href="home">Back to main page</a></li>
 		</ul>
 	</div>
 </div>

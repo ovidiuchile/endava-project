@@ -15,6 +15,7 @@ div#search-container{
 	padding:10px;
 	overflow:auto;
 	border: 1px solid pink;
+	border-color:#D13F32;
 }
 
 @media screen and (max-width: 991px) {
@@ -22,15 +23,19 @@ div#search-container{
 div#search-container{
 	width:calc( 96vw - 20px);
 	height:60vw; 
+	margin-bottom:20px; 
 }
 }
 
 .search-div-material{
-	border: 1px solid pink;
+	border-bottom: 1px solid pink;
 	margin:5px;
 	padding:5px;
+	padding-bottom:25px;
 }
-
+.search-div-material:last-of-type{
+	border-bottom:0px;
+}
 /* Let's get this party started */
 ::-webkit-scrollbar {
     width: 12px;
@@ -43,11 +48,11 @@ div#search-container{
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background-color:#024873;
+    background-color:#2A2C2B;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: #024873; 
+	background: #3A3C3B; 
 }
 #content_creator{
 	margin-left:5px;
