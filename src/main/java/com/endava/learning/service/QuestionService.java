@@ -1,11 +1,12 @@
 package com.endava.learning.service;
 
-import com.endava.learning.dao.QuestionDAO;
-import com.endava.learning.model.Question;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.endava.learning.dao.QuestionDAO;
+import com.endava.learning.model.Question;
 
 @Service
 public class QuestionService {
@@ -18,7 +19,8 @@ public class QuestionService {
         return questionDAO.getQuestionsByTopic(topic_id);
     }
 
-    public Question addQuestion(Question question) {
+    @SuppressWarnings("unchecked")
+	public Question addQuestion(Question question) {
         questionDAO.save(question);
         return question;
     }

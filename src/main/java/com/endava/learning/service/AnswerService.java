@@ -40,11 +40,11 @@ public class AnswerService {
         return answerDAO.getSelectedAnswers(selectedAnswers);
     }
 
-    public float getAnswerScore(Long id) {
-        return answerDAO.getAnswerScore(id);
+    public List<Float> getCorrectAnswers() {
+        return answerDAO.getCorrectAnswers();
     }
 
-    public List<Float> getCorrectAnswers(String selectedAnswers) {
-        return answerDAO.getCorrectAnswers(selectedAnswers);
+    public Float getScore(List<Answer> answers) {
+        return answerDAO.getScore(answers);
     }
 }

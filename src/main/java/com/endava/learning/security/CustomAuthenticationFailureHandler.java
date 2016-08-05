@@ -21,7 +21,7 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
 			AuthenticationException exception) throws IOException, ServletException {
 		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 		if (exception instanceof AuthenticationCredentialsNotFoundException) {
-			request.getSession().setAttribute("error", "Wrong creditals");
+			request.getSession().setAttribute("error", "Wrong credentials");
 		}
 		redirectStrategy.sendRedirect(request, response, "/login");
 	}

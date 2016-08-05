@@ -1,7 +1,41 @@
-
+h4{
+	color:#D9CB9E;
+}
+.search-div-material p{
+	color:white;
+}
+.search-div-material{
+	border-color:#D13F32;
+}
+input,select{
+	background-color: #D9CB9E;
+	color:#1E1E20;
+}
+.result-search-button{
+	background-color:#1E1E20;
+	color:#D9CB9E;
+	border: 1px solid #D13F32;
+	padding:5px 10px 5px 10px;
+}
+.result-search-button:hover{
+	background-color:#D13F32;
+}
+p{
+	color:#D9CB9E;
+}
+body{
+	background-color: #374140;
+}
+#Material_type{
+	background-color: #D9CB9E;
+	color: #1E1E20;
+}
+#Language_Selector{
+	border: 1px solid #Language_Selector;
+}
 #Adv_search{
 	background-color:transparent;
-	border: 1px solid pink;
+	border: 1px solid #D13F32;
 	width:285px; 
 	margin:5px 0px;
 
@@ -11,7 +45,7 @@
 	padding:5px;
 }
 #nav_pills li a,#nav_pills li {
-	color:white;
+	color:#D9CB9E;
 	opacity:1;
 }
 .Zebra_DatePicker_Icon, .Zebra_DatePicker_Icon_Inside_Right{
@@ -42,9 +76,10 @@ html, body{
 }
 
 #menu{
-	background-color:rgb(15,33,52);
+	background-color:#1E1E20;
 	padding:10px;
 	opacity: 1;
+	border-bottom: 1px solid #D13F32;
 }
 #logo_div{
 	width:100%;
@@ -79,27 +114,35 @@ html, body{
 #search_input::-webkit-input-placeholder {
 	font-style: italic;
 	padding-left:2px;
+	color:#2A2C2B;
 }
 #search_input:-moz-placeholder {
 	font-style: italic;
 	padding-left:2px;  
+	color:#2A2C2B;
 }
 #search_input::-moz-placeholder {
 	font-style: italic; 
 	padding-left:2px; 
+	color:#2A2C2B;
 }
 #search_input:-ms-input-placeholder { 
 	font-style: italic; 
 	padding-left:2px;
+	color:#2A2C2B;
 }
 
 #submit_input,#bttn_search,#test_input{
-	background-color:rgb(15,33,52);
-	color:rgb(250,250,250);
+	background-color:#1E1E20;
+	color:#D9CB9E;
 	border-radius:0px;
+	border:1px solid #D13F32;
 } 
+#submit_input:hover,#bttn_search:hover,#test_input:hover{
+	background-color:#D13F32;
+}
 #bttn_search{
-	width:150px;
+	width:153px;
 } 
 #submit_input{
 	margin-left:-3px; 
@@ -214,23 +257,26 @@ textarea#newoptions {
 
 
 .nav-pills li a {
-	color:white;
+	color:#D9CB9E;
 	margin-left: 3px;
+	background-color: transparent;
+	border: 1px solid #D13F32;
+	border-radius: 0px;
 }
 
 .nav-pills li a:hover{
-	background-color:#024873;
+	background-color:#D13F32;
 	border-radius:0px;
 }
 
 .nav-pills li select{
-	background-color:#024873;
-	color:white;
+	background-color:#D13F32;
+	color:#D9CB9E;
 	margin-right: 3px;
 	border-radius:0px;
 }
 .nav-pills li select option{
-	color: white;
+	color: #D9CB9E;
 }
 html *
 {
@@ -250,20 +296,24 @@ html *
 
 
 #Topics .btn{
-	background-color:rgb(15,33,52);
-	color:rgb(250,250,250);
-	border-color: pink;
+	background-color:#1E1E20;
+	color:#D9CB9E;
+	border-color: #D13F32;
+	border-radius:0px;
+}
+#Topics .btn:hover{
+	background-color:#D13F32;
 }
 #Topics .btn:focus {
-	outline-color: pink;
+	outline-color:#D9CB9E;
 	outline:0;
 }
 #Topics .btn:active{
-	outline-color: pink;
+	outline-color: #D9CB9E;
 }
 
 .nav-pills li a:focus{
-	background-color:#024873;
+	background-color:#D13F32;
 }
 
 
@@ -278,7 +328,7 @@ html *
 	top: 20px;
 	width: 100%;
 	min-height: 600px !important;
-	background-color: white;
+	background-color: #D9CB9E;
 }
 #material img{
 	max-width:100%;
@@ -332,7 +382,7 @@ html *
 #Carusel{
 	width:100%;
 	height:80vh;
-	border:1px solid pink;
+	border:1px solid #D13F32;
 }
 .item{
 	height:100%;
@@ -396,23 +446,29 @@ html *
 	
 	
 	.nav-pills li a {
-		background-color:rgb(15,33,52);
+		background-color:#2A2C2B;
 		border-radius:0px;
-		color:white;
+		color:#D9CB9E;
 		margin-left: 3px;
 		z-index:99999;
 		width:calc( 96vw - 20px);
+		position:relative;
+		top:-1px;
+	}
+	.nav-pills li:last-of-type a{ 
+		position:relative;
+		top:-2px;
 	}
 
 	.nav-pills li a:hover{
-		background-color:#024873;
+		background-color:#D13F32;
 		border-radius:0px;
 		width:calc( 96vw - 20px);
 	}
 	
 	.nav-pills li select{
-		background-color:#024873;
-		color:white;
+		background-color:#2A2C2B;
+		color:#D9CB9E;
 		margin-right: 3px;
 		border-radius:0px;
 		width:calc( 96vw - 17px);
@@ -426,6 +482,11 @@ html *
 	width:286px;
 }
 @media screen and (max-width: 991px) {
+	#Language_Selector{
+		margin-left:2px; 
+		width:calc( 96vw - 20px); 
+		z-index:100000;
+	}
 	#search_input{
 		width:calc( 96vw - 20px);
 	}
@@ -439,6 +500,8 @@ html *
 	#bttn_search{
 		width:calc( ( 96vw - 22px ) / 2);
 		display:inline-table;
+		color: #D9CB9E;
+		border: 1px solid #D13F32; 
 	} 
 	.search_inputdiv{ 
 		margin-top:110px;
@@ -467,6 +530,8 @@ html *
 	}
 	#Adv_search{
 		width:calc( 96vw - 20px);
+		color:#D9CB9E;
+		border: 1px solid #D13F32;
 	}
 	.td11{
 		width:30px;
@@ -479,4 +544,5 @@ html *
 		top:9px;
 	}
 }
+
  
