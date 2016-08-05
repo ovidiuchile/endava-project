@@ -2,6 +2,7 @@ package com.endava.learning.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.omg.Messaging.SyncScopeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
@@ -46,7 +47,7 @@ public class TechnologyController {
 	public HttpEntity<Resource<Technology>> addTechnology(HttpServletRequest request) {
 		Technology technology = new Technology();
 		technology.setName(request.getParameter("technology"));
-		technology.setTechnology_id(((long)(Math.random()*1000000000)));
+		technology.setTechnology_id(((long) (Math.random() * 1000000000)));
 		technologyService.saveTechnology(technology);
 		Resource<Technology> technologyResource = new Resource<>(technology);
 
@@ -58,7 +59,7 @@ public class TechnologyController {
 			@PathVariable("technology_id") Long technology_id) {
 
 		Technology finalTech = technologyService.getTechnologiesByID(technology_id);
-		if(technology.getName()!=null)
+		if (technology.getName() != null)
 			finalTech.setName(technology.getName());
 
 		technologyService.updateTechnology(finalTech);
@@ -74,5 +75,4 @@ public class TechnologyController {
 
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-
 }
