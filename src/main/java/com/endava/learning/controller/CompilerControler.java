@@ -36,6 +36,7 @@ public class CompilerControler {
 		else
 			result = "wrong technology";
 		File folder = new File("compiler_directory");
+		result += "---->"+folder.getAbsolutePath()+" "+folder.exists()+"<----";
 		
 		request.setAttribute("result", result);
 		request.setAttribute("source", source);
