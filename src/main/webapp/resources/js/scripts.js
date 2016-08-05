@@ -499,7 +499,7 @@ function searchUser()
 	var usrdiv = document.getElementById("usr_SearchRestults");
 	var type = document.getElementById("User_Type").value;
 	var usrName = document.getElementById("usrSearch_input").value;
-	var url = "searchUsers?name=" + usrName;
+	var url = "/searchUsers?name=" + usrName;
 	if(type!=-1)
 	{
 		url= url+  "&type=" + type ;
@@ -620,10 +620,10 @@ function handleButon(option, topic_id)
     $("#answer_button").unbind("click");
     $("#answer_button").bind("click" , function (e) {
         var test="";
-        var url = "technologies/" + option + "/topics/" + topic_id + "/selectedAnswers" ;
         $('input[name="answer"]:checked').each(function() {
-            test = test + this.value + ",";
+            test = test + this.value + " ";
         });
+        var url = "technologies/" + option + "/topics/" + topic_id + "/selectedAnswers?selectedAnswers=" +test;
         $.ajax({
             type: 'GET',
             dataType: 'json',

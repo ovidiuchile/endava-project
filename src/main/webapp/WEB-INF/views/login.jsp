@@ -27,7 +27,7 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() < $( window ).height() * 1.5 ){
+		    if( $( window ).width() < $( window ).height() * 0.625 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -37,7 +37,7 @@
 		    }
 		});
 		$(window).resize(function(){
-			if( $( window ).width() < $( window ).height() * 1.5 ){
+			if( $( window ).width() < $( window ).height() * 0.625 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -82,12 +82,10 @@
 		}
 		return true;
 	}
-	
+	 
 	</script>
 </head>
 <body onload='document.loginForm.username.focus();'>
-
-<img id = "background_image" src="${pageContext.request.contextPath}/resources/images/background2.jpg">
 
 <div id = "menu">
 	<div id = "logo_div">
@@ -123,7 +121,7 @@
 		            </tr>
 		           
 		           <tr>
-		                <td><a href = "${pageContext.request.contextPath}/forgot-password" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Recover password</a></td>
+		                <td><a href = "${pageContext.request.contextPath}/forgot-password" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:#D13F32;position:absolute;">Recover password</a></td>
 		            </tr>
 		            
 		            <tr>

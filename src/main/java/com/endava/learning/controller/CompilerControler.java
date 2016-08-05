@@ -33,8 +33,8 @@ public class CompilerControler {
 		else
 			result = "wrong technology";
 		request.setAttribute("result", result);
-
-		//System.out.println("--------->"+result+"<--------");
+		request.setAttribute("source", source);
+		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("compiler");
 		return model;
