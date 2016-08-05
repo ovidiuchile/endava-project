@@ -26,6 +26,7 @@ public class CompilerControler {
 	public ModelAndView compilerPOST(HttpServletRequest request, @PathVariable("technology") String technology) {
 		String result = new String();
 		String source = request.getParameter("source");
+		
 		if (technology.equalsIgnoreCase("java"))
 			result = JavaCompiler.compile(source);
 		else if (technology.equalsIgnoreCase("js"))
