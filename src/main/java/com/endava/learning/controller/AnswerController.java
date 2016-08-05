@@ -30,15 +30,9 @@ public class AnswerController {
                                                                         @RequestParam(value = "selectedAnswers") String selectedAnswers){
         List<Float> correctAnswers = new ArrayList<>();
         List<Answer> answers = answerService.getSelectedAnswers(selectedAnswers);
-        Float score = 0f;
-        for (Answer answer : answers) {
-            if(answer.isCorrect()){
-                float answerScore = answerService.getAnswerScore(answer.getId());
-                score += answerScore;
-            }
-        }
+        Float score = answerService.getScore(answers);
         correctAnswers.add(score);
-        correctAnswers.addAll(answerService.getCorrectAnswers(selectedAnswers))
+        correctAnswers.addAll(answerService.getCorrectAnswers());
 ;        Resources<Resource<Float>> answerResource = Resources.wrap(correctAnswers);
 
         return new ResponseEntity<>(answerResource, HttpStatus.OK);

@@ -8,10 +8,12 @@ import com.endava.learning.dao.UserDAO;
 import com.endava.learning.model.User;
 import com.endava.learning.utils.CryptPassword;
 
+import java.io.Serializable;
 import java.util.List;
 
+@SuppressWarnings("serial")
 @Service
-public class UserService {
+public class UserService implements Serializable {
 	@Autowired
 	private UserDAO userDAO;
 
