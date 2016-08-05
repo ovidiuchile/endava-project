@@ -222,6 +222,7 @@ var carusel = document.getElementById('Carusel');
 $(".form-control").change(function() {
 	$('#myCarousel').hide();
     $("#testspace").hide();
+    $("#answer_button").hide();
 	var option = document.getElementById('Language_Selector').value;
 	var AddTopic = document.getElementById('Topics');
 	var material = document.createElement("img");
@@ -278,6 +279,7 @@ function handleelement(i,topic,option)
         $("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
+        $("#answer_button").hide();
 		testFunction(i,option);
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " none";
@@ -695,6 +697,7 @@ function testFunction(topic_id,option)
 	$("#test_input").unbind("click");
 	var testSpace = document.getElementById("testspace");
 	$("#test_input").bind("click" , function (e) {
+        $("#answer_button").show();
         $("#myCarousel").hide();
         while (testSpace.childElementCount != 0) {
 			try {
