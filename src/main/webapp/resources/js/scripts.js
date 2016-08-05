@@ -498,7 +498,7 @@ function search(){
 			select.style.display = "none";
 			var buton =  document.createElement("button");
 			searchResult(buton, lang.value, topic.value, material.value);
-			buton.innerHTML= "Get material";
+			buton.innerHTML= "Go to material";
 			div.appendChild(select);
 			buton.className = "result-search-button";
 			
@@ -799,7 +799,7 @@ function handleButon(option, topic_id)
             var elements = document.getElementsByClassName("answer_div");
             for(i=0 ; i<elements.length ; i++)
             {
-                elements[i].style.backgroundColor="red";
+                elements[i].style.color="#F9675A";
             }
 			for(i of data.content)
 			{
@@ -815,7 +815,7 @@ function handleButon(option, topic_id)
                     try {
                         var answer = document.getElementById(i.content);
                         console.log(i.content);
-                        answer.style.backgroundColor = "green";
+                        answer.style.color = "#93FF58";
                     }
                     catch (e)
                         {
