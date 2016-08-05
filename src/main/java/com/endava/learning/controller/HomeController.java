@@ -16,7 +16,7 @@ public class HomeController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping("/home")
+	@RequestMapping({"/","/home"})
 	public ModelAndView home(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
         if(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken)
