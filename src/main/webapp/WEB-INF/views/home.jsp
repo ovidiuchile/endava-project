@@ -16,6 +16,7 @@
 	
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
+	
 
 	<title>Appollo</title>
 	
@@ -48,9 +49,9 @@
 		});
 	</script> 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
 </head>
 <body>
-<img src="${pageContext.request.contextPath}/resources/images/background1.jpg" id = "background_1">
 
 
 <div >
@@ -61,7 +62,7 @@
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
                     <li class="dropdown" id="firstli" style="z-index:99999;">
-                        <select class="form-control" id="Language_Selector" style="height:40px; z-index:99999;" >
+                        <select class="form-control" id="Language_Selector" style="height:40px; z-index:99999; border-color: #D9CB9E;" >
                             <option selected disabled hidden>Technologies</option>
                         </select>
                     </li>
@@ -93,7 +94,7 @@
 
 
 
-    <div id="vr" style="position:absolute; left:320px;border-left:1px solid pink; height: calc( 100% - 100px)  ;margin-top:15px;"></div>
+    <div id="vr" style="position:absolute; left:320px;border-left:1px solid #D13F32; height: calc( 100% - 100px)  ;margin-top:15px;"></div>
     <div id = "main_div" style="margin-top:10px;">
 
         <div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
@@ -109,13 +110,13 @@
                     </select>
                     <table>
                         <tr>
-                            <td><p>From : </p></td><td><input style="color:black;"  type="text" id="datepicker1"></td>
+                            <td><p>From : </p></td><td><input style=""  type="text" id="datepicker1"></td>
                         </tr>
                         <tr>
-                            <td><p>To :</p></td><td><input style="color:black;"  type="text" id="datepicker2">
+                            <td><p>To :</p></td><td><input style=""  type="text" id="datepicker2">
                         </tr>
                         <tr>
-                            <td><p>Content editor:</p></td><td><input type="text" style="color:black;" id="content_creator">
+                            <td><p>Content editor:</p></td><td><input type="text" style="" id="content_creator">
                         </tr>
                     </table>
                 </div>
@@ -184,11 +185,11 @@
 
 
             <!-- test space -->
-            <div id="testspace" style="display:none">
+            <div id="testspace" style="display:none"> 
 
-
+<!-- TO BE REMOVED HERE TO BE REMOVED HERE TO ............ BE REMOVED HERE TO BE REMOVED HERE -->
             </div>
-            <button id="answer_button"> TEST RESULT</button>
+            <button id="answer_button" style="display:none; position:relative; left:45px; top:50px;"> TEST RESULT</button>
             <!-- test space -->
         </div>
 

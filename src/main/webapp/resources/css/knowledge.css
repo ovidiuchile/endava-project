@@ -1,0 +1,28 @@
+#testspace{
+	position:relative;
+	margin-left:45px;
+	overflow:auto;
+	border:1px solid #D13F32;
+}
+.question{
+	border-bottom:1px solid #D13F32;
+	padding: 4px;
+	margin:4px
+}
+.answer_div input{
+	position:relative;
+	top:3px;
+}
+@media screen and (max-width:991px){
+#testspace{
+	width:calc( 96vw - 20px);
+	height:260px;
+}
+
+}
+@media screen and (min-width:992px){
+#testspace{
+	width:635px;
+	height:560px;
+}
+}

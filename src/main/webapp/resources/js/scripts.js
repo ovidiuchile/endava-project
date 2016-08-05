@@ -581,9 +581,10 @@ function testFunction(topic_id,option)
                     questionAnswer.name="answer";
                     div1 = document.createElement("div");
                     div1.className="answer_div";
+                    div1.appendChild(questionAnswer);
                     div1.appendChild(document.createTextNode(i.content.answer_text));
                     questionAnswer.value=i.content.id;
-                    div1.appendChild(questionAnswer);
+                    div.className="question";
                     div.appendChild(div1);
                     testSpace.appendChild(div);
                 }
@@ -594,9 +595,10 @@ function testFunction(topic_id,option)
                     questionAnswer.name="answer";
                     div1 = document.createElement("div");
                     div1.className="answer_div";
+                    div1.appendChild(questionAnswer);
                     div1.appendChild(document.createTextNode(i.content.answer_text));
                     questionAnswer.value=i.content.id;
-                    div1.appendChild(questionAnswer);
+                    div.className="question";
                     div.appendChild(div1);
                     testSpace.appendChild(div);
                 }
