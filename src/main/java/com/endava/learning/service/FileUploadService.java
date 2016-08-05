@@ -27,10 +27,10 @@ public class FileUploadService {
     private TopicDAO topicDAO;
 
     @Transactional
-    public Long uploadFile(Long topic_id, String materialName, String materialDescription, MultipartFile file) throws FileUploadException, IOException {
+    public String uploadFile(MultipartFile file) throws FileUploadException, IOException {
         String generatedName = UUID.randomUUID().toString();
         saveFile(file, generatedName);
-        return persistFileEntity(topic_id, materialName, materialDescription, file, generatedName);
+        return Material.LOCATION + File.separator + generatedName;
     }
 
     private void saveFile(MultipartFile file, String generatedName) throws FileUploadException, IOException {
@@ -47,42 +47,6 @@ public class FileUploadService {
 
         File serverFile = new File(directory.getAbsolutePath() + File.separator + generatedName);
         file.transferTo(serverFile);
-    }
-
-    @Transactional
-    private Long persistFileEntity(Long topic_id, String materialName, String materialDescription, MultipartFile file, String generatedName) {
-        Material uploadedFile = new Material();
-
-        /*uploadedFile.setMimeType(file.getContentType());*/
-        //TO DO : set type + set content editor
-        
-        if(file.getContentType().contains("image")){
-        	uploadedFile.setType(0);
-        }
-        else{
-        	if(file.getContentType().contains("video")){
-        		uploadedFile.setType(1);
-        	}
-        	else{
-        		if(file.getContentType().contains("powerpoint") || file.getContentType().contains("pdf")){
-        			uploadedFile.setType(2);
-        		}
-        		else{
-        			uploadedFile.setType(-1);
-        		}
-        	}
-        }
-        uploadedFile.setMaterial_id(((long) (Math.random() * 1000000000)));
-		uploadedFile.setUpload_date(Calendar.getInstance().get(Calendar.YEAR) + "-"
-				+ Calendar.getInstance().get(Calendar.MONTH) + "-" + Calendar.getInstance().get(Calendar.DAY_OF_WEEK));
-        uploadedFile.setTopic((Topic) topicDAO.findById(topic_id));
-        uploadedFile.setTitle(materialName);
-        uploadedFile.setDescription(materialDescription);
-        uploadedFile.setLink(Material.LOCATION + File.separator + generatedName);
-        
-        materialDAO.save(uploadedFile);
-
-        return uploadedFile.getMaterial_id();
     }
 
     @Transactional

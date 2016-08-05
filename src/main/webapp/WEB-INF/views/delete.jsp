@@ -95,55 +95,57 @@
 			<div id="" style="margin-left:0px;">
 				<br>
 				<div id="container" style="margin-left:0px;">
-				<div id="deleteTechnology">
-					<h3 id="h31">Add a new technology</h3>
+				<div id="addTechnology">
+					<h3 id="h31">Delete technology</h3>
 					<p style="color: red;">${error}</p>
 					<p style="color: green;">${success}</p>
 
-					<form id= "technologyForm" name='technologyForm' enctype='application/json' action=" <c:url value='/delete-technology' />" method='post' enctype='application/json'>
+					<form id= "technologyForm" name='technologyForm' enctype='application/json' action=" <c:url value='/delete-technology' />" method='POST' enctype='application/json'>
 					<table style="width:250px">
 						<tr>
-							<td><p class="td_text">Name of technology:</p></td>
+						<td><p class="td_text">Name of technology:</p></td>
 						<td>
-							<select class="topic-form" name = 'technology' id="select_tech" style="" required>
+							<select class="topic-form" name = 'technology' id="Language_Selector" style="" required>
 								<option value = "">Select language</option>
 							</select>
 						</td>
-						</tr>
+					</tr>
 					</table>
 					<table style="width:250px">
 						<tr>
 							<td>
-								<input class="button_sign" name="submit" id="delete_technology" type = "submit" value="Delete technology"/>
-								<input type="hidden" name="_method" value="DELETE">
+								<input class="button_sign" name="submit" id="submitt1" type = "submit" value="Delete technology" />
 							</td>
 						</tr>
 					</table>
 				</form>
 			</div>
 			<div id="addTopic">
-				<h3 id="h32">Add new topic:</h3>
-				<form name="topicForm" action=" <c:url value='/upload' />" method="POST">
+				<h3 id="h32">Delete topic:</h3>
+				<form name="topicForm" action=" <c:url value='/delete-topic' />" method="POST">
 				<table style="width:250px">
-					<tr>
-						<td><p class="td_text">Name of technology:</p></td>
-						<td>
-							<select class="topic-form" name = 'technology' id="select_tech" style="" required>
-								<option value = "">Select language</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td><p class="td_text">Name of topic:</p></td>
-						<td>
-							<input type='text' name='topic' value='' style=""  required/>
-						</td>
-					</tr>
+					<tr style="">
+					<td style=""><p class="td_text">Name of technology:</p></td>
+					<td>
+						<select class="topic-form" name = "technology" id="select_tech" style="" required>
+							<option value = "">Select language</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><p class="td_text">Name of topic:</p></td>
+					<td>
+						<select class="topic-form" name = "topic" style="" id="selecttopic" required>
+							<option value = "">Select topic</option>
+						</select>
+					</td>
+				</tr>
 				</table>
 				<table style="width:250px">
 					<tr>
 						<td>
-							<input class="button_sign" name="submit" id="submitt2" type="submit" value="Add topic" />
+							<input class="button_sign" name="submit" id="submitt2" type="submit" value="Delete topic" />
+							<input type="hidden" name="_method" value="DELETE">
 						</td>
 					</tr>
 				</table>
@@ -151,8 +153,8 @@
 		</div>
 
 		<div id="addMaterial" style="">
-			<h3 id="h33">Add new material:</h3>
-			<form name="materialForm" style="" action=" <c:url value='/upload' />" method="POST" enctype="multipart/form-data">
+			<h3 id="h33">Delete material:</h3>
+			<form name="materialForm" style="" action=" <c:url value='/delete-material' />" method="POST" enctype="multipart/form-data">
 			<table style="width:250px">
 				<tr style="">
 					<td style=""><p class="td_text">Name of technology:</p></td>
@@ -173,27 +175,17 @@
 				<tr>
 					<td><p class="td_text">Name of material:</p></td>
 					<td>
-						<input type='text' name='material' value='' style="" required/>
-					</td>
-				</tr>
-				<tr>
-					<td><p class="td_text">Description:</p></td>
-					<td>
-						<input type='text' name='description' value='' style="" required/>	
+						<select class="topic-form" name = "material" style="" id="select_material" required>
+							<option value = "">Select material</option>
+						</select>
 					</td>
 				</tr>
 			</table>
 			<table style="width:250px">
 				<tr>
 					<td>
-						<input id="file_choose" type='file' name='file' size="50000" required/>
-					</td>
-				</tr>
-			</table>
-			<table style="width:250px">
-				<tr>
-					<td>
-						<input class="button_sign" name="submit" id="submitt3" type="submit" value="Add material" />
+						<input class="button_sign" name="submit" id="submitt3" type="submit" value="Delete material" />
+						<input type="hidden" name="_method" value="DELETE">
 					</td>
 				</tr>
 			</table>
