@@ -38,7 +38,7 @@ public class JavaCompiler {
 
 	private static void deleteFiles() {
 		try {
-			File folder = new File(System.getProperty("catalina.home") + "/uploads");
+			File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
 			for (final File fileEntry : folder.listFiles()) {
 				String tempFile = fileEntry.getAbsolutePath();
 				// Delete if tempFile exists
@@ -57,12 +57,12 @@ public class JavaCompiler {
 		String result = "";
 		PrintWriter writer;
 		String javaFileName = RandomStringUtils.randomAlphanumeric(8)+".java";
+		File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
 		try {
-			File folder = new File(System.getProperty("catalina.home") + "/uploads");
 			if (!folder.exists()) {
 				folder.mkdir();
 			}
-			File javaFile = new File(System.getProperty("catalina.home") + "/uploads/" + javaFileName);
+			File javaFile = new File(folder.getAbsolutePath()+ "/" + javaFileName);
 			if (!javaFile.exists()) {
 				try {
 					javaFile.createNewFile();
@@ -78,8 +78,8 @@ public class JavaCompiler {
 		}
 
 		try {
-			result += runProcess("javac "+System.getProperty("catalina.home") + "/uploads/" + javaFileName);
-			result += runProcess("java -cp "+System.getProperty("catalina.home") + "/uploads Main");
+			result += runProcess("javac "+folder.getAbsolutePath()+ "/"+ javaFileName);
+			result += runProcess("java -cp "+folder.getAbsolutePath()+" Main");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

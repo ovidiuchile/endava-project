@@ -45,20 +45,7 @@ public class TopicController {
 
 		return new ResponseEntity<>(topicResource, HttpStatus.OK);
 	}
-
-	@RequestMapping(value = "upload-topic", method = RequestMethod.POST)
-	public HttpEntity<Resource<Topic>> addTopic(HttpServletRequest request) {
-
-		Topic topic = new Topic();
-        topic.setName(request.getParameter("topic"));
-        topic.setTechnology(technologyService.getTechnologiesByID(Long.parseLong(request.getParameter("technology"))));
-		topic.setTopic_id(((long)(Math.random()*1000000000)));
-		topicService.saveTopic(topic);
-
-		Resource<Topic> topicResource = new Resource<>(topic);
-		return new ResponseEntity<>(topicResource, HttpStatus.CREATED);
-	}
-
+	
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public HttpEntity<Resource<Topic>> updateTopic(@RequestBody Topic topic,
 			@PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id) {

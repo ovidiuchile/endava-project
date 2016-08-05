@@ -36,6 +36,8 @@ public class CompilerControler {
 		request.setAttribute("result", result);
 		request.setAttribute("source", source);
 		
+		
+		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("compiler");
 		return model;
