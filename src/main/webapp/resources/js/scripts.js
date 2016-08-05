@@ -581,6 +581,7 @@ function testFunction(topic_id,option)
                     questionAnswer.name="answer";
                     div1 = document.createElement("div");
                     div1.className="answer_div";
+                    div1.id= i.content.id;
                     div1.appendChild(document.createTextNode(i.content.answer_text));
                     questionAnswer.value=i.content.id;
                     div1.appendChild(questionAnswer);
@@ -594,6 +595,7 @@ function testFunction(topic_id,option)
                     questionAnswer.name="answer";
                     div1 = document.createElement("div");
                     div1.className="answer_div";
+                    div1.id= i.content.id;
                     div1.appendChild(document.createTextNode(i.content.answer_text));
                     questionAnswer.value=i.content.id;
                     div1.appendChild(questionAnswer);
@@ -627,6 +629,28 @@ function handleButon(option, topic_id)
             dataType: 'json',
             url: url
         }).then(function (data) {
+			var k=0;
+			var result = document.createElement("p");
+            var elements = document.getElementsByClassName("answer_div");
+            for(i=0 ; i<elements.length ; i++)
+            {
+                elements[i].style.backgroundColor="red";
+            }
+			for(i of data.content)
+			{
+				if(k==0)
+				{
+					result.innerHTML = "You've achieved " + i.content + " points!";
+					k++;
+                    console.log(i.content);
+
+				}
+				else
+				{
+                    var answer = document.getElementById(i.content);
+                    answer.style.backgroundColor="green";
+				}
+			}
         });
     });
 
