@@ -44,4 +44,8 @@ public class TechnologyService {
 	public Technology getTechnologiesByID(Long idTechnology) {
 		return (Technology)technologyDAO.findById(idTechnology);
 	}
+
+	public void deleteTechnologyByName(String technologyName) {
+		technologyDAO.deleteByName(technologyName);
+	}
 }
