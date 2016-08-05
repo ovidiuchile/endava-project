@@ -95,24 +95,27 @@
 			<div id="" style="margin-left:0px;">
 				<br>
 				<div id="container" style="margin-left:0px;">
-				<div id="addTechnology">
+				<div id="deleteTechnology">
 					<h3 id="h31">Add a new technology</h3>
 					<p style="color: red;">${error}</p>
 					<p style="color: green;">${success}</p>
 
-					<form id= "technologyForm" name='technologyForm' enctype='application/json' action=" <c:url value='/upload-technology' />" method='POST' enctype='application/json'>
+					<form id= "technologyForm" name='technologyForm' enctype='application/json' action=" <c:url value='/delete-technology' />" method='post' enctype='application/json'>
 					<table style="width:250px">
 						<tr>
 							<td><p class="td_text">Name of technology:</p></td>
-							<td>
-								<input type='text' name='technology' style="" required/>
-							</td>
+						<td>
+							<select class="topic-form" name = 'technology' id="select_tech" style="" required>
+								<option value = "">Select language</option>
+							</select>
+						</td>
 						</tr>
 					</table>
 					<table style="width:250px">
 						<tr>
 							<td>
-								<input class="button_sign" name="submit" id="submitt1" type = "submit" value="Add technology" />
+								<input class="button_sign" name="submit" id="delete_technology" type = "submit" value="Delete technology"/>
+								<input type="hidden" name="_method" value="DELETE">
 							</td>
 						</tr>
 					</table>
@@ -120,7 +123,7 @@
 			</div>
 			<div id="addTopic">
 				<h3 id="h32">Add new topic:</h3>
-				<form name="topicForm" action=" <c:url value='/upload-topic' />" method="POST">
+				<form name="topicForm" action=" <c:url value='/upload' />" method="POST">
 				<table style="width:250px">
 					<tr>
 						<td><p class="td_text">Name of technology:</p></td>
@@ -149,7 +152,7 @@
 
 		<div id="addMaterial" style="">
 			<h3 id="h33">Add new material:</h3>
-			<form name="materialForm" style="" action=" <c:url value='/upload-material' />" method="POST" enctype="multipart/form-data">
+			<form name="materialForm" style="" action=" <c:url value='/upload' />" method="POST" enctype="multipart/form-data">
 			<table style="width:250px">
 				<tr style="">
 					<td style=""><p class="td_text">Name of technology:</p></td>
