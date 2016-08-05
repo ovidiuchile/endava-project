@@ -34,6 +34,14 @@
 		    	$("#background_image").css("width","100%");
 		    	$("#background_image").css("height","auto");
 		    }
+		    
+		    $("#login-box").mouseenter(function(){
+		    	$("#login-box").hide();
+		    });
+		    $("#menu").mouseenter(function(){
+		    	$("#login-box").show();
+		    });
+		    
 		});
 		$(window).resize(function(){
 			if( $( window ).width() < $( window ).height() * 0.625 ){
@@ -81,11 +89,112 @@
 		}
 		return true;
 	}
-	 
 	</script>
+	
+	<script>
+	$( window ).on( "mousemove", function( event ) {
+		$( "#binary1_div" ).css("margin-left", ( event.clientX + event.clientY  ) / 140 * -1 );
+		$( "#binary2_div" ).css("margin-left", ( event.clientX + event.clientY  ) / 80 * -1 );
+		$( "#binary3_div" ).css("margin-left", ( event.clientX + event.clientY  ) / 50 * -1 );
+		
+	});
+	</script>
+	
+	<style>
+		.binary1 {
+		    -webkit-animation: mymove1 50s;  /* Chrome, Safari, Opera */
+		    -webkit-animation-iteration-count: infinite;  /* Chrome, Safari, Opera */
+		    -webkit-animation-timing-function: linear;
+		    animation: mymove1 50s;
+		    animation-iteration-count: infinite;
+		    animation-timing-function: linear;
+		}
+		
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes mymove1 {
+		    from {top: 0px;}
+		    to {top: -5000px;}
+		}
+		
+		@keyframes mymove1 {
+		    from {top: 0px;}
+		    to {top: -5000px;}
+		}
+		
+		.binary2 {
+		    -webkit-animation: mymove2 50s;  /* Chrome, Safari, Opera */
+		    -webkit-animation-iteration-count: infinite;  /* Chrome, Safari, Opera */
+		    -webkit-animation-timing-function: linear;
+		    animation: mymove2 50s;
+		    animation-iteration-count: infinite;
+		    animation-timing-function: linear;
+		}
+		
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes mymove2 {
+		    from {top: 0px;}
+		    to {top: -7000px;}
+		}
+		
+		@keyframes mymove2 {
+		    from {top: 0px;}
+		    to {top: -7000px;}
+		}
+		
+		.binary3 {
+		    -webkit-animation: mymove3 50s;  /* Chrome, Safari, Opera */
+		    -webkit-animation-iteration-count: infinite;  /* Chrome, Safari, Opera */
+		    -webkit-animation-timing-function: linear;
+		    animation: mymove3 50s;
+		    animation-iteration-count: infinite;
+		    animation-timing-function: linear;
+		}
+		
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes mymove3 {
+		    from {top: 0px;}
+		    to {top: -9000px;}
+		}
+		
+		@keyframes mymove3 {
+		    from {top: 0px;}
+		    to {top: -9000px;}
+		}
+	</style>
+	
 </head>
 <body onload='document.loginForm.username.focus();'>
-
+ 
+ <div id = "binary1_div">
+<img class = "binary binary1" id = "binary-2" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary-1" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary1" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary2" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary3" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary4" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary5" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary6" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary7" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary8" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary9" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary10" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary11" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary12" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary1" id = "binary13" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+</div>
+<div id = "binary2_div">
+<img class = "binary binary2" id = "binary21" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary2" id = "binary22" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary2" id = "binary23" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary2" id = "binary24" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary2" id = "binary25" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+</div>
+<div id = "binary3_div">
+<img class = "binary binary3" id = "binary31" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary3" id = "binary32" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary3" id = "binary33" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+<img class = "binary binary3" id = "binary34" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
+</div>
 <div id = "menu">
 	<div id = "logo_div">
 		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
