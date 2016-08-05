@@ -367,15 +367,13 @@ function search(){
 			div.appendChild(select);
 			buton.className = "result-search-button";
 			
-			var str = resultsTitle.innerHTML;
-			
-			
-			
-		    var res = str.replace(search, "<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
+			var str = resultsTitle.innerHTML; 
+			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
+		    
 		    resultsTitle.innerHTML = res;
 		    
 		    var str = resultsDescription.innerHTML;
-		    var res = str.replace(search, "<span style = 'color:white;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
+		    var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
 		    resultsDescription.innerHTML = res;
 
 			
