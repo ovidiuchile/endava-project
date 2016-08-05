@@ -57,12 +57,12 @@ public class JavaCompiler {
 		String result = "";
 		PrintWriter writer;
 		String javaFileName = RandomStringUtils.randomAlphanumeric(8)+".java";
+		File folder = new File("compiler_directory");
 		try {
-			File folder = new File("compiler_directory");
 			if (!folder.exists()) {
 				folder.mkdir();
 			}
-			File javaFile = new File("compiler_directory/" + javaFileName);
+			File javaFile = new File(folder.getAbsoluteFile()+ "/" + javaFileName);
 			if (!javaFile.exists()) {
 				try {
 					javaFile.createNewFile();
@@ -78,12 +78,12 @@ public class JavaCompiler {
 		}
 
 		try {
-			result += runProcess("javac compiler_directory/" + javaFileName);
-			result += runProcess("java -cp compiler_directory Main");
+			result += runProcess("javac "+folder.getAbsoluteFile()+ "/"+ javaFileName);
+			result += runProcess("java -cp "+folder.getAbsoluteFile()+" Main");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		deleteFiles();
+		//deleteFiles();
 		return result;
 	}
 }
