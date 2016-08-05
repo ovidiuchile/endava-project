@@ -1,3 +1,22 @@
+#image{ 
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+
+#answer_button{
+	background-color:#1E1E20;
+	color:#D9CB9E;
+	border: 1px solid #D13F32;
+	padding:5px 10px 5px 10px;
+	margin-bottom:20px;
+	top:20px;
+}
 h4{
 	color:#D9CB9E;
 }

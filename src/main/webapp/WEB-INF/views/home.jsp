@@ -186,10 +186,9 @@
 
             <!-- test space -->
             <div id="testspace" style="display:none"> 
-
-<!-- TO BE REMOVED HERE TO BE REMOVED HERE TO ............ BE REMOVED HERE TO BE REMOVED HERE -->
+				<img id="image" src="${pageContext.request.contextPath}/resources/images/logo.png">
             </div>
-            <button id="answer_button" style=" display:none; position:relative; left:45px; top:50px;"> TEST RESULT</button>
+            <button id="answer_button" style=" display:none; position:relative; left:45px; "> TEST RESULT</button>
             <!-- test space -->
         </div>
 
