@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "materials")
 public class Material {
 	
-	public static final String LOCATION = System.getProperty("catalina.home") + File.separator + "uploads";
+	public static final String LOCATION = System.getProperty("catalina.home") + File.separator + "webapps/uploads";
 	
 	@Id
 	@Column(name="material_id", unique=true, nullable=false)
