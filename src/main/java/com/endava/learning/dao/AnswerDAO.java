@@ -45,9 +45,9 @@ public class AnswerDAO extends AbstractDAO{
 
     public float getAnswerScore(Long id) {
         Question question = (Question) em().createQuery("SELECT answer.question FROM Answer answer WHERE answer.id = :id").setParameter("id", id).getSingleResult();
-        Long allQuestions = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id").setParameter("question_id", question.getId()).getSingleResult();
-        Long correctQuestions = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id AND answer.correct = TRUE").setParameter("question_id", question.getId()).getSingleResult();
-        return allQuestions / correctQuestions;
+        //Long allAnswers = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id").setParameter("question_id", question.getId()).getSingleResult();
+        Long correctAnswers = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id AND answer.correct = TRUE").setParameter("question_id", question.getId()).getSingleResult();
+        return Float.valueOf(10 / correctAnswers).floatValue();
     }
 
     public List<Float> getCorrectAnswers(String selectedAnswers) {
@@ -56,10 +56,11 @@ public class AnswerDAO extends AbstractDAO{
         StringTokenizer ans = new StringTokenizer(selectedAnswers);
         while (ans.hasMoreTokens()) {
             String s = ans.nextToken();
-            float id = Long.parseLong(s);
-            Answer answer = (Answer) em().createQuery("SELECT answer FROM Answer answer WHERE answer.id = :id").setParameter("id", id).getSingleResult();
+            Long id = Long.parseLong(s);
+            Answer answer = this.getAnswerById(id);
+            //= (Answer) em().createQuery("SELECT answer FROM Answer answer WHERE answer.id = :id").setParameter("id", id).getSingleResult();
             if(answer.isCorrect()){
-                answers.add(id);
+                answers.add(Float.valueOf(id.floatValue()));
             }
         }
         return answers;
