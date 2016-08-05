@@ -73,7 +73,7 @@
 	<div id="search-users-box">
 	    
 	    <div id = "test_div">
-	    	<form name='compilerForm' action="<c:url value='/compiler/java' />" method='POST'>
+	    	<form name='compilerForm' action="<c:url value='/compiler/js' />" method='POST'>
 				  <textarea name="source" rows="20" cols="80">${source}</textarea>
 				  <br>
 				  <input type="submit" value = "Run">
