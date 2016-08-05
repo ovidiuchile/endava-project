@@ -1,3 +1,6 @@
+/**
+ * Initializes the dropdown menus for the languages
+ */
 $(document).ready(function(){
 	var grandparent_height = $('.col-md-9').width();
 	$('#notes').width( grandparent_height );
@@ -211,10 +214,14 @@ $("#select_topic").change(function(){
 	});
 });
 
-
+/**
+ * Handles all the topics and materials regarding the language selected
+ * @type {Element}
+ */
 var carusel = document.getElementById('Carusel');
 $(".form-control").change(function() {
 	$('#myCarousel').hide();
+    $("#testspace").hide();
 	var option = document.getElementById('Language_Selector').value;
 	var AddTopic = document.getElementById('Topics');
 	var material = document.createElement("img");
@@ -258,10 +265,17 @@ $(".form-control").change(function() {
 	});
 });
 
+/**
+ * Handles all of the materials inside the carousel created by the language selected and the topics and adds a click event on them that displays materials and or tests
+ * @param i topic ID
+ * @param topic Topic object - button
+ * @param option language ID
+ */
 function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
+        $("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
 		testFunction(i,option);
@@ -331,7 +345,12 @@ function handleelement(i,topic,option)
 	});
 }
 
-
+/**
+ * Handles the materials inside the carousel and  adds a click on them in order to show the actual amterails / imgs / ppts / pdfs / vids
+ * @param img Placeholder image for pdf / video / ppt
+ * @param source source for the actual material be it online or local
+ * @param type type as in img / pdf / video
+ */
 function handleMaterial( img, source, type)
 {
 	console.log(type);
@@ -392,11 +411,16 @@ function closeNav() {
 }
 
 
-
+/**
+ * Hides all of the other divs and takes all of the search parameters sendinging it with an ajax request to the servlet
+ * It returns the search page populated with all of the search results
+ * Appends searchResult() function to all of the buttons created
+ */
 function search(){
 	$("#myCarousel").hide();
 	$("#search-container").show();
 	$("#material").hide();
+    $("#testspace").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
@@ -498,6 +522,15 @@ function search(){
 
 }
 
+
+/**
+ * Function that adds a event handler to each of the buttons that takes the user through an ajax request to the actual materials on the site displaying both the
+ * languages and the topics for it.
+ * @param buton The element to which the handler will be attached
+ * @param langId The language ID in order for the topics and materials to be displayed / obtained
+ * @param topicId The topic ID
+ * @param materialId Material ID
+ */
 function searchResult(buton, langId, topicId, materialId)
 {
 	console.log(langId, topicId, materialId);
@@ -603,7 +636,10 @@ function show()
 }
 
 
-
+/**
+ * Function that takes the input from the search bar + type of the user and returns a list with all of the users that match said
+ * search criteria
+ */
 function searchUser()
 {
 	var usrdiv = document.getElementById("usr_SearchRestults");
@@ -647,6 +683,13 @@ function searchUser()
 	});
 
 }
+
+/**
+ * Function that received the Language ID and the Topic Id in order to create tests apropiate for those critatera
+ * @param topic_id The topic ID
+ * @param option The language ID
+ * handleButon function - Appends a event handler for when the user finishes completing the test
+ */
 function testFunction(topic_id,option)
 {
 	$("#test_input").unbind("click");
@@ -691,6 +734,7 @@ function testFunction(topic_id,option)
                     questionAnswer.name="answer";
                     div1 = document.createElement("div");
                     div1.className="answer_div";
+                    div1.id= i.content.id;
                     div1.appendChild(questionAnswer);
                     div1.appendChild(document.createTextNode(i.content.answer_text));
                     questionAnswer.value=i.content.id;
@@ -705,6 +749,7 @@ function testFunction(topic_id,option)
                     questionAnswer.name="answer";
                     div1 = document.createElement("div");
                     div1.className="answer_div";
+                    div1.id= i.content.id;
                     div1.appendChild(questionAnswer);
                     div1.appendChild(document.createTextNode(i.content.answer_text));
                     questionAnswer.value=i.content.id;
@@ -723,7 +768,12 @@ function testFunction(topic_id,option)
 }
 
 
-
+/**
+ * Function that sends the servlet the topic id, language option and the answers from the input and return through an ajax request the score + highlights
+ * right and wrong answers
+ * @param option Language ID
+ * @param topic_id Topic ID
+ */
 
 function handleButon(option, topic_id)
 {
@@ -734,11 +784,43 @@ function handleButon(option, topic_id)
             test = test + this.value + " ";
         });
         var url = "technologies/" + option + "/topics/" + topic_id + "/selectedAnswers?selectedAnswers=" +test;
+        console.log(url);
         $.ajax({
             type: 'GET',
             dataType: 'json',
             url: url
         }).then(function (data) {
+			var k=0;
+            var test = 0;
+			var result = document.createElement("p");
+            var elements = document.getElementsByClassName("answer_div");
+            for(i=0 ; i<elements.length ; i++)
+            {
+                elements[i].style.backgroundColor="red";
+            }
+			for(i of data.content)
+			{
+                console.log(i.length);
+                test= test+1;
+				if(k==0)
+				{
+					result.innerHTML = "You've achieved " + i.content + " points!";
+					k++;
+				}
+				else
+				{
+                    try {
+                        var answer = document.getElementById(i.content);
+                        console.log(i.content);
+                        answer.style.backgroundColor = "green";
+                    }
+                    catch (e)
+                        {
+
+                        }
+				}
+			}
+            console.log(test);
         });
     });
 

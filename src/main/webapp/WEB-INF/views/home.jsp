@@ -189,7 +189,7 @@
 
 <!-- TO BE REMOVED HERE TO BE REMOVED HERE TO ............ BE REMOVED HERE TO BE REMOVED HERE -->
             </div>
-            <button id="answer_button" style="display:none; position:relative; left:45px; top:50px;"> TEST RESULT</button>
+            <button id="answer_button" style="position:relative; left:45px; top:50px;"> TEST RESULT</button>
             <!-- test space -->
         </div>
 
