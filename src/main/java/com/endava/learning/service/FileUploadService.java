@@ -24,7 +24,7 @@ public class FileUploadService {
     public String uploadFile(MultipartFile file) throws FileUploadException, IOException {
         String generatedName = UUID.randomUUID().toString();
         saveFile(file, generatedName);
-        return Material.LOCATION + File.separator + generatedName;
+        return "http://tomcat1.ddns.net/uploads/" + generatedName;
     }
 
     private void saveFile(MultipartFile file, String generatedName) throws FileUploadException, IOException {
