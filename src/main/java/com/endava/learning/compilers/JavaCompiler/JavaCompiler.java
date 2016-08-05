@@ -62,7 +62,7 @@ public class JavaCompiler {
 			if (!folder.exists()) {
 				folder.mkdir();
 			}
-			File javaFile = new File(folder.getAbsoluteFile()+ "/" + javaFileName);
+			File javaFile = new File(folder.getAbsolutePath()+ "/" + javaFileName);
 			if (!javaFile.exists()) {
 				try {
 					javaFile.createNewFile();
@@ -78,8 +78,8 @@ public class JavaCompiler {
 		}
 
 		try {
-			result += runProcess("javac "+folder.getAbsoluteFile()+ "/"+ javaFileName);
-			result += runProcess("java -cp "+folder.getAbsoluteFile()+" Main");
+			result += runProcess("javac "+folder.getAbsolutePath()+ "/"+ javaFileName);
+			result += runProcess("java -cp "+folder.getAbsolutePath()+" Main");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
