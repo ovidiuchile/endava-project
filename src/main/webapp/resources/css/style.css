@@ -1,6 +1,24 @@
+h4{
+	color:#D9CB9E;
+}
+.search-div-material p{
+	color:white;
+}
+.search-div-material{
+	border-color:#D13F32;
+}
 input,select{
 	background-color: #D9CB9E;
 	color:#1E1E20;
+}
+.result-search-button{
+	background-color:#1E1E20;
+	color:#D9CB9E;
+	border: 1px solid #D13F32;
+	padding:5px 10px 5px 10px;
+}
+.result-search-button:hover{
+	background-color:#D13F32;
 }
 p{
 	color:#D9CB9E;
@@ -124,7 +142,7 @@ html, body{
 	background-color:#D13F32;
 }
 #bttn_search{
-	width:150px;
+	width:153px;
 } 
 #submit_input{
 	margin-left:-3px; 
@@ -428,16 +446,22 @@ html *
 	
 	
 	.nav-pills li a {
-		background-color:#D13F32;
+		background-color:#2A2C2B;
 		border-radius:0px;
 		color:#D9CB9E;
 		margin-left: 3px;
 		z-index:99999;
 		width:calc( 96vw - 20px);
+		position:relative;
+		top:-1px;
+	}
+	.nav-pills li:last-of-type a{ 
+		position:relative;
+		top:-2px;
 	}
 
 	.nav-pills li a:hover{
-		background-color:#2A2C2B;
+		background-color:#D13F32;
 		border-radius:0px;
 		width:calc( 96vw - 20px);
 	}
@@ -458,6 +482,11 @@ html *
 	width:286px;
 }
 @media screen and (max-width: 991px) {
+	#Language_Selector{
+		margin-left:2px; 
+		width:calc( 96vw - 20px); 
+		z-index:100000;
+	}
 	#search_input{
 		width:calc( 96vw - 20px);
 	}
@@ -515,4 +544,5 @@ html *
 		top:9px;
 	}
 }
+
  

@@ -62,19 +62,19 @@
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
                     <li class="dropdown" id="firstli" style="z-index:99999;">
-                        <select class="form-control" id="Language_Selector" style="height:40px; z-index:99999; border-color: #D9CB9E;" >
-                            <option selected disabled hidden>Technologies</option>
+                        <select class="form-control" id="Language_Selector" style="height:42px; z-index:100000; border-color: #D9CB9E;" >
+                            <option selected disabled hidden style="">Technologies</option>
                         </select>
-                    </li>
+                    </li> 
                     <li class="" style="">
-                        <a href="#">Try it yourself</a>
+                        <a style="z-index:99988;"href="#">Try it yourself</a>
                     </li>
 
                     <li>
                         <a href="upload"  id="uploadbttn"> Upload material</a>
                     </li>
                 </ul>
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
                 <div class="col-md-1  pull-right" style="">
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -168,7 +168,7 @@
 
                     <input id="test_input" class="btn btn-default" value="Test your knowledge" type="submit" >
 
-                    <img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
+                    <a href="#"><img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img"></a>
 
                 </div>
 
