@@ -38,7 +38,7 @@ public class JavaCompiler {
 
 	private static void deleteFiles() {
 		try {
-			File folder = new File("compiler_directory");
+			File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
 			for (final File fileEntry : folder.listFiles()) {
 				String tempFile = fileEntry.getAbsolutePath();
 				// Delete if tempFile exists
@@ -57,7 +57,7 @@ public class JavaCompiler {
 		String result = "";
 		PrintWriter writer;
 		String javaFileName = RandomStringUtils.randomAlphanumeric(8)+".java";
-		File folder = new File("compiler_directory");
+		File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
 		try {
 			if (!folder.exists()) {
 				folder.mkdir();
@@ -83,7 +83,7 @@ public class JavaCompiler {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		//deleteFiles();
+		deleteFiles();
 		return result;
 	}
 }

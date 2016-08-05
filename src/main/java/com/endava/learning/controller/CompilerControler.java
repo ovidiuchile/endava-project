@@ -35,7 +35,7 @@ public class CompilerControler {
 			result = JSCompiler.compile(source);
 		else
 			result = "wrong technology";
-		File folder = new File("compiler_directory");
+		File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
 		result += "---->"+folder.getAbsolutePath()+" "+folder.exists()+"<----";
 		
 		request.setAttribute("result", result);
