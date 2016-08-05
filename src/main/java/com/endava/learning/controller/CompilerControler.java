@@ -1,7 +1,5 @@
 package com.endava.learning.controller;
 
-import java.io.File;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.MediaType;
@@ -35,9 +33,6 @@ public class CompilerControler {
 			result = JSCompiler.compile(source);
 		else
 			result = "wrong technology";
-		File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
-		result += "---->"+folder.getAbsolutePath()+" "+folder.exists()+"<----";
-		
 		request.setAttribute("result", result);
 		request.setAttribute("source", source);
 		
