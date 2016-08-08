@@ -128,95 +128,75 @@
 								</tr>
 								<tr>
 									<td><p class="td_text">Question:</p></td>
-									<td><input type='text' name='material' value='' style=""
+									<td><input type='text' name='question' value='' style=""
 										required /></td>
 								</tr>
 								<tr>
 									<td><p class="td_text">Answer 1:</p></td>
-									<td><input type='text' name='description' value=''
+									<td><input type='text' name='answer 1' value=''
 										style="" required /></td>
 								</tr>
 								<tr>
 									<td></td>
 									<td>
-										<form>
-											<div id="radio_correctdiv" style="display:inline-block;">
-												<input id="radio_correct" type="radio" name="answer1" class="radio">Correct
-											</div>
-											<div id="radio_incorrectdiv" style="display:inline-block;">
-												<input id="radio_incorrect" type="radio" name="answer1" class="radio">Incorrect
-											</div>
-										</form>
+										<input id="radio_correct1" type="radio" name="answer1" class="radio" value = "correct" style="height:12px; width:12px; float:left;" checked><p>Correct</p>
+										<input id="radio_incorrect1" type="radio" name="answer1" class="radio" value = "incorrect" style="height:12px; width:12px; float:right; position:relative; top:10px;"><p style="float:right; position:relative;">Incorrect</p>
 									</td>
 								</tr>
 								<tr>
 									<td><p class="td_text">Answer 2:</p></td>
-									<td><input type='text' name='description' value=''
+									<td><input type='text' name='answer 2' value=''
 										style="" required /></td>
 								</tr>
 								<tr>
 									<td></td>
 									<td>
-										<form>
-											<div id="radio_correctdiv" style="display:inline-block;">
-												<input id="radio_correct" type="radio" name="answer2" class="radio">Correct
-											</div>
-											<div id="radio_incorrectdiv" style="display:inline-block;">
-												<input id="radio_incorrect" type="radio" name="answer2" class="radio">Incorrect
-											</div>
-										</form>
+										<input id="radio_correct2" type="radio" name="answer2" class="radio" value = "correct" style="height:12px; width:12px; float:left;"checked />Correct
+										<input id="radio_incorrect2" type="radio" name="answer2" class="radio" value = "incorrect" style="height:12px; width:12px; float:left;"/>Incorrect
 									</td>
 								</tr><tr>
 									<td><p class="td_text">Answer 3:</p></td>
-									<td><input type='text' name='description' value=''
+									<td><input type='text' name='answer 3' value=''
 										style="" required /></td>
 								</tr>
 								<tr>
 									<td></td>
 									<td>
-										<form>
-											<div id="radio_correctdiv" style="display:inline-block;">
-												<input id="radio_correct" type="radio" name="answer3" class="radio">Correct
-											</div>
-											<div id="radio_incorrectdiv" style="display:inline-block;">
-												<input id="radio_incorrect" type="radio" name="answer3" class="radio">Incorrect
-											</div>
-										</form>
+										<input id="radio_correct3" type="radio" name="answer3" class="radio" value = "correct" style="height:12px; width:12px; float:left;" checked />Correct
+										<input id="radio_incorrect3" type="radio" name="answer3" class="radio" value = "incorrect" style="height:12px; width:12px; float:left;"/>Incorrect
 									</td>
 								</tr><tr>
 									<td><p class="td_text">Answer 4:</p></td>
-									<td><input type='text' name='description' value=''
+									<td><input type='text' name='answer 4' value=''
 										style="" required /></td>
 								</tr>
 								<tr>
 									<td></td>
 									<td>
-										<form>
-											<div id="radio_correctdiv" style="display:inline-block;">
-												<input id="radio_correct" type="radio" name="answer4" class="radio">Correct
-											</div>
-											<div id="radio_incorrectdiv" style="display:inline-block;">
-												<input id="radio_incorrect" type="radio" name="answer4" class="radio">Incorrect
-											</div>
-										</form>
+										<input id="radio_correct4" type="radio" name="answer4" class="radio" value = "correct" style="height:12px; width:12px; float:left;" checked />Correct
+										<input id="radio_incorrect4" type="radio" name="answer4" class="radio" value = "incorrect" style="height:12px; width:12px; float:left;"/>Incorrect
 									</td>
 								</tr><tr>
 									<td><p class="td_text">Answer 5:</p></td>
-									<td><input type='text' name='description' value=''
+									<td><input type='text' name='answer 5' value=''
 										style="" required /></td>
 								</tr>
 								<tr>
 									<td></td>
 									<td>
-										<form>
-											<div id="radio_correctdiv" style="display:inline-block;">
-												<input id="radio_correct" type="radio" name="answer1" class="radio">Correct
-											</div>
-											<div id="radio_incorrectdiv" style="display:inline-block;">
-												<input id="radio_incorrect" type="radio" name="answer1" class="radio">Incorrect
-											</div>
-										</form>
+										<input id="radio_correct5" type="radio" name="answer5" class="radio" value = "correct" style="height:12px; width:12px; float:left;" checked/>Correct
+										<input id="radio_incorrect6" type="radio" name="answer5" class="radio" value = "incorrect" style="height:12px; width:12px; float:left;"/>Incorrect
 									</td>
+								</tr>
+								<tr>
+									<td>Start date: </td>
+									<td><input type='text' name='start_date' value=''
+										style="" required /></td>
+								</tr>
+								<tr>
+									<td>Expiration date: </td>
+									<td><input type='text' name='end_date' value=''
+										style="" required /></td>
 								</tr>
 							</table>
 							<table style="width: 250px">

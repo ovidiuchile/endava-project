@@ -1,4 +1,4 @@
-#radio_correct, #radio_incorrect{
+#radio_correctdiv input, #radio_incorrectdiv input{
 	height:12px;
 	width:12px;
 	float:left;

@@ -2,6 +2,8 @@ package com.endava.learning.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
@@ -13,11 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.endava.learning.model.Answer;
 import com.endava.learning.model.Question;
+import com.endava.learning.service.AnswerService;
 import com.endava.learning.service.QuestionService;
 import com.endava.learning.service.TopicService;
 
@@ -30,6 +33,9 @@ public class QuestionController {
 
 	@Autowired
 	private TopicService topicService;
+
+	@Autowired
+	private AnswerService answerService;
 
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/questions", method = RequestMethod.GET)
 	public HttpEntity<Resources<Resource<Question>>> getQuestionsByTopic(
@@ -94,15 +100,43 @@ public class QuestionController {
 		return model;
 	}
 
-	@RequestMapping(value = "add_question")
-	public ModelAndView addQuestion(@RequestParam("technology") String technologyId,
-			@RequestParam("topic") String topicId, @RequestParam("question") String question_text,
-			@RequestParam("start_date") String start_date, @RequestParam("end_date") String end_date) {
-		Question question = new Question();
-		question.setQuestion_text(question_text);
-		question.setStart_date(start_date);
+	@RequestMapping(value = "add_question", method = RequestMethod.POST)
+	public ModelAndView addQuestion(HttpServletRequest request) {
 
-		this.addQuestion(Long.parseLong(technologyId), Long.parseLong(topicId), question);
+		System.out.println("POST");
+		Question question = new Question();
+		question.setQuestion_text(request.getParameter("question"));
+		question.setStart_date(request.getParameter("start_date"));
+		question.setEnd_date(request.getParameter("end_date"));
+
+		System.out.println("tech " + request.getParameter("technology") + "topic " + request.getParameter("topic"));
+		try {
+			this.addQuestion(Long.parseLong(request.getParameter("technology")),
+					Long.parseLong(request.getParameter("topic")), question);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		question = questionService.getQuestionById(question.getId());
+		Answer answer;
+		for (int i = 0; i < 5; i++) {
+			answer = new Answer();
+			// System.out.println("answer text" + request.getParameter("answer "
+			// + (i + 1)));
+			answer.setAnswer_text(request.getParameter("answer " + (i + 1)));
+			System.out.println("answer text : " + answer.getAnswer_text());
+			answer.setQuestion(question);
+			answer.setId(((long) (Math.random() * 1000000000)));
+			System.out.println("id = " + answer.getId());
+
+			System.out.println("answer" + (i + 1));
+			System.out.println("correct: " + request.getParameter("answer" + (i + 1)));
+			if (request.getParameter("answer" + (i + 1)).equals("correct")) {
+				answer.setCorrect(true);
+			} else {
+				answer.setCorrect(false);
+			}
+			answerService.addAnswer(answer);
+		}
 
 		ModelAndView model = new ModelAndView();
 		model.setViewName("add_question");
