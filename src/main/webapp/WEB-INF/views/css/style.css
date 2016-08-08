@@ -1,9 +1,33 @@
+#User_Type, #changeTypeSelector{
+	height:28px;
+	padding:5px;
+	background-color:#D13F32;
+	color:#D9CB9E;
+	border:1px solid #D9CB9E;
+	font-size:14px;
+}
+.button_sign{
+	height:28px;
+	position:relative;
+	top:-1px;
+	background-color:#1E1E20;  
+	border:1px solid #D13F32;
+}
+.button_sign:hover{
+	background-color:#D13F32;
+}
+#usrSearch_input{
+	height:28px;
+	font-size:14px;
+	position:relative;
+	top:-1px;
+}
 .dropdown.dropdown-lg .dropdown-menu {
     margin-top: -1px;
     padding: 6px 20px;
 }
 .input-group-btn .btn-group {
-    display: flex !important;
+    display: flex !important; 
 }
 .btn-group .btn {
     border-radius: 0;
@@ -192,7 +216,7 @@ body,head{
 		    left: 50%;
 		    transform: translate(-50%, -50%);
             
-            background: #071226;
+            background: #1E1E20;
             -webkit-border-radius: 5px;
             -moz-border-radius: 5px;
             border: 1px solid #000;
@@ -217,13 +241,11 @@ body,head{
         	margin-bottom:20px;
         }
         .button_sign {
-		    background-color: #D13F32; /* Green */
-		    border: none;
 		    padding: 10px 10px;
 		    text-align: center;
 		    text-decoration: none;
 		    display: inline-block;
-		    font-size: 16px;
+		    font-size: 14px;
 		    color:#D9CB9E;
 		} 
 		
@@ -394,4 +416,14 @@ body,head{
 		}
 		#binary34{
 			margin-left:calc( 100vw / 1.07 );
+		}
+		@media screen and (min-width: 902px) {
+			.binary{
+				display:block;
+			}
+		}
+		@media screen and (max-width: 901px) {
+			.binary{
+				display:none;
+			}
 		}

@@ -38,14 +38,11 @@ public class JavaCompiler {
 
 	private static void deleteFiles() {
 		try {
-			File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
+			File folder = new File(System.getProperty("catalina.home") + "/webapps/compiler_directory");
 			for (final File fileEntry : folder.listFiles()) {
-				String tempFile = fileEntry.getAbsolutePath();
-				// Delete if tempFile exists
-				File fileTemp = new File(tempFile);
-				if (fileTemp.exists()
-						&& (fileTemp.getName().contains(".class") || fileTemp.getName().contains(".java"))) {
-					fileTemp.delete();
+				if (fileEntry.exists()
+						&& (fileEntry.getName().contains(".class") || fileEntry.getName().contains(".java"))) {
+					fileEntry.delete();
 				}
 			}
 		} catch (Exception e) {
@@ -54,15 +51,21 @@ public class JavaCompiler {
 	}
 
 	public static String compile(String source) {
+		if (source.contains("File") || source.contains("Thread") || source.contains("RandomAccessFile")
+				|| source.contains("Propert") || source.contains("Process") || source.contains("ScriptEngine")
+				|| source.contains("RunTime")) {
+			return "You can't use one of the following statements: File, Thread, RandomAccessFile, Property/ies, Process, ScriptEngine, RunTime";
+		}
+
 		String result = "";
 		PrintWriter writer;
-		String javaFileName = RandomStringUtils.randomAlphanumeric(8)+".java";
-		File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
+		String javaFileName = RandomStringUtils.randomAlphanumeric(8) + ".java";
+		File folder = new File(System.getProperty("catalina.home") + "/webapps/compiler_directory");
 		try {
 			if (!folder.exists()) {
 				folder.mkdir();
 			}
-			File javaFile = new File(folder.getAbsolutePath()+ "/" + javaFileName);
+			File javaFile = new File(folder.getAbsolutePath() + "/" + javaFileName);
 			if (!javaFile.exists()) {
 				try {
 					javaFile.createNewFile();
@@ -78,10 +81,10 @@ public class JavaCompiler {
 		}
 
 		try {
-			result += runProcess("javac "+folder.getAbsolutePath()+ "/"+ javaFileName);
-			result += runProcess("java -cp "+folder.getAbsolutePath()+" Main");
+			result += runProcess("javac " + folder.getAbsolutePath() + "/" + javaFileName);
+			result += runProcess("java -cp " + folder.getAbsolutePath() + " Main");
 		} catch (Exception e) {
-			e.printStackTrace();
+			result += e.getMessage();
 		}
 		deleteFiles();
 		return result;

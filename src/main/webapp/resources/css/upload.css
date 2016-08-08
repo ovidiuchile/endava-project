@@ -1,8 +1,10 @@
+
+
 body{
 	background-color:#374140;
 }
 input, select {
-	color:black;
+	color:#D9CB9E; 
 }
 
 
@@ -18,7 +20,7 @@ input, select {
 	}
 	#container{    
 		width:calc( 96vw - 20px);
-		border: 1px solid pink; 
+		border: 1px solid #D13F32; 
 		padding:10px;
 		margin-left:0;
 		max-width:550px;
@@ -52,6 +54,9 @@ input, select {
 		width:238px; /* this is the default */
 		position:relative;
 		
+	}
+	#file_choose input{
+		background-color:yellow;
 	}
 	#container{
  		top:180px;

@@ -15,7 +15,10 @@
 	border: 1px solid #D13F32;
 	padding:5px 10px 5px 10px;
 	margin-bottom:20px;
-	top:20px;
+	top:10px;
+}
+#answer_button:hover{
+	background-color:#D13F32;
 }
 h4{
 	color:#D9CB9E;
@@ -325,7 +328,7 @@ html *
 }
 #Topics .btn:focus {
 	outline-color:#D9CB9E;
-	outline:0;
+	outline: 0;
 }
 #Topics .btn:active{
 	outline-color: #D9CB9E;
