@@ -56,7 +56,7 @@
 
 <div >
 
-    <div id = "menu">
+    <div id = "menu" onclick="closeNav()">
         <div id = "logo_div">
             <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
             <div class="col-md-89" style="">
@@ -157,11 +157,11 @@
 
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Next</span>
                 </a>
                 <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
@@ -186,10 +186,9 @@
 
             <!-- test space -->
             <div id="testspace" style="display:none"> 
-
-<!-- TO BE REMOVED HERE TO BE REMOVED HERE TO ............ BE REMOVED HERE TO BE REMOVED HERE -->
+				<img id="image" src="${pageContext.request.contextPath}/resources/images/logo.png">
             </div>
-            <button id="answer_button" style=" display:none; position:relative; left:45px; top:50px;"> TEST RESULT</button>
+            <button id="answer_button" style=" display:none; position:relative; left:45px; "> TEST RESULT</button>
             <!-- test space -->
         </div>
 

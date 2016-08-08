@@ -56,7 +56,7 @@
 
 <div >
 
-    <div id = "menu">
+    <div id = "menu" onclick="closeNav()">
         <div id = "logo_div">
             <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
             <div class="col-md-89" style="">
