@@ -75,7 +75,7 @@
                         <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Technologies</a>
                     </li>
                     <li class="" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler/java">Try it yourself</a>
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
                     </li>
 
                     <li>
@@ -105,12 +105,12 @@
 	<div id="search-users-box">
 	    
 	    <div id = "test_div">
-	    	<form name='compilerForm' action="<c:url value='/compiler/java' />" method='POST'>
+	    	<form name='compilerForm' action="<c:url value='/compiler' />" method='POST'>
 				  <textarea name="source"  id = "text-area-compiler" >${source}</textarea>
 				  <br>
-				  <select id = "select_language_compiler" >
-					  <option value="volvo">Java</option>
-					  <option value="saab">JavaScript</option>
+				  <select id = "select_language_compiler" name="technology">
+					  <option value="java">Java</option>
+					  <option value="js">JavaScript</option>
 				  </select>
 				  <input id = "run_button" type="submit" value = "Run your code"> 
 			</form>
