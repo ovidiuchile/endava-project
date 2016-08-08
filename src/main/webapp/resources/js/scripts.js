@@ -276,6 +276,7 @@ function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
+		$("#test_input").show();
         $("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
@@ -414,7 +415,7 @@ function closeNav() {
 
 
 /**
- * Hides all of the other divs and takes all of the search parameters sendinging it with an ajax request to the servlet
+ * Hides all of the other divs and takes all of the search parameters sending it with an ajax request to the servlet
  * It returns the search page populated with all of the search results
  * Appends searchResult() function to all of the buttons created
  */
@@ -780,6 +781,7 @@ function testFunction(topic_id,option)
 
 function handleButon(option, topic_id)
 {
+	var testSpace = document.getElementById("testspace");
     $("#answer_button").unbind("click");
     $("#answer_button").bind("click" , function (e) {
         var test="";
@@ -808,6 +810,7 @@ function handleButon(option, topic_id)
 				if(k==0)
 				{
 					result.innerHTML = "You've achieved " + i.content + " points!";
+					testSpace.appendChild(result);
 					k++;
 				}
 				else
