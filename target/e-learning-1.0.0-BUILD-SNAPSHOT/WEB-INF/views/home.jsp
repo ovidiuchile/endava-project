@@ -175,11 +175,11 @@
             </div>
             <div id="material_info" onclick="closeNav()">
                 <p id="Material_name"> </p>
-                <p id="Material_Desc"> </p>
+                <p id="Material_Desc" align="justify"> </p>
             </div>
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;" onclick="closeNav()">
 
-            </div>
+            
             <!-- end primary container -->
 
             <!-- search container -->
