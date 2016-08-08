@@ -166,7 +166,7 @@
                 </a>
                 <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 
-                    <input id="test_input" class="btn btn-default" value="Test your knowledge" type="submit" >
+                    <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
                     <a href="#"><img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img"></a>
 

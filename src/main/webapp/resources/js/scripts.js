@@ -112,13 +112,20 @@ $("#select_technology").change(function(){
 		url: "technologies/" + Select_Tech + "/topics/" + child + "/materials"
 	}).then(function (data) {
 		var AddMaterial = document.getElementById("select_material");
-		while (AddMaterial.childElementCount != 0) {
-			try {
-				AddMaterial.removeChild(AddMaterial.childNodes[0]);
-			}
-			catch (e) {
+		try
+		{
+			while (AddMaterial.childElementCount != 0) {
+				try {
+					AddMaterial.removeChild(AddMaterial.childNodes[0]);
+				}
+				catch (e) {
 
+				}
 			}
+		}
+		catch(e)
+		{
+			
 		}
 		for (i of data.content) {
 			var material = document.createElement("option");
@@ -276,6 +283,7 @@ function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
+		$("#test_input").show();
         $("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
@@ -373,7 +381,9 @@ function handleMaterial( img, source, type)
 			}
 			else if ( type == 1)
 			{
-				var material = document.createElement("iframe");
+				var material = document.createElement("video");
+				material.autoplay= true;
+				material.controls = true;
 				material.width="600";
 				material.height="360";
 				material.src=source;
@@ -414,7 +424,7 @@ function closeNav() {
 
 
 /**
- * Hides all of the other divs and takes all of the search parameters sendinging it with an ajax request to the servlet
+ * Hides all of the other divs and takes all of the search parameters sending it with an ajax request to the servlet
  * It returns the search page populated with all of the search results
  * Appends searchResult() function to all of the buttons created
  */
@@ -604,7 +614,9 @@ function searchResult(buton, langId, topicId, materialId)
 			}
 			else if ( type == 1)
 			{
-				var material = document.createElement("iframe");
+				var material = document.createElement("video");
+				material.autoplay= true;
+				material.controls = true;
 				material.width="600";
 				material.height="360";
 				material.src=source;
@@ -780,6 +792,7 @@ function testFunction(topic_id,option)
 
 function handleButon(option, topic_id)
 {
+	var testSpace = document.getElementById("testspace");
     $("#answer_button").unbind("click");
     $("#answer_button").bind("click" , function (e) {
         var test="";
@@ -808,6 +821,7 @@ function handleButon(option, topic_id)
 				if(k==0)
 				{
 					result.innerHTML = "You've achieved " + i.content + " points!";
+					testSpace.appendChild(result);
 					k++;
 				}
 				else

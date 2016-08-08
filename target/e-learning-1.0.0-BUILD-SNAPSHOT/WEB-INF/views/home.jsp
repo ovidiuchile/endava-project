@@ -157,16 +157,16 @@
 
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Next</span>
                 </a>
                 <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 
-                    <input id="test_input" class="btn btn-default" value="Test your knowledge" type="submit" >
+                    <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
                     <a href="#"><img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img"></a>
 
@@ -186,10 +186,9 @@
 
             <!-- test space -->
             <div id="testspace" style="display:none"> 
-
-<!-- TO BE REMOVED HERE TO BE REMOVED HERE TO ............ BE REMOVED HERE TO BE REMOVED HERE -->
+				<img id="image" src="${pageContext.request.contextPath}/resources/images/logo.png">
             </div>
-            <button id="answer_button" style=" display:none; position:relative; left:45px; top:50px;"> TEST RESULT</button>
+            <button id="answer_button" style=" display:none; position:relative; left:45px; "> TEST RESULT</button>
             <!-- test space -->
         </div>
 
