@@ -387,17 +387,17 @@ function handleMaterial( img, source, type)
 				material.width="600";
 				material.height="360";
 				material.src=source;
-				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
+				showMaterial.appendChild(material);
 			}
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
 				material.width="1000";
 				material.height="600";
-				material.src=source;
-				showMaterial.appendChild(material);
+				material.src=source + "#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true; disableprint=true;";
 				material.oncontextmenu="return false;"
+				showMaterial.appendChild(material);
 			}
 			var container = document.getElementById('search-container');
 			container.style.display="none ";
@@ -488,10 +488,16 @@ function search(){
 			
 			var resultsTitle = document.createElement("h4");
 			resultsTitle.value = i.content.topic.technology.name + " > " + i.content.topic.name + " > " + i.content.title;
+
+
+			var dataupload = i.content.upload_date;
+			var advSearch = document.createElement("p");
+			advSearch.innerHTML= dataupload + " : " + i.content.content_editor.name + "  "  +i.content.content_editor.surname;
 			
 			var text3=document.createTextNode(resultsTitle.value);
 			resultsTitle.appendChild(text3);
-			
+			resultsTitle.appendChild(advSearch);
+
 			var resultsDescription = document.createElement("p");
 			resultsDescription.value = i.content.description;
 			
@@ -618,17 +624,18 @@ function searchResult(buton, langId, topicId, materialId)
 				material.width="600";
 				material.height="360";
 				material.src=source;
-				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
+				showMaterial.appendChild(material);
 			}
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
 				material.width="1000px";
 				material.height="600px";
+				source = source + "#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true; disableprint=true;";
 				material.src=source;
-				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
+				showMaterial.appendChild(material);
 			}
 
 		$("myCarousel").show();

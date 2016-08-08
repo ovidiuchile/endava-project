@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
     </list>
     <ignored path="e-learning.iws" />
@@ -45,11 +44,11 @@
       <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="505" column="0" selection-start-line="505" selection-start-column="0" selection-end-line="505" selection-end-column="0" />
+            <state relative-caret-position="395">
+              <caret line="635" column="36" selection-start-line="635" selection-start-column="36" selection-end-line="635" selection-end-column="36" />
               <folding>
-                <marker date="1470642596989" expanded="true" signature="13463:13515" ph="..." />
-                <marker date="1470642596989" expanded="true" signature="13693:13745" ph="..." />
+                <marker date="1470646658000" expanded="true" signature="13792:13844" ph="..." />
+                <marker date="1470646658000" expanded="true" signature="14022:14074" ph="..." />
               </folding>
             </state>
           </provider>
@@ -195,8 +194,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/change_password.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
       </list>
     </option>
   </component>
@@ -820,12 +819,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1470636771842</updated>
-      <workItem from="1470636789707" duration="5871000" />
+      <workItem from="1470636789707" duration="9541000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14105000" />
+    <option name="totallyTimeSpent" value="17775000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1260,11 +1259,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="505" column="0" selection-start-line="505" selection-start-column="0" selection-end-line="505" selection-end-column="0" />
+        <state relative-caret-position="395">
+          <caret line="635" column="36" selection-start-line="635" selection-start-column="36" selection-end-line="635" selection-end-column="36" />
           <folding>
-            <marker date="1470642596989" expanded="true" signature="13463:13515" ph="..." />
-            <marker date="1470642596989" expanded="true" signature="13693:13745" ph="..." />
+            <marker date="1470646658000" expanded="true" signature="13792:13844" ph="..." />
+            <marker date="1470646658000" expanded="true" signature="14022:14074" ph="..." />
           </folding>
         </state>
       </provider>
