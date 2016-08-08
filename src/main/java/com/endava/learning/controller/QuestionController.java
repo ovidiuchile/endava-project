@@ -2,6 +2,7 @@ package com.endava.learning.controller;
 
 import java.util.List;
 
+import javax.mail.MethodNotSupportedException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -141,6 +143,33 @@ public class QuestionController {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("add_question");
 		return model;
+	}
+	
+	@RequestMapping(value = "delete_question", method = RequestMethod.GET)
+	public ModelAndView deleteQuestion(){
+		ModelAndView model = new ModelAndView();
+		model.setViewName("delete_question");
+		return model;
+	}
+	
+	@RequestMapping(value = "delete_question", method = RequestMethod.POST)
+	public ModelAndView deleteQuestion(@RequestParam("technology")String technologyId, 
+			@RequestParam("topic")String topicId, @RequestParam("question")String questionId, @RequestParam("_method") String method){
+		if (method.equals("DELETE")) {
+			questionService.deleteQuestion(Long.parseLong(questionId));
+		} else {
+			try {
+				throw new MethodNotSupportedException();
+			} catch (MethodNotSupportedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("delete_question");
+		return model;
+		
 	}
 
 }

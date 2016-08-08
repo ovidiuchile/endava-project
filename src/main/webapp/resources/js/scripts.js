@@ -231,6 +231,8 @@ $(".form-control").change(function() {
     $("#testspace").hide();
     $("#material_info").hide();
     $("#answer_button").hide();
+    $("#retake_button").hide();
+    $("#testAnswer").hide();
 	var option = document.getElementById('Language_Selector').value;
 	var AddTopic = document.getElementById('Topics');
 	var material = document.createElement("img");
@@ -284,13 +286,16 @@ function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
+        $("#retake_button").hide();
         $("#material_info").hide();
 		$("#test_input").show();
         $("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
         $("#answer_button").hide();
+        $("#testAnswer").hide();
 		testFunction(i,option);
+        testRetake(i,option);
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " none";
 		while (carusel.childElementCount != 0) {
@@ -374,6 +379,8 @@ function handleMaterial( img, source, type,title,desc)
 			$("#myCarousel").hide();
 			$("material").show();
             $("#material_info").show();
+            $("#retake_button").hide();
+            $("#testAnswer").hide();
 			var showMaterial = document.getElementById('material');
             var material_name= document.getElementById('Material_name');
             var material_desc= document.getElementById('Material_Desc');
@@ -394,8 +401,6 @@ function handleMaterial( img, source, type,title,desc)
 				var material = document.createElement("video");
 				material.autoplay= true;
 				material.controls = true;
-				material.width="600";
-				material.height="360";
 				material.src=source;
 				material.oncontextmenu="return false;"
 				showMaterial.appendChild(material);
@@ -403,8 +408,6 @@ function handleMaterial( img, source, type,title,desc)
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
-				material.width="1000";
-				material.height="600";
 				material.src=source + "#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true; disableprint=true;";
 				material.oncontextmenu="return false;"
 				showMaterial.appendChild(material);
@@ -443,6 +446,8 @@ function search(){
 	$("#search-container").show();
 	$("#material").hide();
     $("#testspace").hide();
+    $("#testAnswer").hide();
+    $("#retake_button").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
@@ -794,7 +799,6 @@ function testFunction(topic_id,option)
                 }
                 var prevId =i.content.question.id;
             }
-
 		});
 	});
 
@@ -812,9 +816,13 @@ function testFunction(topic_id,option)
 
 function handleButon(option, topic_id)
 {
-	var testSpace = document.getElementById("testspace");
+	var testSpace = document.getElementById("testAnswer");
     $("#answer_button").unbind("click");
     $("#answer_button").bind("click" , function (e) {
+        $("#testAnswer").show();
+        $("#answer_button").hide();
+        $("#retake_button").show();
+        testSpace.removeChild(testSpace.childNodes[0]);
         var test="";
         $('input[name="answer"]:checked').each(function() {
             test = test + this.value + " ";
@@ -840,7 +848,7 @@ function handleButon(option, topic_id)
                 test= test+1;
 				if(k==0)
 				{
-					result.innerHTML = "You've achieved " + i.content + " points!";
+					result.innerHTML = "You've achieved " + i.content + " points out of 100!";
 					testSpace.appendChild(result);
 					k++;
 				}
@@ -860,5 +868,190 @@ function handleButon(option, topic_id)
             console.log(test);
         });
     });
+
+}
+/*dropdown menus for delete question page*/
+$(document).ready(function(){
+	var grandparent_height = $('.col-md-9').width();
+	$('#notes').width( grandparent_height );
+	$('#button_notes').click(function(){
+		$("#div_notes").fadeToggle(0);
+	});
+	$("#div_notes").fadeToggle(0);
+	var AddTech =  document.getElementById("question_select_technology");
+	
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies"
+	}).then(function (data) {
+		for (i of data.content) {
+			var technology = document.createElement("option");
+			
+			technology.value = i.content.technology_id;
+			technology.innerHTML = i.content.name;
+			
+			if(AddTech)
+            {
+                AddTech.add(technology);
+            }
+		}
+	});
+});
+
+$("#question_select_technology").change(function(){
+	var grandparent_height = $('.col-md-9').width();
+	$('#notes').width( grandparent_height );
+	$('#button_notes').click(function(){
+		$("#div_notes").fadeToggle(0);
+	});
+	$("#div_notes").fadeToggle(0);
+
+
+	
+	var AddTopic = document.getElementById("question_select_topic");
+	while (AddTopic.childElementCount != 0) {
+		try {
+			AddTopic.removeChild(AddTopic.childNodes[0]);
+		}
+		catch (e) {
+
+		}
+	}
+	var child=0;
+    var Select_Tech = document.getElementById("question_select_technology").value;
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + Select_Tech + "/topics"
+	}).then(function (data) {
+		var k=0;
+		for (i of data.content) {
+			var topic = document.createElement("option");
+
+			topic.value = i.content.topic_id;
+			topic.innerHTML = i.content.name;
+			if(k==0)
+				{
+				child=i.content.topic_id;
+				k++; 
+				console.log(child);
+				}
+
+			AddTopic.add(topic);
+
+		}
+	console.log(child);
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + Select_Tech + "/topics/" + child + "/questions"
+	}).then(function (data) {
+		var AddQuestion = document.getElementById("question_select");
+		try
+		{
+			while (AddQuestion.childElementCount != 0) {
+				try {
+					AddQuestion.removeChild(AddQuestion.childNodes[0]);
+				}
+				catch (e) {
+
+				}
+			}
+		}
+		catch(e)
+		{
+
+		}
+		for (i of data.content) {
+			var question = document.createElement("option");
+
+			question.value = i.content.id;
+			question.innerHTML = i.content.question_text;
+
+
+			AddQuestion.add(question);
+
+		}
+	});
+	});
+	
+});
+
+function testRetake(topic_id,option)
+{
+    $("#retake_button").unbind("click");
+    var testSpace = document.getElementById("testspace");
+    $("#retake_button").bind("click" , function (e) {
+        $("#answer_button").show();
+        $("#myCarousel").hide();
+        while (testSpace.childElementCount != 0) {
+            try {
+                testSpace.removeChild(testSpace.childNodes[0]);
+            }
+            catch (e) {
+
+            }
+        }
+        $("#testspace").show();
+        var url = "technologies/" + option + "/topics/" + topic_id + "/test" ;
+        console.log(url);
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: url
+        }).then(function (data) {
+            var nrofQuestion =0;
+            for(i of data.content)
+            {
+                var nextId=i.content.question.id;
+                console.log(nextId,prevId);
+                if(nextId!=prevId)
+                {
+                    nrofQuestion = nrofQuestion + 1;
+                    var Question_numbr = document.createElement("p");
+                    console.log("Test");
+                    var div = document.createElement("div");
+                    Question_numbr.innerHTML = "Question " + nrofQuestion;
+                    div.appendChild(Question_numbr);
+                    var paragraph = document.createElement("p");
+                    var questionText = i.content.question.question_text;
+                    paragraph.innerHTML = questionText;
+                    div.appendChild(paragraph);
+                    var questionAnswer = document.createElement("input");
+                    questionAnswer.setAttribute('type','checkbox');
+                    questionAnswer.name="answer";
+                    div1 = document.createElement("div");
+                    div1.className="answer_div";
+                    div1.id= i.content.id;
+                    div1.appendChild(questionAnswer);
+                    div1.appendChild(document.createTextNode(i.content.answer_text));
+                    questionAnswer.value=i.content.id;
+                    div.className="question";
+                    div.appendChild(div1);
+                    testSpace.appendChild(div);
+                }
+                else
+                {
+                    var questionAnswer = document.createElement("input");
+                    questionAnswer.setAttribute('type','checkbox');
+                    questionAnswer.name="answer";
+                    div1 = document.createElement("div");
+                    div1.className="answer_div";
+                    div1.id= i.content.id;
+                    div1.appendChild(questionAnswer);
+                    div1.appendChild(document.createTextNode(i.content.answer_text));
+                    questionAnswer.value=i.content.id;
+                    div.className="question";
+                    div.appendChild(div1);
+                    testSpace.appendChild(div);
+                }
+                var prevId =i.content.question.id;
+            }
+
+        });
+    });
+
+    handleButon(option, topic_id);
 
 }

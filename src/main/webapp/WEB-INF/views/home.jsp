@@ -175,11 +175,11 @@
             </div>
             <div id="material_info" onclick="closeNav()">
                 <p id="Material_name"> </p>
-                <p id="Material_Desc"> </p>
+                <p id="Material_Desc" align="justify"> </p>
             </div>
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;" onclick="closeNav()">
 
-            </div>
+            
             <!-- end primary container -->
 
             <!-- search container -->
@@ -192,7 +192,11 @@
             <div id="testspace" style="display:none" onclick="closeNav()">
 				<img id="image" src="${pageContext.request.contextPath}/resources/images/logo.png">
             </div>
+            <div id="testAnswer">
+
+            </div>
             <button id="answer_button" style=" display:none; position:relative; left:45px; "> TEST RESULT</button>
+            <button id="retake_button"style=" display:none; position:relative; left:45px; "> Retake the rest </button>
             <!-- test space -->
         </div>
 
