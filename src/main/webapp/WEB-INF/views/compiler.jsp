@@ -42,10 +42,11 @@
 		    	$("#background_image").css("height","auto");
 		    }
 		    
-		    var h1 = $("#search-users-box").height();
-		    var h3 = ( h1 - 90 ) / 2;
+		    var h1 = $("#compiler-box").height();
+		    var h3 = ( h1 - 90 - 40 ) / 2;
 		    $("#text-area-compiler").css("height",h3);
 		    $("#system_out_println").css("height",h3);
+		    
 		});
 		$(window).resize(function(){
 			if( $( window ).width() < $( window ).height() * 1.5 ){
@@ -56,15 +57,15 @@
 		    	$("#background_image").css("width","100%");
 		    	$("#background_image").css("height","auto");
 		    }
-			var h1 = $("#search-users-box").height();
-		    var h3 = ( h1 - 90 ) / 2;
+			var h1 = $("#compiler-box").height();
+		    var h3 = ( h1 - 90 - 40 ) / 2;
 		    $("#text-area-compiler").css("height",h3);
 		    $("#system_out_println").css("height",h3);
 		});
 	</script>
     
 </head>
-<body onload='document.loginForm.username.focus();'>
+<body style = "font-family:Century Gothic;">
 
 <div id = "menu">
         <div id = "logo_div">
@@ -102,15 +103,15 @@
 
 	<!-- START LOGIN BOX -->
 
-	<div id="search-users-box">
-	    <div id = "test_div">
-	    	<p style = "color:#D9CB9E;margin:auto;">Compile me, baby :*</p>
+	<div id="compiler-box">
+	    <div id = "test_div_1">
+	    	<p style = "color:#D9CB9E; text-align:center;font-size:20px;font-family:Century Gothic;">Compile me, baby :*</p>
 	    	<form name='compilerForm' action="<c:url value='/compiler/java' />" method='POST'>
 				  <textarea name="source"  id = "text-area-compiler" >${source}</textarea>
 				  <br>
-				  <select id = "select_language_compiler" >
-					  <option value="volvo">Java</option>
-					  <option value="saab">JavaScript</option>
+				  <select id = "select_language_compiler_1" class = "select_language_compiler">
+					  <option class = "java_comp" value="volvo">Java</option>
+					  <option class = "javascript_comp" value="saab">JavaScript</option>
 				  </select>
 				  <input id = "run_button" type="submit" value = "Run your code"> 
 			</form>
