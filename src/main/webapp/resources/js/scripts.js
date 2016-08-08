@@ -862,3 +862,111 @@ function handleButon(option, topic_id)
     });
 
 }
+
+/*dropdown menus for delete question page*/
+$(document).ready(function(){
+	var grandparent_height = $('.col-md-9').width();
+	$('#notes').width( grandparent_height );
+	$('#button_notes').click(function(){
+		$("#div_notes").fadeToggle(0);
+	});
+	$("#div_notes").fadeToggle(0);
+	var AddTech =  document.getElementById("question_select_technology");
+	
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies"
+	}).then(function (data) {
+		for (i of data.content) {
+			var technology = document.createElement("option");
+			
+			technology.value = i.content.technology_id;
+			technology.innerHTML = i.content.name;
+			
+			if(AddTech)
+            {
+                AddTech.add(technology);
+            }
+		}
+	});
+});
+
+$("#question_select_technology").change(function(){
+	var grandparent_height = $('.col-md-9').width();
+	$('#notes').width( grandparent_height );
+	$('#button_notes').click(function(){
+		$("#div_notes").fadeToggle(0);
+	});
+	$("#div_notes").fadeToggle(0);
+
+
+	
+	var AddTopic = document.getElementById("question_select_topic");
+	while (AddTopic.childElementCount != 0) {
+		try {
+			AddTopic.removeChild(AddTopic.childNodes[0]);
+		}
+		catch (e) {
+
+		}
+	}
+	var child=0;
+    var Select_Tech = document.getElementById("question_select_technology").value;
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + Select_Tech + "/topics"
+	}).then(function (data) {
+		var k=0;
+		for (i of data.content) {
+			var topic = document.createElement("option");
+
+			topic.value = i.content.topic_id;
+			topic.innerHTML = i.content.name;
+			if(k==0)
+				{
+				child=i.content.topic_id;
+				k++; 
+				console.log(child);
+				}
+
+			AddTopic.add(topic);
+
+		}
+	console.log(child);
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + Select_Tech + "/topics/" + child + "/questions"
+	}).then(function (data) {
+		var AddQuestion = document.getElementById("question_select");
+		try
+		{
+			while (AddQuestion.childElementCount != 0) {
+				try {
+					AddQuestion.removeChild(AddQuestion.childNodes[0]);
+				}
+				catch (e) {
+
+				}
+			}
+		}
+		catch(e)
+		{
+
+		}
+		for (i of data.content) {
+			var question = document.createElement("option");
+
+			question.value = i.content.id;
+			question.innerHTML = i.content.question_text;
+
+
+			AddQuestion.add(question);
+
+		}
+	});
+	});
+	
+});
