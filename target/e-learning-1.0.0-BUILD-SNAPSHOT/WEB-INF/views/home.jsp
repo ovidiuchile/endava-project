@@ -14,6 +14,9 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/metallic.css">
 	
 
@@ -47,8 +50,6 @@
 			}
 		});
 	</script> 
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
 </head>
 <body>
 
@@ -66,7 +67,7 @@
                         </select>
                     </li> 
                     <li class="" style="">
-                        <a style="z-index:99988;"href="#">Try it yourself</a>
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
                     </li>
 
                     <li>
@@ -167,10 +168,14 @@
 
                     <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
-                    <a href="#"><img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img"></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>
 
+            </div>
+            <div id="material_info">
+                <p id="Material_name"> </p>
+                <p id="Material_Desc"> </p>
             </div>
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
 
@@ -187,7 +192,11 @@
             <div id="testspace" style="display:none"> 
 				<img id="image" src="${pageContext.request.contextPath}/resources/images/logo.png">
             </div>
+            <div id="testAnswer">
+
+            </div>
             <button id="answer_button" style=" display:none; position:relative; left:45px; "> TEST RESULT</button>
+            <button id="retake_button"style=" display:none; position:relative; left:45px; "> Retake the rest </button>
             <!-- test space -->
         </div>
 

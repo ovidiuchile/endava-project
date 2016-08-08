@@ -67,7 +67,7 @@
                         </select>
                     </li> 
                     <li class="" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler/java">Try it yourself</a>
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
                     </li>
 
                     <li>
@@ -173,9 +173,15 @@
                 </div>
 
             </div>
+            
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
-
+             </div>
+            <div id="material_info">
+                <p id="Material_name"> </p>
+                <p id="Material_Desc" align="justify"> </p>
             </div>
+
+            
             <!-- end primary container -->
 
             <!-- search container -->
@@ -188,7 +194,11 @@
             <div id="testspace" style="display:none"> 
 				<img id="image" src="${pageContext.request.contextPath}/resources/images/logo.png">
             </div>
+            <div id="testAnswer">
+
+            </div>
             <button id="answer_button" style=" display:none; position:relative; left:45px; "> TEST RESULT</button>
+            <button id="retake_button"style=" display:none; position:relative; left:45px; "> Retake the rest </button>
             <!-- test space -->
         </div>
 

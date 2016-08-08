@@ -182,7 +182,8 @@
 			<table style="width:250px">
 				<tr>
 					<td>
-						<input id="file_choose" type='file' name='file' size="50000" required/>
+
+						<input id="file_choose" style="background-color:transparent; color:#D9CB9E;" type='file' name='file' size="50000" required/>
 					</td>
 				</tr>
 			</table>

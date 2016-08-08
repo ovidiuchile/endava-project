@@ -52,8 +52,8 @@
 		<%@include file="css/style.css"%>
 	</style>
 </head>
-<body style="width:100vw;">
-	<img src="${pageContext.request.contextPath}/resources/images/background1.jpg" id = "background_1">
+<body style="width:100vw; background-color:#374140;">
+
 	
 	
 	<div style="width:calc( 96vw - 20px);">

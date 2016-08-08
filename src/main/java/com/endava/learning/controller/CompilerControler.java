@@ -3,7 +3,6 @@ package com.endava.learning.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,17 +14,18 @@ import com.endava.learning.compilers.JavaCompiler.JavaCompiler;
 @RestController
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CompilerControler {
-	@RequestMapping(value = "compiler/{technology}", method = RequestMethod.GET)
+	@RequestMapping(value = "compiler", method = RequestMethod.GET)
 	public ModelAndView compilerGET(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("compiler");
 		return model;
 	}
 
-	@RequestMapping(value = "compiler/{technology}", method = RequestMethod.POST)
-	public ModelAndView compilerPOST(HttpServletRequest request, @PathVariable("technology") String technology) {
+	@RequestMapping(value = "compiler", method = RequestMethod.POST)
+	public ModelAndView compilerPOST(HttpServletRequest request) {
 		String result = new String();
 		String source = request.getParameter("source");
+		String technology = request.getParameter("technology");
 		
 		if (technology.equalsIgnoreCase("java"))
 			result = JavaCompiler.compile(source);
