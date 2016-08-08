@@ -13,11 +13,12 @@
 	
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-	
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/metallic.css">
+	
 
 	<title>Appollo</title>
 	
@@ -165,7 +166,7 @@
                 </a>
                 <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 
-                    <input id="test_input" class="btn btn-default" value="Test your knowledge" type="submit" >
+                    <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
                     <a href="#"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 

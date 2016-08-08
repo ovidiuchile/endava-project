@@ -69,7 +69,7 @@ public class UpdateController {
 		technologyService.saveTechnology(technology);
 
 		ModelAndView model = new ModelAndView();
-		model.setViewName("upload");
+		model.setViewName("redirect:/upload");
 		return model;
 	}
 	@RequestMapping(value = "/upload-topic", method = RequestMethod.POST)
@@ -82,7 +82,7 @@ public class UpdateController {
 		topic.setTopic_id(((long) (Math.random() * 1000000000)));
 		topicService.saveTopic(topic);
 		ModelAndView model = new ModelAndView();
-		model.setViewName("upload");
+		model.setViewName("redirect:/upload");
 		return model;
 	}
 	@RequestMapping(value = "/upload-material", method = RequestMethod.POST)
@@ -125,7 +125,7 @@ public class UpdateController {
 		material.setContent_editor(userService.getUserById(Long.parseLong(request.getSession().getAttribute("id").toString())));
 		materialService.createMaterial(material);
 		ModelAndView model = new ModelAndView();
-		model.setViewName("upload");
+		model.setViewName("redirect:/upload");
 		return model;
 	}
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)

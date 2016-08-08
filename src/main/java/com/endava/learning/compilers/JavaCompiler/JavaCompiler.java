@@ -40,12 +40,9 @@ public class JavaCompiler {
 		try {
 			File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
 			for (final File fileEntry : folder.listFiles()) {
-				String tempFile = fileEntry.getAbsolutePath();
-				// Delete if tempFile exists
-				File fileTemp = new File(tempFile);
-				if (fileTemp.exists()
-						&& (fileTemp.getName().contains(".class") || fileTemp.getName().contains(".java"))) {
-					fileTemp.delete();
+				if (fileEntry.exists()
+						&& (fileEntry.getName().contains(".class") || fileEntry.getName().contains(".java"))) {
+					fileEntry.delete();
 				}
 			}
 		} catch (Exception e) {
@@ -79,9 +76,18 @@ public class JavaCompiler {
 
 		try {
 			result += runProcess("javac "+folder.getAbsolutePath()+ "/"+ javaFileName);
-			result += runProcess("java -cp "+folder.getAbsolutePath()+" Main");
+			String className=null;
+			
+			for (final File fileEntry : folder.listFiles()) {
+				if (fileEntry.exists()
+						&& fileEntry.getName().contains(".class")) {
+					className=fileEntry.getName();
+				}
+			}
+			
+			result += runProcess("java -cp "+folder.getAbsolutePath()+" "+className);
 		} catch (Exception e) {
-			e.printStackTrace();
+			result += e.getMessage();
 		}
 		deleteFiles();
 		return result;
