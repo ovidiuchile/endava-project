@@ -13,9 +13,11 @@
 	
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-	
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/metallic.css">
 	
 
 	<title>Appollo</title>
@@ -48,8 +50,6 @@
 			}
 		});
 	</script> 
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
 </head>
 <body>
 
@@ -67,7 +67,7 @@
                         </select>
                     </li> 
                     <li class="" style="">
-                        <a style="z-index:99988;"href="#">Try it yourself</a>
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler/java">Try it yourself</a>
                     </li>
 
                     <li>
@@ -166,9 +166,9 @@
                 </a>
                 <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 
-                    <input id="test_input" class="btn btn-default" value="Test your knowledge" type="submit" >
+                    <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
-                    <a href="#"><img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img"></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>
 
