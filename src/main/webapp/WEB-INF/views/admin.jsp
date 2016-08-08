@@ -53,9 +53,7 @@
 	</script>
     
 </head>
-<body onload='document.loginForm.username.focus();'>
-
-<img id = "background_image" src="${pageContext.request.contextPath}/resources/images/background.jpg">
+<body onload='document.loginForm.username.focus();' style="background-color:#374140;">
 
 <div id = "menu">
 	<div id = "logo_div">
@@ -86,7 +84,7 @@
 		            </tr>
 		            <tr>
 		                <td>Type:</td>
-		                <td><select name="type_of_user">
+		                <td><select id="changeTypeSelector" name="type_of_user">
 						    <option value="normal user">Normal user</option>
 						    <option value="tutor">Tutor</option>
 						    <option value="content editor">Content Editor</option>
@@ -113,7 +111,7 @@
 	    <div id = "user_search_div">
 	    
 			<input id="usrSearch_input" type="text" name="searchUsrs" placeholder="Search...">
-			<select id="User_Type" style="color:black;">
+			<select id="User_Type">
 				<option value="-1"> Type filter</option>
 				<option value="normal user"> Normal user</option>
 				<option value="content editor"> Content editor</option>
