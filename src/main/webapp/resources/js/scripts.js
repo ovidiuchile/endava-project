@@ -112,13 +112,20 @@ $("#select_technology").change(function(){
 		url: "technologies/" + Select_Tech + "/topics/" + child + "/materials"
 	}).then(function (data) {
 		var AddMaterial = document.getElementById("select_material");
-		while (AddMaterial.childElementCount != 0) {
-			try {
-				AddMaterial.removeChild(AddMaterial.childNodes[0]);
-			}
-			catch (e) {
+		try
+		{
+			while (AddMaterial.childElementCount != 0) {
+				try {
+					AddMaterial.removeChild(AddMaterial.childNodes[0]);
+				}
+				catch (e) {
 
+				}
 			}
+		}
+		catch(e)
+		{
+			
 		}
 		for (i of data.content) {
 			var material = document.createElement("option");
@@ -374,7 +381,9 @@ function handleMaterial( img, source, type)
 			}
 			else if ( type == 1)
 			{
-				var material = document.createElement("iframe");
+				var material = document.createElement("video");
+				material.autoplay= true;
+				material.controls = true;
 				material.width="600";
 				material.height="360";
 				material.src=source;
@@ -605,7 +614,9 @@ function searchResult(buton, langId, topicId, materialId)
 			}
 			else if ( type == 1)
 			{
-				var material = document.createElement("iframe");
+				var material = document.createElement("video");
+				material.autoplay= true;
+				material.controls = true;
 				material.width="600";
 				material.height="360";
 				material.src=source;
