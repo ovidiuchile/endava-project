@@ -395,3 +395,13 @@ body,head{
 		#binary34{
 			margin-left:calc( 100vw / 1.07 );
 		}
+		@media screen and (min-width: 902px) {
+			.binary{
+				display:block;
+			}
+		}
+		@media screen and (max-width: 901px) {
+			.binary{
+				display:none;
+			}
+		}

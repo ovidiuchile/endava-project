@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Appollo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
     <style>
 		<%@include file="css/style.css"%>
@@ -85,21 +86,21 @@
 	}
 	</script>
 	
-	<script>
+	<!-- <script>
 	$( window ).on( "mousemove", function( event ) {
-		$( "#binary1_div" ).css("margin-left", ( event.clientX + event.clientY  ) / 140 * -1 );
-		$( "#binary2_div" ).css("margin-left", ( event.clientX + event.clientY  ) / 80 * -1 );
-		$( "#binary3_div" ).css("margin-left", ( event.clientX + event.clientY  ) / 50 * -1 );
+		$( "#binary1_div" ).css("margin-left", ( event.clientX + event.clientY  ) / 140 * -1  );
+		$( "#binary2_div" ).css("margin-left", ( event.clientX + event.clientY  ) / 80 * -1 + 10 );
+		$( "#binary3_div" ).css("margin-left", ( event.clientX + event.clientY  ) / 50 * -1 + 20 );
 		
 	});
-	</script>
+	</script> 
 	
 	<style>
 		.binary1 {
-		    -webkit-animation: mymove1 50s;  /* Chrome, Safari, Opera */
+		    -webkit-animation: mymove1 120s;  /* Chrome, Safari, Opera */
 		    -webkit-animation-iteration-count: infinite;  /* Chrome, Safari, Opera */
 		    -webkit-animation-timing-function: linear;
-		    animation: mymove1 50s;
+		    animation: mymove1 120s;
 		    animation-iteration-count: infinite;
 		    animation-timing-function: linear;
 		}
@@ -116,10 +117,10 @@
 		}
 		
 		.binary2 {
-		    -webkit-animation: mymove2 50s;  /* Chrome, Safari, Opera */
+		    -webkit-animation: mymove2 120s;  /* Chrome, Safari, Opera */
 		    -webkit-animation-iteration-count: infinite;  /* Chrome, Safari, Opera */
 		    -webkit-animation-timing-function: linear;
-		    animation: mymove2 50s;
+		    animation: mymove2 120s;
 		    animation-iteration-count: infinite;
 		    animation-timing-function: linear;
 		}
@@ -136,10 +137,10 @@
 		}
 		
 		.binary3 {
-		    -webkit-animation: mymove3 50s;  /* Chrome, Safari, Opera */
+		    -webkit-animation: mymove3 120s;  /* Chrome, Safari, Opera */
 		    -webkit-animation-iteration-count: infinite;  /* Chrome, Safari, Opera */
 		    -webkit-animation-timing-function: linear;
-		    animation: mymove3 50s;
+		    animation: mymove3 120s;
 		    animation-iteration-count: infinite;
 		    animation-timing-function: linear;
 		}
@@ -155,11 +156,12 @@
 		    to {top: -9000px;}
 		}
 	</style>
-	
+	-->
 </head>
 <body onload='document.loginForm.username.focus();'>
- 
- <div id = "binary1_div">
+
+<!-- 
+<div id = "binary1_div">
 <img class = "binary binary1" id = "binary-2" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
 <img class = "binary binary1" id = "binary-1" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
 <img class = "binary binary1" id = "binary1" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
@@ -189,6 +191,8 @@
 <img class = "binary binary3" id = "binary33" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
 <img class = "binary binary3" id = "binary34" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
 </div>
+-->
+
 <div id = "menu">
 	<div id = "logo_div">
 		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
