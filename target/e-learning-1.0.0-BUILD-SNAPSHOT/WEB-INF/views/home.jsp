@@ -14,6 +14,9 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/metallic.css">
 	
 
@@ -47,26 +50,24 @@
 			}
 		});
 	</script> 
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
 </head>
 <body>
 
 
 <div >
 
-    <div id = "menu" onclick="closeNav()">
+    <div id = "menu">
         <div id = "logo_div">
-            <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
+            <a href="${pageContext.request.contextPath}" onclick="closeNav()"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
             <div class="col-md-89" style="">
-                <ul class="nav nav-pills" id="nav_pills" >
+                <ul class="nav nav-pills" id="nav_pills" onclick="closeNav()">
                     <li class="dropdown" id="firstli" style="z-index:99999;">
                         <select class="form-control" id="Language_Selector" style="height:42px; z-index:100000; border-color: #D9CB9E;" >
                             <option selected disabled hidden style="">Technologies</option>
                         </select>
                     </li> 
                     <li class="" style="">
-                        <a style="z-index:99988;"href="#">Try it yourself</a>
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
                     </li>
 
                     <li>
@@ -93,10 +94,10 @@
 
 
 
-    <div id="vr" style="position:absolute; left:320px;border-left:1px solid #D13F32; height: calc( 100% - 100px)  ;margin-top:15px;"></div>
-    <div id = "main_div" style="margin-top:10px;">
+    <div id="vr" style="position:absolute; left:320px;border-left:1px solid #D13F32; height: calc( 100% - 100px)  ;margin-top:15px;" onclick="closeNav()"></div>
+    <div id = "main_div" style="margin-top:10px;" onclick="closeNav()">
 
-        <div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
+        <div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;" onclick="closeNav()">
             <div class="search_inputdiv" >
                 <input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;	">
 
@@ -124,14 +125,14 @@
                 <input id="submit_input" class="btn btn-default" value="Search" type="submit" onclick="search()">
             </div>
 
-            <div id="Topics" class="btn-group-vertical" style="margin-top:20px;">
+            <div id="Topics" class="btn-group-vertical" style="margin-top:20px;" onclick="closeNav()">
                 <!-- ---------------------------------------TOPIC VERTICAL NAV BAR------------------------------------ -->
             </div>
 
         </div>
 
         <!-- primary container -->
-        <div class="col-md-11 container" id="Carousel_container" >
+        <div class="col-md-11 container" id="Carousel_container" onclick="closeNav()">
             <br>
             <div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" style="" >
 
@@ -155,40 +156,40 @@
                 </div>
 
                 <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" onclick="closeNav()">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" onclick="closeNav()">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Next</span>
                 </a>
-                <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
+                <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;" onclick="closeNav()">
 
                     <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
-                    <a href="#"><img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img"></a>
+                    <a href="#" onclick="closeNav()"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>
 
             </div>
-            <div id="material_info">
+            <div id="material_info" onclick="closeNav()">
                 <p id="Material_name"> </p>
                 <p id="Material_Desc"> </p>
             </div>
-            <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
+            <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;" onclick="closeNav()">
 
             </div>
             <!-- end primary container -->
 
             <!-- search container -->
-            <div id = "search-container" style=" display : none;" >
+            <div id = "search-container" style=" display : none;" onclick="closeNav()">
             </div>
             <!-- end search container -->
 
 
             <!-- test space -->
-            <div id="testspace" style="display:none"> 
+            <div id="testspace" style="display:none" onclick="closeNav()">
 				<img id="image" src="${pageContext.request.contextPath}/resources/images/logo.png">
             </div>
             <button id="answer_button" style=" display:none; position:relative; left:45px; "> TEST RESULT</button>
