@@ -394,8 +394,6 @@ function handleMaterial( img, source, type,title,desc)
 				var material = document.createElement("video");
 				material.autoplay= true;
 				material.controls = true;
-				material.width="600";
-				material.height="360";
 				material.src=source;
 				material.oncontextmenu="return false;"
 				showMaterial.appendChild(material);

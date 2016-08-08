@@ -583,6 +583,11 @@ html *
 	left:50%;
 	transform:translatex(-50%); 
 }
+#material video{
+	width:100%;
+	height:auto;
+	max-width:700px;
+}
 #material iframe{
 	width:58vw;
 	height:39vw;
@@ -600,6 +605,11 @@ html *
 }
 #Material_name{
 	text-align:center;
-	font-size:20px;
+	font-size:26px;
+	
+}
+#Material_Desc{
+	text-align:center;
+	font-style: italic;
 }
  
