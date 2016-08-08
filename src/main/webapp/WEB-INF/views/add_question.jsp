@@ -51,22 +51,21 @@
 			}
 		});
 	</script>
+	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/upload.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/questions.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/metallic.css"> 
 	
 <style>
 <%@include file="css/style.css"%>
 </style>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/questions.css">
 </head>
-<body style="width: 100vw;">
-	<img
-		src="${pageContext.request.contextPath}/resources/images/background1.jpg"
-		id="background_1">
-
+<body style="width: 100vw; background-color:#374140">
 
 	<div style="width: calc(96vw - 20px);">
 		<div id="menu" style="width: 100vw;">
@@ -79,7 +78,14 @@
 						<li class="" style="left: 2px;"><a href="#">Try it
 								yourself</a></li>
 						<li class="" style=""><a
-							href="${pageContext.request.contextPath}">Learn</a></li>
+							href="${pageContext.request.contextPath}">Learn</a>
+						</li>
+						<li class="" style=""><a
+							href="${pageContext.request.contextPath}/upload">Upload materials</a>
+						</li>
+						<li class="" style=""><a
+							href="${pageContext.request.contextPath}/delete">Delete materials</a>
+						</li>
 					</ul>
 					<span
 						style="font-size: 30px; cursor: pointer; position: absolute; right: 20px; top: 20px;"
@@ -126,10 +132,22 @@
 											<option value="">Select topic</option>
 									</select></td>
 								</tr>
+							</table>
+							<table>
 								<tr>
-									<td><p class="td_text">Question:</p></td>
+									<td ><p class="td_text">Question:</p></td>
 									<td><input type='text' name='question' value='' style=""
 										required /></td>
+								</tr>
+								<tr>
+									<td><p class="td_text">Start date:</p> </td>
+									<td><input id="datepicker1" type='text' name='start_date' value='' style="height:26px;" required /></td>
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<td><p class="td_text">Expiration date:</p> </td>
+									<td><input id="datepicker2" type='text' name='end_date' value=''  style="height:26px;" required /></td>
 								</tr>
 								<tr>
 									<td><p class="td_text">Answer 1:</p></td>
@@ -137,10 +155,10 @@
 										style="" required /></td>
 								</tr>
 								<tr>
-									<td></td>
-									<td>
-										<input id="radio_correct1" type="radio" name="answer1" class="radio" value = "correct" style="height:12px; width:12px; float:left;" checked><p>Correct</p>
-										<input id="radio_incorrect1" type="radio" name="answer1" class="radio" value = "incorrect" style="height:12px; width:12px; float:right; position:relative; top:10px;"><p style="float:right; position:relative;">Incorrect</p>
+									<td style="height:26px;"></td>
+									<td style="height:26px;"> 
+										<input id="radio_correct1" type="radio" name="answer1" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;" checked><p style="width:50px; display:inline-block;">Correct  </p>
+										<input id="radio_incorrect1" type="radio" name="answer1" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"><p style="width:50px; display:inline-block;">Incorrect</p>
 									</td>
 								</tr>
 								<tr>
@@ -149,10 +167,10 @@
 										style="" required /></td>
 								</tr>
 								<tr>
-									<td></td>
-									<td>
-										<input id="radio_correct2" type="radio" name="answer2" class="radio" value = "correct" style="height:12px; width:12px; float:left;"checked />Correct
-										<input id="radio_incorrect2" type="radio" name="answer2" class="radio" value = "incorrect" style="height:12px; width:12px; float:left;"/>Incorrect
+									<td style="height:26px;"></td>
+									<td style="height:26px;">
+										<input id="radio_correct2" type="radio" name="answer2" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;"checked /><p style="width:50px; display:inline-block;">Correct  </p>
+										<input id="radio_incorrect2" type="radio" name="answer2" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
 									</td>
 								</tr><tr>
 									<td><p class="td_text">Answer 3:</p></td>
@@ -160,10 +178,10 @@
 										style="" required /></td>
 								</tr>
 								<tr>
-									<td></td>
-									<td>
-										<input id="radio_correct3" type="radio" name="answer3" class="radio" value = "correct" style="height:12px; width:12px; float:left;" checked />Correct
-										<input id="radio_incorrect3" type="radio" name="answer3" class="radio" value = "incorrect" style="height:12px; width:12px; float:left;"/>Incorrect
+									<td style="height:26px;"></td>
+									<td style="height:26px;">
+										<input id="radio_correct3" type="radio" name="answer3" class="radio" value = "correct" style="height:12px; width:12px;display:inline-block;" checked /><p style="width:50px; display:inline-block;">Correct  </p>
+										<input id="radio_incorrect3" type="radio" name="answer3" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
 									</td>
 								</tr><tr>
 									<td><p class="td_text">Answer 4:</p></td>
@@ -171,10 +189,10 @@
 										style="" required /></td>
 								</tr>
 								<tr>
-									<td></td>
-									<td>
-										<input id="radio_correct4" type="radio" name="answer4" class="radio" value = "correct" style="height:12px; width:12px; float:left;" checked />Correct
-										<input id="radio_incorrect4" type="radio" name="answer4" class="radio" value = "incorrect" style="height:12px; width:12px; float:left;"/>Incorrect
+									<td style="height:26px;"></td>
+									<td style="height:26px;">
+										<input id="radio_correct4" type="radio" name="answer4" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;" checked /><p style="width:50px; display:inline-block;">Correct  </p>
+										<input id="radio_incorrect4" type="radio" name="answer4" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
 									</td>
 								</tr><tr>
 									<td><p class="td_text">Answer 5:</p></td>
@@ -182,23 +200,15 @@
 										style="" required /></td>
 								</tr>
 								<tr>
-									<td></td>
-									<td>
-										<input id="radio_correct5" type="radio" name="answer5" class="radio" value = "correct" style="height:12px; width:12px; float:left;" checked/>Correct
-										<input id="radio_incorrect6" type="radio" name="answer5" class="radio" value = "incorrect" style="height:12px; width:12px; float:left;"/>Incorrect
+									<td style="height:26px;"></td>
+									<td style="height:26px;">
+										<input id="radio_correct5" type="radio" name="answer5" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;" checked/><p style="width:50px; display:inline-block;">Correct  </p>
+										<input id="radio_incorrect6" type="radio" name="answer5" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
 									</td>
 								</tr>
-								<tr>
-									<td>Start date: </td>
-									<td><input type='text' name='start_date' value=''
-										style="" required /></td>
-								</tr>
-								<tr>
-									<td>Expiration date: </td>
-									<td><input type='text' name='end_date' value=''
-										style="" required /></td>
-								</tr>
+								
 							</table>
+							<br>
 							<table style="width: 250px">
 								<tr>
 									<td><input class="button_sign" name="submit" id="submitt3"
@@ -237,5 +247,6 @@
 	</script>
 
 </body>
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/questions.css">
 </html>
