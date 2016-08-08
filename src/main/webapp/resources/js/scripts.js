@@ -403,8 +403,6 @@ function handleMaterial( img, source, type,title,desc)
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
-				material.width="1000";
-				material.height="600";
 				material.src=source + "#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true; disableprint=true;";
 				material.oncontextmenu="return false;"
 				showMaterial.appendChild(material);

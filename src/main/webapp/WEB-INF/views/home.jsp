@@ -173,13 +173,15 @@
                 </div>
 
             </div>
+            
+            <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
+             </div>
             <div id="material_info">
                 <p id="Material_name"> </p>
-                <p id="Material_Desc"> </p>
+                <p id="Material_Desc" align="justify"> </p>
             </div>
-            <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
 
-            </div>
+            
             <!-- end primary container -->
 
             <!-- search container -->
