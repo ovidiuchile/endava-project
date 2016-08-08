@@ -3,9 +3,14 @@
 <head>
     <title>Appollo</title>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
-    <style>
-		<%@include file="css/style.css"%>
-    </style>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script>
@@ -56,13 +61,37 @@
 <body onload='document.loginForm.username.focus();' style="background-color:#374140;">
 
 <div id = "menu">
-	<div id = "logo_div">
-		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
-		<ul>
-		  <li><a href="home">Back to main page</a></li>
-		</ul>
-	</div>
-</div>
+        <div id = "logo_div">
+            <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
+            <div class="col-md-89" style="">
+                <ul class="nav nav-pills" id="nav_pills" >
+                    <li class="" style="">
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Technologies</a>
+                    </li>
+                    <li class="" style="">
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
+                    </li>
+
+                    <li>
+                        <a href="upload"  id="uploadbttn"> Upload material</a>
+                    </li>
+                </ul>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
+                <div class="col-md-1  pull-right" style="">
+                    <div id="mySidenav" class="sidenav" style="z-index:99999;">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <br>
+                        <a href="admin">Admin</a>
+
+                        <a href="change-password">Change Password</a>
+
+                        <a href="logout">Logout</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 <div id = "users">
 
