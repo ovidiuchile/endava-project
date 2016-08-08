@@ -36,13 +36,6 @@
 		    	$("#background_image").css("height","auto");
 		    }
 		    
-		    $("#login-box").mouseenter(function(){
-		    	$("#login-box").hide();
-		    });
-		    $("#menu").mouseenter(function(){
-		    	$("#login-box").show();
-		    });
-		    
 		});
 		$(window).resize(function(){
 			if( $( window ).width() < $( window ).height() * 0.625 ){
