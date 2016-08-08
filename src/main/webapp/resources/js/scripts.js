@@ -125,7 +125,7 @@ $("#select_technology").change(function(){
 		}
 		catch(e)
 		{
-			
+
 		}
 		for (i of data.content) {
 			var material = document.createElement("option");
@@ -229,6 +229,7 @@ var carusel = document.getElementById('Carusel');
 $(".form-control").change(function() {
 	$('#myCarousel').hide();
     $("#testspace").hide();
+    $("#material_info").hide();
     $("#answer_button").hide();
 	var option = document.getElementById('Language_Selector').value;
 	var AddTopic = document.getElementById('Topics');
@@ -283,6 +284,7 @@ function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
+        $("#material_info").hide();
 		$("#test_input").show();
         $("#testspace").hide();
 		$("#search-container").hide();
@@ -305,8 +307,12 @@ function handleelement(i,topic,option)
 			url: "technologies/" + option + "/topics/" + i + "/materials"
 		}).then(function (data) {
 			var test=0;
+            var divMats = document.createElement("div");
 			console.log(data.content.length);
 			for(k of data.content) {
+                var title = k.content.title;
+                var desc = k.content.description;
+                console.log(title,desc);
 				if (test == 0) {
 					var carousel = document.getElementById('Carusel');
 					var material = document.createElement("img");
@@ -324,7 +330,7 @@ function handleelement(i,topic,option)
 					{
 						material.src="http://az186482.vo.msecnd.net/source/i/source/previewNotAvailableLarge.jpg";
 					}
-					handleMaterial(material,source,type);
+					handleMaterial(material,source,type,title,desc);
 					div.appendChild(material);
 					carousel.appendChild(div);
 				}
@@ -345,7 +351,7 @@ function handleelement(i,topic,option)
 						material.src="http://az186482.vo.msecnd.net/source/i/source/previewNotAvailableLarge.jpg";
 					}
 					div2.className = "item ";
-					handleMaterial(material,source,type);
+					handleMaterial(material,source,type,title,desc);
 					div2.appendChild(material);
 					carousel.appendChild(div2);
 				}
@@ -361,20 +367,24 @@ function handleelement(i,topic,option)
  * @param source source for the actual material be it online or local
  * @param type type as in img / pdf / video
  */
-function handleMaterial( img, source, type)
+function handleMaterial( img, source, type,title,desc)
 {
 	console.log(type);
 		img.addEventListener("click", function (e) {
 			$("#myCarousel").hide();
 			$("material").show();
+            $("#material_info").show();
 			var showMaterial = document.getElementById('material');
-			showMaterial.style.display = " initial";
+            var material_name= document.getElementById('Material_name');
+            var material_desc= document.getElementById('Material_Desc');
+            material_name.innerHTML = title;
+            material_desc.innerHTML = desc;
+            showMaterial.style.display = " initial";
 			showMaterial.removeChild(showMaterial.childNodes[0]);
 			if( type==0 )
 			{
 				var material = document.createElement("img");
 				material.name = "material"
-				material.innerHTML = " test";
 				material.src = source;
 				material.oncontextmenu="return false;"
 				showMaterial.appendChild(material);
@@ -387,17 +397,17 @@ function handleMaterial( img, source, type)
 				material.width="600";
 				material.height="360";
 				material.src=source;
-				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
+				showMaterial.appendChild(material);
 			}
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
 				material.width="1000";
 				material.height="600";
-				material.src=source;
-				showMaterial.appendChild(material);
+				material.src=source + "#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true; disableprint=true;";
 				material.oncontextmenu="return false;"
+				showMaterial.appendChild(material);
 			}
 			var container = document.getElementById('search-container');
 			container.style.display="none ";
@@ -466,12 +476,17 @@ function search(){
 		url: url
 	}).then(function (data) {
 		console.log(data.content.length);
+		if(data.content.length==0)
+		{
+			var noSearchResult = document.createElement("p");
+			noSearchResult.innerHTML = " No search results were found";
+			search_output.appendChild(noSearchResult);
+		}
 		for (i of data.content) {
 			var div = document.createElement("div");
 			
 			div.className += "search-div-material";
-			
-			var select = document.createElement("select");
+
 			var lang = document.createElement("option");
 			lang.value = i.content.topic.technology.technology_id;
 
@@ -483,10 +498,16 @@ function search(){
 			
 			var resultsTitle = document.createElement("h4");
 			resultsTitle.value = i.content.topic.technology.name + " > " + i.content.topic.name + " > " + i.content.title;
+
+
+			var dataupload = i.content.upload_date;
+			var advSearch = document.createElement("p");
+			advSearch.innerHTML= dataupload + " : " + i.content.content_editor.name + "  "  +i.content.content_editor.surname;
 			
 			var text3=document.createTextNode(resultsTitle.value);
 			resultsTitle.appendChild(text3);
-			
+			resultsTitle.appendChild(advSearch);
+
 			var resultsDescription = document.createElement("p");
 			resultsDescription.value = i.content.description;
 			
@@ -502,14 +523,9 @@ function search(){
 			var text2=document.createTextNode(material.value);
 			material.appendChild(text2);
 
-			select.add(lang);
-			select.add(topic);
-			select.add(material);
-			select.style.display = "none";
 			var buton =  document.createElement("button");
 			searchResult(buton, lang.value, topic.value, material.value);
 			buton.innerHTML= "Go to material";
-			div.appendChild(select);
 			buton.className = "result-search-button";
 			
 			var str = resultsTitle.innerHTML; 
@@ -561,9 +577,7 @@ function searchResult(buton, langId, topicId, materialId)
 	{
 
 	}
-	$("myCarousel").show();
-	var carusel = document.getElementById('myCarousel');
-	carusel.style.display = " block";
+	$("#myCarousel").hide();
 	$("material").show();
 
 	var AddTopic = document.getElementById('Topics');
@@ -601,6 +615,11 @@ function searchResult(buton, langId, topicId, materialId)
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " initial";
 		showMaterial.removeChild(showMaterial.childNodes[0]);
+        var material_name= document.getElementById('Material_name');
+        var material_desc= document.getElementById('Material_Desc');
+        material_name.innerHTML = data.content.title;
+        material_desc.innerHTML = data.content.description;
+        showMaterial.style.display = " initial";
 		var type = data.content.type;
 		var source = data.content.link;
 			if( type==0 )
@@ -620,17 +639,18 @@ function searchResult(buton, langId, topicId, materialId)
 				material.width="600";
 				material.height="360";
 				material.src=source;
-				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
+				showMaterial.appendChild(material);
 			}
 			else if ( type == 2 )
 			{
 				var material = document.createElement("iframe");
 				material.width="1000px";
 				material.height="600px";
+				source = source + "#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true; disableprint=true;";
 				material.src=source;
-				showMaterial.appendChild(material);
 				material.oncontextmenu="return false;"
+				showMaterial.appendChild(material);
 			}
 
 		$("myCarousel").show();

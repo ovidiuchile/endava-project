@@ -328,7 +328,7 @@ html *
 }
 #Topics .btn:focus {
 	outline-color:#D9CB9E;
-	outline:0;
+	outline: 0;
 }
 #Topics .btn:active{
 	outline-color: #D9CB9E;
