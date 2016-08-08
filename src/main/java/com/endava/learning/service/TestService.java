@@ -1,9 +1,9 @@
 package com.endava.learning.service;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,19 +23,22 @@ public class TestService {
 	private AnswerDAO answerDAO;
 
 	public List<Answer> getTestByTopic(Long topic_id) {
-		List<Answer> testQuestions = new ArrayList<>();
 		List<Question> questions = questionDAO.getQuestionsByTopic(topic_id);
-		List<Answer> answers = new ArrayList<>();
+		List<Answer> testQuestions = new LinkedList<>();
+		List<Answer> answers = new LinkedList<>();
+		
+		Random random = new Random();
+		int[] existingQuestions = new int[questions.size()];
 		int questionNumber;
-		try {
-			for (int i = 0; i < 10; i++) {
-				questionNumber = (int) (Math.random() * questions.size());
-				answers = answerDAO.getAnswersByQuestionId(questions.get(questionNumber).getId());
-				testQuestions.addAll(answers);
-				questions.remove(questions.get(questionNumber));
+		
+		for (int i = 0; i < 10; i++) {
+			questionNumber = random.nextInt(questions.size());
+			while(existingQuestions[questionNumber] == 1){
+				questionNumber = random.nextInt(questions.size());
 			}
-		} catch (IndexOutOfBoundsException e) {
-			e.printStackTrace();
+			answers = answerDAO.getAnswersByQuestionId(questions.get(questionNumber).getId());
+			testQuestions.addAll(answers);
+			existingQuestions[questionNumber] = 1;
 		}
 		
 		return testQuestions;
