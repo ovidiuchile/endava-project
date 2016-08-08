@@ -231,6 +231,8 @@ $(".form-control").change(function() {
     $("#testspace").hide();
     $("#material_info").hide();
     $("#answer_button").hide();
+    $("#retake_button").hide();
+    $("#testAnswer").hide();
 	var option = document.getElementById('Language_Selector').value;
 	var AddTopic = document.getElementById('Topics');
 	var material = document.createElement("img");
@@ -284,13 +286,16 @@ function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
+        $("#retake_button").hide();
         $("#material_info").hide();
 		$("#test_input").show();
         $("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
         $("#answer_button").hide();
+        $("#testAnswer").hide();
 		testFunction(i,option);
+        testRetake(i,option);
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " none";
 		while (carusel.childElementCount != 0) {
@@ -374,6 +379,8 @@ function handleMaterial( img, source, type,title,desc)
 			$("#myCarousel").hide();
 			$("material").show();
             $("#material_info").show();
+            $("#retake_button").hide();
+            $("#testAnswer").hide();
 			var showMaterial = document.getElementById('material');
             var material_name= document.getElementById('Material_name');
             var material_desc= document.getElementById('Material_Desc');
@@ -443,6 +450,8 @@ function search(){
 	$("#search-container").show();
 	$("#material").hide();
     $("#testspace").hide();
+    $("#testAnswer").hide();
+    $("#retake_button").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
@@ -794,7 +803,6 @@ function testFunction(topic_id,option)
                 }
                 var prevId =i.content.question.id;
             }
-
 		});
 	});
 
@@ -812,9 +820,13 @@ function testFunction(topic_id,option)
 
 function handleButon(option, topic_id)
 {
-	var testSpace = document.getElementById("testspace");
+	var testSpace = document.getElementById("testAnswer");
     $("#answer_button").unbind("click");
     $("#answer_button").bind("click" , function (e) {
+        $("#testAnswer").show();
+        $("#answer_button").hide();
+        $("#retake_button").show();
+        testSpace.removeChild(testSpace.childNodes[0]);
         var test="";
         $('input[name="answer"]:checked').each(function() {
             test = test + this.value + " ";
@@ -840,7 +852,7 @@ function handleButon(option, topic_id)
                 test= test+1;
 				if(k==0)
 				{
-					result.innerHTML = "You've achieved " + i.content + " points!";
+					result.innerHTML = "You've achieved " + i.content + " points out of 100!";
 					testSpace.appendChild(result);
 					k++;
 				}
@@ -860,5 +872,84 @@ function handleButon(option, topic_id)
             console.log(test);
         });
     });
+
+}
+
+
+function testRetake(topic_id,option)
+{
+    $("#retake_button").unbind("click");
+    var testSpace = document.getElementById("testspace");
+    $("#retake_button").bind("click" , function (e) {
+        $("#answer_button").show();
+        $("#myCarousel").hide();
+        while (testSpace.childElementCount != 0) {
+            try {
+                testSpace.removeChild(testSpace.childNodes[0]);
+            }
+            catch (e) {
+
+            }
+        }
+        $("#testspace").show();
+        var url = "technologies/" + option + "/topics/" + topic_id + "/test" ;
+        console.log(url);
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: url
+        }).then(function (data) {
+            var nrofQuestion =0;
+            for(i of data.content)
+            {
+                var nextId=i.content.question.id;
+                console.log(nextId,prevId);
+                if(nextId!=prevId)
+                {
+                    nrofQuestion = nrofQuestion + 1;
+                    var Question_numbr = document.createElement("p");
+                    console.log("Test");
+                    var div = document.createElement("div");
+                    Question_numbr.innerHTML = "Question " + nrofQuestion;
+                    div.appendChild(Question_numbr);
+                    var paragraph = document.createElement("p");
+                    var questionText = i.content.question.question_text;
+                    paragraph.innerHTML = questionText;
+                    div.appendChild(paragraph);
+                    var questionAnswer = document.createElement("input");
+                    questionAnswer.setAttribute('type','checkbox');
+                    questionAnswer.name="answer";
+                    div1 = document.createElement("div");
+                    div1.className="answer_div";
+                    div1.id= i.content.id;
+                    div1.appendChild(questionAnswer);
+                    div1.appendChild(document.createTextNode(i.content.answer_text));
+                    questionAnswer.value=i.content.id;
+                    div.className="question";
+                    div.appendChild(div1);
+                    testSpace.appendChild(div);
+                }
+                else
+                {
+                    var questionAnswer = document.createElement("input");
+                    questionAnswer.setAttribute('type','checkbox');
+                    questionAnswer.name="answer";
+                    div1 = document.createElement("div");
+                    div1.className="answer_div";
+                    div1.id= i.content.id;
+                    div1.appendChild(questionAnswer);
+                    div1.appendChild(document.createTextNode(i.content.answer_text));
+                    questionAnswer.value=i.content.id;
+                    div.className="question";
+                    div.appendChild(div1);
+                    testSpace.appendChild(div);
+                }
+                var prevId =i.content.question.id;
+            }
+
+        });
+    });
+
+    handleButon(option, topic_id);
 
 }
