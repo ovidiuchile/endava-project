@@ -71,7 +71,7 @@
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Upload material</a>
+                        <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
@@ -169,6 +169,7 @@
                     <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
                     <a href="#" onclick="closeNav()"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
+                    <a href="#" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>
 
@@ -215,6 +216,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
 <script>
     var user_type = "<%= session.getAttribute("user_type") %>";
+    var user_id = "<%= session.getAttribute("id") %>";
     console.log(user_type);
     if(user_type=="normal user")
     {

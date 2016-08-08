@@ -24,7 +24,7 @@ public class QuestionDAO extends AbstractDAO{
 	@Transactional
 	@SuppressWarnings("unchecked")
 	public List<Question> getQuestionsByTopic(Long topic_id) {
-		return (List<Question>) em().createQuery("SELECT question FROM Question question WHERE question.topic.id = :topic_id")
+		return (List<Question>) em().createQuery("SELECT question FROM Question question WHERE question.topic.id = :topic_id AND to_date(question.end_date, 'YYYY-MM-DD') >= current_date")
 				.setParameter("topic_id", topic_id).getResultList();
 	}
 
