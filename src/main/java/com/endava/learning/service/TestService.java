@@ -27,14 +27,14 @@ public class TestService {
 		List<Answer> testQuestions = new LinkedList<>();
 		List<Answer> answers = new LinkedList<>();
 		
-		Random random = new Random();
+		if(questions.size() != 0){
 		int[] existingQuestions = new int[questions.size()];
 		int questionNumber;
 		
 		for (int i = 0; i < 10; i++) {
-			questionNumber = random.nextInt(questions.size());
+			questionNumber = (int)(Math.random() * questions.size());
 			while(existingQuestions[questionNumber] == 1){
-				questionNumber = random.nextInt(questions.size());
+				questionNumber = (int)(Math.random() * questions.size());
 			}
 			answers = answerDAO.getAnswersByQuestionId(questions.get(questionNumber).getId());
 			testQuestions.addAll(answers);
@@ -42,6 +42,16 @@ public class TestService {
 		}
 		
 		return testQuestions;
+		}
+		else{
+			try{
+				throw new IndexOutOfBoundsException();
+			}
+			catch(IndexOutOfBoundsException e){
+				e.printStackTrace();
+			}
+			return null;
+		}
 	}
 
 }
