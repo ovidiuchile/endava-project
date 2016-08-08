@@ -125,7 +125,7 @@ $("#select_technology").change(function(){
 		}
 		catch(e)
 		{
-			
+
 		}
 		for (i of data.content) {
 			var material = document.createElement("option");
@@ -466,12 +466,17 @@ function search(){
 		url: url
 	}).then(function (data) {
 		console.log(data.content.length);
+		if(data.content.length==0)
+		{
+			var noSearchResult = document.createElement("p");
+			noSearchResult.innerHTML = " No search results were found";
+			search_output.appendChild(noSearchResult);
+		}
 		for (i of data.content) {
 			var div = document.createElement("div");
 			
 			div.className += "search-div-material";
-			
-			var select = document.createElement("select");
+
 			var lang = document.createElement("option");
 			lang.value = i.content.topic.technology.technology_id;
 
@@ -502,14 +507,9 @@ function search(){
 			var text2=document.createTextNode(material.value);
 			material.appendChild(text2);
 
-			select.add(lang);
-			select.add(topic);
-			select.add(material);
-			select.style.display = "none";
 			var buton =  document.createElement("button");
 			searchResult(buton, lang.value, topic.value, material.value);
 			buton.innerHTML= "Go to material";
-			div.appendChild(select);
 			buton.className = "result-search-button";
 			
 			var str = resultsTitle.innerHTML; 
@@ -561,9 +561,7 @@ function searchResult(buton, langId, topicId, materialId)
 	{
 
 	}
-	$("myCarousel").show();
-	var carusel = document.getElementById('myCarousel');
-	carusel.style.display = " block";
+	$("#myCarousel").hide();
 	$("material").show();
 
 	var AddTopic = document.getElementById('Topics');
