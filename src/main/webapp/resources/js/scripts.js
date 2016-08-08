@@ -318,6 +318,7 @@ function handleelement(i,topic,option)
                 var title = k.content.title;
                 var desc = k.content.description;
                 console.log(title,desc);
+                var material_id = k.content.material_id;
 				if (test == 0) {
 					var carousel = document.getElementById('Carusel');
 					var material = document.createElement("img");
@@ -335,7 +336,7 @@ function handleelement(i,topic,option)
 					{
 						material.src="http://az186482.vo.msecnd.net/source/i/source/previewNotAvailableLarge.jpg";
 					}
-					handleMaterial(material,source,type,title,desc);
+					handleMaterial(material,source,type,title,desc,material_id);
 					div.appendChild(material);
 					carousel.appendChild(div);
 				}
@@ -356,7 +357,7 @@ function handleelement(i,topic,option)
 						material.src="http://az186482.vo.msecnd.net/source/i/source/previewNotAvailableLarge.jpg";
 					}
 					div2.className = "item ";
-					handleMaterial(material,source,type,title,desc);
+					handleMaterial(material,source,type,title,desc,material_id);
 					div2.appendChild(material);
 					carousel.appendChild(div2);
 				}
@@ -372,10 +373,12 @@ function handleelement(i,topic,option)
  * @param source source for the actual material be it online or local
  * @param type type as in img / pdf / video
  */
-function handleMaterial( img, source, type,title,desc)
+function handleMaterial( img, source, type,title,desc,id)
 {
 	console.log(type);
 		img.addEventListener("click", function (e) {
+            $("#download_button").show();
+            DownloadReq(id);
 			$("#myCarousel").hide();
 			$("material").show();
             $("#material_info").show();
@@ -948,4 +951,26 @@ function testRetake(topic_id,option)
 
     handleButon(option, topic_id);
 
+}
+
+
+function DownloadReq(id)
+{
+    console.log(user_id);
+    var button_down = document.getElementById("download_button");
+    button_down.addEventListener("click", function(e)
+    {
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: 'downloadPermissionsUM?user_id=' + user_id + "&material_id=" + id
+        }).then(function (data) {
+            var permision = data.content[0].content.permission;
+            console.log(1);
+            if(permision == false)
+            {
+                $("#download_button").hide();
+            }
+        })
+    });
 }
