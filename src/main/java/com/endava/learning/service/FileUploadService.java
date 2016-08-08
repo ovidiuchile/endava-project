@@ -3,7 +3,6 @@ package com.endava.learning.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,23 +13,18 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.endava.learning.dao.MaterialDAO;
-import com.endava.learning.dao.TopicDAO;
 import com.endava.learning.model.Material;
-import com.endava.learning.model.Topic;
 
 @Service
 public class FileUploadService {
     @Autowired
     private MaterialDAO materialDAO;
     
-    @Autowired
-    private TopicDAO topicDAO;
-
     @Transactional
     public String uploadFile(MultipartFile file) throws FileUploadException, IOException {
         String generatedName = UUID.randomUUID().toString();
         saveFile(file, generatedName);
-        return Material.LOCATION + File.separator + generatedName;
+        return "http://tomcat1.ddns.net/uploads/" + generatedName;
     }
 
     private void saveFile(MultipartFile file, String generatedName) throws FileUploadException, IOException {

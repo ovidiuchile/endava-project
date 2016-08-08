@@ -1,3 +1,6 @@
+/**
+ * Initializes the dropdown menus for the languages
+ */
 $(document).ready(function(){
 	var grandparent_height = $('.col-md-9').width();
 	$('#notes').width( grandparent_height );
@@ -109,13 +112,20 @@ $("#select_technology").change(function(){
 		url: "technologies/" + Select_Tech + "/topics/" + child + "/materials"
 	}).then(function (data) {
 		var AddMaterial = document.getElementById("select_material");
-		while (AddMaterial.childElementCount != 0) {
-			try {
-				AddMaterial.removeChild(AddMaterial.childNodes[0]);
-			}
-			catch (e) {
+		try
+		{
+			while (AddMaterial.childElementCount != 0) {
+				try {
+					AddMaterial.removeChild(AddMaterial.childNodes[0]);
+				}
+				catch (e) {
 
+				}
 			}
+		}
+		catch(e)
+		{
+			
 		}
 		for (i of data.content) {
 			var material = document.createElement("option");
@@ -211,10 +221,15 @@ $("#select_topic").change(function(){
 	});
 });
 
-
+/**
+ * Handles all the topics and materials regarding the language selected
+ * @type {Element}
+ */
 var carusel = document.getElementById('Carusel');
 $(".form-control").change(function() {
 	$('#myCarousel').hide();
+    $("#testspace").hide();
+    $("#answer_button").hide();
 	var option = document.getElementById('Language_Selector').value;
 	var AddTopic = document.getElementById('Topics');
 	var material = document.createElement("img");
@@ -258,12 +273,21 @@ $(".form-control").change(function() {
 	});
 });
 
+/**
+ * Handles all of the materials inside the carousel created by the language selected and the topics and adds a click event on them that displays materials and or tests
+ * @param i topic ID
+ * @param topic Topic object - button
+ * @param option language ID
+ */
 function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
+		$("#test_input").show();
+        $("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
+        $("#answer_button").hide();
 		testFunction(i,option);
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " none";
@@ -331,7 +355,12 @@ function handleelement(i,topic,option)
 	});
 }
 
-
+/**
+ * Handles the materials inside the carousel and  adds a click on them in order to show the actual amterails / imgs / ppts / pdfs / vids
+ * @param img Placeholder image for pdf / video / ppt
+ * @param source source for the actual material be it online or local
+ * @param type type as in img / pdf / video
+ */
 function handleMaterial( img, source, type)
 {
 	console.log(type);
@@ -352,7 +381,9 @@ function handleMaterial( img, source, type)
 			}
 			else if ( type == 1)
 			{
-				var material = document.createElement("iframe");
+				var material = document.createElement("video");
+				material.autoplay= true;
+				material.controls = true;
 				material.width="600";
 				material.height="360";
 				material.src=source;
@@ -392,11 +423,16 @@ function closeNav() {
 }
 
 
-
+/**
+ * Hides all of the other divs and takes all of the search parameters sending it with an ajax request to the servlet
+ * It returns the search page populated with all of the search results
+ * Appends searchResult() function to all of the buttons created
+ */
 function search(){
 	$("#myCarousel").hide();
 	$("#search-container").show();
 	$("#material").hide();
+    $("#testspace").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
@@ -472,16 +508,17 @@ function search(){
 			select.style.display = "none";
 			var buton =  document.createElement("button");
 			searchResult(buton, lang.value, topic.value, material.value);
-			buton.innerHTML= "Get material";
+			buton.innerHTML= "Go to material";
 			div.appendChild(select);
 			buton.className = "result-search-button";
 			
-			var str = resultsTitle.innerHTML;
-		    var res = str.replace(search, "<span style = 'background-color:yellow'>" + search + "</span>");
+			var str = resultsTitle.innerHTML; 
+			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
+		    
 		    resultsTitle.innerHTML = res;
 		    
 		    var str = resultsDescription.innerHTML;
-		    var res = str.replace(search, "<span style = 'background-color:yellow'>" + search + "</span>");
+		    var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
 		    resultsDescription.innerHTML = res;
 
 			
@@ -497,6 +534,15 @@ function search(){
 
 }
 
+
+/**
+ * Function that adds a event handler to each of the buttons that takes the user through an ajax request to the actual materials on the site displaying both the
+ * languages and the topics for it.
+ * @param buton The element to which the handler will be attached
+ * @param langId The language ID in order for the topics and materials to be displayed / obtained
+ * @param topicId The topic ID
+ * @param materialId Material ID
+ */
 function searchResult(buton, langId, topicId, materialId)
 {
 	console.log(langId, topicId, materialId);
@@ -568,7 +614,9 @@ function searchResult(buton, langId, topicId, materialId)
 			}
 			else if ( type == 1)
 			{
-				var material = document.createElement("iframe");
+				var material = document.createElement("video");
+				material.autoplay= true;
+				material.controls = true;
 				material.width="600";
 				material.height="360";
 				material.src=source;
@@ -602,7 +650,10 @@ function show()
 }
 
 
-
+/**
+ * Function that takes the input from the search bar + type of the user and returns a list with all of the users that match said
+ * search criteria
+ */
 function searchUser()
 {
 	var usrdiv = document.getElementById("usr_SearchRestults");
@@ -646,11 +697,19 @@ function searchUser()
 	});
 
 }
+
+/**
+ * Function that received the Language ID and the Topic Id in order to create tests apropiate for those critatera
+ * @param topic_id The topic ID
+ * @param option The language ID
+ * handleButon function - Appends a event handler for when the user finishes completing the test
+ */
 function testFunction(topic_id,option)
 {
 	$("#test_input").unbind("click");
 	var testSpace = document.getElementById("testspace");
 	$("#test_input").bind("click" , function (e) {
+        $("#answer_button").show();
         $("#myCarousel").hide();
         while (testSpace.childElementCount != 0) {
 			try {
@@ -690,9 +749,11 @@ function testFunction(topic_id,option)
                     questionAnswer.name="answer";
                     div1 = document.createElement("div");
                     div1.className="answer_div";
+                    div1.id= i.content.id;
+                    div1.appendChild(questionAnswer);
                     div1.appendChild(document.createTextNode(i.content.answer_text));
                     questionAnswer.value=i.content.id;
-                    div1.appendChild(questionAnswer);
+                    div.className="question";
                     div.appendChild(div1);
                     testSpace.appendChild(div);
                 }
@@ -703,9 +764,11 @@ function testFunction(topic_id,option)
                     questionAnswer.name="answer";
                     div1 = document.createElement("div");
                     div1.className="answer_div";
+                    div1.id= i.content.id;
+                    div1.appendChild(questionAnswer);
                     div1.appendChild(document.createTextNode(i.content.answer_text));
                     questionAnswer.value=i.content.id;
-                    div1.appendChild(questionAnswer);
+                    div.className="question";
                     div.appendChild(div1);
                     testSpace.appendChild(div);
                 }
@@ -720,10 +783,16 @@ function testFunction(topic_id,option)
 }
 
 
-
+/**
+ * Function that sends the servlet the topic id, language option and the answers from the input and return through an ajax request the score + highlights
+ * right and wrong answers
+ * @param option Language ID
+ * @param topic_id Topic ID
+ */
 
 function handleButon(option, topic_id)
 {
+	var testSpace = document.getElementById("testspace");
     $("#answer_button").unbind("click");
     $("#answer_button").bind("click" , function (e) {
         var test="";
@@ -731,11 +800,44 @@ function handleButon(option, topic_id)
             test = test + this.value + " ";
         });
         var url = "technologies/" + option + "/topics/" + topic_id + "/selectedAnswers?selectedAnswers=" +test;
+        console.log(url);
         $.ajax({
             type: 'GET',
             dataType: 'json',
             url: url
         }).then(function (data) {
+			var k=0;
+            var test = 0;
+			var result = document.createElement("p");
+            var elements = document.getElementsByClassName("answer_div");
+            for(i=0 ; i<elements.length ; i++)
+            {
+                elements[i].style.color="#F9675A";
+            }
+			for(i of data.content)
+			{
+                console.log(i.length);
+                test= test+1;
+				if(k==0)
+				{
+					result.innerHTML = "You've achieved " + i.content + " points!";
+					testSpace.appendChild(result);
+					k++;
+				}
+				else
+				{
+                    try {
+                        var answer = document.getElementById(i.content);
+                        console.log(i.content);
+                        answer.style.color = "#93FF58";
+                    }
+                    catch (e)
+                        {
+
+                        }
+				}
+			}
+            console.log(test);
         });
     });
 

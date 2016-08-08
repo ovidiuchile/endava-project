@@ -16,6 +16,7 @@
 	
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
+	
 
 	<title>Appollo</title>
 	
@@ -48,9 +49,9 @@
 		});
 	</script> 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
 </head>
 <body>
-<img src="${pageContext.request.contextPath}/resources/images/background1.jpg" id = "background_1">
 
 
 <div >
@@ -61,19 +62,19 @@
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
                     <li class="dropdown" id="firstli" style="z-index:99999;">
-                        <select class="form-control" id="Language_Selector" style="height:40px; z-index:99999;" >
-                            <option selected disabled hidden>Technologies</option>
+                        <select class="form-control" id="Language_Selector" style="height:42px; z-index:100000; border-color: #D9CB9E;" >
+                            <option selected disabled hidden style="">Technologies</option>
                         </select>
-                    </li>
+                    </li> 
                     <li class="" style="">
-                        <a href="#">Try it yourself</a>
+                        <a style="z-index:99988;"href="#">Try it yourself</a>
                     </li>
 
                     <li>
                         <a href="upload"  id="uploadbttn"> Upload material</a>
                     </li>
                 </ul>
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px"></span>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
                 <div class="col-md-1  pull-right" style="">
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -93,7 +94,7 @@
 
 
 
-    <div id="vr" style="position:absolute; left:320px;border-left:1px solid pink; height: calc( 100% - 100px)  ;margin-top:15px;"></div>
+    <div id="vr" style="position:absolute; left:320px;border-left:1px solid #D13F32; height: calc( 100% - 100px)  ;margin-top:15px;"></div>
     <div id = "main_div" style="margin-top:10px;">
 
         <div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
@@ -109,13 +110,13 @@
                     </select>
                     <table>
                         <tr>
-                            <td><p>From : </p></td><td><input style="color:black;"  type="text" id="datepicker1"></td>
+                            <td><p>From : </p></td><td><input style=""  type="text" id="datepicker1"></td>
                         </tr>
                         <tr>
-                            <td><p>To :</p></td><td><input style="color:black;"  type="text" id="datepicker2">
+                            <td><p>To :</p></td><td><input style=""  type="text" id="datepicker2">
                         </tr>
                         <tr>
-                            <td><p>Content editor:</p></td><td><input type="text" style="color:black;" id="content_creator">
+                            <td><p>Content editor:</p></td><td><input type="text" style="" id="content_creator">
                         </tr>
                     </table>
                 </div>
@@ -156,18 +157,18 @@
 
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Next</span>
                 </a>
                 <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 
-                    <input id="test_input" class="btn btn-default" value="Test your knowledge" type="submit" >
+                    <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
-                    <img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img">
+                    <a href="#"><img src="http://iconbug.com/data/21/256/3c4d4ac0f036ce984c00c8fead049901.png" id="download_img"></a>
 
                 </div>
 
@@ -184,11 +185,10 @@
 
 
             <!-- test space -->
-            <div id="testspace" style="display:none">
-
-
+            <div id="testspace" style="display:none"> 
+				<img id="image" src="${pageContext.request.contextPath}/resources/images/logo.png">
             </div>
-            <button id="answer_button"> TEST RESULT</button>
+            <button id="answer_button" style=" display:none; position:relative; left:45px; "> TEST RESULT</button>
             <!-- test space -->
         </div>
 

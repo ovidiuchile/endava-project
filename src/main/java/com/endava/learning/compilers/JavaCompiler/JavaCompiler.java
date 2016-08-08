@@ -38,14 +38,11 @@ public class JavaCompiler {
 
 	private static void deleteFiles() {
 		try {
-			File folder = new File(System.getProperty("catalina.home") + "/compilerDirectory");
+			File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
 			for (final File fileEntry : folder.listFiles()) {
-				String tempFile = fileEntry.getAbsolutePath();
-				// Delete if tempFile exists
-				File fileTemp = new File(tempFile);
-				if (fileTemp.exists()
-						&& (fileTemp.getName().contains(".class") || fileTemp.getName().contains(".java"))) {
-					fileTemp.delete();
+				if (fileEntry.exists()
+						&& (fileEntry.getName().contains(".class") || fileEntry.getName().contains(".java"))) {
+					fileEntry.delete();
 				}
 			}
 		} catch (Exception e) {
@@ -57,12 +54,12 @@ public class JavaCompiler {
 		String result = "";
 		PrintWriter writer;
 		String javaFileName = RandomStringUtils.randomAlphanumeric(8)+".java";
+		File folder = new File(System.getProperty("catalina.home")+"/webapps/compiler_directory");
 		try {
-			File folder = new File(System.getProperty("catalina.home") + "/compilerDirectory");
 			if (!folder.exists()) {
 				folder.mkdir();
 			}
-			File javaFile = new File(System.getProperty("catalina.home") + "/compilerDirectory/" + javaFileName);
+			File javaFile = new File(folder.getAbsolutePath()+ "/" + javaFileName);
 			if (!javaFile.exists()) {
 				try {
 					javaFile.createNewFile();
@@ -78,10 +75,19 @@ public class JavaCompiler {
 		}
 
 		try {
-			result += runProcess("javac "+System.getProperty("catalina.home") + "/compilerDirectory/" + javaFileName);
-			result += runProcess("java -cp "+System.getProperty("catalina.home") + "/compilerDirectory Main");
+			result += runProcess("javac "+folder.getAbsolutePath()+ "/"+ javaFileName);
+			String className=null;
+			
+			for (final File fileEntry : folder.listFiles()) {
+				if (fileEntry.exists()
+						&& fileEntry.getName().contains(".class")) {
+					className=fileEntry.getName();
+				}
+			}
+			
+			result += runProcess("java -cp "+folder.getAbsolutePath()+" "+className);
 		} catch (Exception e) {
-			e.printStackTrace();
+			result += e.getMessage();
 		}
 		deleteFiles();
 		return result;

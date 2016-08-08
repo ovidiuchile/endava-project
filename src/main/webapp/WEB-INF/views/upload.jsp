@@ -53,7 +53,6 @@
 	</style>
 </head>
 <body style="width:100vw;">
-	<img src="${pageContext.request.contextPath}/resources/images/background1.jpg" id = "background_1">
 	
 	
 	<div style="width:calc( 96vw - 20px);">
