@@ -172,6 +172,10 @@
                 </div>
 
             </div>
+            <div id="material_info">
+                <p id="Material_name"> </p>
+                <p id="Material_Desc"> </p>
+            </div>
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
 
             </div>
