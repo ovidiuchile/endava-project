@@ -71,7 +71,7 @@
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Upload material</a>
+                        <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
