@@ -103,8 +103,8 @@
 	<!-- START LOGIN BOX -->
 
 	<div id="search-users-box">
-	    
 	    <div id = "test_div">
+	    	<p style = "color:#D9CB9E;margin:auto;">Compile me, baby :*</p>
 	    	<form name='compilerForm' action="<c:url value='/compiler/java' />" method='POST'>
 				  <textarea name="source"  id = "text-area-compiler" >${source}</textarea>
 				  <br>
