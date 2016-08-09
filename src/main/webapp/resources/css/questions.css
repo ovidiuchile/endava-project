@@ -6,3 +6,17 @@
 #radio_correctdiv, #radio_incorrectdiv{
 	width:70px;
 }
+.radio{
+	position:relative;
+	top:2px;
+}
+
+.Zebra_DatePicker_Icon_Inside_Right{
+	display:none;
+}
+.Zebra_DatePicker{
+	margin-top:75px;
+}
+#container{
+	margin-bottom:20px;
+}
