@@ -24,4 +24,14 @@ public class DownloadPermissionsService {
 	public ArrayList<DownloadPermisions> getPermissions(Long user_id, Long material_id) {
 		return (ArrayList<DownloadPermisions>) downloadPermissionsDAO.getPermissions(user_id,material_id);
 	}
+	
+	@Transactional
+	public void savePermission(final DownloadPermisions downloadPermisions){
+		downloadPermissionsDAO.save(downloadPermisions);
+	}
+	
+	@Transactional
+	public void updatePermission(final DownloadPermisions downloadPermisions){
+		downloadPermissionsDAO.update(downloadPermisions);
+	}
 }

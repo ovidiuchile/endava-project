@@ -11,7 +11,7 @@ $(document).ready(function(){
 	var AddTech =  document.getElementById("Language_Selector");
 	var AddTechnologyToTopic = document.getElementById("select_tech");
 	var AddTechnologyToMaterial = document.getElementById("select_technology");
-	
+
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
@@ -21,22 +21,22 @@ $(document).ready(function(){
 			var technology = document.createElement("option");
 			var technology1 = document.createElement("option");
 			var technology2 = document.createElement("option");
-			
+
 			technology.value = i.content.technology_id;
 			technology.innerHTML = i.content.name;
-			
+
 			technology1.value = i.content.technology_id;
 			technology1.innerHTML = i.content.name;
-			
+
 			technology2.value = i.content.technology_id;
 			technology2.innerHTML = i.content.name;
-			
-			if(AddTech)
-            {
-                AddTech.add(technology);
-            }
 
-			
+			if(AddTech)
+			{
+				AddTech.add(technology);
+			}
+
+
 			if(AddTechnologyToTopic){
 				AddTechnologyToTopic.add(technology1);
 			}
@@ -72,7 +72,7 @@ $("#select_technology").change(function(){
 	$("#div_notes").fadeToggle(0);
 
 
-	
+
 	var AddTopic = document.getElementById("select_topic");
 	while (AddTopic.childElementCount != 0) {
 		try {
@@ -83,7 +83,7 @@ $("#select_technology").change(function(){
 		}
 	}
 	var child=0;
-    var Select_Tech = document.getElementById("select_technology").value;
+	var Select_Tech = document.getElementById("select_technology").value;
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
@@ -96,50 +96,50 @@ $("#select_technology").change(function(){
 			topic.value = i.content.topic_id;
 			topic.innerHTML = i.content.name;
 			if(k==0)
-				{
+			{
 				child=i.content.topic_id;
-				k++; 
+				k++;
 				console.log(child);
-				}
+			}
 
 			AddTopic.add(topic);
 
 		}
-	console.log(child);
-	$.ajax({
-		type: 'GET',
-		dataType: 'json',
-		url: "technologies/" + Select_Tech + "/topics/" + child + "/materials"
-	}).then(function (data) {
-		var AddMaterial = document.getElementById("select_material");
-		try
-		{
-			while (AddMaterial.childElementCount != 0) {
-				try {
-					AddMaterial.removeChild(AddMaterial.childNodes[0]);
-				}
-				catch (e) {
+		console.log(child);
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: "technologies/" + Select_Tech + "/topics/" + child + "/materials"
+		}).then(function (data) {
+			var AddMaterial = document.getElementById("select_material");
+			try
+			{
+				while (AddMaterial.childElementCount != 0) {
+					try {
+						AddMaterial.removeChild(AddMaterial.childNodes[0]);
+					}
+					catch (e) {
 
+					}
 				}
 			}
-		}
-		catch(e)
-		{
+			catch(e)
+			{
 
-		}
-		for (i of data.content) {
-			var material = document.createElement("option");
+			}
+			for (i of data.content) {
+				var material = document.createElement("option");
 
-			material.value = i.content.material_id;
-			material.innerHTML = i.content.title;
+				material.value = i.content.material_id;
+				material.innerHTML = i.content.title;
 
 
-			AddMaterial.add(material);
+				AddMaterial.add(material);
 
-		}
+			}
+		});
 	});
-	});
-	
+
 });
 
 //topic dropdown - delete page
@@ -152,7 +152,7 @@ $("#select_tech").change(function(){
 	$("#div_notes").fadeToggle(0);
 
 
-	
+
 	var AddTopic = document.getElementById("selecttopic");
 	while (AddTopic.childElementCount != 0) {
 		try {
@@ -162,7 +162,7 @@ $("#select_tech").change(function(){
 
 		}
 	}
-    var Select_Tech = document.getElementById("select_tech").value;
+	var Select_Tech = document.getElementById("select_tech").value;
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
@@ -191,7 +191,7 @@ $("#select_topic").change(function(){
 	$("#div_notes").fadeToggle(0);
 
 
-	
+
 	var AddMaterial = document.getElementById("select_material");
 	while (AddMaterial.childElementCount != 0) {
 		try {
@@ -201,8 +201,8 @@ $("#select_topic").change(function(){
 
 		}
 	}
-    var Select_Tech = document.getElementById("select_technology").value;
-    var Select_Topic = document.getElementById("select_topic").value;
+	var Select_Tech = document.getElementById("select_technology").value;
+	var Select_Topic = document.getElementById("select_topic").value;
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
@@ -228,11 +228,11 @@ $("#select_topic").change(function(){
 var carusel = document.getElementById('Carusel');
 $(".form-control").change(function() {
 	$('#myCarousel').hide();
-    $("#testspace").hide();
-    $("#material_info").hide();
-    $("#answer_button").hide();
-    $("#retake_button").hide();
-    $("#testAnswer").hide();
+	$("#testspace").hide();
+	$("#material_info").hide();
+	$("#answer_button").hide();
+	$("#retake_button").hide();
+	$("#testAnswer").hide();
 	var option = document.getElementById('Language_Selector').value;
 	var AddTopic = document.getElementById('Topics');
 	var material = document.createElement("img");
@@ -286,16 +286,16 @@ function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
-        $("#retake_button").hide();
-        $("#material_info").hide();
+		$("#retake_button").hide();
+		$("#material_info").hide();
 		$("#test_input").show();
-        $("#testspace").hide();
+		$("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
-        $("#answer_button").hide();
-        $("#testAnswer").hide();
+		$("#answer_button").hide();
+		$("#testAnswer").hide();
 		testFunction(i,option);
-        testRetake(i,option);
+		testRetake(i,option);
 		var showMaterial = document.getElementById('material');
 		showMaterial.style.display = " none";
 		while (carusel.childElementCount != 0) {
@@ -312,13 +312,13 @@ function handleelement(i,topic,option)
 			url: "technologies/" + option + "/topics/" + i + "/materials"
 		}).then(function (data) {
 			var test=0;
-            var divMats = document.createElement("div");
+			var divMats = document.createElement("div");
 			console.log(data.content.length);
 			for(k of data.content) {
-                var title = k.content.title;
-                var desc = k.content.description;
-                console.log(title,desc);
-                var material_id = k.content.material_id;
+				var title = k.content.title;
+				var desc = k.content.description;
+				console.log(title,desc);
+				var material_id = k.content.material_id;
 				if (test == 0) {
 					var carousel = document.getElementById('Carusel');
 					var material = document.createElement("img");
@@ -376,48 +376,49 @@ function handleelement(i,topic,option)
 function handleMaterial( img, source, type,title,desc,id)
 {
 	console.log(type);
-		img.addEventListener("click", function (e) {
-            $("#download_button").show();
-            DownloadReq(id);
-			$("#myCarousel").hide();
-			$("material").show();
-            $("#material_info").show();
-            $("#retake_button").hide();
-            $("#testAnswer").hide();
-			var showMaterial = document.getElementById('material');
-            var material_name= document.getElementById('Material_name');
-            var material_desc= document.getElementById('Material_Desc');
-            material_name.innerHTML = title;
-            material_desc.innerHTML = desc;
-            showMaterial.style.display = " initial";
-			showMaterial.removeChild(showMaterial.childNodes[0]);
-			if( type==0 )
-			{
-				var material = document.createElement("img");
-				material.name = "material"
-				material.src = source;
-				material.oncontextmenu="return false;"
-				showMaterial.appendChild(material);
-			}
-			else if ( type == 1)
-			{
-				var material = document.createElement("video");
-				material.autoplay= true;
-				material.controls = true;
-				material.src=source;
-				material.oncontextmenu="return false;"
-				showMaterial.appendChild(material);
-			}
-			else if ( type == 2 )
-			{
-				var material = document.createElement("iframe");
-				material.src=source + "#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true; disableprint=true;";
-				material.oncontextmenu="return false;"
-				showMaterial.appendChild(material);
-			}
-			var container = document.getElementById('search-container');
-			container.style.display="none ";
-		});
+	img.addEventListener("click", function (e) {
+		$("#download_button").show();
+		DownloadReq(id);
+		$("#myCarousel").hide();
+		$("#material").show();
+		$("#material_info").show();
+		$("#retake_button").hide();
+		$("#testAnswer").hide();
+		$("#drop_notes").show();
+		var showMaterial = document.getElementById('material');
+		var material_name= document.getElementById('Material_name');
+		var material_desc= document.getElementById('Material_Desc');
+		material_name.innerHTML = title;
+		material_desc.innerHTML = desc;
+		showMaterial.style.display = " initial";
+		showMaterial.removeChild(showMaterial.childNodes[0]);
+		if( type==0 )
+		{
+			var material = document.createElement("img");
+			material.name = "material"
+			material.src = source;
+			material.oncontextmenu="return false;"
+			showMaterial.appendChild(material);
+		}
+		else if ( type == 1)
+		{
+			var material = document.createElement("video");
+			material.autoplay= true;
+			material.controls = true;
+			material.src=source;
+			material.oncontextmenu="return false;"
+			showMaterial.appendChild(material);
+		}
+		else if ( type == 2 )
+		{
+			var material = document.createElement("iframe");
+			material.src=source + "#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true; disableprint=true;";
+			material.oncontextmenu="return false;"
+			showMaterial.appendChild(material);
+		}
+		var container = document.getElementById('search-container');
+		container.style.display="none ";
+	});
 
 }
 
@@ -447,10 +448,12 @@ function closeNav() {
 function search(){
 	$("#myCarousel").hide();
 	$("#search-container").show();
+	$("#material_info").hide();
+	$("#drop_notes").hide();
 	$("#material").hide();
-    $("#testspace").hide();
-    $("#testAnswer").hide();
-    $("#retake_button").hide();
+	$("#testspace").hide();
+	$("#testAnswer").hide();
+	$("#retake_button").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
@@ -492,7 +495,7 @@ function search(){
 		}
 		for (i of data.content) {
 			var div = document.createElement("div");
-			
+
 			div.className += "search-div-material";
 
 			var lang = document.createElement("option");
@@ -503,7 +506,7 @@ function search(){
 
 			var material = document.createElement("option");
 			material.value = i.content.material_id;
-			
+
 			var resultsTitle = document.createElement("h4");
 			resultsTitle.value = i.content.topic.technology.name + " > " + i.content.topic.name + " > " + i.content.title;
 
@@ -511,14 +514,14 @@ function search(){
 			var dataupload = i.content.upload_date;
 			var advSearch = document.createElement("p");
 			advSearch.innerHTML= dataupload + " : " + i.content.content_editor.name + "  "  +i.content.content_editor.surname;
-			
+
 			var text3=document.createTextNode(resultsTitle.value);
 			resultsTitle.appendChild(text3);
 			resultsTitle.appendChild(advSearch);
 
 			var resultsDescription = document.createElement("p");
 			resultsDescription.value = i.content.description;
-			
+
 			var text4=document.createTextNode(resultsDescription.value);
 			resultsDescription.appendChild(text4);
 
@@ -535,17 +538,17 @@ function search(){
 			searchResult(buton, lang.value, topic.value, material.value);
 			buton.innerHTML= "Go to material";
 			buton.className = "result-search-button";
-			
-			var str = resultsTitle.innerHTML; 
-			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
-		    
-		    resultsTitle.innerHTML = res;
-		    
-		    var str = resultsDescription.innerHTML;
-		    var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
-		    resultsDescription.innerHTML = res;
 
-			
+			var str = resultsTitle.innerHTML;
+			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
+
+			resultsTitle.innerHTML = res;
+
+			var str = resultsDescription.innerHTML;
+			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
+			resultsDescription.innerHTML = res;
+
+
 			div.appendChild(resultsTitle);
 			div.appendChild(resultsDescription);
 
@@ -572,64 +575,64 @@ function searchResult(buton, langId, topicId, materialId)
 	console.log(langId, topicId, materialId);
 	buton.addEventListener("click", function(e)
 	{
-	var materialCont = document.getElementById("material");
-	var searchCont = document.getElementById("search-container");
-	try
-	{
-		while(searchCont.childElementCount!=0)
+		var materialCont = document.getElementById("material");
+		var searchCont = document.getElementById("search-container");
+		try
 		{
-			searchCont.removeChild(searchCont.childNodes[0]);
+			while(searchCont.childElementCount!=0)
+			{
+				searchCont.removeChild(searchCont.childNodes[0]);
+			}
 		}
-	}
-	catch (e)
-	{
-
-	}
-	$("#myCarousel").hide();
-	$("material").show();
-
-	var AddTopic = document.getElementById('Topics');
-	while (AddTopic.childElementCount != 0) {
-		try {
-			AddTopic.removeChild(AddTopic.childNodes[0]);
-		}
-		catch (e) {
+		catch (e)
+		{
 
 		}
-	}
-	$.ajax({
-		type: 'GET',
-		dataType: 'json',
-		url: "technologies/" + langId + "/topics"
-	}).then(function (data) {
-		for (i of data.content) {
-			var topic = document.createElement("button");
-			var topic_id= i.content.topic_id;
-			topic.className="btn btn-primary";
-			topic.type="button";
-			topic.name = i.content.name;
-			topic.value = topic_id;
-			topic.innerHTML = i.content.name;
-			handleelement(topic_id,topic,langId);
-			AddTopic.appendChild(topic);
+		$("#myCarousel").hide();
+		$("#material").show();
+
+		var AddTopic = document.getElementById('Topics');
+		while (AddTopic.childElementCount != 0) {
+			try {
+				AddTopic.removeChild(AddTopic.childNodes[0]);
+			}
+			catch (e) {
+
+			}
 		}
-	});
-	$.ajax({
-		type: 'GET',
-		dataType: 'json',
-		url: "technologies/" + langId + "/topics/" + topicId + "/materials/" + materialId
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: "technologies/" + langId + "/topics"
+		}).then(function (data) {
+			for (i of data.content) {
+				var topic = document.createElement("button");
+				var topic_id= i.content.topic_id;
+				topic.className="btn btn-primary";
+				topic.type="button";
+				topic.name = i.content.name;
+				topic.value = topic_id;
+				topic.innerHTML = i.content.name;
+				handleelement(topic_id,topic,langId);
+				AddTopic.appendChild(topic);
+			}
+		});
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: "technologies/" + langId + "/topics/" + topicId + "/materials/" + materialId
 		}).then(function (data) {
 
-		var showMaterial = document.getElementById('material');
-		showMaterial.style.display = " initial";
-		showMaterial.removeChild(showMaterial.childNodes[0]);
-        var material_name= document.getElementById('Material_name');
-        var material_desc= document.getElementById('Material_Desc');
-        material_name.innerHTML = data.content.title;
-        material_desc.innerHTML = data.content.description;
-        showMaterial.style.display = " initial";
-		var type = data.content.type;
-		var source = data.content.link;
+			var showMaterial = document.getElementById('material');
+			showMaterial.style.display = " initial";
+			showMaterial.removeChild(showMaterial.childNodes[0]);
+			var material_name= document.getElementById('Material_name');
+			var material_desc= document.getElementById('Material_Desc');
+			material_name.innerHTML = data.content.title;
+			material_desc.innerHTML = data.content.description;
+			showMaterial.style.display = " initial";
+			var type = data.content.type;
+			var source = data.content.link;
 			if( type==0 )
 			{
 				var material = document.createElement("img");
@@ -661,9 +664,9 @@ function searchResult(buton, langId, topicId, materialId)
 				showMaterial.appendChild(material);
 			}
 
-		$("myCarousel").show();
-		var container = document.getElementById('search-container');
-		container.style.display="none";
+			$("myCarousel").show();
+			var container = document.getElementById('search-container');
+			container.style.display="none";
 		});
 
 	});
@@ -687,7 +690,7 @@ function searchUser()
 	var usrdiv = document.getElementById("usr_SearchRestults");
 	var type = document.getElementById("User_Type").value;
 	var usrName = document.getElementById("usrSearch_input").value;
-	var url = "searchUsers?name=" + usrName;
+	var url = "/searchUsers?name=" + usrName;
 	if(type!=-1)
 	{
 		url= url+  "&type=" + type ;
@@ -705,7 +708,7 @@ function searchUser()
 		dataType: 'json',
 		url: url
 	}).then(function (data) {
-		
+
 		for (i of data.content) {
 			var tr = document.createElement("tr");
 			var usrInfo = document.createElement("th");
@@ -737,9 +740,12 @@ function testFunction(topic_id,option)
 	$("#test_input").unbind("click");
 	var testSpace = document.getElementById("testspace");
 	$("#test_input").bind("click" , function (e) {
-        $("#answer_button").show();
-        $("#myCarousel").hide();
-        while (testSpace.childElementCount != 0) {
+		$("#drop_notes").hide();
+		$("#material_info").hide();
+		$("#material").hide();
+		$("#answer_button").show();
+		$("#myCarousel").hide();
+		while (testSpace.childElementCount != 0) {
 			try {
 				testSpace.removeChild(testSpace.childNodes[0]);
 			}
@@ -755,57 +761,57 @@ function testFunction(topic_id,option)
 			dataType: 'json',
 			url: url
 		}).then(function (data) {
-            var nrofQuestion =0;
+			var nrofQuestion =0;
 			for(i of data.content)
-            {
-                var nextId=i.content.question.id;
-                console.log(nextId,prevId);
-                if(nextId!=prevId)
-                {
-                    nrofQuestion = nrofQuestion + 1;
-                    var Question_numbr = document.createElement("p");
-                    console.log("Test");
-                    var div = document.createElement("div");
-                    Question_numbr.innerHTML = "Question " + nrofQuestion;
-                    div.appendChild(Question_numbr);
-                    var paragraph = document.createElement("p");
-                    var questionText = i.content.question.question_text;
-                    paragraph.innerHTML = questionText;
-                    div.appendChild(paragraph);
-                    var questionAnswer = document.createElement("input");
-                    questionAnswer.setAttribute('type','checkbox');
-                    questionAnswer.name="answer";
-                    div1 = document.createElement("div");
-                    div1.className="answer_div";
-                    div1.id= i.content.id;
-                    div1.appendChild(questionAnswer);
-                    div1.appendChild(document.createTextNode(i.content.answer_text));
-                    questionAnswer.value=i.content.id;
-                    div.className="question";
-                    div.appendChild(div1);
-                    testSpace.appendChild(div);
-                }
-                else
-                {
-                    var questionAnswer = document.createElement("input");
-                    questionAnswer.setAttribute('type','checkbox');
-                    questionAnswer.name="answer";
-                    div1 = document.createElement("div");
-                    div1.className="answer_div";
-                    div1.id= i.content.id;
-                    div1.appendChild(questionAnswer);
-                    div1.appendChild(document.createTextNode(i.content.answer_text));
-                    questionAnswer.value=i.content.id;
-                    div.className="question";
-                    div.appendChild(div1);
-                    testSpace.appendChild(div);
-                }
-                var prevId =i.content.question.id;
-            }
+			{
+				var nextId=i.content.question.id;
+				console.log(nextId,prevId);
+				if(nextId!=prevId)
+				{
+					nrofQuestion = nrofQuestion + 1;
+					var Question_numbr = document.createElement("p");
+					console.log("Test");
+					var div = document.createElement("div");
+					Question_numbr.innerHTML = "Question " + nrofQuestion;
+					div.appendChild(Question_numbr);
+					var paragraph = document.createElement("p");
+					var questionText = i.content.question.question_text;
+					paragraph.innerHTML = questionText;
+					div.appendChild(paragraph);
+					var questionAnswer = document.createElement("input");
+					questionAnswer.setAttribute('type','checkbox');
+					questionAnswer.name="answer";
+					div1 = document.createElement("div");
+					div1.className="answer_div";
+					div1.id= i.content.id;
+					div1.appendChild(questionAnswer);
+					div1.appendChild(document.createTextNode(i.content.answer_text));
+					questionAnswer.value=i.content.id;
+					div.className="question";
+					div.appendChild(div1);
+					testSpace.appendChild(div);
+				}
+				else
+				{
+					var questionAnswer = document.createElement("input");
+					questionAnswer.setAttribute('type','checkbox');
+					questionAnswer.name="answer";
+					div1 = document.createElement("div");
+					div1.className="answer_div";
+					div1.id= i.content.id;
+					div1.appendChild(questionAnswer);
+					div1.appendChild(document.createTextNode(i.content.answer_text));
+					questionAnswer.value=i.content.id;
+					div.className="question";
+					div.appendChild(div1);
+					testSpace.appendChild(div);
+				}
+				var prevId =i.content.question.id;
+			}
 		});
 	});
 
-    handleButon(option, topic_id);
+	handleButon(option, topic_id);
 
 }
 
@@ -820,35 +826,35 @@ function testFunction(topic_id,option)
 function handleButon(option, topic_id)
 {
 	var testSpace = document.getElementById("testAnswer");
-    $("#answer_button").unbind("click");
-    $("#answer_button").bind("click" , function (e) {
-        $("#testAnswer").show();
-        $("#answer_button").hide();
-        $("#retake_button").show();
-        testSpace.removeChild(testSpace.childNodes[0]);
-        var test="";
-        $('input[name="answer"]:checked').each(function() {
-            test = test + this.value + " ";
-        });
-        var url = "technologies/" + option + "/topics/" + topic_id + "/selectedAnswers?selectedAnswers=" +test;
-        console.log(url);
-        $.ajax({
-            type: 'GET',
-            dataType: 'json',
-            url: url
-        }).then(function (data) {
+	$("#answer_button").unbind("click");
+	$("#answer_button").bind("click" , function (e) {
+		$("#testAnswer").show();
+		$("#answer_button").hide();
+		$("#retake_button").show();
+		testSpace.removeChild(testSpace.childNodes[0]);
+		var test="";
+		$('input[name="answer"]:checked').each(function() {
+			test = test + this.value + " ";
+		});
+		var url = "technologies/" + option + "/topics/" + topic_id + "/selectedAnswers?selectedAnswers=" +test;
+		console.log(url);
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: url
+		}).then(function (data) {
 			var k=0;
-            var test = 0;
+			var test = 0;
 			var result = document.createElement("p");
-            var elements = document.getElementsByClassName("answer_div");
-            for(i=0 ; i<elements.length ; i++)
-            {
-                elements[i].style.color="#F9675A";
-            }
+			var elements = document.getElementsByClassName("answer_div");
+			for(i=0 ; i<elements.length ; i++)
+			{
+				elements[i].style.color="#F9675A";
+			}
 			for(i of data.content)
 			{
-                console.log(i.length);
-                test= test+1;
+				console.log(i.length);
+				test= test+1;
 				if(k==0)
 				{
 					result.innerHTML = "You've achieved " + i.content + " points out of 100!";
@@ -857,20 +863,20 @@ function handleButon(option, topic_id)
 				}
 				else
 				{
-                    try {
-                        var answer = document.getElementById(i.content);
-                        console.log(i.content);
-                        answer.style.color = "#93FF58";
-                    }
-                    catch (e)
-                        {
+					try {
+						var answer = document.getElementById(i.content);
+						console.log(i.content);
+						answer.style.color = "#93FF58";
+					}
+					catch (e)
+					{
 
-                        }
+					}
 				}
 			}
-            console.log(test);
-        });
-    });
+			console.log(test);
+		});
+	});
 
 }
 /*dropdown menus for delete question page*/
@@ -882,7 +888,7 @@ $(document).ready(function(){
 	});
 	$("#div_notes").fadeToggle(0);
 	var AddTech =  document.getElementById("question_select_technology");
-	
+
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
@@ -890,14 +896,14 @@ $(document).ready(function(){
 	}).then(function (data) {
 		for (i of data.content) {
 			var technology = document.createElement("option");
-			
+
 			technology.value = i.content.technology_id;
 			technology.innerHTML = i.content.name;
-			
+
 			if(AddTech)
-            {
-                AddTech.add(technology);
-            }
+			{
+				AddTech.add(technology);
+			}
 		}
 	});
 });
@@ -911,7 +917,7 @@ $("#question_select_technology").change(function(){
 	$("#div_notes").fadeToggle(0);
 
 
-	
+
 	var AddTopic = document.getElementById("question_select_topic");
 	while (AddTopic.childElementCount != 0) {
 		try {
@@ -922,7 +928,7 @@ $("#question_select_technology").change(function(){
 		}
 	}
 	var child=0;
-    var Select_Tech = document.getElementById("question_select_technology").value;
+	var Select_Tech = document.getElementById("question_select_technology").value;
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
@@ -935,147 +941,169 @@ $("#question_select_technology").change(function(){
 			topic.value = i.content.topic_id;
 			topic.innerHTML = i.content.name;
 			if(k==0)
-				{
+			{
 				child=i.content.topic_id;
-				k++; 
+				k++;
 				console.log(child);
-				}
+			}
 
 			AddTopic.add(topic);
 
 		}
-	console.log(child);
-	$.ajax({
-		type: 'GET',
-		dataType: 'json',
-		url: "technologies/" + Select_Tech + "/topics/" + child + "/questions"
-	}).then(function (data) {
-		var AddQuestion = document.getElementById("question_select");
-		try
-		{
-			while (AddQuestion.childElementCount != 0) {
-				try {
-					AddQuestion.removeChild(AddQuestion.childNodes[0]);
-				}
-				catch (e) {
+		console.log(child);
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: "technologies/" + Select_Tech + "/topics/" + child + "/questions"
+		}).then(function (data) {
+			var AddQuestion = document.getElementById("question_select");
+			try
+			{
+				while (AddQuestion.childElementCount != 0) {
+					try {
+						AddQuestion.removeChild(AddQuestion.childNodes[0]);
+					}
+					catch (e) {
 
+					}
 				}
 			}
-		}
-		catch(e)
-		{
+			catch(e)
+			{
 
-		}
-		for (i of data.content) {
-			var question = document.createElement("option");
+			}
+			for (i of data.content) {
+				var question = document.createElement("option");
 
-			question.value = i.content.id;
-			question.innerHTML = i.content.question_text;
+				question.value = i.content.id;
+				question.innerHTML = i.content.question_text;
 
 
-			AddQuestion.add(question);
+				AddQuestion.add(question);
 
-		}
+			}
+		});
 	});
-	});
-	
+
 });
 
 function testRetake(topic_id,option)
 {
-    $("#retake_button").unbind("click");
-    var testSpace = document.getElementById("testspace");
-    $("#retake_button").bind("click" , function (e) {
-        $("#answer_button").show();
-        $("#myCarousel").hide();
-        while (testSpace.childElementCount != 0) {
-            try {
-                testSpace.removeChild(testSpace.childNodes[0]);
-            }
-            catch (e) {
+	$("#retake_button").unbind("click");
+	var testSpace = document.getElementById("testspace");
+	$("#retake_button").bind("click" , function (e) {
+		$("#answer_button").show();
+		$("#myCarousel").hide();
+		while (testSpace.childElementCount != 0) {
+			try {
+				testSpace.removeChild(testSpace.childNodes[0]);
+			}
+			catch (e) {
 
-            }
-        }
-        $("#testspace").show();
-        var url = "technologies/" + option + "/topics/" + topic_id + "/test" ;
-        console.log(url);
-        $.ajax({
-            type: 'GET',
-            dataType: 'json',
-            url: url
-        }).then(function (data) {
-            var nrofQuestion =0;
-            for(i of data.content)
-            {
-                var nextId=i.content.question.id;
-                console.log(nextId,prevId);
-                if(nextId!=prevId)
-                {
-                    nrofQuestion = nrofQuestion + 1;
-                    var Question_numbr = document.createElement("p");
-                    console.log("Test");
-                    var div = document.createElement("div");
-                    Question_numbr.innerHTML = "Question " + nrofQuestion;
-                    div.appendChild(Question_numbr);
-                    var paragraph = document.createElement("p");
-                    var questionText = i.content.question.question_text;
-                    paragraph.innerHTML = questionText;
-                    div.appendChild(paragraph);
-                    var questionAnswer = document.createElement("input");
-                    questionAnswer.setAttribute('type','checkbox');
-                    questionAnswer.name="answer";
-                    div1 = document.createElement("div");
-                    div1.className="answer_div";
-                    div1.id= i.content.id;
-                    div1.appendChild(questionAnswer);
-                    div1.appendChild(document.createTextNode(i.content.answer_text));
-                    questionAnswer.value=i.content.id;
-                    div.className="question";
-                    div.appendChild(div1);
-                    testSpace.appendChild(div);
-                }
-                else
-                {
-                    var questionAnswer = document.createElement("input");
-                    questionAnswer.setAttribute('type','checkbox');
-                    questionAnswer.name="answer";
-                    div1 = document.createElement("div");
-                    div1.className="answer_div";
-                    div1.id= i.content.id;
-                    div1.appendChild(questionAnswer);
-                    div1.appendChild(document.createTextNode(i.content.answer_text));
-                    questionAnswer.value=i.content.id;
-                    div.className="question";
-                    div.appendChild(div1);
-                    testSpace.appendChild(div);
-                }
-                var prevId =i.content.question.id;
-            }
+			}
+		}
+		$("#testspace").show();
+		var url = "technologies/" + option + "/topics/" + topic_id + "/test" ;
+		console.log(url);
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: url
+		}).then(function (data) {
+			var nrofQuestion =0;
+			for(i of data.content)
+			{
+				var nextId=i.content.question.id;
+				console.log(nextId,prevId);
+				if(nextId!=prevId)
+				{
+					nrofQuestion = nrofQuestion + 1;
+					var Question_numbr = document.createElement("p");
+					console.log("Test");
+					var div = document.createElement("div");
+					Question_numbr.innerHTML = "Question " + nrofQuestion;
+					div.appendChild(Question_numbr);
+					var paragraph = document.createElement("p");
+					var questionText = i.content.question.question_text;
+					paragraph.innerHTML = questionText;
+					div.appendChild(paragraph);
+					var questionAnswer = document.createElement("input");
+					questionAnswer.setAttribute('type','checkbox');
+					questionAnswer.name="answer";
+					div1 = document.createElement("div");
+					div1.className="answer_div";
+					div1.id= i.content.id;
+					div1.appendChild(questionAnswer);
+					div1.appendChild(document.createTextNode(i.content.answer_text));
+					questionAnswer.value=i.content.id;
+					div.className="question";
+					div.appendChild(div1);
+					testSpace.appendChild(div);
+				}
+				else
+				{
+					var questionAnswer = document.createElement("input");
+					questionAnswer.setAttribute('type','checkbox');
+					questionAnswer.name="answer";
+					div1 = document.createElement("div");
+					div1.className="answer_div";
+					div1.id= i.content.id;
+					div1.appendChild(questionAnswer);
+					div1.appendChild(document.createTextNode(i.content.answer_text));
+					questionAnswer.value=i.content.id;
+					div.className="question";
+					div.appendChild(div1);
+					testSpace.appendChild(div);
+				}
+				var prevId =i.content.question.id;
+			}
 
-        });
-    });
+		});
+	});
 
-    handleButon(option, topic_id);
+	handleButon(option, topic_id);
 
 }
 function DownloadReq(id)
 {
-    console.log(user_id);
-    var button_down = document.getElementById("download_button");
-    button_down.addEventListener("click", function(e)
-    {
-        $.ajax({
-            type: 'GET',
-            dataType: 'json',
-            url: 'downloadPermissionsUM?user_id=' + user_id + "&material_id=" + id
-        }).then(function (data) {
-            var permision = data.content[0].content.permission;
-            console.log(1);
-            if(permision == false)
-            {
-                $("#download_button").hide();
-            }
-        })
-    });
+	console.log(user_id);
+	var button_down = document.getElementById("download_button");
+	button_down.addEventListener("click", function(e)
+	{
+		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
+		console.log(url);
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: url
+		}).then(function (data) {
+			try {
+				var permision = data.content[0].content.permission;
+			}
+			catch (e)
+			{
+				$("#download_button").hide();
+				$.ajax({
+					type: 'POST',
+					dataType: 'json',
+					url: url
+				}).then(function (data)
+				{
+					console.log("Try");
+				});
+				console.log(1);
+			}
+			console.log(1);
+			if(permision == false)
+			{
+				$("#download_button").hide();
+			}
+			else if ( permision == true)
+			{
+				var download = document.getElementById("download_button");
+				$("#download_button").show();
+				download.src = data.content[0].content.material.link;
+			}
+		})
+	});
 }
-
