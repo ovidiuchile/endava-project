@@ -142,7 +142,7 @@ $("#select_technology").change(function(){
 	
 });
 
-//topic dropdown - delete page
+// topic dropdown - delete page
 $("#select_tech").change(function(){
 	var grandparent_height = $('.col-md-9').width();
 	$('#notes').width( grandparent_height );
@@ -181,7 +181,7 @@ $("#select_tech").change(function(){
 	});
 });
 
-//material dropdown - delete page
+// material dropdown - delete page
 $("#select_topic").change(function(){
 	var grandparent_height = $('.col-md-9').width();
 	$('#notes').width( grandparent_height );
@@ -223,6 +223,7 @@ $("#select_topic").change(function(){
 
 /**
  * Handles all the topics and materials regarding the language selected
+ * 
  * @type {Element}
  */
 var carusel = document.getElementById('Carusel');
@@ -277,10 +278,16 @@ $(".form-control").change(function() {
 });
 
 /**
- * Handles all of the materials inside the carousel created by the language selected and the topics and adds a click event on them that displays materials and or tests
- * @param i topic ID
- * @param topic Topic object - button
- * @param option language ID
+ * Handles all of the materials inside the carousel created by the language
+ * selected and the topics and adds a click event on them that displays
+ * materials and or tests
+ * 
+ * @param i
+ *            topic ID
+ * @param topic
+ *            Topic object - button
+ * @param option
+ *            language ID
  */
 function handleelement(i,topic,option)
 {
@@ -368,10 +375,15 @@ function handleelement(i,topic,option)
 }
 
 /**
- * Handles the materials inside the carousel and  adds a click on them in order to show the actual amterails / imgs / ppts / pdfs / vids
- * @param img Placeholder image for pdf / video / ppt
- * @param source source for the actual material be it online or local
- * @param type type as in img / pdf / video
+ * Handles the materials inside the carousel and adds a click on them in order
+ * to show the actual amterails / imgs / ppts / pdfs / vids
+ * 
+ * @param img
+ *            Placeholder image for pdf / video / ppt
+ * @param source
+ *            source for the actual material be it online or local
+ * @param type
+ *            type as in img / pdf / video
  */
 function handleMaterial( img, source, type,title,desc,id)
 {
@@ -440,9 +452,10 @@ function closeNav() {
 
 
 /**
- * Hides all of the other divs and takes all of the search parameters sending it with an ajax request to the servlet
- * It returns the search page populated with all of the search results
- * Appends searchResult() function to all of the buttons created
+ * Hides all of the other divs and takes all of the search parameters sending it
+ * with an ajax request to the servlet It returns the search page populated with
+ * all of the search results Appends searchResult() function to all of the
+ * buttons created
  */
 function search(){
 	$("#myCarousel").hide();
@@ -560,12 +573,19 @@ function search(){
 
 
 /**
- * Function that adds a event handler to each of the buttons that takes the user through an ajax request to the actual materials on the site displaying both the
- * languages and the topics for it.
- * @param buton The element to which the handler will be attached
- * @param langId The language ID in order for the topics and materials to be displayed / obtained
- * @param topicId The topic ID
- * @param materialId Material ID
+ * Function that adds a event handler to each of the buttons that takes the user
+ * through an ajax request to the actual materials on the site displaying both
+ * the languages and the topics for it.
+ * 
+ * @param buton
+ *            The element to which the handler will be attached
+ * @param langId
+ *            The language ID in order for the topics and materials to be
+ *            displayed / obtained
+ * @param topicId
+ *            The topic ID
+ * @param materialId
+ *            Material ID
  */
 function searchResult(buton, langId, topicId, materialId)
 {
@@ -674,13 +694,13 @@ function searchResult(buton, langId, topicId, materialId)
 function show()
 {
 	$("#Adv_search").toggle();
-	//$("#bttn_search").hide();
+	// $("#bttn_search").hide();
 }
 
 
 /**
- * Function that takes the input from the search bar + type of the user and returns a list with all of the users that match said
- * search criteria
+ * Function that takes the input from the search bar + type of the user and
+ * returns a list with all of the users that match said search criteria
  */
 function searchUser()
 {
@@ -727,10 +747,14 @@ function searchUser()
 }
 
 /**
- * Function that received the Language ID and the Topic Id in order to create tests apropiate for those critatera
- * @param topic_id The topic ID
- * @param option The language ID
- * handleButon function - Appends a event handler for when the user finishes completing the test
+ * Function that received the Language ID and the Topic Id in order to create
+ * tests apropiate for those critatera
+ * 
+ * @param topic_id
+ *            The topic ID
+ * @param option
+ *            The language ID handleButon function - Appends a event handler for
+ *            when the user finishes completing the test
  */
 function testFunction(topic_id,option)
 {
@@ -811,10 +835,14 @@ function testFunction(topic_id,option)
 
 
 /**
- * Function that sends the servlet the topic id, language option and the answers from the input and return through an ajax request the score + highlights
+ * Function that sends the servlet the topic id, language option and the answers
+ * from the input and return through an ajax request the score + highlights
  * right and wrong answers
- * @param option Language ID
- * @param topic_id Topic ID
+ * 
+ * @param option
+ *            Language ID
+ * @param topic_id
+ *            Topic ID
  */
 
 function handleButon(option, topic_id)
@@ -873,7 +901,7 @@ function handleButon(option, topic_id)
     });
 
 }
-/*dropdown menus for delete question page*/
+/* dropdown menus for delete question page */
 $(document).ready(function(){
 	var grandparent_height = $('.col-md-9').width();
 	$('#notes').width( grandparent_height );
@@ -942,7 +970,6 @@ $("#question_select_technology").change(function(){
 				}
 
 			AddTopic.add(topic);
-
 		}
 	console.log(child);
 	$.ajax({
@@ -1079,3 +1106,52 @@ function DownloadReq(id)
     });
 }
 
+/* dropdown menus for add question page */
+function addQuestionTechnologies()
+{
+	var addTechnology = document.getElementById("add_question_select_technology");
+	
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies"
+	}).then(function (data) {
+		console.log(data.content.length);
+		for (i of data.content) {
+			var technology = document.createElement("option");
+			
+			technology.value = i.content.technology_id;
+			technology.innerHTML = i.content.name;
+			
+			if(addTechnology)
+            {
+                addTechnology.add(technology);
+            }
+		}
+	});
+}
+
+$("#add_question_select_technology").change(function(){
+	var AddTopic = document.getElementById("add_question_select_topic");
+	while (AddTopic.childElementCount != 0) {
+		try {
+			AddTopic.removeChild(AddTopic.childNodes[0]);
+		}
+		catch (e) {
+
+		}
+	}
+    var selectedTechnology = document.getElementById("add_question_select_technology").value;
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + selectedTechnology + "/topics"
+	}).then(function (data) {
+		for (i of data.content) {
+			var topic = document.createElement("option");
+			topic.value = i.content.topic_id;
+			topic.innerHTML = i.content.name;
+			AddTopic.add(topic);
+		}
+	});
+});
