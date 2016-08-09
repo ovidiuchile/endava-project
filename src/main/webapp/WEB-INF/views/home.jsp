@@ -168,8 +168,7 @@
 
                     <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
-                    <a href="#" onclick="closeNav()"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
-                    <a href="#" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
+                    <a href="#" id="download_button" onclick="closeNav()"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>
 
@@ -179,7 +178,7 @@
                 <p id="Material_Desc" align="justify"> </p>
             </div>
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;" onclick="closeNav()">
-
+            </div>
             
             <!-- end primary container -->
 

@@ -71,7 +71,7 @@
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Upload material</a>
+                        <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
@@ -167,9 +167,8 @@
                 <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;" onclick="closeNav()">
 
                     <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
-
-                    <a href="#" onclick="closeNav()"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
-                    <a href="#" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
+                    
+                    <a href="#" id="download_button" onclick="closeNav()"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>
 
@@ -179,7 +178,7 @@
                 <p id="Material_Desc" align="justify"> </p>
             </div>
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;" onclick="closeNav()">
-
+            </div>
             
             <!-- end primary container -->
 

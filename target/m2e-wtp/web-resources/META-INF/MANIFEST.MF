@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: dchiriac
-=======
-Built-By: mneghina
->>>>>>> d2f65457ea2f7c09c6f112e5b1231112e8cdd14d
-Build-Jdk: 1.8.0_91
-Created-By: Maven Integration for Eclipse
-
