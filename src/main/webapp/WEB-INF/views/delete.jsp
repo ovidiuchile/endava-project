@@ -68,10 +68,10 @@
 							<a href="${pageContext.request.contextPath}/upload">Upload Materials</a>
 						</li>
 						<li class="" style="">
-							<a href="${pageContext.request.contextPath}/add_question">Add questions</a>
+							<a href="${pageContext.request.contextPath}/add_question">Update questions</a>
 						</li>
 					</ul>
-					<span style="font-size:30px;cursor:pointer; position:absolute; right:20px; top:20px;" onclick="openNav()">
+					<span style="font-size:30px;cursor:pointer; position:absolute; right:20px; top:20px;" onclick="openNav()" id="sideNav">
 						<img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px">
 					</span>
 					<div class="col-md-1  pull-right" style=""> 
@@ -115,6 +115,7 @@
 						<tr>
 							<td>
 								<input class="button_sign" name="submit" id="submitt1" type = "submit" value="Delete technology" />
+								<input type="hidden" name="_method" value="DELETE">
 							</td>
 						</tr>
 					</table>
@@ -209,6 +210,17 @@
 <script>
 	var user_type = '<%= session.getAttribute("user_type") %>';
 	console.log(user_type);
+</script>
+<script>
+	$('html').click(function() {
+		closeNav();
+	});
+	$('#sideNav').click(function(event){
+		event.stopPropagation();
+	});
+	$('#mySidenav').click(function(event){
+		event.stopPropagation();
+	});
 </script>
 
 </body>
