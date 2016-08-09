@@ -56,16 +56,20 @@ public class DownloadPermisionsControler {
 	public HttpEntity<Resource<DownloadPermisions>> addPermissions(
 			@RequestParam(value = "user_id", required = true) Long user_id,
 			@RequestParam(value = "material_id", required = true) Long material_id) {
-
-		DownloadPermisions downloadPermisions = new DownloadPermisions();
-
-		downloadPermisions.setPermission_id(((long) (Math.random() * 1000000000)));
-		downloadPermisions.setMaterial(materialService.getMaterialById(material_id));
-		downloadPermisions.setUser(userService.getUserById(user_id));
-		downloadPermisions.setPermission(false);
-
-		downloadPermissionsService.savePermission(downloadPermisions);
-		Resource<DownloadPermisions> permissionResource = new Resource<>(downloadPermisions);
+			
+		Resource<DownloadPermisions> permissionResource;
+		
+		if (downloadPermissionsService.getPermissions(user_id, material_id).isEmpty()) {
+			DownloadPermisions downloadPermisions = new DownloadPermisions();
+			downloadPermisions.setPermission_id(((long) (Math.random() * 1000000000)));
+			downloadPermisions.setMaterial(materialService.getMaterialById(material_id));
+			downloadPermisions.setUser(userService.getUserById(user_id));
+			downloadPermisions.setPermission(false);
+			downloadPermissionsService.savePermission(downloadPermisions);
+			permissionResource = new Resource<>(downloadPermisions);
+		}else{
+			permissionResource = new Resource<>(downloadPermissionsService.getPermissions(user_id, material_id).get(0));
+		}
 
 		return new ResponseEntity<>(permissionResource, HttpStatus.CREATED);
 	}

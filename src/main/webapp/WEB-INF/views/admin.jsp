@@ -78,7 +78,7 @@
                         <a href="upload"  id="uploadbttn"> Upload material</a>
                     </li>
                 </ul>
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
                 <div class="col-md-1  pull-right" style="">
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -160,5 +160,18 @@
 
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+<script>
+	
+	$('html').click(function() {
+		  closeNav();
+		});
+
+		$('#sideNav').click(function(event){
+		    event.stopPropagation();
+		});
+		$('#mySidenav').click(function(event){
+		    event.stopPropagation();
+		});
+</script>
 </body>
 </html>
