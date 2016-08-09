@@ -297,7 +297,7 @@ function handleelement(i,topic,option)
 		$("#test_input").show();
 		$("#download_button").hide();
 		$("#retake_button").hide();
-		$("#material_info").show();
+		$("#material_info").hide();
 		$("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
@@ -599,6 +599,7 @@ function searchResult(buton, langId, topicId, materialId)
 	console.log(langId, topicId, materialId);
 	buton.addEventListener("click", function(e)
 	{
+		$("#drop_notes").show();
 		$("#material_info").show();
 		$("#download_button").show();
 		var materialCont = document.getElementById("material");
