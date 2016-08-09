@@ -65,7 +65,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/questions.css">
 </head>
-<body style="width: 100vw; background-color:#374140">
+<body style="width: 100vw; background-color:#374140" onload="addQuestionTechnologies();">
 
 	<div style="width: calc(96vw - 20px);">
 		<div id="menu" style="width: 100vw;">
@@ -121,14 +121,14 @@
 								<tr style="">
 									<td style=""><p class="td_text">Name of technology:</p></td>
 									<td><select class="topic-form" name="technology"
-										id="select_technology" style="" required>
+										id="add_question_select_technology" style="" required>
 											<option value="">Select language</option>
 									</select></td>
 								</tr>
 								<tr>
 									<td><p class="td_text">Name of topic:</p></td>
 									<td><select class="topic-form" name="topic" style=""
-										id="select_topic" required>
+										id="add_question_select_topic" required>
 											<option value="">Select topic</option>
 									</select></td>
 								</tr>
@@ -175,7 +175,7 @@
 								</tr><tr>
 									<td><p class="td_text">Answer 3:</p></td>
 									<td><input type='text' name='answer 3' value=''
-										style="" required /></td>
+										style="" /></td>
 								</tr>
 								<tr>
 									<td style="height:26px;"></td>
@@ -186,7 +186,7 @@
 								</tr><tr>
 									<td><p class="td_text">Answer 4:</p></td>
 									<td><input type='text' name='answer 4' value=''
-										style="" required /></td>
+										style="" /></td>
 								</tr>
 								<tr>
 									<td style="height:26px;"></td>
@@ -197,7 +197,7 @@
 								</tr><tr>
 									<td><p class="td_text">Answer 5:</p></td>
 									<td><input type='text' name='answer 5' value=''
-										style="" required /></td>
+										style="" /></td>
 								</tr>
 								<tr>
 									<td style="height:26px;"></td>
@@ -209,6 +209,8 @@
 								
 							</table>
 							<br>
+							<p style="color:red; align:justify;">${error}</p>
+		    				<p style="color:green; align:justify;">${success}</p>
 							<table style="width: 250px">
 								<tr>
 									<td><input class="button_sign" name="submit" id="submitt3"
