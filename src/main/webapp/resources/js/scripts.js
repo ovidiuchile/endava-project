@@ -391,6 +391,7 @@ function handleMaterial( img, source, type,title,desc,id)
 {
 	console.log(type);
 	img.addEventListener("click", function (e) {
+		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
 		$("#download_button").show();
 		$("#drop_notes").show();
 		DownloadReq(id);
@@ -1128,6 +1129,7 @@ function DownloadReq(id)
 				console.log(1);
 			}
 			console.log(1);
+			console.log(permision);
 			if(permision == false)
 			{
 				$("#download_button").hide();
@@ -1136,9 +1138,11 @@ function DownloadReq(id)
 			{
 				var download = document.getElementById("download_button");
 				$("#download_button").show();
-				download.src = data.content[0].content.material.link;
+				download.href = data.content[0].content.material.link;
+				download.setAttribute('download','true');
 			}
 		})
+		$("#download_button").show();
 	});
 }
 

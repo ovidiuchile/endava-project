@@ -44,11 +44,11 @@
       <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5887">
-              <caret line="299" column="35" selection-start-line="299" selection-start-column="35" selection-end-line="299" selection-end-column="35" />
+            <state relative-caret-position="395">
+              <caret line="1128" column="31" selection-start-line="1120" selection-start-column="16" selection-end-line="1128" selection-end-column="31" />
               <folding>
-                <marker date="1470743225030" expanded="true" signature="14685:14737" ph="..." />
-                <marker date="1470743225030" expanded="true" signature="14894:14946" ph="..." />
+                <marker date="1470744395773" expanded="true" signature="14764:14816" ph="..." />
+                <marker date="1470744395773" expanded="true" signature="14973:15025" ph="..." />
               </folding>
             </state>
           </provider>
@@ -121,7 +121,7 @@
       <file leaf-file-name="home.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
+            <state relative-caret-position="-315">
               <caret line="198" column="57" selection-start-line="198" selection-start-column="44" selection-end-line="198" selection-end-column="57" />
               <folding />
             </state>
@@ -1089,12 +1089,12 @@
       <updated>1470636771842</updated>
       <workItem from="1470636789707" duration="23433000" />
       <workItem from="1470723505078" duration="3259000" />
-      <workItem from="1470726810832" duration="10696000" />
+      <workItem from="1470726810832" duration="12992000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45622000" />
+    <option name="totallyTimeSpent" value="47918000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1476,7 +1476,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
+        <state relative-caret-position="-315">
           <caret line="198" column="57" selection-start-line="198" selection-start-column="44" selection-end-line="198" selection-end-column="57" />
           <folding />
         </state>
@@ -1484,11 +1484,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5887">
-          <caret line="299" column="35" selection-start-line="299" selection-start-column="35" selection-end-line="299" selection-end-column="35" />
+        <state relative-caret-position="395">
+          <caret line="1128" column="31" selection-start-line="1120" selection-start-column="16" selection-end-line="1128" selection-end-column="31" />
           <folding>
-            <marker date="1470743225030" expanded="true" signature="14685:14737" ph="..." />
-            <marker date="1470743225030" expanded="true" signature="14894:14946" ph="..." />
+            <marker date="1470744395773" expanded="true" signature="14764:14816" ph="..." />
+            <marker date="1470744395773" expanded="true" signature="14973:15025" ph="..." />
           </folding>
         </state>
       </provider>
