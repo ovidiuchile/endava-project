@@ -141,7 +141,7 @@
 		            </tr>
 		            <tr>
 		                <td>New password:</td>
-		                <td><input type='password' name='new_password' value='' required/></td>
+		                <td><input type='password' name='new_password' value='' minlength=6 required/></td>
 		            </tr>
 		            
 		            <tr>
