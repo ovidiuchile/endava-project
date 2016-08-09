@@ -47,7 +47,7 @@
 		    $(".text-area-compiler").css("height",h3);
 		    $("#system_out_println").css("height",h3);
 		    
-		   <!-- $("#text-area-compiler-2").hide();
+		   	$("#text-area-compiler-2").hide();
 		    $("#select_language_compiler").change(function(){
 		    	var option = document.getElementById("select_language_compiler").value;
 		    	if(option == "java"){
@@ -57,8 +57,9 @@
 		    		$("#text-area-compiler-2").show();
 		    		$("#text-area-compiler-1").hide();
 		    	}
-		    });-->
+		    });
 		    
+		    ${selected_div}
 		});
 		$(window).resize(function(){
 			if( $( window ).width() < $( window ).height() * 1.5 ){
@@ -75,7 +76,6 @@
 		    $("#system_out_println").css("height",h3);
 		});
 	</script>
-    ${selected_div}
 </head>
 <body style = "font-family:Century Gothic;">
 
@@ -95,7 +95,7 @@
                         <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
                 <div class="col-md-1  pull-right" style="">
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -135,5 +135,16 @@
 	<!-- END LOGIN BOX -->
 
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+<script>
+	$('html').click(function() {
+		closeNav();
+	});
+	$('#sideNav').click(function(event){
+		event.stopPropagation();
+	});
+	$('#mySidenav').click(function(event){
+		event.stopPropagation();
+	});
+</script>
 </body>
 </html>

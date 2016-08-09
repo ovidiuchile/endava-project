@@ -16,7 +16,9 @@ import com.endava.learning.compilers.JavaCompiler.JavaCompiler;
 public class CompilerControler {
 	@RequestMapping(value = "compiler", method = RequestMethod.GET)
 	public ModelAndView compilerGET(HttpServletRequest request) {
+		String defaultJava="class Main{\n\tpublic static void main(String[] args){\n\t\t\n\t}\n}";
 		ModelAndView model = new ModelAndView();
+		request.setAttribute("source1", defaultJava);
 		model.setViewName("compiler");
 		return model;
 	}
@@ -30,10 +32,10 @@ public class CompilerControler {
 		
 		if (technology.equalsIgnoreCase("java")){
 			result = JavaCompiler.compile(source1);
-			request.setAttribute("selected_div", "<p>bla</p><script>$(document).ready(function(){$('text-area-compiler-2').hide;$('text-area-compiler-1').show;});</script>");
+			request.setAttribute("selected_div", "$('#text-area-compiler-2').hide();$('#text-area-compiler-1').show();");
 		}else if (technology.equalsIgnoreCase("js")){
 			result = JSCompiler.compile(source2);
-			request.setAttribute("selected_div", "<p>bla</p><script>$(document).ready(function(){$('text-area-compiler-1').hide;$('text-area-compiler-2').show;});</script>");
+			request.setAttribute("selected_div", "$('#text-area-compiler-1').hide();$('#text-area-compiler-2').show();");
 		}else
 			result = "wrong technology";
 		request.setAttribute("result", result);
