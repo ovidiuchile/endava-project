@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.endava.learning.model.DownloadPermisions;
 import com.endava.learning.service.DownloadPermissionsService;
+import com.endava.learning.service.MaterialService;
+import com.endava.learning.service.UserService;
 
 @RestController
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -21,6 +23,12 @@ public class DownloadPermisionsControler {
 	
 	@Autowired
 	DownloadPermissionsService downloadPermissionsService;
+	
+	@Autowired
+	MaterialService materialService;
+	
+	@Autowired
+	UserService userService;
 	
 	@RequestMapping(value = "downloadPermissions", method = RequestMethod.GET)
 	public HttpEntity<Resources<Resource<DownloadPermisions>>> getPermissions() {
@@ -38,4 +46,22 @@ public class DownloadPermisionsControler {
 
 		return new ResponseEntity<>(downloadsResources, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "downloadPermissionsUM", method = RequestMethod.POST)
+	public HttpEntity<Resource<DownloadPermisions>> addPermissions(@RequestParam(value = "user_id", required = true) Long user_id,
+    		@RequestParam(value = "material_id", required = true) Long material_id) {
+		
+		DownloadPermisions downloadPermisions = new DownloadPermisions();
+		
+		downloadPermisions.setPermission_id(((long) (Math.random() * 1000000000)));
+		downloadPermisions.setMaterial(materialService.getMaterialById(material_id));
+		downloadPermisions.setUser(userService.getUserById(user_id));
+		downloadPermisions.setPermission(false);
+		
+		downloadPermissionsService.savePermission(downloadPermisions);
+		Resource<DownloadPermisions> permissionResource = new Resource<>(downloadPermisions);
+
+		return new ResponseEntity<>(permissionResource, HttpStatus.CREATED);
+	}
+	
 }
