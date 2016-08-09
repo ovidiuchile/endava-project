@@ -71,13 +71,13 @@
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Upload material</a>
+                        <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()" id = "sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
                 <div class="col-md-1  pull-right" style="">
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="javascript:void(0)" class="closebtn" ">&times;</a>
                         <br>
                         <a href="admin" id = "admin_button">Admin</a>
 
@@ -99,14 +99,14 @@
 
         <div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
             <div class="search_inputdiv" >
-                <input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;	">
+                <input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;   ">
 
                 <div style=" display:none;" id="Adv_search">
                     <select id="Material_type" style="color:black;">
                         <option value="-1"> Select an Option</option>
                         <option value="0"> Images</option>
                         <option value="1"> Videos</option>
-                        <option value="2"> Power point</option>
+                        <option value="2"> PDF</option>
                     </select>
                     <table>
                         <tr>
@@ -164,6 +164,9 @@
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Next</span>
                 </a>
+
+                    <a href="#" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
+
             </div>
 
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
@@ -172,6 +175,7 @@
                 <p id="Material_name"> </p>
                 <p id="Material_Desc" align="justify"> </p>
                 <div class="dropdown" id = "drop_notes" style="display:none; position:static; margin-top:10px;">
+
                     <a href="#" style="display:none" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>
@@ -236,6 +240,17 @@
         $("#uploadbttn").show();
     }
 
+</script>
+<script>
+	$('html').click(function() {
+		closeNav();
+	});
+	$('#sideNav').click(function(event){
+		event.stopPropagation();
+	});
+	$('#mySidenav').click(function(event){
+		event.stopPropagation();
+	});
 </script>
 
 </body>

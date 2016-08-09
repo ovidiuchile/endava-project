@@ -332,11 +332,16 @@ function handleelement(i,topic,option)
 					var carousel = document.getElementById('Carusel');
 					var material = document.createElement("img");
 					var div = document.createElement("div");
+                    var captionDiv = document.createElement("div");
+                    var addMaterialCaption = document.createElement("p");
 					var type = k.content.type;
 					var source = k.content.link;
 					div.className = "item active";
 					material.name = "material"
 					material.innerHTML = " test1";
+                    captionDiv.className = "carousel-caption";
+                    addMaterialCaption.name = "materialCaption";
+                    addMaterialCaption.innerHTML = title;
 					if(type==0)
 					{
 						material.src = k.content.link;
@@ -347,16 +352,23 @@ function handleelement(i,topic,option)
 					}
 					handleMaterial(material,source,type,title,desc,material_id);
 					div.appendChild(material);
+                    div.appendChild(captionDiv);
+                    captionDiv.appendChild(addMaterialCaption);
 					carousel.appendChild(div);
 				}
 				else {
 					var carousel = document.getElementById('Carusel');
 					var div2 = document.createElement("div");
+                    var captionDiv2 = document.createElement("div");
+                    var addMaterialCaption2 = document.createElement("p");
 					var material = document.createElement("img");
 					var type = k.content.type;
 					var source = k.content.link;
 					material.name = "material"
 					material.innerHTML = " test1";
+                    captionDiv2.className = "carousel-caption";
+                    addMaterialCaption2.name = "materialCaption";
+                    addMaterialCaption2.innerHTML = title;
 					if(type==0)
 					{
 						material.src = k.content.link;
@@ -368,6 +380,8 @@ function handleelement(i,topic,option)
 					div2.className = "item ";
 					handleMaterial(material,source,type,title,desc,material_id);
 					div2.appendChild(material);
+                    div2.appendChild(captionDiv2);
+                    captionDiv2.appendChild(addMaterialCaption2);
 					carousel.appendChild(div2);
 				}
 				test++;
@@ -391,6 +405,10 @@ function handleMaterial( img, source, type,title,desc,id)
 {
 	console.log(type);
 	img.addEventListener("click", function (e) {
+        var download = document.getElementById("download_button");
+        download.href = "#";
+        download.removeAttribute('download','true');
+		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
 		$("#download_button").show();
 		$("#drop_notes").show();
 		DownloadReq(id);
@@ -1102,7 +1120,8 @@ function DownloadReq(id)
 {
 	console.log(user_id);
 	var button_down = document.getElementById("download_button");
-	button_down.addEventListener("click", function(e)
+    $("#download_button").unbind();
+    $("#download_button").bind("click", function(e)
 	{
 		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
 		console.log(url);
@@ -1127,7 +1146,8 @@ function DownloadReq(id)
 				});
 				console.log(1);
 			}
-			console.log(1);
+			console.log(id);
+			console.log(permision);
 			if(permision == false)
 			{
 				$("#download_button").hide();
@@ -1136,9 +1156,12 @@ function DownloadReq(id)
 			{
 				var download = document.getElementById("download_button");
 				$("#download_button").show();
-				download.src = data.content[0].content.material.link;
+				download.href = data.content[0].content.material.link;
+				download.setAttribute('download','true');
+                $("#download_button").click();
 			}
 		})
+		$("#download_button").show();
 	});
 }
 
@@ -1191,3 +1214,4 @@ $("#add_question_select_technology").change(function(){
 		}
 	});
 });
+

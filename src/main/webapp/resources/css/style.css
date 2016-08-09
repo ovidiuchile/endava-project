@@ -1,3 +1,8 @@
+#test_input{
+	margin-left:45px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
 .Zebra_DatePicker{
 	z-index:100002;
 }
@@ -349,7 +354,7 @@ background-color:#374140;
 
 
 #myCarousel{
-	max-height: 600px;
+	
 }
 .item img{
 	max-height: 600px;

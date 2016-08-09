@@ -166,8 +166,8 @@
 		                <td><input type='password' name='old_password' value='' required/></td>
 		            </tr>
 		            <tr>
-		                <td><p style = "margin-right:5px;">New password:</p></td>
-		                <td><input type='password' name='new_password' value='' required/></td>
+		                <td>New password:</td>
+		                <td><input type='password' name='new_password' value='' minlength=6 required/></td>
 		            </tr>
 		            
 		            <tr>
