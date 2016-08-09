@@ -29,30 +29,40 @@
                 $(".Zebra_DatePicker_Icon").css("left", "10px");
                 $(".Zebra_DatePicker_Icon").css("top", "15px");
             });
-            if( $( window ).width() <= $( window ).height() * 1.5 ){
-                $("#background_1").css("height","100%");
-                $("#background_1").css("width","auto");
-            }
-            else{
-                $("#background_1").css("width","100%");
-                $("#background_1").css("height","auto");
-            }
         });
         $(window).resize(function(){
             $("#Adv_search").hide();
-            if( $( window ).width() < $( window ).height() * 1.5 ){
-                $("#background_1").css("height","100%");
-                $("#background_1").css("width","auto");
-            }
-            else{
-                $("#background_1").css("width","100%");
-                $("#background_1").css("height","auto");
-            }
         });
+        $(document).ready(function(){
+			if( $(window).width() < $(window).height() * 1.5 ){
+		    	$("#background_image").css("height","100%");
+		    	$("#background_image").css("width","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height() + 40;
+				$("#background_image").css("top",hh1);
+			}
+		    else{
+		    	$("#background_image").css("width","100%");
+		    	$("#background_image").css("height","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
+		    }
+		});
+		$(window).resize(function(){
+			var hh1 = $(window).height() - $("#background_image").height();
+			$("#background_image").css("top",hh1);
+			if( $(window).width() < $(window).height() * 1.5 ){
+		    	$("#background_image").css("height","100%");
+		    	$("#background_image").css("width","auto");
+			}
+		    else{
+		    	$("#background_image").css("width","100%");
+		    	$("#background_image").css("height","auto");
+		    }
+		});
     </script>
 </head>
 <body>
-
+<img id = "background_image" src = "${pageContext.request.contextPath}/resources/images/background.jpg">
 
 <div >
 
@@ -137,7 +147,7 @@
             <div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" style="" >
 
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox" id="Carusel" >
+                <div class="carousel-inner" role="listbox" id="Carusel" style="background-color:transparent;">
                     <div class="item active">
                         <img src="${pageContext.request.contextPath}/resources/images/img_chania.jpg" alt="Chania" >
                     </div>

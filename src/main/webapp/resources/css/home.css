@@ -101,22 +101,6 @@ div#search-container{
             color:#D9CB9E;
             margin-top:15px;
 		}
-		@media screen and (max-width: 991px) {
-			#search-users-box {
-	            width:calc( 96vw - 20px);
-	            height:70vh;
-	            position: relative;
-	            background: #1E1E20;
-	            border: 1px solid #D13F32;
-	            top:145px;
-	            left:15px;
-	            transform: translate(0%, 0%);
-        	}
-        	.technology_menu{
-        		margin-left:2px;
-        		margin-bottom:-1px;
-        	}
-		}
 		
 		#table_admin{
 			margin-top:15px;
@@ -168,4 +152,49 @@ div#search-container{
 		#usr_SearchRestults tr th{
 			text-align:center;
 			border:1px solid #D13F32;
+		}
+		
+		#background_image{
+			z-index:-1;
+			position:fixed;
+			float:right;
+		}
+		#login-box {
+            padding: 20px;
+            padding-bottom:0px;
+            position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+            
+            border:1px solid #D13F32;
+            
+            background: #1E1E20;
+        }
+        #submitt{
+			margin-left:90px;
+			margin-top:20px;
+		}
+		@media screen and (max-width: 991px) {
+			#search-users-box {
+	            width:calc( 96vw - 20px);
+	            height:70vh;
+	            position: relative;
+	            background: #1E1E20;
+	            border: 1px solid #D13F32;
+	            top:145px;
+	            left:15px;
+	            transform: translate(0%, 0%);
+        	}
+        	#login-box {
+        		width:345px;
+	            position: relative;
+	            top:145px;
+	            left:50%; 
+	            transform: translate(-50%, 0%);
+        	}
+        	.technology_menu{
+        		margin-left:2px;
+        		margin-bottom:-1px;
+        	}
 		}

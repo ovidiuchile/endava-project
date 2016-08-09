@@ -28,18 +28,25 @@
 		        $("#sign_up").hide();
 		        $("#sign_in").show();
 		    });
-		    
-		    if( $( window ).width() < $( window ).height() * 1.5 ){
+		});
+		$(document).ready(function(){
+			if( $(window).width() < $(window).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
 			}
 		    else{
 		    	$("#background_image").css("width","100%");
 		    	$("#background_image").css("height","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
 		    }
 		});
 		$(window).resize(function(){
-			if( $( window ).width() < $( window ).height() * 1.5 ){
+			var hh1 = $(window).height() - $("#background_image").height();
+			$("#background_image").css("top",hh1);
+			if( $(window).width() < $(window).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
