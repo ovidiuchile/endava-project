@@ -16,7 +16,9 @@ import com.endava.learning.compilers.JavaCompiler.JavaCompiler;
 public class CompilerControler {
 	@RequestMapping(value = "compiler", method = RequestMethod.GET)
 	public ModelAndView compilerGET(HttpServletRequest request) {
+		String defaultJava="class Main{\n\tpublic static void main(String[] args){\n\t\t\n\t}\n}";
 		ModelAndView model = new ModelAndView();
+		request.setAttribute("source1", defaultJava);
 		model.setViewName("compiler");
 		return model;
 	}
