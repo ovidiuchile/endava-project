@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="e-learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,11 +44,11 @@
       <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="229" column="28" selection-start-line="229" selection-start-column="28" selection-end-line="229" selection-end-column="28" />
+            <state relative-caret-position="301">
+              <caret line="588" column="13" selection-start-line="588" selection-start-column="13" selection-end-line="588" selection-end-column="13" />
               <folding>
-                <marker date="1470731508125" expanded="true" signature="14520:14572" ph="..." />
-                <marker date="1470731508125" expanded="true" signature="14729:14781" ph="..." />
+                <marker date="1470732372380" expanded="true" signature="14520:14572" ph="..." />
+                <marker date="1470732372380" expanded="true" signature="14729:14781" ph="..." />
               </folding>
             </state>
           </provider>
@@ -61,8 +57,8 @@
       <file leaf-file-name="DownloadPermisionsControler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/DownloadPermisionsControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+            <state relative-caret-position="1207">
+              <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -1089,12 +1085,12 @@
       <updated>1470636771842</updated>
       <workItem from="1470636789707" duration="23433000" />
       <workItem from="1470723505078" duration="3259000" />
-      <workItem from="1470726810832" duration="3529000" />
+      <workItem from="1470726810832" duration="4410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38455000" />
+    <option name="totallyTimeSpent" value="39336000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1443,8 +1439,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/DownloadPermisionsControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+        <state relative-caret-position="1207">
+          <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -1474,11 +1470,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="229" column="28" selection-start-line="229" selection-start-column="28" selection-end-line="229" selection-end-column="28" />
+        <state relative-caret-position="301">
+          <caret line="588" column="13" selection-start-line="588" selection-start-column="13" selection-end-line="588" selection-end-column="13" />
           <folding>
-            <marker date="1470731508125" expanded="true" signature="14520:14572" ph="..." />
-            <marker date="1470731508125" expanded="true" signature="14729:14781" ph="..." />
+            <marker date="1470732372380" expanded="true" signature="14520:14572" ph="..." />
+            <marker date="1470732372380" expanded="true" signature="14729:14781" ph="..." />
           </folding>
         </state>
       </provider>

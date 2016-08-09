@@ -577,6 +577,8 @@ function searchResult(buton, langId, topicId, materialId)
 	console.log(langId, topicId, materialId);
 	buton.addEventListener("click", function(e)
 	{
+		$("#material_info").show();
+		$("#download_button").show();
 		var materialCont = document.getElementById("material");
 		var searchCont = document.getElementById("search-container");
 		try
