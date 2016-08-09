@@ -43,25 +43,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="379" column="31" selection-start-line="379" selection-start-column="16" selection-end-line="379" selection-end-column="31" />
+            <state relative-caret-position="320">
+              <caret line="819" column="20" selection-start-line="819" selection-start-column="20" selection-end-line="819" selection-end-column="20" />
               <folding>
-                <marker date="1470664711654" expanded="true" signature="14682:14734" ph="..." />
-                <marker date="1470664711654" expanded="true" signature="14912:14964" ph="..." />
+                <marker date="1470658500954" expanded="true" signature="14336:14388" ph="..." />
+                <marker date="1470658500954" expanded="true" signature="14566:14618" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DownloadPermisionsControler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/DownloadPermisionsControler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="32" column="50" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="50" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -145,18 +135,30 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
               <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnswerDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/dao/AnswerDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="833">
+              <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
               <folding>
-                <marker date="1470657670511" expanded="true" signature="5815:5816" ph="{...}" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#400#401#0" expanded="false" />
+                <element signature="e#435#436#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="170" column="11" selection-start-line="170" selection-start-column="11" selection-end-line="170" selection-end-column="11" />
+            <state relative-caret-position="-145">
+              <caret line="185" column="67" selection-start-line="185" selection-start-column="67" selection-end-line="185" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -186,8 +188,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/change_password.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
       </list>
     </option>
   </component>
@@ -1119,12 +1121,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1470636771842</updated>
-      <workItem from="1470636789707" duration="23433000" />
+      <workItem from="1470636789707" duration="17472000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31667000" />
+    <option name="totallyTimeSpent" value="25706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1177,6 +1179,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/service/LoginService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/service/SearchService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1466,9 +1475,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding>
-            <marker date="1470657670511" expanded="true" signature="5815:5816" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1512,26 +1519,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/change_password.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/default.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/DownloadPermisionsControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="32" column="50" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -1544,22 +1535,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/change_password.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="379" column="31" selection-start-line="379" selection-start-column="16" selection-end-line="379" selection-end-column="31" />
-          <folding>
-            <marker date="1470664711654" expanded="true" signature="14682:14734" ph="..." />
-            <marker date="1470664711654" expanded="true" signature="14912:14964" ph="..." />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="170" column="11" selection-start-line="170" selection-start-column="11" selection-end-line="170" selection-end-column="11" />
+        <state relative-caret-position="-145">
+          <caret line="185" column="67" selection-start-line="185" selection-start-column="67" selection-end-line="185" selection-end-column="67" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="819" column="20" selection-start-line="819" selection-start-column="20" selection-end-line="819" selection-end-column="20" />
+          <folding>
+            <marker date="1470658500954" expanded="true" signature="14336:14388" ph="..." />
+            <marker date="1470658500954" expanded="true" signature="14566:14618" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

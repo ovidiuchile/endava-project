@@ -43,9 +43,10 @@
 		    }
 		    
 		    var h1 = $("#search-users-box").height();
-		    var h3 = ( h1 - 90 ) / 2;
+		    var h3 = ( h1 - 90 - 40 ) / 2;
 		    $("#text-area-compiler").css("height",h3);
 		    $("#system_out_println").css("height",h3);
+		    
 		});
 		$(window).resize(function(){
 			if( $( window ).width() < $( window ).height() * 1.5 ){
@@ -57,21 +58,21 @@
 		    	$("#background_image").css("height","auto");
 		    }
 			var h1 = $("#search-users-box").height();
-		    var h3 = ( h1 - 90 ) / 2;
+		    var h3 = ( h1 - 90 - 40 ) / 2;
 		    $("#text-area-compiler").css("height",h3);
 		    $("#system_out_println").css("height",h3);
 		});
 	</script>
     
 </head>
-<body onload='document.loginForm.username.focus();'>
+<body style = "font-family:Century Gothic;">
 
 <div id = "menu">
         <div id = "logo_div">
             <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
-                    <li class="" style="">
+                    <li class="technology_menu" style="">
                         <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Technologies</a>
                     </li>
                     <li class="" style="">
@@ -101,10 +102,10 @@
 
 
 	<!-- START LOGIN BOX -->
-
 	<div id="search-users-box">
 	    
 	    <div id = "test_div">
+	    	<h4 style = "text-align:center;color:#D9CB9E">Compile me, baby :*</h4>
 	    	<form name='compilerForm' action="<c:url value='/compiler' />" method='POST'>
 				  <textarea name="source"  id = "text-area-compiler" >${source}</textarea>
 				  <br>
