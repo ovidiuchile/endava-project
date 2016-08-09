@@ -199,8 +199,8 @@
             <div id="testAnswer">
 
             </div>
-            <button id="answer_button" style=" display:none; position:relative; left:45px; "> TEST RESULT</button>
-            <button id="retake_button"style=" display:none; position:relative; left:45px; "> Retake the rest </button>
+            <button class="test_button" id="answer_button" style=" display:none; position:relative; left:45px; "> Test result</button>
+            <button class="test_button" id="retake_button"style=" display:none; position:relative; left:45px; "> Retake the rest </button>
             <!-- test space -->
         </div>
 
