@@ -768,7 +768,7 @@ function testFunction(topic_id,option)
 	$("#test_input").unbind("click");
 	var testSpace = document.getElementById("testspace");
 	$("#test_input").bind("click" , function (e) {
-
+		$("#test_input").hide();
 		$("#material_info").hide();
 		$("#material").hide();
 		$("#answer_button").show();
