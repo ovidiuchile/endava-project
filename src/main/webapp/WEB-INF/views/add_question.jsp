@@ -75,16 +75,11 @@
 				</a>
 				<div class="col-md-89 pull-right" style="">
 					<ul class="nav nav-pills" id="nav_pills" style="">
-						<li class="" style="left: 2px;"><a href="#">Try it
-								yourself</a></li>
-						<li class="" style=""><a
-							href="${pageContext.request.contextPath}">Learn</a>
-						</li>
-						<li class="" style=""><a
+						<li class="" style="left:2px;"><a 
 							href="${pageContext.request.contextPath}/upload">Upload materials</a>
 						</li>
 						<li class="" style=""><a
-							href="${pageContext.request.contextPath}/delete">Delete materials</a>
+							href="${pageContext.request.contextPath}/delete_question">Delete Questions</a>
 						</li>
 					</ul>
 					<span

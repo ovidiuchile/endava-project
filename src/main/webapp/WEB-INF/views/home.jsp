@@ -63,7 +63,7 @@
                 <ul class="nav nav-pills" id="nav_pills" >
                     <li class="dropdown" id="firstli" style="z-index:99999;">
                         <select class="form-control" id="Language_Selector" style="height:42px; z-index:100000; border-color: #D9CB9E;" >
-                            <option selected disabled hidden style="">Technologies</option>
+                            <option selected disabled hidden style="">Technologies</option> 
                         </select>
                     </li>
                     <li class="" style="">
@@ -165,6 +165,7 @@
                     <span class="sr-only">Next</span>
                 </a>
 
+                    <a href="#" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
             </div>
 
@@ -174,6 +175,7 @@
                 <p id="Material_name"> </p>
                 <p id="Material_Desc" align="justify"> </p>
                 <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
+                    <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
                     <a href="#" style="display:none" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
@@ -199,8 +201,8 @@
             <div id="testAnswer">
 
             </div>
-            <button id="answer_button" style=" display:none; position:relative; left:45px; "> TEST RESULT</button>
-            <button id="retake_button"style=" display:none; position:relative; left:45px; "> Retake the rest </button>
+            <button class="test_button" id="answer_button" style=" display:none; position:relative; left:45px; "> Test result</button>
+            <button class="test_button" id="retake_button"style=" display:none; position:relative; left:45px; "> Retake the rest </button>
             <!-- test space -->
         </div>
 
