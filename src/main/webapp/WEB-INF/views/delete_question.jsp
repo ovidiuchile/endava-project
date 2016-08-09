@@ -164,8 +164,7 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
 	<script>
-	var user_type = '<%=session.getAttribute("user_type")%>
-		';
+	var user_type = '<%=session.getAttribute("user_type")%>';
 		console.log(user_type);
 	</script>
 
