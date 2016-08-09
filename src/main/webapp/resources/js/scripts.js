@@ -470,6 +470,7 @@ function search(){
 	$("#testspace").hide();
 	$("#testAnswer").hide();
 	$("#retake_button").hide();
+	$("#answer_button").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
