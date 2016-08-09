@@ -297,7 +297,7 @@ function handleelement(i,topic,option)
 		$("#test_input").show();
 		$("#download_button").hide();
 		$("#retake_button").hide();
-		$("#material_info").show();
+		$("#material_info").hide();
 		$("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
@@ -392,6 +392,7 @@ function handleMaterial( img, source, type,title,desc,id)
 	console.log(type);
 	img.addEventListener("click", function (e) {
 		$("#download_button").show();
+		$("#drop_notes").show();
 		DownloadReq(id);
 		$("#myCarousel").hide();
 		$("#material").show();
@@ -469,6 +470,7 @@ function search(){
 	$("#testspace").hide();
 	$("#testAnswer").hide();
 	$("#retake_button").hide();
+	$("#answer_button").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
@@ -597,6 +599,7 @@ function searchResult(buton, langId, topicId, materialId)
 	console.log(langId, topicId, materialId);
 	buton.addEventListener("click", function(e)
 	{
+		$("#drop_notes").show();
 		$("#material_info").show();
 		$("#download_button").show();
 		var materialCont = document.getElementById("material");
