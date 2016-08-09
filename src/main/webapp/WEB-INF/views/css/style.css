@@ -327,7 +327,7 @@ body,head{
 			width:calc( 100% - 2px);
 			border:1px solid pink;
 		}
-		input{
+		input, select{
 			background-color:#D9CB9E;
 			color:1E1E20;
 		}
