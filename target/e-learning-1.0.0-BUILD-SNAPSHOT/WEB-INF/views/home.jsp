@@ -164,13 +164,7 @@
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Next</span>
                 </a>
-                <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 
-                    <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
-
-                    <a href="#" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
-
-                </div>
 
             </div>
             
@@ -179,6 +173,13 @@
             <div id="material_info">
                 <p id="Material_name"> </p>
                 <p id="Material_Desc" align="justify"> </p>
+                <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
+
+                    <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
+
+                    <a href="#" style="display:none" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
+
+                </div>
             </div>
 
             

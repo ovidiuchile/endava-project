@@ -737,6 +737,9 @@ function testFunction(topic_id,option)
 	$("#test_input").unbind("click");
 	var testSpace = document.getElementById("testspace");
 	$("#test_input").bind("click" , function (e) {
+		$("#drop_notes").hide();
+		$("#material_info").hide();
+		$("#material").hide();
         $("#answer_button").show();
         $("#myCarousel").hide();
         while (testSpace.childElementCount != 0) {
@@ -1064,17 +1067,40 @@ function DownloadReq(id)
     var button_down = document.getElementById("download_button");
     button_down.addEventListener("click", function(e)
     {
+		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
+		console.log(url);
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: 'downloadPermissionsUM?user_id=' + user_id + "&material_id=" + id
+            url: url
         }).then(function (data) {
-            var permision = data.content[0].content.permission;
+            try {
+				var permision = data.content[0].content.permission;
+			}
+			catch (e)
+			{
+				$("#download_button").hide();
+				$.ajax({
+					type: 'POST',
+					dataType: 'json',
+					url: url
+				}).then(function (data)
+				{
+					console.log("Try");
+				});
+				console.log(1);
+			}
             console.log(1);
             if(permision == false)
             {
                 $("#download_button").hide();
             }
+			else if ( permision == true)
+			{
+				var download = document.getElementById("download_button");
+				$("#download_button").show();
+				download.src = data.content[0].content.material.link;
+			}
         })
     });
 }
