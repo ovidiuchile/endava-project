@@ -76,7 +76,7 @@
 				<div class="col-md-89 pull-right" style="">
 					<ul class="nav nav-pills" id="nav_pills" style="">
 						<li class="" style="left:2px;"><a 
-							href="${pageContext.request.contextPath}/upload">Upload materials</a>
+							href="${pageContext.request.contextPath}/upload">Update materials</a>
 						</li>
 						<li class="" style=""><a
 							href="${pageContext.request.contextPath}/delete_question">Delete Questions</a>

@@ -71,7 +71,7 @@
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Upload material</a>
+                        <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()" id = "sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
@@ -164,9 +164,6 @@
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Next</span>
                 </a>
-
-                    <a href="#" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
-
             </div>
 
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
@@ -174,9 +171,7 @@
             <div id="material_info">
                 <p id="Material_name"> </p>
                 <p id="Material_Desc" align="justify"> </p>
-                <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
-                    <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
-
+                <div class="dropdown" id = "drop_notes" style="display:none; position:static; margin-top:10px;">
                     <a href="#" style="display:none" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>

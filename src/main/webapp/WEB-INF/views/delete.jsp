@@ -68,7 +68,7 @@
 							<a href="${pageContext.request.contextPath}/upload">Upload Materials</a>
 						</li>
 						<li class="" style="">
-							<a href="${pageContext.request.contextPath}/add_question">Add questions</a>
+							<a href="${pageContext.request.contextPath}/add_question">Update questions</a>
 						</li>
 					</ul>
 					<span style="font-size:30px;cursor:pointer; position:absolute; right:20px; top:20px;" onclick="openNav()" id="sideNav">
