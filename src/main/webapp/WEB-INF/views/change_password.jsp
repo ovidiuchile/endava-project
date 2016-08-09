@@ -9,6 +9,7 @@
 <head>
     <title>Appollo</title>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
+    
     <style>
 		<%@include file="css/style.css"%>
 		
@@ -94,16 +95,23 @@
 	
 	</script>
 </head>
-<body onload='document.loginForm.username.focus();'>
-
-<img id = "background_image" src="${pageContext.request.contextPath}/resources/images/background.jpg">
+<body onload='document.loginForm.username.focus();' style="background-color:#374140;">
 
 <div id = "menu">
 	<div id = "logo_div">
 		<a href="home"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
-		<ul>
-		  <li><a href="home">Back to main page</a></li>
-		</ul>
+				<ul class="nav nav-pills" id="nav_pills" >
+                    <li class="technology_menu" style="">
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Learn</a>
+                    </li>
+                    <li class="" style="">
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
+                    </li>
+
+                    <li>
+                        <a href="upload"  id="uploadbttn"> Update content</a>
+                    </li>
+                </ul>
 	</div>
 </div>
 
