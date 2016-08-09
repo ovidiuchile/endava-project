@@ -46,6 +46,9 @@ public class KeywordDAO extends AbstractDAO {
     public List<Material> getAdvancedSearchResults(String input, Integer type, String startDate, String finishDate,
                                                    String contentEditor) {
         input.replaceAll("[^a-zA-Z1-9 ]", "").toLowerCase().split("\\s+");
+        if(contentEditor != null) {
+            contentEditor = contentEditor.toLowerCase();
+        }
         List<Material> results = new ArrayList<>();
         List<User> cttEditor = new ArrayList<>();
         if (contentEditor != null) {
