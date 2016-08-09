@@ -47,7 +47,7 @@
 		    $(".text-area-compiler").css("height",h3);
 		    $("#system_out_println").css("height",h3);
 		    
-		    $("#text-area-compiler-2").hide();
+		   	$("#text-area-compiler-2").hide();
 		    $("#select_language_compiler").change(function(){
 		    	var option = document.getElementById("select_language_compiler").value;
 		    	if(option == "java"){
@@ -59,6 +59,7 @@
 		    	}
 		    });
 		    
+		    ${selected_div}
 		});
 		$(window).resize(function(){
 			if( $( window ).width() < $( window ).height() * 1.5 ){
@@ -75,7 +76,6 @@
 		    $("#system_out_println").css("height",h3);
 		});
 	</script>
-    
 </head>
 <body style = "font-family:Century Gothic;">
 
@@ -95,7 +95,7 @@
                         <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
                 <div class="col-md-1  pull-right" style="">
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -119,12 +119,12 @@
 	    <div id = "test_div">
 	    	<h4 style = "text-align:center;color:#D9CB9E">Compiler time!</h4>
 	    	<form name='compilerForm' action="<c:url value='/compiler' />" method='POST'>
-				  <textarea name="source"  class = "text-area-compiler" id = "text-area-compiler-1">${source1}</textarea>
-				  <textarea name="source"  class = "text-area-compiler" id = "text-area-compiler-2">${source2}</textarea>
+				  <textarea name="source1"  class = "text-area-compiler" id = "text-area-compiler-1">${source1}</textarea>
+				  <textarea name="source2"  class = "text-area-compiler" id = "text-area-compiler-2">${source2}</textarea>
 				  <br>
 				  <select id = "select_language_compiler" name="technology">
-					  <option value="java">Java</option>
-					  <option value="js">JavaScript</option>
+					  <option value="java" ${option == "java" ? 'selected="selected"' : ''}>Java</option>
+					  <option value="js" ${option == "js" ? 'selected="selected"' : ''}>JavaScript</option>
 				  </select>
 				  <input id = "run_button" type="submit" value = "Run your code"> 
 			</form>
@@ -135,5 +135,16 @@
 	<!-- END LOGIN BOX -->
 
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+<script>
+	$('html').click(function() {
+		closeNav();
+	});
+	$('#sideNav').click(function(event){
+		event.stopPropagation();
+	});
+	$('#mySidenav').click(function(event){
+		event.stopPropagation();
+	});
+</script>
 </body>
 </html>

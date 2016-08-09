@@ -297,7 +297,7 @@ function handleelement(i,topic,option)
 		$("#test_input").show();
 		$("#download_button").hide();
 		$("#retake_button").hide();
-		$("#material_info").show();
+		$("#material_info").hide();
 		$("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
@@ -405,7 +405,12 @@ function handleMaterial( img, source, type,title,desc,id)
 {
 	console.log(type);
 	img.addEventListener("click", function (e) {
+        var download = document.getElementById("download_button");
+        download.href = "#";
+        download.removeAttribute('download','true');
+		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
 		$("#download_button").show();
+		$("#drop_notes").show();
 		DownloadReq(id);
 		$("#myCarousel").hide();
 		$("#material").show();
@@ -483,6 +488,7 @@ function search(){
 	$("#testspace").hide();
 	$("#testAnswer").hide();
 	$("#retake_button").hide();
+	$("#answer_button").hide();
 	var search = document.getElementById("search_input").value;
 	var search_output = document.getElementById("search-container");
 	var type = document.getElementById("Material_type").value;
@@ -611,6 +617,7 @@ function searchResult(buton, langId, topicId, materialId)
 	console.log(langId, topicId, materialId);
 	buton.addEventListener("click", function(e)
 	{
+		$("#drop_notes").show();
 		$("#material_info").show();
 		$("#download_button").show();
 		var materialCont = document.getElementById("material");
@@ -1113,7 +1120,8 @@ function DownloadReq(id)
 {
 	console.log(user_id);
 	var button_down = document.getElementById("download_button");
-	button_down.addEventListener("click", function(e)
+    $("#download_button").unbind();
+    $("#download_button").bind("click", function(e)
 	{
 		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
 		console.log(url);
@@ -1138,7 +1146,8 @@ function DownloadReq(id)
 				});
 				console.log(1);
 			}
-			console.log(1);
+			console.log(id);
+			console.log(permision);
 			if(permision == false)
 			{
 				$("#download_button").hide();
@@ -1147,9 +1156,12 @@ function DownloadReq(id)
 			{
 				var download = document.getElementById("download_button");
 				$("#download_button").show();
-				download.src = data.content[0].content.material.link;
+				download.href = data.content[0].content.material.link;
+				download.setAttribute('download','true');
+                $("#download_button").click();
 			}
 		})
+		$("#download_button").show();
 	});
 }
 
@@ -1202,3 +1214,4 @@ $("#add_question_select_technology").change(function(){
 		}
 	});
 });
+

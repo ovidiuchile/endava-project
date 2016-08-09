@@ -76,7 +76,7 @@
 				<div class="col-md-89 pull-right" style="">
 					<ul class="nav nav-pills" id="nav_pills" style="">
 						<li class="" style="left:2px;"><a 
-							href="${pageContext.request.contextPath}/upload">Upload materials</a>
+							href="${pageContext.request.contextPath}/upload">Update materials</a>
 						</li>
 						<li class="" style=""><a
 							href="${pageContext.request.contextPath}/delete_question">Delete Questions</a>
@@ -84,7 +84,7 @@
 					</ul>
 					<span
 						style="font-size: 30px; cursor: pointer; position: absolute; right: 20px; top: 20px;"
-						onclick="openNav()"> <img id="img-avatar"
+						onclick="openNav()" id="sideNav"> <img id="img-avatar"
 						alt="Bootstrap Image Preview"
 						src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png"
 						class="img-circle" height="50px">
@@ -92,7 +92,7 @@
 					<div class="col-md-1  pull-right" style="">
 						<div id="mySidenav" class="sidenav" style="z-index: 99999;">
 							<a href="javascript:void(0)" class="closebtn"
-								onclick="closeNav()">&times;</a> <br> <a href="admin">Admin</a>
+								>&times;</a> <br> <a href="admin">Admin</a>
 
 							<a href="change-password">Change Password</a> <a href="logout">Logout</a>
 						</div>
@@ -242,6 +242,19 @@
 	var user_type = '<%=session.getAttribute("user_type")%>';
 		console.log(user_type);
 	</script>
+	<script>
+	
+	$('html').click(function() {
+		  closeNav();
+		});
+
+		$('#sideNav').click(function(event){
+		    event.stopPropagation();
+		});
+		$('#mySidenav').click(function(event){
+		    event.stopPropagation();
+		});
+</script>
 
 </body>
 <link rel="stylesheet"
