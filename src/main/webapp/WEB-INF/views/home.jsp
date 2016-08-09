@@ -79,7 +79,7 @@
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <br>
-                        <a href="admin">Admin</a>
+                        <a href="admin" id = "admin_button">Admin</a>
 
                         <a href="change-password">Change Password</a>
 
@@ -223,6 +223,7 @@
     var user_type = "<%= session.getAttribute("user_type") %>";
     var user_id = "<%= session.getAttribute("id") %>";
     console.log(user_type);
+    $("#admin_button").hide();
     if(user_type=="normal user")
     {
         console.log("test");
@@ -235,6 +236,7 @@
     }
     else if(user_type=="admin")
     {
+    	$("#admin_button").show();
         console.log("test2");
         $("#uploadbttn").show();
     }
