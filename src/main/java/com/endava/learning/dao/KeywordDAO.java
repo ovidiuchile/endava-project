@@ -46,12 +46,15 @@ public class KeywordDAO extends AbstractDAO {
     public List<Material> getAdvancedSearchResults(String input, Integer type, String startDate, String finishDate,
                                                    String contentEditor) {
         input.replaceAll("[^a-zA-Z1-9 ]", "").toLowerCase().split("\\s+");
+        if(contentEditor != null) {
+            contentEditor = contentEditor.toLowerCase();
+        }
         List<Material> results = new ArrayList<>();
         List<User> cttEditor = new ArrayList<>();
         if (contentEditor != null) {
             cttEditor = (List<User>) em()
                     .createQuery(
-                            "SELECT user FROM User user WHERE user.name LIKE :editor OR user.surname LIKE :editor OR concat(user.name, ' ', user.surname) LIKE :editor")
+                            "SELECT user FROM User user WHERE lower(user.name) LIKE :editor OR lower(user.surname) LIKE :editor OR lower(concat(user.name, ' ', user.surname)) LIKE :editor")
                     .setParameter("editor", "%" + contentEditor + "%").getResultList();
             for (User user : cttEditor) {
                 StringTokenizer st = new StringTokenizer(input);

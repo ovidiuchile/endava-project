@@ -105,56 +105,69 @@ public class QuestionController {
 	@RequestMapping(value = "add_question", method = RequestMethod.POST)
 	public ModelAndView addQuestion(HttpServletRequest request) {
 
-		System.out.println("POST");
-		Question question = new Question();
-		question.setQuestion_text(request.getParameter("question"));
-		question.setStart_date(request.getParameter("start_date"));
-		question.setEnd_date(request.getParameter("end_date"));
-
-		System.out.println("tech " + request.getParameter("technology") + "topic " + request.getParameter("topic"));
-		try {
-			this.addQuestion(Long.parseLong(request.getParameter("technology")),
-					Long.parseLong(request.getParameter("topic")), question);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		}
-		question = questionService.getQuestionById(question.getId());
-		Answer answer;
+		boolean existsCorrectAnswer = false;
+		int numberOfAnswers = 0;
 		for (int i = 0; i < 5; i++) {
-			answer = new Answer();
-			// System.out.println("answer text" + request.getParameter("answer "
-			// + (i + 1)));
-			answer.setAnswer_text(request.getParameter("answer " + (i + 1)));
-			System.out.println("answer text : " + answer.getAnswer_text());
-			answer.setQuestion(question);
-			answer.setId(((long) (Math.random() * 1000000000)));
-			System.out.println("id = " + answer.getId());
+			if (request.getParameter("answer " + (i + 1)) != null) {
+				numberOfAnswers++;
 
-			System.out.println("answer" + (i + 1));
-			System.out.println("correct: " + request.getParameter("answer" + (i + 1)));
-			if (request.getParameter("answer" + (i + 1)).equals("correct")) {
-				answer.setCorrect(true);
-			} else {
-				answer.setCorrect(false);
+				if (request.getParameter("answer" + (i + 1)).equals("correct")) {
+					existsCorrectAnswer = true;
+				}
 			}
-			answerService.addAnswer(answer);
 		}
+		if (existsCorrectAnswer && numberOfAnswers >= 2) {
 
+			Question question = new Question();
+			question.setQuestion_text(request.getParameter("question"));
+			question.setStart_date(request.getParameter("start_date"));
+			question.setEnd_date(request.getParameter("end_date"));
+
+			try {
+				this.addQuestion(Long.parseLong(request.getParameter("technology")),
+						Long.parseLong(request.getParameter("topic")), question);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+			question = questionService.getQuestionById(question.getId());
+			Answer answer;
+			for (int i = 0; i < 5; i++) {
+				answer = new Answer();
+				if (request.getParameter("answer " + (i + 1)) != null) {
+					answer.setAnswer_text(request.getParameter("answer " + (i + 1)));
+					answer.setQuestion(question);
+					answer.setId(((long) (Math.random() * 1000000000)));
+					if (request.getParameter("answer" + (i + 1)).equals("correct")) {
+						answer.setCorrect(true);
+					} else {
+						answer.setCorrect(false);
+					}
+					answerService.addAnswer(answer);
+				}
+			}
+			request.setAttribute("error", null);
+            request.setAttribute("success", "Question added");
+		}
+		else{
+			request.setAttribute("error", "Your question must have at least 1 correct answer");
+            request.setAttribute("success", null);
+		}
 		ModelAndView model = new ModelAndView();
 		model.setViewName("add_question");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "delete_question", method = RequestMethod.GET)
-	public ModelAndView deleteQuestion(){
+	public ModelAndView deleteQuestion() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("delete_question");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "delete_question", method = RequestMethod.POST)
-	public ModelAndView deleteQuestion(@RequestParam("technology")String technologyId, 
-			@RequestParam("topic")String topicId, @RequestParam("question")String questionId, @RequestParam("_method") String method){
+	public ModelAndView deleteQuestion(@RequestParam("technology") String technologyId,
+			@RequestParam("topic") String topicId, @RequestParam("question") String questionId,
+			@RequestParam("_method") String method) {
 		if (method.equals("DELETE")) {
 			questionService.deleteQuestion(Long.parseLong(questionId));
 		} else {
@@ -164,12 +177,11 @@ public class QuestionController {
 				e.printStackTrace();
 			}
 		}
-		
-		
+
 		ModelAndView model = new ModelAndView();
 		model.setViewName("delete_question");
 		return model;
-		
+
 	}
 
 }
