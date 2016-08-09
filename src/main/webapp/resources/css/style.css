@@ -322,9 +322,9 @@ html *
 	margin: auto;
 }
 
-
-
-
+.carousel-inner{
+background-color:#374140;
+}
 
 #Topics .btn{
 	background-color:#1E1E20;
@@ -569,10 +569,6 @@ html *
 	}
 	.td12{
 		width:calc( 96vw - 122px);
-	}
-	#img-avatar{
-		position:relative;
-		top:9px;
 	}
 	#material img{
 		width:calc( 96vw - 20px);

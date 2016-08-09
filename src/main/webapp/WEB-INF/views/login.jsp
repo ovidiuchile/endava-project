@@ -29,18 +29,27 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() < $( window ).height() * 0.625 ){
+		    
+		    
+		});
+		$(document).ready(function(){
+			if( $(window).width() < $(window).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
 			}
 		    else{
 		    	$("#background_image").css("width","100%");
 		    	$("#background_image").css("height","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
 		    }
-		    
 		});
 		$(window).resize(function(){
-			if( $( window ).width() < $( window ).height() * 0.625 ){
+			var hh1 = $(window).height() - $("#background_image").height();
+			$("#background_image").css("top",hh1);
+			if( $(window).width() < $(window).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -193,7 +202,7 @@
 <img class = "binary binary3" id = "binary34" src = "${pageContext.request.contextPath}/resources/images/binary2.png">
 </div>
 -->
-
+<img id = "background_image" src = "${pageContext.request.contextPath}/resources/images/background.jpg">
 <div id = "menu">
 	<div id = "logo_div">
 		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
