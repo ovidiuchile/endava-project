@@ -47,7 +47,7 @@
 		    $(".text-area-compiler").css("height",h3);
 		    $("#system_out_println").css("height",h3);
 		    
-		   <!-- $("#text-area-compiler-2").hide();
+		   	$("#text-area-compiler-2").hide();
 		    $("#select_language_compiler").change(function(){
 		    	var option = document.getElementById("select_language_compiler").value;
 		    	if(option == "java"){
@@ -57,8 +57,9 @@
 		    		$("#text-area-compiler-2").show();
 		    		$("#text-area-compiler-1").hide();
 		    	}
-		    });-->
+		    });
 		    
+		    ${selected_div}
 		});
 		$(window).resize(function(){
 			if( $( window ).width() < $( window ).height() * 1.5 ){
@@ -75,7 +76,6 @@
 		    $("#system_out_println").css("height",h3);
 		});
 	</script>
-    ${selected_div}
 </head>
 <body style = "font-family:Century Gothic;">
 

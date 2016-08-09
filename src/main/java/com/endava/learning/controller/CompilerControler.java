@@ -30,10 +30,10 @@ public class CompilerControler {
 		
 		if (technology.equalsIgnoreCase("java")){
 			result = JavaCompiler.compile(source1);
-			request.setAttribute("selected_div", "<p>bla</p><script>$(document).ready(function(){$('text-area-compiler-2').hide;$('text-area-compiler-1').show;});</script>");
+			request.setAttribute("selected_div", "$('#text-area-compiler-2').hide();$('#text-area-compiler-1').show();");
 		}else if (technology.equalsIgnoreCase("js")){
 			result = JSCompiler.compile(source2);
-			request.setAttribute("selected_div", "<p>bla</p><script>$(document).ready(function(){$('text-area-compiler-1').hide;$('text-area-compiler-2').show;});</script>");
+			request.setAttribute("selected_div", "$('#text-area-compiler-1').hide();$('#text-area-compiler-2').show();");
 		}else
 			result = "wrong technology";
 		request.setAttribute("result", result);
