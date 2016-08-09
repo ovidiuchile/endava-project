@@ -178,11 +178,12 @@
                 <p id="Material_Desc" align="justify"> </p>
                 <div class="dropdown" id = "drop_notes" style="display:block; position:static; margin-top:10px;">
 
-                    <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
-
                     <a href="#" style="display:none" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>
+            </div>
+            <div>
+                <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
             </div>
 
 

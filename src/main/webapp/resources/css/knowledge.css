@@ -1,10 +1,16 @@
+#testAnswer p{
+	font-size:20px;
+}
 #testspace{
 	position:relative;
 	margin-left:45px;
 	overflow:auto;
 	border:1px solid #D13F32;
 }
- 
+#testAnswer{
+	margin-top:15px;
+	margin-left:45px;
+}
 .question{
 	border-bottom:1px solid #D13F32;
 	padding:20px 5px 25px 5px;

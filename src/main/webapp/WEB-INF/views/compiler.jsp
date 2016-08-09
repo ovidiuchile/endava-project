@@ -44,8 +44,20 @@
 		    
 		    var h1 = $("#search-users-box").height();
 		    var h3 = ( h1 - 90 - 40 ) / 2;
-		    $("#text-area-compiler").css("height",h3);
+		    $(".text-area-compiler").css("height",h3);
 		    $("#system_out_println").css("height",h3);
+		    
+		    $("#text-area-compiler-2").hide();
+		    $("#select_language_compiler").change(function(){
+		    	var option = document.getElementById("select_language_compiler").value;
+		    	if(option == "java"){
+		    		$("#text-area-compiler-1").show();
+		    		$("#text-area-compiler-2").hide();
+		    	}else if(option == "js"){
+		    		$("#text-area-compiler-2").show();
+		    		$("#text-area-compiler-1").hide();
+		    	}
+		    });
 		    
 		});
 		$(window).resize(function(){
@@ -59,7 +71,7 @@
 		    }
 			var h1 = $("#search-users-box").height();
 		    var h3 = ( h1 - 90 - 40 ) / 2;
-		    $("#text-area-compiler").css("height",h3);
+		    $(".text-area-compiler").css("height",h3);
 		    $("#system_out_println").css("height",h3);
 		});
 	</script>
@@ -73,14 +85,14 @@
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
                     <li class="technology_menu" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Technologies</a>
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Learn</a>
                     </li>
                     <li class="" style="">
                         <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Upload material</a>
+                        <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
@@ -105,9 +117,10 @@
 	<div id="search-users-box">
 	    
 	    <div id = "test_div">
-	    	<h4 style = "text-align:center;color:#D9CB9E">Compile me, baby :*</h4>
+	    	<h4 style = "text-align:center;color:#D9CB9E">Compiler time!</h4>
 	    	<form name='compilerForm' action="<c:url value='/compiler' />" method='POST'>
-				  <textarea name="source"  id = "text-area-compiler" >${source}</textarea>
+				  <textarea name="source"  class = "text-area-compiler" id = "text-area-compiler-1">${source1}</textarea>
+				  <textarea name="source"  class = "text-area-compiler" id = "text-area-compiler-2">${source2}</textarea>
 				  <br>
 				  <select id = "select_language_compiler" name="technology">
 					  <option value="java">Java</option>

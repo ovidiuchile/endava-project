@@ -37,9 +37,10 @@
 		    }
 		    
 		    var h1 = $("#search-users-box").height();
-		    var h2 = $("#first_form").height();
-		    var h3 = h1 - h2 - 20 - 15 - 15 - 20 - 20;
-		    $("#user_search_div").css("height",h3);
+		    var h2 = $("#search_user_div").height();
+		    var h3 = $("#first_form").height();
+		    var h4 = h1 - h2 - h3 - 15 - 15 - 20 - 20-20-10;
+		    $("#user_search_div").css("height",h4);
 		});
 		$(window).resize(function(){
 			if( $( window ).width() < $( window ).height() * 1.5 ){
@@ -51,9 +52,10 @@
 		    	$("#background_image").css("height","auto");
 		    }
 			var h1 = $("#search-users-box").height();
-		    var h2 = $("#first_form").height();
-		    var h3 = h1 - h2 - 20 - 15 - 15 - 20 - 20;
-		    $("#user_search_div").css("height",h3);
+		    var h2 = $("#search_user_div").height();
+		    var h3 = $("#first_form").height();
+		    var h4 = h1 - h2 - h3 - 15 - 15 - 20 - 20-20-10;
+		    $("#user_search_div").css("height",h4);
 		});
 	</script>
     
@@ -65,7 +67,7 @@
             <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
-                    <li class="" style="">
+                    <li class="technology_menu" style="">
                         <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Technologies</a>
                     </li>
                     <li class="" style="">
@@ -136,10 +138,8 @@
 		
 		    </form>
 	    </div>
-	    
-	    <div id = "user_search_div">
-	    
-			<input id="usrSearch_input" type="text" name="searchUsrs" placeholder="Search...">
+	    <div id = "search_user_div">
+	    <input id="usrSearch_input" type="text" name="searchUsrs" placeholder="Search...">
 			<select id="User_Type">
 				<option value="-1"> Type filter</option>
 				<option value="normal user"> Normal user</option>
@@ -147,7 +147,8 @@
 				<option value="admin"> Administrator</option>
 			</select>
 			<button class = "button_sign" onclick="searchUser()" style = "padding:5px;"> Search for users </button>
-			
+		</div>
+	    <div id = "user_search_div">
 			<table id="usr_SearchRestults">
 				<!--  Aici intra rezultatele -->
 			</table>

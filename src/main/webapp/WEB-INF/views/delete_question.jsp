@@ -71,10 +71,12 @@
 				</a>
 				<div class="col-md-89 pull-right" style="">
 					<ul class="nav nav-pills" id="nav_pills" style="">
-						<li class="" style="left: 2px;"><a href="#">Try it
-								yourself</a></li>
+						<li class="" style="left:2px;"><a 
+							href="${pageContext.request.contextPath}/upload">Upload materials</a>
+						</li>
 						<li class="" style=""><a
-							href="${pageContext.request.contextPath}">Learn</a></li>
+							href="${pageContext.request.contextPath}/add_question">Add Questions</a>
+						</li>
 					</ul>
 					<span
 						style="font-size: 30px; cursor: pointer; position: absolute; right: 20px; top: 20px;"
@@ -164,8 +166,7 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
 	<script>
-	var user_type = '<%=session.getAttribute("user_type")%>
-		';
+	var user_type = '<%=session.getAttribute("user_type")%>';
 		console.log(user_type);
 	</script>
 
