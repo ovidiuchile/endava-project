@@ -34,4 +34,8 @@ public class DownloadPermissionsService {
 	public void updatePermission(final DownloadPermisions downloadPermisions){
 		downloadPermissionsDAO.update(downloadPermisions);
 	}
+	
+	public DownloadPermisions getPermissionsByID(Long idPermission) {
+		return (DownloadPermisions)downloadPermissionsDAO.findById(idPermission);
+	}
 }
