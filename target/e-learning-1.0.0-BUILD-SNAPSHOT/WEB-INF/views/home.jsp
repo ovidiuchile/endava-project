@@ -140,6 +140,9 @@
                 <div class="carousel-inner" role="listbox" id="Carusel" >
                     <div class="item active">
                         <img src="${pageContext.request.contextPath}/resources/images/img_chania.jpg" alt="Chania" >
+                        <div class="carousel-caption">
+
+                        </div>
                     </div>
 
                     <div class="item">
