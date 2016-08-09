@@ -227,6 +227,7 @@ $("#select_topic").change(function(){
  */
 var carusel = document.getElementById('Carusel');
 $(".form-control").change(function() {
+	$("#test_input").hide();
 	$('#myCarousel').hide();
 	$("#testspace").hide();
 	$("#material_info").hide();
@@ -286,9 +287,10 @@ function handleelement(i,topic,option)
 {
 	$("#search-container").hide();
 	topic.addEventListener("click", function (e) {
-		$("#retake_button").hide();
-		$("#material_info").hide();
 		$("#test_input").show();
+		$("#download_button").hide();
+		$("#retake_button").hide();
+		$("#material_info").show();
 		$("#testspace").hide();
 		$("#search-container").hide();
 		$("#myCarousel").show();
@@ -384,7 +386,7 @@ function handleMaterial( img, source, type,title,desc,id)
 		$("#material_info").show();
 		$("#retake_button").hide();
 		$("#testAnswer").hide();
-		$("#drop_notes").show();
+		$("#test_input").hide();
 		var showMaterial = document.getElementById('material');
 		var material_name= document.getElementById('Material_name');
 		var material_desc= document.getElementById('Material_Desc');
@@ -449,7 +451,7 @@ function search(){
 	$("#myCarousel").hide();
 	$("#search-container").show();
 	$("#material_info").hide();
-	$("#drop_notes").hide();
+	$("#test_input").hide();
 	$("#material").hide();
 	$("#testspace").hide();
 	$("#testAnswer").hide();
@@ -740,7 +742,7 @@ function testFunction(topic_id,option)
 	$("#test_input").unbind("click");
 	var testSpace = document.getElementById("testspace");
 	$("#test_input").bind("click" , function (e) {
-		$("#drop_notes").hide();
+
 		$("#material_info").hide();
 		$("#material").hide();
 		$("#answer_button").show();
