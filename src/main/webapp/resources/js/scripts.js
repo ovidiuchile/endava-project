@@ -694,7 +694,7 @@ function searchUser()
 	var usrdiv = document.getElementById("usr_SearchRestults");
 	var type = document.getElementById("User_Type").value;
 	var usrName = document.getElementById("usrSearch_input").value;
-	var url = "/searchUsers?name=" + usrName;
+	var url = "searchUsers?name=" + usrName;
 	if(type!=-1)
 	{
 		url= url+  "&type=" + type ;
@@ -744,7 +744,7 @@ function testFunction(topic_id,option)
 	$("#test_input").unbind("click");
 	var testSpace = document.getElementById("testspace");
 	$("#test_input").bind("click" , function (e) {
-
+		$("#test_input").hide();
 		$("#material_info").hide();
 		$("#material").hide();
 		$("#answer_button").show();
