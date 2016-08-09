@@ -70,7 +70,7 @@
 							<a href="${pageContext.request.contextPath}/add_question">Add questions</a>
 						</li>
 					</ul>
-					<span style="font-size:30px;cursor:pointer; position:absolute; right:20px; top:20px;" onclick="openNav()">
+					<span style="font-size:30px;cursor:pointer; position:absolute; right:20px; top:20px;" onclick="openNav()" id="sideNav">
 						<img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/765-default-avatar.png" class="img-circle" height="50px">
 					</span>
 					<div class="col-md-1  pull-right" style=""> 
@@ -214,6 +214,17 @@
 <script>
 	var user_type = '<%= session.getAttribute("user_type") %>';
 	console.log(user_type);
+</script>
+<script>
+	$('html').click(function() {
+		closeNav();
+	});
+	$('#sideNav').click(function(event){
+		event.stopPropagation();
+	});
+	$('#mySidenav').click(function(event){
+		event.stopPropagation();
+	});
 </script>
 
 </body>
