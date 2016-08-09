@@ -63,11 +63,11 @@
                 <ul class="nav nav-pills" id="nav_pills" onclick="closeNav()">
                     <li class="dropdown" id="firstli" style="z-index:99999;">
                         <select class="form-control" id="Language_Selector" style="height:42px; z-index:100000; border-color: #D9CB9E;" >
-                            <option selected disabled hidden style="">Technologies</option>
+                            <option selected disabled hidden style="">Technologies</option> 
                         </select>
                     </li> 
                     <li class="" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler/java">Try it yourself</a>
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
                     </li>
 
                     <li>
@@ -168,7 +168,6 @@
 
                     <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
 
-                    <a href="#" onclick="closeNav()"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
                     <a href="#" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>
