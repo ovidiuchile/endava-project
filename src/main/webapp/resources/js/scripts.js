@@ -392,6 +392,7 @@ function handleMaterial( img, source, type,title,desc,id)
 	console.log(type);
 	img.addEventListener("click", function (e) {
 		$("#download_button").show();
+		$("#drop_notes").show();
 		DownloadReq(id);
 		$("#myCarousel").hide();
 		$("#material").show();
