@@ -391,6 +391,9 @@ function handleMaterial( img, source, type,title,desc,id)
 {
 	console.log(type);
 	img.addEventListener("click", function (e) {
+        var download = document.getElementById("download_button");
+        download.href = "#";
+        download.removeAttribute('download','true');
 		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
 		$("#download_button").show();
 		$("#drop_notes").show();
@@ -1103,7 +1106,8 @@ function DownloadReq(id)
 {
 	console.log(user_id);
 	var button_down = document.getElementById("download_button");
-	button_down.addEventListener("click", function(e)
+    $("#download_button").unbind();
+    $("#download_button").bind("click", function(e)
 	{
 		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
 		console.log(url);
@@ -1128,7 +1132,7 @@ function DownloadReq(id)
 				});
 				console.log(1);
 			}
-			console.log(1);
+			console.log(id);
 			console.log(permision);
 			if(permision == false)
 			{
@@ -1140,6 +1144,7 @@ function DownloadReq(id)
 				$("#download_button").show();
 				download.href = data.content[0].content.material.link;
 				download.setAttribute('download','true');
+                $("#download_button").click();
 			}
 		})
 		$("#download_button").show();
