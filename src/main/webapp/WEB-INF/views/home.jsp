@@ -99,7 +99,7 @@
 
         <div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
             <div class="search_inputdiv" >
-                <input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;	">
+                <input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;   ">
 
                 <div style=" display:none;" id="Adv_search">
                     <select id="Material_type" style="color:black;">
