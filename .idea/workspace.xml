@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.endava/e-learning/pom.properties" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/endava/learning/controller/HomeController.class" afterPath="$PROJECT_DIR$/target/classes/com/endava/learning/controller/HomeController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/home.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="e-learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,12 +53,22 @@
       <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="819" column="20" selection-start-line="819" selection-start-column="20" selection-end-line="819" selection-end-column="20" />
+            <state relative-caret-position="29">
+              <caret line="1075" column="24" selection-start-line="1075" selection-start-column="24" selection-end-line="1075" selection-end-column="24" />
               <folding>
-                <marker date="1470658500954" expanded="true" signature="14336:14388" ph="..." />
-                <marker date="1470658500954" expanded="true" signature="14566:14618" ph="..." />
+                <marker date="1470727587212" expanded="true" signature="14462:14514" ph="..." />
+                <marker date="1470727587212" expanded="true" signature="14671:14723" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DownloadPermisionsControler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/DownloadPermisionsControler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,8 +76,8 @@
       <file leaf-file-name="delete.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/delete.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="67" column="29" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+            <state relative-caret-position="1258">
+              <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -69,7 +86,7 @@
       <file leaf-file-name="change_password.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/change_password.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="1615">
               <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
               <folding />
             </state>
@@ -79,40 +96,10 @@
       <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="17">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <marker date="1470657670574" expanded="true" signature="169:11070" ph="..." />
                 <marker date="1470657670574" expanded="true" signature="176:280" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="7435:7615" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="7458:7608" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="7643:10927" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="7692:10895" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="7727:7917" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="7946:9162" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="8141:9143" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="8162:9019" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="8181:8319" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="8338:8475" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="8507:8752" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="8786:9000" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="8821:8980" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="8893:8975" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="9084:9126" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="9194:10881" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="9368:10796" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="9389:10672" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="9408:9600" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="9619:9748" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="9767:9904" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="9923:10045" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="10204:10325" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="10344:10459" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="10463:10653" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="10498:10633" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="10570:10628" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="10737:10779" ph="..." />
-                <marker date="1470657670574" expanded="true" signature="10936:11054" ph="..." />
               </folding>
             </state>
           </provider>
@@ -123,33 +110,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="612">
               <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="107" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuestionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/QuestionController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnswerDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/dao/AnswerDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#400#401#0" expanded="false" />
-                <element signature="e#435#436#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -157,8 +118,8 @@
       <file leaf-file-name="home.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-145">
-              <caret line="185" column="67" selection-start-line="185" selection-start-column="67" selection-end-line="185" selection-end-column="67" />
+            <state relative-caret-position="183">
+              <caret line="175" column="54" selection-start-line="175" selection-start-column="44" selection-end-line="175" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -240,6 +201,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -619,8 +582,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -853,6 +814,7 @@
       <setting name="cmdLine" value="run-app" />
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="true" />
+      <setting name="depsClasspath" value="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
@@ -1018,6 +980,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -1114,6 +1082,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="" />
@@ -1121,12 +1092,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1470636771842</updated>
-      <workItem from="1470636789707" duration="17472000" />
+      <workItem from="1470636789707" duration="23433000" />
+      <workItem from="1470723505078" duration="3259000" />
+      <workItem from="1470726810832" duration="901000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25706000" />
+    <option name="totallyTimeSpent" value="35827000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1138,11 +1111,11 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29654405" sideWeight="0.5063966" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2954292" sideWeight="0.50852877" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889125" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2954292" sideWeight="0.4936034" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2954292" sideWeight="0.4914712" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1167,6 +1140,14 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -1179,13 +1160,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/service/LoginService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/service/SearchService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1385,15 +1359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
           <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#776#777#0" expanded="false" />
-            <element signature="e#833#834#0" expanded="false" />
-            <element signature="e#881#882#0" expanded="false" />
-            <element signature="e#924#925#0" expanded="false" />
-            <element signature="e#1108#1109#0" expanded="false" />
-            <element signature="e#1160#1161#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1429,15 +1394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#776#777#0" expanded="false" />
-            <element signature="e#833#834#0" expanded="false" />
-            <element signature="e#881#882#0" expanded="false" />
-            <element signature="e#924#925#0" expanded="false" />
-            <element signature="e#1108#1109#0" expanded="false" />
-            <element signature="e#1160#1161#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1445,77 +1401,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#400#401#0" expanded="false" />
-            <element signature="e#435#436#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/delete.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="67" column="29" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/AnswerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="107" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/QuestionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        <state relative-caret-position="1258">
+          <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="17">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <marker date="1470657670574" expanded="true" signature="169:11070" ph="..." />
             <marker date="1470657670574" expanded="true" signature="176:280" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="7435:7615" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="7458:7608" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="7643:10927" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="7692:10895" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="7727:7917" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="7946:9162" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="8141:9143" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="8162:9019" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="8181:8319" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="8338:8475" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="8507:8752" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="8786:9000" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="8821:8980" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="8893:8975" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="9084:9126" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="9194:10881" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="9368:10796" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="9389:10672" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="9408:9600" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="9619:9748" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="9767:9904" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="9923:10045" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="10204:10325" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="10344:10459" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="10463:10653" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="10498:10633" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="10570:10628" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="10737:10779" ph="..." />
-            <marker date="1470657670574" expanded="true" signature="10936:11054" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/change_password.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1535,29 +1446,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/change_password.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/DownloadPermisionsControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
+        <state relative-caret-position="731">
+          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/QuestionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/AnswerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="107" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-145">
-          <caret line="185" column="67" selection-start-line="185" selection-start-column="67" selection-end-line="185" selection-end-column="67" />
+        <state relative-caret-position="183">
+          <caret line="175" column="54" selection-start-line="175" selection-start-column="44" selection-end-line="175" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="819" column="20" selection-start-line="819" selection-start-column="20" selection-end-line="819" selection-end-column="20" />
+        <state relative-caret-position="29">
+          <caret line="1075" column="24" selection-start-line="1075" selection-start-column="24" selection-end-line="1075" selection-end-column="24" />
           <folding>
-            <marker date="1470658500954" expanded="true" signature="14336:14388" ph="..." />
-            <marker date="1470658500954" expanded="true" signature="14566:14618" ph="..." />
+            <marker date="1470727587212" expanded="true" signature="14462:14514" ph="..." />
+            <marker date="1470727587212" expanded="true" signature="14671:14723" ph="..." />
           </folding>
         </state>
       </provider>
