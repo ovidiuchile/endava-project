@@ -823,7 +823,11 @@ function testFunction(topic_id,option)
 					div1.appendChild(document.createTextNode(i.content.answer_text));
 					questionAnswer.value=i.content.id;
 					div.className="question";
-					div.appendChild(div1);
+					if(i.content.answer_text.length!=0)
+					{
+						console.log(i.content.answer_text.length);
+						div.appendChild(div1);
+					}
 					testSpace.appendChild(div);
 				}
 				else
@@ -838,7 +842,11 @@ function testFunction(topic_id,option)
 					div1.appendChild(document.createTextNode(i.content.answer_text));
 					questionAnswer.value=i.content.id;
 					div.className="question";
-					div.appendChild(div1);
+					if(i.content.answer_text.length!=0)
+					{
+						console.log(i.content.answer_text.length);
+						div.appendChild(div1);
+					}
 					testSpace.appendChild(div);
 				}
 				var prevId =i.content.question.id;
@@ -1075,7 +1083,11 @@ function testRetake(topic_id,option)
 					div1.appendChild(document.createTextNode(i.content.answer_text));
 					questionAnswer.value=i.content.id;
 					div.className="question";
-					div.appendChild(div1);
+					if(i.content.answer_text.length!=0)
+					{
+						console.log(i.content.answer_text.length);
+						div.appendChild(div1);
+					}
 					testSpace.appendChild(div);
 				}
 				else
@@ -1090,7 +1102,11 @@ function testRetake(topic_id,option)
 					div1.appendChild(document.createTextNode(i.content.answer_text));
 					questionAnswer.value=i.content.id;
 					div.className="question";
-					div.appendChild(div1);
+					if(i.content.answer_text.length!=0)
+					{
+						console.log(i.content.answer_text.length);
+						div.appendChild(div1);
+					}
 					testSpace.appendChild(div);
 				}
 				var prevId =i.content.question.id;
@@ -1104,6 +1120,7 @@ function testRetake(topic_id,option)
 }
 function DownloadReq(id)
 {
+    var testClick = true;
 	console.log(user_id);
 	var button_down = document.getElementById("download_button");
     $("#download_button").unbind();
@@ -1143,8 +1160,7 @@ function DownloadReq(id)
 				var download = document.getElementById("download_button");
 				$("#download_button").show();
 				download.href = data.content[0].content.material.link;
-				download.setAttribute('download','true');
-                $("#download_button").click();
+				download.setAttribute('download','');
 			}
 		})
 		$("#download_button").show();
