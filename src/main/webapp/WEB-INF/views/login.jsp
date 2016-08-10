@@ -288,21 +288,21 @@
 					<table>
 						<tr>
 							<td>*Name:</td>
-							<td><input type='text' name='name' value='' id="name"
+							<td><input type='text' name='name' value='' id="name" minlength = 2 maxlength = 100
 								required /></td>
 							<td id="nameValidation"></td>
 						</tr>
 						<tr>
 							<td>*Surname:</td>
-							<td><input type='text' name='surname' required /></td>
+							<td><input type='text' name='surname' minlength = 2 maxlength = 100 required /></td>
 						</tr>
 						<tr>
 							<td>*E-mail:</td>
-							<td><input type='email' name='email' value='' required /></td>
+							<td><input type='email' name='email' value='' minlength=6 maxlength = 100 required /></td>
 						</tr>
 						<tr>
 							<td>Phone:</td>
-							<td><input type='tel' name='phone' value=''></td>
+							<td><input type='tel' name='phone' value='' minlength = 10 minlength = 15></td>
 						</tr>
 						<tr>
 							<td>Country:</td>
@@ -577,11 +577,11 @@
 						</tr>
 						<tr>
 							<td>City:</td>
-							<td><input type='text' name='city' value=''></td>
+							<td><input type='text' name='city' value='' minlength = 3 maxlength = 50></td>
 						</tr>
 						<tr>
 							<td>Address:</td>
-							<td><input type='text' name='address' /></td>
+							<td><input type='text' name='address' minlength = 5 maxlength = 500/></td>
 						<tr>
 							<td colspan='2'><input class="button_sign" name="submit"
 								id="submitt" type="submit" value="Submit" /></td>

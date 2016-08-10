@@ -33,5 +33,12 @@ public class DownloadPermissionsDAO extends AbstractDAO<DownloadPermisions> {
 				.getResultList();
 	}
 
-	
+	/*
+	 * method gets all all permisions which have the field permission = false
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<DownloadPermisions> getRequests(){
+		return em().createQuery("SELECT d from DownloadPermisions d WHERE d.permission = false").getResultList();
+	}
 }

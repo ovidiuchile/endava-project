@@ -1215,3 +1215,7 @@ $("#add_question_select_technology").change(function(){
 	});
 });
 
+$(document).ready(function(){
+	
+	
+});

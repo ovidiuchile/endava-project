@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.endava.learning.model.DownloadPermisions;
 import com.endava.learning.service.DownloadPermissionsService;
@@ -21,7 +22,7 @@ import com.endava.learning.service.UserService;
 
 @RestController
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
-public class DownloadPermisionsControler {
+public class DownloadController {
 
 	@Autowired
 	DownloadPermissionsService downloadPermissionsService;
@@ -84,8 +85,15 @@ public class DownloadPermisionsControler {
 
 		downloadPermissionsService.updatePermission(finalDownloadPermisions);
 
-		Resource<DownloadPermisions> permissionsResouce = new Resource<>(finalDownloadPermisions);
+		Resource<DownloadPermisions> permissionsResource = new Resource<>(finalDownloadPermisions);
 
-		return new ResponseEntity<>(permissionsResouce, HttpStatus.CREATED);
+		return new ResponseEntity<>(permissionsResource, HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "requests", method = RequestMethod.GET)
+	public ModelAndView getRequestsPage(){
+		ModelAndView model = new ModelAndView();
+		model.setViewName("download_requests");
+		return model;
 	}
 }
