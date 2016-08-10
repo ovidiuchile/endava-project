@@ -27,10 +27,7 @@ public class UserDAO extends AbstractDAO {
 
 	public boolean isValidUser(String email, String password) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		return (!em()
-				.createQuery("SELECT user FROM User user where user.email like :email AND user.password LIKE :password")
-				.setParameter("email", email).setParameter("password",passwordEncoder.encode(password))
-				.getResultList().isEmpty());
+		return passwordEncoder.matches(password, getUserByEmail(email).getPassword());
 	}
 
 	public boolean emailAlreadyExists(String email) {

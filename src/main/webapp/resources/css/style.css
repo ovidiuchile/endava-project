@@ -1,8 +1,17 @@
+#myCarousel{
+	margin-bottom:20px; 
+}
+
 .carousel-caption p{
 	color: #D9CB9E;
     text-shadow: -1px 0 #1E1E20, 0 1px #1E1E20, 1px 0 #1E1E20, 0 -1px #1E1E20;
     font-size:26px;
     padding-top:30px;
+}
+@media screen and (max-width: 991px){
+	.carousel-caption p{
+		font-size:20px;
+	}
 }
 .carousel-caption{
 	background: transparent; /* For browsers that do not support gradients */
@@ -171,22 +180,22 @@ html, body{
 #search_input::-webkit-input-placeholder {
 	font-style: italic;
 	padding-left:2px;
-	color:#2A2C2B;
+	color:#374140;
 }
 #search_input:-moz-placeholder {
 	font-style: italic;
 	padding-left:2px;  
-	color:#2A2C2B;
+	color:#374140;
 }
 #search_input::-moz-placeholder {
 	font-style: italic; 
 	padding-left:2px; 
-	color:#2A2C2B;
+	color:#374140;
 }
 #search_input:-ms-input-placeholder { 
 	font-style: italic; 
 	padding-left:2px;
-	color:#2A2C2B;
+	color:#374140;
 }
 
 #submit_input,#bttn_search,#test_input{
@@ -290,11 +299,6 @@ textarea#newoptions {
 
 
 
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-	width: 70%;
-	margin: auto;
-}
 #div_slide{
 	width:100%;
 	height:400px;
@@ -343,7 +347,9 @@ html *
 
 
 .carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
+.carousel-inner > .item > a > img,
+.carousel-inner > .item > video,
+.carousel-inner > .item > a > video {
 	width: 70%;
 	margin: auto;
 }
@@ -377,7 +383,7 @@ background-color:#374140;
 #myCarousel{
 	
 }
-.item img{
+.item img, .item video{
 	max-height: 600px;
 }
 #material{
@@ -445,7 +451,7 @@ background-color:#374140;
 	height:100%;
 }
 
-.item img{
+.item img, .item video{
 	display:block;
 	height:auto;
 	width:70%;

@@ -1,22 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="author" content="endava">
-	
-	
-	<link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
-	
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>Appollo</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 	
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
-    <title>Login Page</title>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script>
@@ -33,32 +28,20 @@
 		        $("#sign_in").show();
 		    });
 		    
+		    
 		    var h1 = $("#search-users-box").height();
-		    var h3 = ( h1 - 90 - 40 ) / 2;
-		    $(".text-area-compiler").css("height",h3);
-		    $("#system_out_println").css("height",h3);
-		    
-		   	$("#text-area-compiler-2").hide();
-		    $("#select_language_compiler").change(function(){
-		    	var option = document.getElementById("select_language_compiler").value;
-		    	if(option == "java"){
-		    		$("#text-area-compiler-1").show();
-		    		$("#text-area-compiler-2").hide();
-		    	}else if(option == "js"){
-		    		$("#text-area-compiler-2").show();
-		    		$("#text-area-compiler-1").hide();
-		    	}
-		    });
-		    
-		    ${selected_div}
+		    var h2 = $("#search_user_div").height();
+		    var h3 = $("#first_form").height();
+		    var h4 = h1 - h2 - h3 - 15 - 15 - 20 - 20-20-10;
+		    $("#user_search_div").css("height",h4);
 		});
 		$(window).resize(function(){
 			var h1 = $("#search-users-box").height();
-		    var h3 = ( h1 - 90 - 40 ) / 2;
-		    $(".text-area-compiler").css("height",h3);
-		    $("#system_out_println").css("height",h3);
+		    var h2 = $("#search_user_div").height();
+		    var h3 = $("#first_form").height();
+		    var h4 = h1 - h2 - h3 - 15 - 15 - 20 - 20-20-10;
+		    $("#user_search_div").css("height",h4);
 		});
-		
 		$(document).ready(function(){
 			if( $(window).width() < $(window).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
@@ -86,23 +69,23 @@
 		    }
 		});
 	</script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/request.css">
+    
 </head>
-<body style = "font-family:Century Gothic;">
+<body onload='getDownloadRequests()' style="background-color:#374140;">
 <img id = "background_image" src = "${pageContext.request.contextPath}/resources/images/background.jpg">
 <div id = "menu">
         <div id = "logo_div">
             <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
-                    <li class="technology_menu" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Learn</a>
-                    </li>
-                    <li class="" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
+                    
+                    <li class="" style="left:2px;">
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/admin">Users' Management</a>
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Update content</a>
+                        <a href="upload"  id="uploadbttn">Update content</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
@@ -122,42 +105,41 @@
         </div>
     </div>
 
+<div id = "users">
 
 	<!-- START LOGIN BOX -->
+
 	<div id="search-users-box">
 	    
-	    <div id = "test_div">
-	    	<h4 style = "text-align:center;color:#D9CB9E">Compiler time!</h4>
-	    	<form name='compilerForm' action="<c:url value='/compiler' />" method='POST'>
-				  <textarea name="source1"  class = "text-area-compiler" id = "text-area-compiler-1" style="padding:10px;">${source1}</textarea>
-				  <textarea name="source2"  class = "text-area-compiler" id = "text-area-compiler-2" style="padding:10px;">${source2}</textarea>
-				  <br>
-				  <select id = "select_language_compiler" name="technology">
-					  <option value="java" ${option == "java" ? 'selected="selected"' : ''}>Java</option>
-					  <option value="js" ${option == "js" ? 'selected="selected"' : ''}>JavaScript</option>
-				  </select>
-				  <input id = "run_button" type="submit" value = "Run your code"> 
-			</form>
-			<div id = "system_out_println" style="white-space: pre;padding:10px;"> ${result} </div>
+	    <p style="font-size:20px;margin-bottom:10px;margin-top:0px;text-align:center;">Admin: manage download requests</p>
+	    
+	    <div id = "user_search_div">
+			<table id="downloadRequests">
+				<!--  Aici intra rezultatele -->
+			</table>
+			
 	    </div>
 	    
 	</div>
 	<!-- END LOGIN BOX -->
 
+</div>
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 <script>
+	
 	$('html').click(function() {
-		closeNav();
-	});
-	$('#sideNav').click(function(event){
-		event.stopPropagation();
-	});
-	$('#mySidenav').click(function(event){
-		event.stopPropagation();
-	});
-	$('.closebtn').click(function(event){
-		closeNav();
-	});
+		  closeNav();
+		});
+
+		$('#sideNav').click(function(event){
+		    event.stopPropagation();
+		});
+		$('#mySidenav').click(function(event){
+		    event.stopPropagation();
+		});
+		$('.closebtn').click(function(event){
+			closeNav();
+		});
 </script>
 </body>
 </html>
