@@ -36,8 +36,6 @@ public class JavaCompiler {
 		if (stream != null)
 			result += stream;
 		pro.waitFor();
-		if(pro.exitValue()==123)
-			result = "runtime exceeded";
 		
 		return result;
 	}
@@ -58,7 +56,7 @@ public class JavaCompiler {
 	
 	private static void addTimerClass(File sourceFile) {
 		PrintWriter writer = null;
-		String timerClass="class TimedExit {Timer timer = new Timer();TimerTask exitApp = new TimerTask() {public void run() {System.exit(123);}};public TimedExit() {timer.schedule(exitApp, new Date(System.currentTimeMillis() + 5 * 1000));}}";
+		String timerClass="class TimedExit {Timer timer = new Timer();TimerTask exitApp = new TimerTask() {public void run() {System.exit(123);}};public TimedExit() {timer.schedule(exitApp, new Date(System.currentTimeMillis() + 2 * 1000));}}";
 		String imports="import java.util.Date;import java.util.Timer;import java.util.TimerTask;";
 		try {
 			writer = new PrintWriter(new FileOutputStream(sourceFile), true);
