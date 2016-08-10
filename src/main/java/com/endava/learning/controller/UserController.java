@@ -1,8 +1,11 @@
 package com.endava.learning.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,9 +26,6 @@ import com.endava.learning.model.User;
 import com.endava.learning.service.EmailService;
 import com.endava.learning.service.LoginService;
 import com.endava.learning.service.UserService;
-import com.endava.learning.utils.CryptPassword;
-
-import java.util.List;
 
 
 @RestController
@@ -58,6 +59,8 @@ public class UserController {
 		String country = request.getParameter("country");
 		String city = request.getParameter("city"); 
 		String address = request.getParameter("address");
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 	    if (!userService.emailAlreadyExists(email)) {
 			User user = new User();
@@ -66,7 +69,7 @@ public class UserController {
 			user.setEmail(email);
 			String password = RandomStringUtils.randomAlphanumeric(16);
 			emailService.send(user.getEmail(), "E-learning - New acount", "Your password is: " + password);
-			user.setPassword(CryptPassword.encodeMD5(password));
+			user.setPassword(passwordEncoder.encode(password));
 			user.setPhoneNumber(phone);
 			user.setCountry(country);
 			user.setCity(city);
@@ -117,11 +120,12 @@ public class UserController {
 		model.setViewName("forgot_password");
 		
 		request.setAttribute("msg", "If there exists an user registered with this email, a new password will be sent to him.");
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		
 		if (userService.emailAlreadyExists(email)) {
 			String password = RandomStringUtils.randomAlphanumeric(16);
 			User updatedUser = userService.getUserByEmail(email);
-			updatedUser.setPassword(CryptPassword.encodeMD5(password));
+			updatedUser.setPassword(passwordEncoder.encode(password));
 			userService.updateUser(updatedUser);
 			emailService.send(email, "E-learning - New password", "Your password is: " + password);
 		} 
@@ -138,10 +142,11 @@ public class UserController {
 
 		ModelAndView model = new ModelAndView();
 		model.setViewName("change_password");
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		
 		if (loginService.isValidUser(email, oldPassword)) {
 			User updatedUser = userService.getUserByEmail(email);
-			updatedUser.setPassword(CryptPassword.encodeMD5(newPassword));
+			updatedUser.setPassword(passwordEncoder.encode(newPassword));
 			userService.updateUser(updatedUser);
 			emailService.send(email, "E-learning - New password", "Your password is: " + newPassword);
 			request.setAttribute("msg", "Password changed");
