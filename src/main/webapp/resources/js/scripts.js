@@ -391,6 +391,50 @@ function handleMaterial( img, source, type,title,desc,id)
 {
 	console.log(type);
 	img.addEventListener("click", function (e) {
+		/**
+		 * Doing the download requirement check for the download button
+		 *
+         */
+		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
+		console.log(url);
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: url
+		}).then(function (data) {
+			try {
+				var permision = data.content[0].content.permission;
+			}
+			catch (e)
+			{
+				$("#download_button").hide();
+				$.ajax({
+					type: 'POST',
+					dataType: 'json',
+					url: url
+				}).then(function (data)
+				{
+					console.log("Try");
+				});
+				console.log(1);
+			}
+			console.log(id);
+			console.log(permision);
+			if ( permision == true)
+			{
+				var download = document.getElementById("download_button");
+				$("#download_button").show();
+				download.href = data.content[0].content.material.link;
+				download.setAttribute('download','');
+			}
+		})
+		$("#download_button").show();
+
+		/**
+		 * Doing the rest of the things
+		 * @type {Element}
+         */
+
         var download = document.getElementById("download_button");
         download.href = "#";
         download.removeAttribute('download','true');
