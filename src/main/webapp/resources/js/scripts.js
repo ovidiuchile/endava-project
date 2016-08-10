@@ -1255,12 +1255,12 @@ function addQuestionTechnologies()
 
 $("#add_question_select_technology").change(function(){
 	var AddTopic = document.getElementById("add_question_select_topic");
-	while (AddTopic.childElementCount != 0) {
-		try {
-			AddTopic.removeChild(AddTopic.childNodes[0]);
+	while(addRequest.closest('tr') != 0){
+		try{
+			addRequest.closest('tr').remove();
 		}
-		catch (e) {
-
+		catch(e){
+			
 		}
 	}
     var selectedTechnology = document.getElementById("add_question_select_technology").value;
@@ -1279,12 +1279,91 @@ $("#add_question_select_technology").change(function(){
 });
 
 function getDownloadRequests(){
+	console.log("test to see if it gets here ");
+	
 	var addRequest = document.getElementById("downloadRequests");
+	
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
-		url: "requests"
+		url: "download_requests"
 	}).then(function(data) {
+		 while (addRequest.childElementCount != 0) {
+		    	try {
+		    		addRequest.removeChild(addRequest.childNodes[0]);
+		    		}
+		    	catch (e) {
+		    		
+		    	}
+		    }
+		var tr = document.createElement("tr");
+		var header1 = document.createElement("th");
+		header1.innerHTML = "Name";
+		tr.appendChild(header1);
+		var header2 = document.createElement("th");
+		header2.innerHTML = "Surname";
+		tr.appendChild(header2);
+		var header3 = document.createElement("th");
+		header3.innerHTML = "Email";
+		tr.appendChild(header3);
+		var header4 = document.createElement("th");
+		header4.innerHTML = "Material";
+		tr.appendChild(header4);
+		addRequest.appendChild(tr);
 		
+		for(i of data.content){
+			var tr1 = document.createElement("tr");
+			var name = document.createElement("th");
+			name.innerHTML = i.content.user.name;
+			tr1.appendChild(name);
+			
+			var surname = document.createElement("th");
+			surname.innerHTML = i.content.user.surname;
+			tr1.appendChild(surname);
+			
+			var email = document.createElement("th");
+			email.innerHTML = i.content.user.email;
+			tr1.appendChild(email);
+			
+			var material = document.createElement("th");
+			material.innerHTML = i.content.material.title;
+			tr1.appendChild(material);
+			
+			var accept = document.createElement("th");
+			var button = document.createElement("button");
+			button.type = "button";
+			button.innerHTML = "Accept";
+			var permissionId = i.content.permission_id;
+			
+			handleButton(button, permissionId);
+			
+			accept.appendChild(button);
+			tr1.appendChild(accept);
+			
+			addRequest.appendChild(tr1);
+		}
 	})
+}
+
+function handleButton(buton, id)
+{
+
+	var addRequest = document.getElementById("downloadRequests");
+	$(buton).unbind();
+	$(buton).bind("click", function(e){
+		var data = { "permission" : "true" }
+		$.ajax({
+			    headers: { 
+			        'Accept': 'application/json',
+			        'Content-Type': 'application/json' 
+			    },
+			    'type': 'PUT',
+			    'url':  "downloadPermissionsUM/" + id,
+			    'data': JSON.stringify(data),
+			    'dataType': 'json'
+			    }).then(function(data){
+			getDownloadRequests();
+		});
+			   
+		});
 }

@@ -18,7 +18,7 @@ public class DownloadPermissionsDAO extends AbstractDAO<DownloadPermissions> {
 	public List<DownloadPermissions> getAllPermissions() {
 		return em()
 				.createQuery(
-						"SELECT d FROM DownloadPermisions d")
+						"SELECT d FROM DownloadPermissions d")
 				.getResultList();
 	}
 	
@@ -27,7 +27,7 @@ public class DownloadPermissionsDAO extends AbstractDAO<DownloadPermissions> {
 	public List<DownloadPermissions> getPermissions(Long user_id, Long material_id) {
 		return em()
 				.createQuery(
-						"SELECT d FROM DownloadPermisions d WHERE d.user.user_id = :user_id AND d.material.material_id = :material_id")
+						"SELECT d FROM DownloadPermissions d WHERE d.user.user_id = :user_id AND d.material.material_id = :material_id")
 				.setParameter("user_id", user_id)
 				.setParameter("material_id", material_id)
 				.getResultList();
@@ -39,6 +39,6 @@ public class DownloadPermissionsDAO extends AbstractDAO<DownloadPermissions> {
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<DownloadPermissions> getRequests(){
-		return em().createQuery("SELECT d from DownloadPermisions d WHERE d.permission = false").getResultList();
+		return em().createQuery("SELECT d from DownloadPermissions d WHERE d.permission = false").getResultList();
 	}
 }

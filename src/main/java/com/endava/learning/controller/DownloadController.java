@@ -77,15 +77,15 @@ public class DownloadController {
 
 	@RequestMapping(value = "downloadPermissionsUM/{permission_id}", method = RequestMethod.PUT)
 	public HttpEntity<Resource<DownloadPermissions>> updatePermissions(
-			@RequestBody DownloadPermissions downloadPermisions, @PathVariable("permission_id") Long permission_id) {
+			@RequestBody DownloadPermissions downloadPermissions, @PathVariable("permission_id") Long permission_id) {
 
-		DownloadPermissions finalDownloadPermisions = downloadPermissionsService.getPermissionsByID(permission_id);
-		if (downloadPermisions.getPermission() != null)
-			finalDownloadPermisions.setPermission(downloadPermisions.getPermission());
+		DownloadPermissions finalDownloadPermissions = downloadPermissionsService.getPermissionsByID(permission_id);
+		if (downloadPermissions.getPermission() != null)
+			finalDownloadPermissions.setPermission(downloadPermissions.getPermission());
 
-		downloadPermissionsService.updatePermission(finalDownloadPermisions);
+		downloadPermissionsService.updatePermission(finalDownloadPermissions);
 
-		Resource<DownloadPermissions> permissionsResource = new Resource<>(finalDownloadPermisions);
+		Resource<DownloadPermissions> permissionsResource = new Resource<>(finalDownloadPermissions);
 
 		return new ResponseEntity<>(permissionsResource, HttpStatus.CREATED);
 	}
@@ -97,8 +97,8 @@ public class DownloadController {
 		return model;
 	}
 	
-	@RequestMapping(value = "requests", method = RequestMethod.GET)
-	public HttpEntity<Resources<Resource<DownloadPermissions>>> getRequests() {
+	@RequestMapping(value = "download_requests", method = RequestMethod.GET)
+	public HttpEntity<Resources<Resource<DownloadPermissions>>> getRequestsResults() {
 
 		Resources<Resource<DownloadPermissions>> downloadsResources = Resources
 				.wrap(downloadPermissionsService.getRequests());
