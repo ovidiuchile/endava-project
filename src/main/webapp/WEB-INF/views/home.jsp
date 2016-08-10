@@ -257,6 +257,9 @@
 	$('#mySidenav').click(function(event){
 		event.stopPropagation();
 	});
+	$('.closebtn').click(function(event){
+		closeNav();
+	});
 </script>
 
 </body>
