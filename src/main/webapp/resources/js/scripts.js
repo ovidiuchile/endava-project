@@ -405,6 +405,53 @@ function handleMaterial( img, source, type,title,desc,id)
 {
 	console.log(type);
 	img.addEventListener("click", function (e) {
+		/**
+		 * Doing the download requirement check for the download button
+		 *
+         */
+		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
+		console.log(url);
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: url
+		}).then(function (data) {
+			try {
+				var permision = data.content[0].content.permission;
+			}
+			catch (e)
+			{
+				$("#download_button").show();
+				$.ajax({
+					type: 'POST',
+					dataType: 'json',
+					url: url
+				}).then(function (data)
+				{
+					console.log("Try");
+				});
+				console.log(1);
+			}
+			console.log(id);
+			console.log(permision);
+			if(permision == false)
+			{
+				$("#download_button").hide();
+			}
+			else if ( permision == true)
+			{
+				var download = document.getElementById("download_button");
+				$("#download_button").show();
+				download.href = data.content[0].content.material.link;
+				download.setAttribute('download','');
+			}
+		})
+
+		/**
+		 * Doing the rest of the things
+		 * @type {Element}
+         */
+
         var download = document.getElementById("download_button");
         download.href = "#";
         download.removeAttribute('download','true');
@@ -837,7 +884,11 @@ function testFunction(topic_id,option)
 					div1.appendChild(document.createTextNode(i.content.answer_text));
 					questionAnswer.value=i.content.id;
 					div.className="question";
-					div.appendChild(div1);
+					if(i.content.answer_text.length!=0)
+					{
+						console.log(i.content.answer_text.length);
+						div.appendChild(div1);
+					}
 					testSpace.appendChild(div);
 				}
 				else
@@ -852,7 +903,11 @@ function testFunction(topic_id,option)
 					div1.appendChild(document.createTextNode(i.content.answer_text));
 					questionAnswer.value=i.content.id;
 					div.className="question";
-					div.appendChild(div1);
+					if(i.content.answer_text.length!=0)
+					{
+						console.log(i.content.answer_text.length);
+						div.appendChild(div1);
+					}
 					testSpace.appendChild(div);
 				}
 				var prevId =i.content.question.id;
@@ -1089,7 +1144,11 @@ function testRetake(topic_id,option)
 					div1.appendChild(document.createTextNode(i.content.answer_text));
 					questionAnswer.value=i.content.id;
 					div.className="question";
-					div.appendChild(div1);
+					if(i.content.answer_text.length!=0)
+					{
+						console.log(i.content.answer_text.length);
+						div.appendChild(div1);
+					}
 					testSpace.appendChild(div);
 				}
 				else
@@ -1104,7 +1163,11 @@ function testRetake(topic_id,option)
 					div1.appendChild(document.createTextNode(i.content.answer_text));
 					questionAnswer.value=i.content.id;
 					div.className="question";
-					div.appendChild(div1);
+					if(i.content.answer_text.length!=0)
+					{
+						console.log(i.content.answer_text.length);
+						div.appendChild(div1);
+					}
 					testSpace.appendChild(div);
 				}
 				var prevId =i.content.question.id;
@@ -1118,6 +1181,7 @@ function testRetake(topic_id,option)
 }
 function DownloadReq(id)
 {
+    var testClick = true;
 	console.log(user_id);
 	var button_down = document.getElementById("download_button");
     $("#download_button").unbind();
@@ -1157,8 +1221,7 @@ function DownloadReq(id)
 				var download = document.getElementById("download_button");
 				$("#download_button").show();
 				download.href = data.content[0].content.material.link;
-				download.setAttribute('download','true');
-                $("#download_button").click();
+				download.setAttribute('download','');
 			}
 		})
 		$("#download_button").show();

@@ -183,7 +183,6 @@
                 <p id="Material_Desc" align="justify"> </p>
                 <div class="dropdown" id = "drop_notes" style="display:none; position:static; margin-top:10px; margin-bottom">
                     <a href="#" style="display:none;" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" style=" margin-bottom:20px;" id="download_img"></a>
- 
                 </div>
             </div>
             <div>

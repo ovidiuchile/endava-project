@@ -129,8 +129,8 @@
 	    <div id = "test_div">
 	    	<h4 style = "text-align:center;color:#D9CB9E">Compiler time!</h4>
 	    	<form name='compilerForm' action="<c:url value='/compiler' />" method='POST'>
-				  <textarea name="source1"  class = "text-area-compiler" id = "text-area-compiler-1">${source1}</textarea>
-				  <textarea name="source2"  class = "text-area-compiler" id = "text-area-compiler-2">${source2}</textarea>
+				  <textarea name="source1"  class = "text-area-compiler" id = "text-area-compiler-1" style="padding:10px;">${source1}</textarea>
+				  <textarea name="source2"  class = "text-area-compiler" id = "text-area-compiler-2" style="padding:10px;">${source2}</textarea>
 				  <br>
 				  <select id = "select_language_compiler" name="technology">
 					  <option value="java" ${option == "java" ? 'selected="selected"' : ''}>Java</option>
@@ -138,7 +138,7 @@
 				  </select>
 				  <input id = "run_button" type="submit" value = "Run your code"> 
 			</form>
-			<div id = "system_out_println"> ${result} </div>
+			<div id = "system_out_println" style="white-space: pre;padding:10px;"> ${result} </div>
 	    </div>
 	    
 	</div>
