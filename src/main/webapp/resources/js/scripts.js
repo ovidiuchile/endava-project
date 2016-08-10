@@ -421,7 +421,7 @@ function handleMaterial( img, source, type,title,desc,id)
 			}
 			catch (e)
 			{
-				$("#download_button").hide();
+				$("#download_button").show();
 				$.ajax({
 					type: 'POST',
 					dataType: 'json',
@@ -434,7 +434,11 @@ function handleMaterial( img, source, type,title,desc,id)
 			}
 			console.log(id);
 			console.log(permision);
-			if ( permision == true)
+			if(permision == false)
+			{
+				$("#download_button").hide();
+			}
+			else if ( permision == true)
 			{
 				var download = document.getElementById("download_button");
 				$("#download_button").show();
@@ -442,7 +446,6 @@ function handleMaterial( img, source, type,title,desc,id)
 				download.setAttribute('download','');
 			}
 		})
-		$("#download_button").show();
 
 		/**
 		 * Doing the rest of the things
