@@ -161,6 +161,14 @@
 		}
 	</style>
 	-->
+	<style>
+		input{
+			width:173px;
+		}
+		#submitt{
+			width:initial;
+		}
+	</style>
 </head>
 <body onload='document.loginForm.username.focus();'>
 
@@ -215,7 +223,7 @@
 				<button class="button_sign" id="button_sign_up" type="button">Sign
 					Up</button>
 			</div>
-
+			
 			<div id="sign_in">
 
 				<p style="color: red;">${error}</p>
@@ -284,7 +292,7 @@
 						</tr>
 						<tr>
 							<td>Country:</td>
-							<td><select name="country" style = "width:173px;">
+							<td><select name="country" style = "width:173px; border-style: inset; border:2px solid rgb(154,154,154); border-bottom:2px solid rgb(238,238,238) ; border-right:2px solid rgb(238,238,238)">
 									<option value=""></option>
 									<option value="Afganistan">Afghanistan</option>
 									<option value="Albania">Albania</option>
