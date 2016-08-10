@@ -12,7 +12,7 @@ $(document).ready(function(){
 	var AddTechnologyToTopic = document.getElementById("select_tech");
 	var AddTechnologyToMaterial = document.getElementById("select_technology");
 
-	$.ajax({
+	$.ajax({ 
 		type: 'GET',
 		dataType: 'json',
 		url: "technologies"

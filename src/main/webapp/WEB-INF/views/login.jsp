@@ -5,29 +5,58 @@
 %>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Appollo</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon"
-	href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
-<style>
-<%@include file="css/style.css"%>
-</style>
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
-	$(document).ready(function() {
-		$("#sign_up").hide();
-
-		$("#button_sign_up").click(function() {
-			$("#sign_in").hide();
-			$("#sign_up").show();
-		});
-
-		$("#button_sign_in").click(function() {
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Appollo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
+    <style>
+		<%@include file="css/style.css"%>
+		
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
 			$("#sign_up").hide();
-			$("#sign_in").show();
+			
+		    $("#button_sign_up").click(function(){
+		        $("#sign_in").hide();
+		        $("#sign_up").show();
+		    });
+		    
+		    $("#button_sign_in").click(function(){
+		        $("#sign_up").hide();
+		        $("#sign_in").show();
+		    });
+		    
+		    
+		    
+		});
+		$(document).ready(function(){
+			if( $(window).width() < $(window).height() * 1.5 ){
+		    	$("#background_image").css("height","100%");
+		    	$("#background_image").css("width","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
+			}
+		    else{
+		    	$("#background_image").css("width","100%");
+		    	$("#background_image").css("height","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
+		    }
+		});
+		$(window).resize(function(){
+			var hh1 = $(window).height() - $("#background_image").height();
+			$("#background_image").css("top",hh1);
+			if( $(window).width() < $(window).height() * 1.5 ){
+		    	$("#background_image").css("height","100%");
+		    	$("#background_image").css("width","auto");
+			}
+		    else{
+		    	$("#background_image").css("width","100%");
+		    	$("#background_image").css("height","auto");
+		    }
 		});
 
 		if ($(window).width() < $(window).height() * 0.625) {
@@ -190,10 +219,10 @@
 </div>
 -->
 
-	<div id="menu">
-		<div id="logo_div">
-			<a href="${pageContext.request.contextPath}"><img id="img_logo"
-				src="${pageContext.request.contextPath}/resources/images/logo.png"></a>
+<img id = "background_image" src = "${pageContext.request.contextPath}/resources/images/background.jpg">
+<div id = "menu">
+	<div id = "logo_div">
+		<a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
 		</div>
 	</div>
 

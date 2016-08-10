@@ -27,14 +27,6 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() <= $( window ).height() * 1.5 ){
-		    	$("#background_image").css("height","100%");
-		    	$("#background_image").css("width","auto");
-			}
-		    else{
-		    	$("#background_image").css("width","100%");
-		    	$("#background_image").css("height","auto");
-		    }
 		    
 		    var h1 = $("#search-users-box").height();
 		    var h2 = $("#search_user_div").height();
@@ -43,7 +35,30 @@
 		    $("#user_search_div").css("height",h4);
 		});
 		$(window).resize(function(){
-			if( $( window ).width() < $( window ).height() * 1.5 ){
+			var h1 = $("#search-users-box").height();
+		    var h2 = $("#search_user_div").height();
+		    var h3 = $("#first_form").height();
+		    var h4 = h1 - h2 - h3 - 15 - 15 - 20 - 20-20-10;
+		    $("#user_search_div").css("height",h4);
+		});
+		$(document).ready(function(){
+			if( $(window).width() < $(window).height() * 1.5 ){
+		    	$("#background_image").css("height","100%");
+		    	$("#background_image").css("width","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
+			}
+		    else{
+		    	$("#background_image").css("width","100%");
+		    	$("#background_image").css("height","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
+		    }
+		});
+		$(window).resize(function(){
+			var hh1 = $(window).height() - $("#background_image").height();
+			$("#background_image").css("top",hh1);
+			if( $(window).width() < $(window).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -51,17 +66,12 @@
 		    	$("#background_image").css("width","100%");
 		    	$("#background_image").css("height","auto");
 		    }
-			var h1 = $("#search-users-box").height();
-		    var h2 = $("#search_user_div").height();
-		    var h3 = $("#first_form").height();
-		    var h4 = h1 - h2 - h3 - 15 - 15 - 20 - 20-20-10;
-		    $("#user_search_div").css("height",h4);
 		});
 	</script>
     
 </head>
 <body onload='document.loginForm.username.focus();' style="background-color:#374140;">
-
+<img id = "background_image" src = "${pageContext.request.contextPath}/resources/images/background.jpg">
 <div id = "menu">
         <div id = "logo_div">
             <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
