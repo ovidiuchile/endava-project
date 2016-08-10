@@ -1,3 +1,7 @@
+#myCarousel{
+	margin-bottom:20px; 
+}
+
 .carousel-caption p{
 	color: #D9CB9E;
     text-shadow: -1px 0 #1E1E20, 0 1px #1E1E20, 1px 0 #1E1E20, 0 -1px #1E1E20;
@@ -176,22 +180,22 @@ html, body{
 #search_input::-webkit-input-placeholder {
 	font-style: italic;
 	padding-left:2px;
-	color:#2A2C2B;
+	color:#374140;
 }
 #search_input:-moz-placeholder {
 	font-style: italic;
 	padding-left:2px;  
-	color:#2A2C2B;
+	color:#374140;
 }
 #search_input::-moz-placeholder {
 	font-style: italic; 
 	padding-left:2px; 
-	color:#2A2C2B;
+	color:#374140;
 }
 #search_input:-ms-input-placeholder { 
 	font-style: italic; 
 	padding-left:2px;
-	color:#2A2C2B;
+	color:#374140;
 }
 
 #submit_input,#bttn_search,#test_input{

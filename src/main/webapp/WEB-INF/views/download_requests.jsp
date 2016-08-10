@@ -78,11 +78,9 @@
             <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
-                    <li class="technology_menu" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Technologies</a>
-                    </li>
-                    <li class="" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
+                    
+                    <li class="" style="left:2px;">
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/admin">Users' Management</a>
                     </li>
 
                     <li>

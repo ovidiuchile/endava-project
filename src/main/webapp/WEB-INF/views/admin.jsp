@@ -78,14 +78,11 @@
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
                     <li class="technology_menu" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Learn</a>
-                    </li>
-                    <li class="" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/requests">Download Request</a>
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Upload material</a>
+                        <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>

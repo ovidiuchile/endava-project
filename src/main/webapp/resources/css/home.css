@@ -153,6 +153,10 @@ div#search-container{
 			text-align:center;
 			border:1px solid #D13F32;
 		}
+		#usr_SearchRestults tr:first-of-type{
+			color: #D9CB9E;
+			font-size:20px;
+		}
 		
 		#background_image{
 			z-index:-1;
@@ -182,7 +186,7 @@ div#search-container{
 	            position: relative;
 	            background: #1E1E20;
 	            border: 1px solid #D13F32;
-	            top:145px;
+	            top:115px;
 	            left:15px;
 	            transform: translate(0%, 0%);
         	}

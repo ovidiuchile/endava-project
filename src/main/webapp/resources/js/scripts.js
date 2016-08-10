@@ -799,7 +799,22 @@ function searchUser()
 		dataType: 'json',
 		url: url
 	}).then(function (data) {
-
+		
+		var tr = document.createElement("tr");
+		var usrInfo = document.createElement("th");
+		usrInfo.innerHTML = "Name";
+		tr.appendChild(usrInfo);
+		var usrInfo = document.createElement("th");
+		usrInfo.innerHTML = "Surname";
+		tr.appendChild(usrInfo);
+		var usrInfo = document.createElement("th");
+		usrInfo.innerHTML = "E-mail";
+		tr.appendChild(usrInfo);
+		var usrInfo = document.createElement("th");
+		usrInfo.innerHTML = "User Type";
+		tr.appendChild(usrInfo);
+		usrdiv.appendChild(tr);
+		
 		for (i of data.content) {
 			var tr = document.createElement("tr");
 			var usrInfo = document.createElement("th");
