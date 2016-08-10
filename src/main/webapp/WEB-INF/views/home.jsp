@@ -29,30 +29,40 @@
                 $(".Zebra_DatePicker_Icon").css("left", "10px");
                 $(".Zebra_DatePicker_Icon").css("top", "15px");
             });
-            if( $( window ).width() <= $( window ).height() * 1.5 ){
-                $("#background_1").css("height","100%");
-                $("#background_1").css("width","auto");
-            }
-            else{
-                $("#background_1").css("width","100%");
-                $("#background_1").css("height","auto");
-            }
         });
         $(window).resize(function(){
             $("#Adv_search").hide();
-            if( $( window ).width() < $( window ).height() * 1.5 ){
-                $("#background_1").css("height","100%");
-                $("#background_1").css("width","auto");
-            }
-            else{
-                $("#background_1").css("width","100%");
-                $("#background_1").css("height","auto");
-            }
         });
+        $(document).ready(function(){
+			if( $(window).width() < $(window).height() * 1.5 ){
+		    	$("#background_image").css("height","100%");
+		    	$("#background_image").css("width","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height() + 40;
+				$("#background_image").css("top",hh1);
+			}
+		    else{
+		    	$("#background_image").css("width","100%");
+		    	$("#background_image").css("height","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
+		    }
+		});
+		$(window).resize(function(){
+			var hh1 = $(window).height() - $("#background_image").height();
+			$("#background_image").css("top",hh1);
+			if( $(window).width() < $(window).height() * 1.5 ){
+		    	$("#background_image").css("height","100%");
+		    	$("#background_image").css("width","auto");
+			}
+		    else{
+		    	$("#background_image").css("width","100%");
+		    	$("#background_image").css("height","auto");
+		    }
+		});
     </script>
 </head>
 <body>
-
+<img id = "background_image" src = "${pageContext.request.contextPath}/resources/images/background.jpg">
 
 <div >
 
@@ -99,7 +109,7 @@
 
         <div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
             <div class="search_inputdiv" >
-                <input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;	">
+                <input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;   ">
 
                 <div style=" display:none;" id="Adv_search">
                     <select id="Material_type" style="color:black;">
@@ -137,7 +147,7 @@
             <div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" style="" >
 
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox" id="Carusel" >
+                <div class="carousel-inner" role="listbox" id="Carusel" style="background-color:transparent;">
                     <div class="item active">
                         <img src="${pageContext.request.contextPath}/resources/images/img_chania.jpg" alt="Chania" >
                     </div>
@@ -171,8 +181,8 @@
             <div id="material_info">
                 <p id="Material_name"> </p>
                 <p id="Material_Desc" align="justify"> </p>
-                <div class="dropdown" id = "drop_notes" style="display:none; position:static; margin-top:10px;">
-                    <a data-auto-download href="#" style="display:none" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
+                <div class="dropdown" id = "drop_notes" style="display:none; position:static; margin-top:10px; margin-bottom">
+                    <a href="#" style="display:none;" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" style=" margin-bottom:20px;" id="download_img"></a>
 
                 </div>
             </div>

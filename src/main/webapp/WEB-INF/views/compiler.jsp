@@ -33,15 +33,6 @@
 		        $("#sign_in").show();
 		    });
 		    
-		    if( $( window ).width() <= $( window ).height() * 1.5 ){
-		    	$("#background_image").css("height","100%");
-		    	$("#background_image").css("width","auto");
-			}
-		    else{
-		    	$("#background_image").css("width","100%");
-		    	$("#background_image").css("height","auto");
-		    }
-		    
 		    var h1 = $("#search-users-box").height();
 		    var h3 = ( h1 - 90 - 40 ) / 2;
 		    $(".text-area-compiler").css("height",h3);
@@ -62,7 +53,30 @@
 		    ${selected_div}
 		});
 		$(window).resize(function(){
-			if( $( window ).width() < $( window ).height() * 1.5 ){
+			var h1 = $("#search-users-box").height();
+		    var h3 = ( h1 - 90 - 40 ) / 2;
+		    $(".text-area-compiler").css("height",h3);
+		    $("#system_out_println").css("height",h3);
+		});
+		
+		$(document).ready(function(){
+			if( $(window).width() < $(window).height() * 1.5 ){
+		    	$("#background_image").css("height","100%");
+		    	$("#background_image").css("width","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
+			}
+		    else{
+		    	$("#background_image").css("width","100%");
+		    	$("#background_image").css("height","auto");
+		    	var hh1 = $(window).height() - $("#background_image").height();
+				$("#background_image").css("top",hh1);
+		    }
+		});
+		$(window).resize(function(){
+			var hh1 = $(window).height() - $("#background_image").height();
+			$("#background_image").css("top",hh1);
+			if( $(window).width() < $(window).height() * 1.5 ){
 		    	$("#background_image").css("height","100%");
 		    	$("#background_image").css("width","auto");
 			}
@@ -70,15 +84,11 @@
 		    	$("#background_image").css("width","100%");
 		    	$("#background_image").css("height","auto");
 		    }
-			var h1 = $("#search-users-box").height();
-		    var h3 = ( h1 - 90 - 40 ) / 2;
-		    $(".text-area-compiler").css("height",h3);
-		    $("#system_out_println").css("height",h3);
 		});
 	</script>
 </head>
 <body style = "font-family:Century Gothic;">
-
+<img id = "background_image" src = "${pageContext.request.contextPath}/resources/images/background.jpg">
 <div id = "menu">
         <div id = "logo_div">
             <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>

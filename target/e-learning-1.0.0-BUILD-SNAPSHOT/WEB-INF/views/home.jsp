@@ -99,7 +99,7 @@
 
         <div class="col-md-1 btn-group-vertical" id="" style="width:290px; margin-top:20px;">
             <div class="search_inputdiv" >
-                <input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;	">
+                <input id="search_input" type="text" name="searchStuff" placeholder="Search..." style="  height:32px;color:black;   ">
 
                 <div style=" display:none;" id="Adv_search">
                     <select id="Material_type" style="color:black;">
@@ -164,6 +164,9 @@
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#D9CB9E;"></span>
                     <span class="sr-only">Next</span>
                 </a>
+
+                    <a href="#" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
+
             </div>
 
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
@@ -172,7 +175,8 @@
                 <p id="Material_name"> </p>
                 <p id="Material_Desc" align="justify"> </p>
                 <div class="dropdown" id = "drop_notes" style="display:none; position:static; margin-top:10px;">
-                    <a data-auto-download href="#" style="display:none" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
+
+                    <a href="#" style="display:none" id="download_button"><img src="${pageContext.request.contextPath}/resources/images/download_button.png" id="download_img"></a>
 
                 </div>
             </div>
