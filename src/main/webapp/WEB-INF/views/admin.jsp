@@ -127,10 +127,9 @@
 		                <td>Type:</td>
 		                <td><select id="changeTypeSelector" name="type_of_user">
 						    <option value="normal user">Normal user</option>
-						    <option value="tutor">Tutor</option>
 						    <option value="content editor">Content Editor</option>
 						    <option value="admin">Admin</option>
-						  </select>
+						  </select> 
 		                </td>
 		            </tr>
 		            <tr>

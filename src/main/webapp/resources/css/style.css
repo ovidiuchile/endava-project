@@ -4,6 +4,11 @@
     font-size:26px;
     padding-top:30px;
 }
+@media screen and (max-width: 991px){
+	.carousel-caption p{
+		font-size:20px;
+	}
+}
 .carousel-caption{
 	background: transparent; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(transparent, #2A2C2B); /* For Safari 5.1 to 6.0 */

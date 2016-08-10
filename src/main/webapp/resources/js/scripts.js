@@ -345,13 +345,18 @@ function handleelement(i,topic,option)
 					if(type==0)
 					{
 						material.src = k.content.link;
+						div.appendChild(material);
+						handleMaterial(material,source,type,title,desc,material_id);
 					}
-					else
+					else if(type==1)
 					{
-						material.src="http://az186482.vo.msecnd.net/source/i/source/previewNotAvailableLarge.jpg";
+
+						var video = document.createElement("video");
+						video.type="video/mp4";
+						video.src= k.content.link;
+						div.appendChild(video);
+						handleMaterial(video,source,type,title,desc,material_id);
 					}
-					handleMaterial(material,source,type,title,desc,material_id);
-					div.appendChild(material);
                     div.appendChild(captionDiv);
                     captionDiv.appendChild(addMaterialCaption);
 					carousel.appendChild(div);
@@ -372,14 +377,19 @@ function handleelement(i,topic,option)
 					if(type==0)
 					{
 						material.src = k.content.link;
+						div2.appendChild(material);
+						handleMaterial(material,source,type,title,desc,material_id);
 					}
-					else
+					else if(type==1)
 					{
-						material.src="http://az186482.vo.msecnd.net/source/i/source/previewNotAvailableLarge.jpg";
+
+						var video = document.createElement("video");
+						video.type="video/mp4";
+						video.src= k.content.link;
+						div2.appendChild(video);
+						handleMaterial(video,source,type,title,desc,material_id);
 					}
 					div2.className = "item ";
-					handleMaterial(material,source,type,title,desc,material_id);
-					div2.appendChild(material);
                     div2.appendChild(captionDiv2);
                     captionDiv2.appendChild(addMaterialCaption2);
 					carousel.appendChild(div2);
@@ -419,18 +429,7 @@ function handleMaterial( img, source, type,title,desc,id)
 			try {
 				var permision = data.content[0].content.permission;
 			}
-			catch (e)
-			{
-				$("#download_button").show();
-				$.ajax({
-					type: 'POST',
-					dataType: 'json',
-					url: url
-				}).then(function (data)
-				{
-					console.log("Try");
-				});
-				console.log(1);
+			catch (e) {
 			}
 			console.log(id);
 			console.log(permision);
