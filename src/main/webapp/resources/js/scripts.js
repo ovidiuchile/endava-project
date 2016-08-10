@@ -1278,7 +1278,13 @@ $("#add_question_select_technology").change(function(){
 	});
 });
 
-$(document).ready(function(){
-	
-	
-});
+function getDownloadRequests(){
+	var addRequest = document.getElementById("downloadRequests");
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "requests"
+	}).then(function(data) {
+		
+	})
+}

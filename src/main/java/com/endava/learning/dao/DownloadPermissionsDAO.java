@@ -5,17 +5,17 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.endava.learning.model.DownloadPermisions;
+import com.endava.learning.model.DownloadPermissions;
 
 @Repository
-public class DownloadPermissionsDAO extends AbstractDAO<DownloadPermisions> {
+public class DownloadPermissionsDAO extends AbstractDAO<DownloadPermissions> {
 	protected DownloadPermissionsDAO() {
-		super(DownloadPermisions.class);
+		super(DownloadPermissions.class);
 	}
 	
 	@Transactional
 	@SuppressWarnings("unchecked")
-	public List<DownloadPermisions> getAllPermissions() {
+	public List<DownloadPermissions> getAllPermissions() {
 		return em()
 				.createQuery(
 						"SELECT d FROM DownloadPermisions d")
@@ -24,7 +24,7 @@ public class DownloadPermissionsDAO extends AbstractDAO<DownloadPermisions> {
 	
 	@Transactional
 	@SuppressWarnings("unchecked")
-	public List<DownloadPermisions> getPermissions(Long user_id, Long material_id) {
+	public List<DownloadPermissions> getPermissions(Long user_id, Long material_id) {
 		return em()
 				.createQuery(
 						"SELECT d FROM DownloadPermisions d WHERE d.user.user_id = :user_id AND d.material.material_id = :material_id")
@@ -38,7 +38,7 @@ public class DownloadPermissionsDAO extends AbstractDAO<DownloadPermisions> {
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public List<DownloadPermisions> getRequests(){
+	public List<DownloadPermissions> getRequests(){
 		return em().createQuery("SELECT d from DownloadPermisions d WHERE d.permission = false").getResultList();
 	}
 }

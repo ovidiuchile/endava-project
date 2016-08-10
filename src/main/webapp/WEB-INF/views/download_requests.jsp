@@ -70,7 +70,7 @@
 	</script>
     
 </head>
-<body onload='document.loginForm.username.focus();' style="background-color:#374140;">
+<body onload='document.loginForm.username.focus(); ' style="background-color:#374140;">
 <img id = "background_image" src = "${pageContext.request.contextPath}/resources/images/background.jpg">
 <div id = "menu">
         <div id = "logo_div">
