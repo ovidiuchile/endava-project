@@ -260,7 +260,8 @@
 	$('.closebtn').click(function(event){
 		closeNav();
 	});
-</script>
+</script> 
+
 
 </body>
 
