@@ -153,7 +153,7 @@
 				<option value="-1"> Type filter</option>
 				<option value="normal user"> Normal user</option>
 				<option value="content editor"> Content editor</option>
-				<option value="admin"> Administrator</option>
+				<option value="admin"> Admin</option>
 			</select>
 			<button class = "button_sign" onclick="searchUser()" style = "padding:5px;"> Search for users </button>
 		</div>
