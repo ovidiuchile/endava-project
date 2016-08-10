@@ -3,11 +3,11 @@ package com.endava.learning.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.endava.learning.model.User;
-import com.endava.learning.utils.CryptPassword;
 
 @Repository
 @SuppressWarnings("rawtypes")
@@ -26,9 +26,10 @@ public class UserDAO extends AbstractDAO {
 	}
 
 	public boolean isValidUser(String email, String password) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		return (!em()
 				.createQuery("SELECT user FROM User user where user.email like :email AND user.password LIKE :password")
-				.setParameter("email", email).setParameter("password", CryptPassword.encodeMD5(password))
+				.setParameter("email", email).setParameter("password",passwordEncoder.encode(password))
 				.getResultList().isEmpty());
 	}
 
