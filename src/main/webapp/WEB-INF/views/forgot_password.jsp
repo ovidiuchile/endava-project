@@ -125,10 +125,10 @@
 		                <td><input type='email' name='email' value='' required/></td>
 		            </tr>
 		            <tr>
-		                <td><a href = "${pageContext.request.contextPath}/login" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:orange;position:absolute;">Go back</a></td>
+		                <td><a href = "${pageContext.request.contextPath}/login" style="text-decoration:none;margin-right:-300px;margin-left:0px;margin-top:10px;color:#D13F32;position:absolute;">Go back</a></td>
 		            </tr>
 		            <tr>
-		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
+		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit" style="margin-top:33px;"
 		                                       value="Send"/></td>
 		            </tr>
 		        </table>
