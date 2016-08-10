@@ -3,11 +3,14 @@ package com.endava.learning.compilers.JavaCompiler;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 import org.apache.commons.lang.RandomStringUtils;
 
@@ -33,6 +36,9 @@ public class JavaCompiler {
 		if (stream != null)
 			result += stream;
 		pro.waitFor();
+		if(pro.exitValue()==123)
+			result = "runtime exceeded";
+		
 		return result;
 	}
 
@@ -49,6 +55,22 @@ public class JavaCompiler {
 			e.printStackTrace();
 		}
 	}
+	
+	private static void addTimerClass(File sourceFile) {
+		PrintWriter writer = null;
+		String timerClass="class TimedExit {Timer timer = new Timer();TimerTask exitApp = new TimerTask() {public void run() {System.exit(123);}};public TimedExit() {timer.schedule(exitApp, new Date(System.currentTimeMillis() + 5 * 1000));}}";
+		String imports="import java.util.Date;import java.util.Timer;import java.util.TimerTask;";
+		try {
+			writer = new PrintWriter(new FileOutputStream(sourceFile), true);
+			writer.println(imports);
+			writer.println(timerClass);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally{
+			writer.close();
+		}
+			
+	}
 
 	public static String compile(String source) {
 		if (source.contains("File") || source.contains("Thread") || source.contains("RandomAccessFile")
@@ -58,7 +80,6 @@ public class JavaCompiler {
 		}
 
 		String result = "";
-		PrintWriter writer;
 		String javaFileName = RandomStringUtils.randomAlphanumeric(8) + ".java";
 		File folder = new File(System.getProperty("catalina.home") + "/webapps/compiler_directory");
 		try {
@@ -73,10 +94,20 @@ public class JavaCompiler {
 					e.printStackTrace();
 				}
 			}
-			writer = new PrintWriter(javaFile, "UTF-8");
-			writer.println(source);
-			writer.close();
-		} catch (UnsupportedEncodingException | FileNotFoundException e1) {
+			addTimerClass(javaFile);
+			String finalSource;
+
+			if(source.indexOf("Main{")>-1)
+				finalSource=source.substring(0,source.indexOf("Main{")+5)+"static{TimedExit t = new TimedExit();}"+source.substring(source.indexOf("Main{")+5);
+			else if(source.indexOf("Main {")>-1)
+				finalSource=source.substring(0,source.indexOf("Main {")+6)+"static{TimedExit t = new TimedExit();}"+source.substring(source.indexOf("Main {")+6);
+			else finalSource = source;
+			try {
+			    Files.write(Paths.get(javaFile.getAbsolutePath()), finalSource.getBytes(), StandardOpenOption.APPEND);
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 
