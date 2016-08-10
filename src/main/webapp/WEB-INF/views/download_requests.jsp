@@ -68,6 +68,7 @@
 		    }
 		});
 	</script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/request.css">
     
 </head>
 <body onload='getDownloadRequests()' style="background-color:#374140;">
