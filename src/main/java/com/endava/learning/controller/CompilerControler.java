@@ -38,7 +38,6 @@ public class CompilerControler {
 			request.setAttribute("selected_div", "$('#text-area-compiler-1').hide();$('#text-area-compiler-2').show();");
 		}else
 			result = "wrong technology";
-		System.out.println(result);
 		
 		request.setAttribute("result", result);
 		request.setAttribute("source1", source1);
