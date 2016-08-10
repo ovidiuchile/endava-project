@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
     </list>
     <ignored path="e-learning.iws" />
@@ -47,11 +46,11 @@
       <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="394" column="47" selection-start-line="394" selection-start-column="47" selection-end-line="394" selection-end-column="47" />
+            <state relative-caret-position="174">
+              <caret line="432" column="13" selection-start-line="432" selection-start-column="13" selection-end-line="432" selection-end-column="13" />
               <folding>
-                <marker date="1470826069635" expanded="true" signature="17054:17106" ph="..." />
-                <marker date="1470826069635" expanded="true" signature="17263:17315" ph="..." />
+                <marker date="1470829580223" expanded="true" signature="16861:16913" ph="..." />
+                <marker date="1470829580223" expanded="true" signature="17070:17122" ph="..." />
               </folding>
             </state>
           </provider>
@@ -61,11 +60,11 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/dao/UserDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1020">
-              <caret line="70" column="179" selection-start-line="70" selection-start-column="179" selection-end-line="70" selection-end-column="179" />
+              <caret line="67" column="179" selection-start-line="67" selection-start-column="179" selection-end-line="67" selection-end-column="179" />
               <folding>
-                <marker date="1470814869873" expanded="false" signature="41:114" ph="..." />
-                <marker date="1470814869873" expanded="true" signature="1048:1095" ph="{...}" />
-                <marker date="1470814869873" expanded="true" signature="1964:2019" ph="UPDATE Users... " />
+                <marker date="1470827434619" expanded="false" signature="41:114" ph="..." />
+                <marker date="1470827434619" expanded="true" signature="919:926" ph="{...}" />
+                <marker date="1470827434619" expanded="true" signature="1795:1850" ph="UPDATE Users... " />
               </folding>
             </state>
           </provider>
@@ -795,7 +794,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8709000" />
+    <option name="totallyTimeSpent" value="9341000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1131,11 +1130,11 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/dao/UserDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
-          <caret line="70" column="179" selection-start-line="70" selection-start-column="179" selection-end-line="70" selection-end-column="179" />
+          <caret line="67" column="179" selection-start-line="67" selection-start-column="179" selection-end-line="67" selection-end-column="179" />
           <folding>
-            <marker date="1470814869873" expanded="false" signature="41:114" ph="..." />
-            <marker date="1470814869873" expanded="true" signature="1048:1095" ph="{...}" />
-            <marker date="1470814869873" expanded="true" signature="1964:2019" ph="UPDATE Users... " />
+            <marker date="1470827434619" expanded="false" signature="41:114" ph="..." />
+            <marker date="1470827434619" expanded="true" signature="919:926" ph="{...}" />
+            <marker date="1470827434619" expanded="true" signature="1795:1850" ph="UPDATE Users... " />
           </folding>
         </state>
       </provider>
@@ -1180,11 +1179,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="394" column="47" selection-start-line="394" selection-start-column="47" selection-end-line="394" selection-end-column="47" />
+        <state relative-caret-position="174">
+          <caret line="432" column="13" selection-start-line="432" selection-start-column="13" selection-end-line="432" selection-end-column="13" />
           <folding>
-            <marker date="1470826069635" expanded="true" signature="17054:17106" ph="..." />
-            <marker date="1470826069635" expanded="true" signature="17263:17315" ph="..." />
+            <marker date="1470829580223" expanded="true" signature="16861:16913" ph="..." />
+            <marker date="1470829580223" expanded="true" signature="17070:17122" ph="..." />
           </folding>
         </state>
       </provider>

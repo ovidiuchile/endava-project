@@ -429,18 +429,7 @@ function handleMaterial( img, source, type,title,desc,id)
 			try {
 				var permision = data.content[0].content.permission;
 			}
-			catch (e)
-			{
-				$("#download_button").show();
-				$.ajax({
-					type: 'POST',
-					dataType: 'json',
-					url: url
-				}).then(function (data)
-				{
-					console.log("Try");
-				});
-				console.log(1);
+			catch (e) {
 			}
 			console.log(id);
 			console.log(permision);
