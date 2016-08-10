@@ -166,13 +166,13 @@
 		                <td><input type='password' name='old_password' value='' required/></td>
 		            </tr>
 		            <tr>
-		                <td>New password:</td>
+		                <td><p style = "margin-right:5px;">New password:</p></td>
 		                <td><input type='password' name='new_password' value='' minlength=6 required/></td>
 		            </tr>
 		            
 		            <tr>
 		                <td colspan='2'><input class = "button_sign" name="submit" id = "submitt" type="submit"
-		                                       value="Change" style = "margin-left:105px;"/></td>
+		                                       value="Change" style = "margin-left:125px;"/></td>
 		            </tr>
 		        </table>
 		

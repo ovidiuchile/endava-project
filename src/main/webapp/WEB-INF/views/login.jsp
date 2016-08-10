@@ -27,10 +27,7 @@
 		    $("#button_sign_in").click(function(){
 		        $("#sign_up").hide();
 		        $("#sign_in").show();
-		    });
-		    
-		    
-		    
+		    });  
 		});
 		$(document).ready(function(){
 			if( $(window).width() < $(window).height() * 1.5 ){
@@ -58,25 +55,6 @@
 		    	$("#background_image").css("height","auto");
 		    }
 		});
-
-		if ($(window).width() < $(window).height() * 0.625) {
-			$("#background_image").css("height", "100%");
-			$("#background_image").css("width", "auto");
-		} else {
-			$("#background_image").css("width", "100%");
-			$("#background_image").css("height", "auto");
-		}
-
-	});
-	$(window).resize(function() {
-		if ($(window).width() < $(window).height() * 0.625) {
-			$("#background_image").css("height", "100%");
-			$("#background_image").css("width", "auto");
-		} else {
-			$("#background_image").css("width", "100%");
-			$("#background_image").css("height", "auto");
-		}
-	});
 </script>
 
 <script>
@@ -306,7 +284,7 @@
 						</tr>
 						<tr>
 							<td>Country:</td>
-							<td><select name="country">
+							<td><select name="country" style = "width:173px;">
 									<option value=""></option>
 									<option value="Afganistan">Afghanistan</option>
 									<option value="Albania">Albania</option>
