@@ -5,6 +5,7 @@ import java.util.List;
 import javax.mail.MethodNotSupportedException;
 import javax.servlet.http.HttpServletRequest;
 
+import com.endava.learning.model.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
@@ -48,6 +49,15 @@ public class QuestionController {
 		return new ResponseEntity<>(questionResource, HttpStatus.OK);
 	}
 
+    @RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/questions/{question_id}", method = RequestMethod.GET)
+    public HttpEntity<Resource<Question>> getQuestionById(
+            @PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id, @PathVariable("question_id") Long question_id) {
+        Question questions = questionService.getQuestionById(question_id);
+        Resource<Question> questionResource = new Resource<>(questions);
+
+        return new ResponseEntity<>(questionResource, HttpStatus.OK);
+    }
+
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/questions", method = RequestMethod.POST, consumes = "application/json")
 	public HttpEntity<Resource<Question>> addQuestion(@PathVariable Long technology_id, @PathVariable Long topic_id,
 			@RequestBody Question question) {
@@ -58,34 +68,6 @@ public class QuestionController {
 
 		Resource<Question> questionResource = new Resource<>(createdQuestion);
 		return new ResponseEntity<>(questionResource, HttpStatus.CREATED);
-	}
-
-	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/questions/{question_id}", method = RequestMethod.PUT, consumes = "application/json")
-	public HttpEntity<Resource<Question>> updateQuestion(@PathVariable Long technology_id, @PathVariable Long topic_id,
-			@PathVariable Long question_id, @RequestBody Question question) {
-
-		Question existingQuestion = questionService.getQuestionById(question_id);
-
-		if (question.getId() == null) {
-			question.setId(question_id);
-		}
-		if (question.getTopic() == null) {
-			question.setTopic(existingQuestion.getTopic());
-		}
-		if (question.getQuestion_text() == null) {
-			question.setQuestion_text(existingQuestion.getQuestion_text());
-		}
-		if (question.getStart_date() == null) {
-			question.setStart_date(existingQuestion.getStart_date());
-		}
-		if (question.getEnd_date() == null) {
-			question.setEnd_date(existingQuestion.getEnd_date());
-		}
-
-		Question updatedQuestion = questionService.updateQuestion(question);
-
-		Resource<Question> questionResource = new Resource<>(updatedQuestion);
-		return new ResponseEntity<>(questionResource, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/questions/{question_id}", method = RequestMethod.DELETE, consumes = "application/json")
@@ -156,6 +138,84 @@ public class QuestionController {
 		model.setViewName("add_question");
 		return model;
 	}
+
+	@RequestMapping(value = "update_question", method = RequestMethod.GET)
+	public ModelAndView selectQuestionToBeUpdated() {
+
+        ModelAndView model = new ModelAndView();
+        model.setViewName("update_question");
+        return model;
+	}
+
+    @RequestMapping(value = "update_question", method = RequestMethod.POST)
+    public ModelAndView updateQuestion(HttpServletRequest request){
+
+        if(request.getParameter("_method").equals("PUT")) {
+
+            Question existingQuestion = questionService.getQuestionById(Long.parseLong(request.getParameter("question")));
+
+            existingQuestion.setTopic(topicService.getTopicByID(Long.parseLong(request.getParameter("topic"))));
+            existingQuestion.setQuestion_text(request.getParameter("edited_question"));
+            existingQuestion.setStart_date(request.getParameter("start_date"));
+            existingQuestion.setEnd_date(request.getParameter("end_date"));
+
+            Question updatedQuestion = questionService.updateQuestion(existingQuestion);
+
+            List<Answer> answers = answerService.getAnswersByQuestionId(Long.parseLong(request.getParameter("question")));
+            int nrOfAnswers = answers.size();
+            answers.get(0).setQuestion(updatedQuestion);
+            answers.get(0).setAnswer_text(request.getParameter("answer 1"));
+            if ("correct".equals(request.getParameter("answer1"))) {
+                answers.get(0).setCorrect(true);
+            } else {
+                answers.get(0).setCorrect(false);
+            }
+            Answer updatedAnswer = answerService.updateAnswer(answers.get(0));
+            answers.get(1).setQuestion(updatedQuestion);
+            answers.get(1).setAnswer_text(request.getParameter("answer 2"));
+            if ("correct".equals(request.getParameter("answer2"))) {
+                answers.get(1).setCorrect(true);
+            } else {
+                answers.get(1).setCorrect(false);
+            }
+            updatedAnswer = answerService.updateAnswer(answers.get(1));
+            if (nrOfAnswers >= 3) {
+                answers.get(2).setQuestion(updatedQuestion);
+                answers.get(2).setAnswer_text(request.getParameter("answer 3"));
+                if ("correct".equals(request.getParameter("answer3"))) {
+                    answers.get(2).setCorrect(true);
+                } else {
+                    answers.get(2).setCorrect(false);
+                }
+                updatedAnswer = answerService.updateAnswer(answers.get(2));
+            }
+            if (nrOfAnswers >= 4) {
+                answers.get(3).setQuestion(updatedQuestion);
+                answers.get(3).setAnswer_text(request.getParameter("answer 4"));
+                if ("correct".equals(request.getParameter("answer4"))) {
+                    answers.get(3).setCorrect(true);
+                } else {
+                    answers.get(3).setCorrect(false);
+                }
+                updatedAnswer = answerService.updateAnswer(answers.get(3));
+            }
+            if (nrOfAnswers >= 5) {
+                answers.get(4).setQuestion(updatedQuestion);
+                answers.get(4).setAnswer_text(request.getParameter("answer 5"));
+                if ("correct".equals(request.getParameter("answer5"))) {
+                    answers.get(4).setCorrect(true);
+                } else {
+                    answers.get(4).setCorrect(false);
+                }
+                updatedAnswer = answerService.updateAnswer(answers.get(4));
+            }
+
+
+        }
+        ModelAndView model = new ModelAndView();
+        model.setViewName("redirect:/update_question");
+        return model;
+    }
 
 	@RequestMapping(value = "delete_question", method = RequestMethod.GET)
 	public ModelAndView deleteQuestion() {

@@ -35,4 +35,8 @@ public class QuestionDAO extends AbstractDAO{
             answerDAO.delete(answer.getId());
         }
     }
+
+    public void updateQuestion(Long question_id) {
+        super.update(question_id);
+    }
 }

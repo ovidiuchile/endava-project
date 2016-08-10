@@ -68,13 +68,13 @@ public class UserDAO extends AbstractDAO {
 			@SuppressWarnings("unchecked")
 			List<User> keywords = (List<User>) em()
 					.createQuery(
-							"SELECT user FROM User user WHERE (lower(user.name) LIKE lower(:name) OR lower(user.surname) LIKE lower(:name)) AND lower(user.user_type) LIKE lower(:type)")
+							"SELECT user FROM User user WHERE (lower(user.name) LIKE lower(:name) OR lower(user.surname) LIKE lower(:name)) AND lower(user.user_type) LIKE lower(:type) order by user.user_type, user.email")
 					.setParameter("name", "%" + name + "%").setParameter("type", "%" + type + "%").getResultList();
 			results.addAll(keywords);
 		} else if (name == null) {
 			@SuppressWarnings("unchecked")
 			List<User> keywords = (List<User>) em()
-					.createQuery("SELECT user FROM User user WHERE lower(user.user_type) LIKE lower(:type)")
+					.createQuery("SELECT user FROM User user WHERE lower(user.user_type) LIKE lower(:type) order by user.user_type, user.email")
 					.setParameter("type", "%" + type + "%").getResultList();
 			results.addAll(keywords);
 		}
@@ -83,7 +83,7 @@ public class UserDAO extends AbstractDAO {
 			@SuppressWarnings("unchecked")
 			List<User> keywords = (List<User>) em()
 					.createQuery(
-							"SELECT user FROM User user WHERE lower(user.name) LIKE lower(:name) OR lower(user.surname) LIKE lower(:name)")
+							"SELECT user FROM User user WHERE lower(user.name) LIKE lower(:name) OR lower(user.surname) LIKE lower(:name) order by user.user_type, user.email")
 					.setParameter("name", "%" + name + "%").getResultList();
 			results.addAll(keywords);
 		}

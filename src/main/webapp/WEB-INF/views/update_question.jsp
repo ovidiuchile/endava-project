@@ -51,21 +51,17 @@
             }
         });
     </script>
-    <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/zebra_datepicker.js"></script>
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/style.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/upload.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/metallic.css">
-
     <style>
         <%@include file="css/style.css"%>
     </style>
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/questions.css">
 </head>
-<body style="width: 100vw; background-color:#374140" onload="addQuestionTechnologies();">
+<body style="width: 100vw; background-color: #374140;">
+
+
 
 <div style="width: calc(96vw - 20px);">
     <div id="menu" style="width: 100vw;">
@@ -79,7 +75,7 @@
                             href="${pageContext.request.contextPath}/upload">Update materials</a>
                     </li>
                     <li class="" style=""><a
-                            href="${pageContext.request.contextPath}/delete_question">Delete Questions</a>
+                            href="${pageContext.request.contextPath}/add_question">Add Questions</a>
                     </li>
                 </ul>
                 <span
@@ -92,7 +88,7 @@
                 <div class="col-md-1  pull-right" style="">
                     <div id="mySidenav" class="sidenav" style="z-index: 99999;">
                         <a href="javascript:void(0)" class="closebtn"
-                        >&times;</a> <br> <a href="admin">Admin</a>
+                           onclick="closeNav()">&times;</a> <br> <a href="admin">Admin</a>
 
                         <a href="change-password">Change Password</a> <a href="logout">Logout</a>
                     </div>
@@ -107,35 +103,41 @@
         <div id="" style="margin-left: 0px;">
             <br>
             <div id="container" style="margin-left: 0px;">
-                <div id="editMaterial" style="">
+
+                <div id="addMaterial" style="">
                     <h3 id="h33">Edit question:</h3>
                     <form name="materialForm" style=""
-                          action=" <c:url value='/edit_question' />" method="POST"
+                          action=" <c:url value='/update_question' />" method="POST"
                           enctype="multipart/form-data">
                         <table style="width: 250px">
                             <tr style="">
                                 <td style=""><p class="td_text">Name of technology:</p></td>
                                 <td><select class="topic-form" name="technology"
-                                            id="add_question_select_technology" style="" required>
+                                            id="edit_question_select_technology" style="" required>
                                     <option value="">Select language</option>
                                 </select></td>
                             </tr>
                             <tr>
                                 <td><p class="td_text">Name of topic:</p></td>
                                 <td><select class="topic-form" name="topic" style=""
-                                            id="add_question_select_topic" required>
+                                            id="edit_question_select_topic" required>
                                     <option value="">Select topic</option>
                                 </select></td>
                             </tr>
-                        </table>
-                        <table>
                             <tr>
-                                <td ><p class="td_text">Question:</p></td>
-                                <td><select class="question-form" name="question" style=""
-                                            id="select_question" required>
+                                <td><p class="td_text">Question:</p></td>
+                                <td><select class="topic-form" name="question" style=""
+                                            id="edit_question_select" required>
                                     <option value="">Select question</option>
                                 </select></td>
                             </tr>
+                            <tr>
+                                <td><p class="td_text">Question body:</p></td>
+                                <td><input type='text' name='edited_question' value=''
+                                           style="" required id="question_body"/></td>
+                            </tr>
+                        </table>
+                        <table>
                             <tr>
                                 <td><p class="td_text">Start date:</p> </td>
                                 <td><input id="datepicker1" type='text' name='start_date' value='' style="height:26px;" required /></td>
@@ -148,70 +150,68 @@
                             </tr>
                             <tr>
                                 <td><p class="td_text">Answer 1:</p></td>
-                                <td><input type='text' name='answer 1' value=''
+                                <td><input type='text' name='answer 1' value='' id = "answer1"
                                            style="" required /></td>
                             </tr>
                             <tr>
                                 <td style="height:26px;"></td>
                                 <td style="height:26px;">
-                                    <input id="radio_correct1" type="radio" name="answer1" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;" checked><p style="width:50px; display:inline-block;">Correct  </p>
+                                    <input id="radio_correct1" type="radio" name="answer1" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;"><p style="width:50px; display:inline-block;">Correct  </p>
                                     <input id="radio_incorrect1" type="radio" name="answer1" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"><p style="width:50px; display:inline-block;">Incorrect</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td><p class="td_text">Answer 2:</p></td>
-                                <td><input type='text' name='answer 2' value=''
+                                <td><input type='text' name='answer 2' value='' id = "answer2"
                                            style="" required /></td>
                             </tr>
                             <tr>
                                 <td style="height:26px;"></td>
                                 <td style="height:26px;">
-                                    <input id="radio_correct2" type="radio" name="answer2" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;"checked /><p style="width:50px; display:inline-block;">Correct  </p>
+                                    <input id="radio_correct2" type="radio" name="answer2" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Correct  </p>
                                     <input id="radio_incorrect2" type="radio" name="answer2" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
                                 </td>
                             </tr><tr>
                             <td><p class="td_text">Answer 3:</p></td>
-                            <td><input type='text' name='answer 3' value=''
+                            <td><input type='text' name='answer 3' value='' id = "answer3"
                                        style="" /></td>
                         </tr>
                             <tr>
                                 <td style="height:26px;"></td>
                                 <td style="height:26px;">
-                                    <input id="radio_correct3" type="radio" name="answer3" class="radio" value = "correct" style="height:12px; width:12px;display:inline-block;" checked /><p style="width:50px; display:inline-block;">Correct  </p>
+                                    <input id="radio_correct3" type="radio" name="answer3" class="radio" value = "correct" style="height:12px; width:12px;display:inline-block;"/><p style="width:50px; display:inline-block;">Correct  </p>
                                     <input id="radio_incorrect3" type="radio" name="answer3" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
                                 </td>
                             </tr><tr>
                             <td><p class="td_text">Answer 4:</p></td>
-                            <td><input type='text' name='answer 4' value=''
+                            <td><input type='text' name='answer 4' value='' id = "answer4"
                                        style="" /></td>
                         </tr>
                             <tr>
                                 <td style="height:26px;"></td>
                                 <td style="height:26px;">
-                                    <input id="radio_correct4" type="radio" name="answer4" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;" checked /><p style="width:50px; display:inline-block;">Correct  </p>
+                                    <input id="radio_correct4" type="radio" name="answer4" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Correct  </p>
                                     <input id="radio_incorrect4" type="radio" name="answer4" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
                                 </td>
                             </tr><tr>
                             <td><p class="td_text">Answer 5:</p></td>
-                            <td><input type='text' name='answer 5' value=''
+                            <td><input type='text' name='answer 5' value='' id = "answer5"
                                        style="" /></td>
                         </tr>
                             <tr>
                                 <td style="height:26px;"></td>
                                 <td style="height:26px;">
-                                    <input id="radio_correct5" type="radio" name="answer5" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;" checked/><p style="width:50px; display:inline-block;">Correct  </p>
-                                    <input id="radio_incorrect6" type="radio" name="answer5" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
+                                    <input id="radio_correct5" type="radio" name="answer5" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Correct  </p>
+                                    <input id="radio_incorrect5" type="radio" name="answer5" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
                                 </td>
                             </tr>
 
                         </table>
-                        <br>
-                        <p style="color:red; align:justify;">${error}</p>
-                        <p style="color:green; align:justify;">${success}</p>
                         <table style="width: 250px">
                             <tr>
                                 <td><input class="button_sign" name="submit" id="submitt3"
-                                           type="submit" value="Add question" /></td>
+                                           type="submit" value="Edit question" />
+                                    <input type="hidden" name="_method" value="PUT"></td>
                             </tr>
                         </table>
                     </form>
@@ -245,11 +245,9 @@
     console.log(user_type);
 </script>
 <script>
-
     $('html').click(function() {
         closeNav();
     });
-
     $('#sideNav').click(function(event){
         event.stopPropagation();
     });
@@ -259,6 +257,5 @@
 </script>
 
 </body>
-<link rel="stylesheet"
-      href="${pageContext.request.contextPath}/resources/css/questions.css">
+
 </html>
