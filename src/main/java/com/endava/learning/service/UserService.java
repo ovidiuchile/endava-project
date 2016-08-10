@@ -3,12 +3,12 @@ package com.endava.learning.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.endava.learning.dao.UserDAO;
 import com.endava.learning.model.User;
-import com.endava.learning.utils.CryptPassword;
 
 
 @Service
@@ -52,7 +52,9 @@ public class UserService{
 		if (currentUser == null) {
 			return null;
 		}
-		return CryptPassword.matches(password, currentUser.getPassword()) ? currentUser : null;
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		
+		return passwordEncoder.matches(password, currentUser.getPassword()) ? currentUser : null;
 	}
 	
 	@Transactional
