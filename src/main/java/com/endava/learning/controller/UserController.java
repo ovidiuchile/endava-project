@@ -31,8 +31,10 @@ import com.endava.learning.service.UserService;
 @RestController
 @RequestMapping(value = "/" ,produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
+
 	@Autowired
 	private UserService userService;
+
 	@Autowired
 	private EmailService emailService;
 	

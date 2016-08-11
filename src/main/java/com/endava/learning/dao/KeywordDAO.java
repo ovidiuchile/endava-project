@@ -57,8 +57,6 @@ public class KeywordDAO extends AbstractDAO {
                             "SELECT user FROM User user WHERE lower(user.name) LIKE :editor OR lower(user.surname) LIKE :editor OR lower(concat(user.name, ' ', user.surname)) LIKE :editor")
                     .setParameter("editor", "%" + contentEditor + "%").getResultList();
             for (User user : cttEditor) {
-                StringTokenizer st = new StringTokenizer(input);
-                while (st.hasMoreElements()) {
                     String queryString = "SELECT material FROM Material material";
 
                     if (input != null) {
@@ -80,11 +78,11 @@ public class KeywordDAO extends AbstractDAO {
                     queryString += " AND material.content_editor.user_id = :editorId";
                     Query query;
                     query = em().createQuery(queryString);
-                    String word = st.nextToken();
+                    //String word = st.nextToken();
 
                     if (input != null) {
-                        query.setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword",
-                                "%" + word.toLowerCase() + "%");
+                        query.setParameter("word", "%" + input.toLowerCase() + "%").setParameter("keyword",
+                                "%" + input.toLowerCase() + "%");
                     }
                     if (startDate != null && finishDate != null) {
                         query.setParameter("startDate", startDate);
@@ -92,11 +90,8 @@ public class KeywordDAO extends AbstractDAO {
                     }
                     query.setParameter("editorId", user.getUser_id());
                     results.addAll(query.getResultList());
-                }
             }
         } else {
-            StringTokenizer st = new StringTokenizer(input);
-            while (st.hasMoreElements()) {
                 String queryString = "SELECT material FROM Material material";
 
                 if (input != null) {
@@ -117,18 +112,16 @@ public class KeywordDAO extends AbstractDAO {
                 }
                 Query query;
                 query = em().createQuery(queryString);
-                String word = st.nextToken();
 
                 if (input != null) {
-                    query.setParameter("word", "%" + word.toLowerCase() + "%").setParameter("keyword",
-                            "%" + word.toLowerCase() + "%");
+                    query.setParameter("word", "%" + input.toLowerCase() + "%").setParameter("keyword",
+                            "%" + input.toLowerCase() + "%");
                 }
                 if (startDate != null && finishDate != null) {
                     query.setParameter("startDate", startDate);
                     query.setParameter("finishDate", finishDate);
                 }
                 results.addAll(query.getResultList());
-            }
         }
         return results;
     }

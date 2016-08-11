@@ -30,7 +30,7 @@ public class TestService {
 		if(questions.size() != 0){
 		int[] existingQuestions = new int[questions.size()];
 		int questionNumber;
-		
+
 		for (int i = 0; i < 10; i++) {
 			questionNumber = (int)(Math.random() * questions.size());
 			while(existingQuestions[questionNumber] == 1){
@@ -40,7 +40,7 @@ public class TestService {
 			testQuestions.addAll(answers);
 			existingQuestions[questionNumber] = 1;
 		}
-		
+
 		return testQuestions;
 		}
 		else{

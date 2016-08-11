@@ -164,7 +164,7 @@
                         <img src="${pageContext.request.contextPath}/resources/images/img_flower2.jpg" alt="Flower" >
                     </div>
                 </div>
-
+ 
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="color:#D9CB9E;"></span>
@@ -257,7 +257,11 @@
 	$('#mySidenav').click(function(event){
 		event.stopPropagation();
 	});
-</script>
+	$('.closebtn').click(function(event){
+		closeNav();
+	});
+</script> 
+
 
 </body>
 

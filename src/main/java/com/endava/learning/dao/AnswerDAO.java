@@ -43,17 +43,6 @@ public class AnswerDAO extends AbstractDAO{
         return answers;
     }
 
-    /*public float getAnswerScore(Long id) {
-        Question question = (Question) em().createQuery("SELECT answer.question FROM Answer answer WHERE answer.id = :id").setParameter("id", id).getSingleResult();
-        //Long allAnswers = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id").setParameter("question_id", question.getId()).getSingleResult();
-        Long correctAnswers = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id AND answer.correct = TRUE").setParameter("question_id", question.getId()).getSingleResult();
-        Long wrongAnswers = (Long) em().createQuery("SELECT count(answer.id) FROM Answer answer WHERE answer.question.id = :question_id AND answer.correct = FALSE").setParameter("question_id", question.getId()).getSingleResult();
-        if(wrongAnswers >= correctAnswers){
-            return 0f;
-        }
-        return Float.valueOf(10 / (correctAnswers - wrongAnswers)).floatValue();
-    }*/
-
     public List<Float> getCorrectAnswers() {
         List<Float> answers = new ArrayList<>();
         answers.addAll((List<Float>) em().createQuery("SELECT answer.id FROM Answer answer WHERE answer.correct = TRUE").getResultList());

@@ -31,6 +31,7 @@ public class UpdateController {
 
 	@Autowired
 	private FileUploadService fileUploadService;
+
 	@Autowired
 	private TechnologyService technologyService;
 	
