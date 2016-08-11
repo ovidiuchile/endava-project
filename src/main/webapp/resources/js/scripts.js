@@ -638,7 +638,7 @@ function search(){
 			resultsTitle.innerHTML = res;
 
 			var str = resultsDescription.innerHTML;
-			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1 E1E20;background-color:#D9CB9E'>"+ search + "</span>");
+			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>"+ search + "</span>");
 			resultsDescription.innerHTML = res;
 
 
