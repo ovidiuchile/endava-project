@@ -1345,6 +1345,7 @@ function testRetake(topic_id,option)
 			dataType: 'json',
 			url: url
 		}).then(function (data) {
+
 			var nrofQuestion =0;
 			for(i of data.content)
 			{
