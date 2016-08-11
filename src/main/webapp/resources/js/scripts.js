@@ -414,7 +414,7 @@ function handleelement(i,topic,option)
 
 /**
  * Handles the materials inside the carousel and adds a click on them in order
- * to show the actual amterails / imgs / ppts / pdfs / vids
+ * to show the actual materials / imgs / ppts / pdfs / vids
  * 
  * @param img
  *            Placeholder image for pdf / video / ppt
@@ -811,7 +811,22 @@ function searchUser()
 		dataType: 'json',
 		url: url
 	}).then(function (data) {
-
+		
+		var tr = document.createElement("tr");
+		var usrInfo = document.createElement("th");
+		usrInfo.innerHTML = "Name";
+		tr.appendChild(usrInfo);
+		var usrInfo = document.createElement("th");
+		usrInfo.innerHTML = "Surname";
+		tr.appendChild(usrInfo);
+		var usrInfo = document.createElement("th");
+		usrInfo.innerHTML = "E-mail";
+		tr.appendChild(usrInfo);
+		var usrInfo = document.createElement("th");
+		usrInfo.innerHTML = "User Type";
+		tr.appendChild(usrInfo);
+		usrdiv.appendChild(tr);
+		
 		for (i of data.content) {
 			var tr = document.createElement("tr");
 			var usrInfo = document.createElement("th");
@@ -834,7 +849,7 @@ function searchUser()
 
 /**
  * Function that received the Language ID and the Topic Id in order to create
- * tests apropiate for those critatera
+ * tests apropiate for those Criteria
  * 
  * @param topic_id
  *            The topic ID
@@ -1105,6 +1120,208 @@ $("#question_select_technology").change(function(){
 
 });
 
+/* dropdown menus for edit question page */
+$(document).ready(function(){
+	var grandparent_height = $('.col-md-9').width();
+	$('#notes').width( grandparent_height );
+	$('#button_notes').click(function(){
+		$("#div_notes").fadeToggle(0);
+	});
+	$("#div_notes").fadeToggle(0);
+	var AddTech =  document.getElementById("edit_question_select_technology");
+
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies"
+	}).then(function (data) {
+		for (i of data.content) {
+			var technology = document.createElement("option");
+
+			technology.value = i.content.technology_id;
+			technology.innerHTML = i.content.name;
+
+			if(AddTech)
+			{
+				AddTech.add(technology);
+			}
+		}
+	});
+});
+
+$("#edit_question_select_technology").change(function(){
+	var grandparent_height = $('.col-md-9').width();
+	$('#notes').width( grandparent_height );
+	$('#button_notes').click(function(){
+		$("#div_notes").fadeToggle(0);
+	});
+	$("#div_notes").fadeToggle(0);
+
+
+
+	var AddTopic = document.getElementById("edit_question_select_topic");
+	while (AddTopic.childElementCount != 0) {
+		try {
+			AddTopic.removeChild(AddTopic.childNodes[0]);
+		}
+		catch (e) {
+
+		}
+	}
+	var child=0;
+	var Select_Tech = document.getElementById("edit_question_select_technology").value;
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "technologies/" + Select_Tech + "/topics"
+	}).then(function (data) {
+		var k=0;
+		for (i of data.content) {
+			var topic = document.createElement("option");
+
+			topic.value = i.content.topic_id;
+			topic.innerHTML = i.content.name;
+			if(k==0)
+			{
+				child=i.content.topic_id;
+				k++;
+				console.log(child);
+			}
+
+			AddTopic.add(topic);
+		}
+		console.log(child);
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: "technologies/" + Select_Tech + "/topics/" + child + "/questions"
+        }).then(function (data) {
+			var AddQuestion = document.getElementById("edit_question_select");
+			try
+			{
+				while (AddQuestion.childElementCount != 0) {
+					try {
+						AddQuestion.removeChild(AddQuestion.childNodes[0]);
+					}
+					catch (e) {
+
+					}
+				}
+			}
+			catch(e)
+			{
+
+			}
+			for (i of data.content) {
+				var question = document.createElement("option");
+
+				question.value = i.content.id;
+				question.innerHTML = i.content.question_text;
+                console.log(question.value);
+
+				AddQuestion.add(question);
+
+			}
+		});
+	});
+
+});
+
+$("#edit_question_select").change(function () {
+    var selectedQuestion = document.getElementById("edit_question_select").value;
+    var Select_Tech = document.getElementById("edit_question_select_technology").value;
+    var child = document.getElementById("edit_question_select_topic").value;
+    $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: "technologies/" + Select_Tech + "/topics/" + child + "/questions/" + selectedQuestion
+    }).then(function (data) {
+        var questionBody = document.getElementById("question_body");
+        questionBody.value = data.content.question_text;
+        console.log(selectedQuestion);
+
+        var startDate = document.getElementById("datepicker1");
+        startDate.value = data.content.start_date;
+        console.log(startDate.value);
+
+        var endDate = document.getElementById("datepicker2");
+        endDate.value = data.content.end_date;
+        console.log(endDate.value);
+    })
+
+    $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: "technologies/" + Select_Tech + "/topics/" + child + "/questions/" + selectedQuestion + "/answers"
+    }).then(function (data) {
+        var answer1 = document.getElementById("answer1");
+        answer1.value = data.content[0].content.answer_text;
+
+        var correctRadioButton1 = document.getElementById("radio_correct1");
+        var incorrectRadioButton1 = document.getElementById("radio_incorrect1");
+        if(data.content[0].content.correct === true) {
+            correctRadioButton1.checked = true;
+            incorrectRadioButton1.checked = false;
+        } else {
+            correctRadioButton1.checked = false;
+            incorrectRadioButton1.checked = true;
+        }
+
+
+        var answer2 = document.getElementById("answer2");
+        answer2.value = data.content[1].content.answer_text;
+
+        var correctRadioButton2 = document.getElementById("radio_correct2");
+        var incorrectRadioButton2 = document.getElementById("radio_incorrect2");
+        if(data.content[1].content.correct === true) {
+            correctRadioButton2.checked = true;
+            incorrectRadioButton2.checked = false;
+        } else {
+            correctRadioButton2.checked = false;
+            incorrectRadioButton2.checked = true;
+        }
+
+        var answer3 = document.getElementById("answer3");
+        answer3.value = data.content[2].content.answer_text;
+
+        var correctRadioButton3 = document.getElementById("radio_correct3");
+        var incorrectRadioButton3 = document.getElementById("radio_incorrect3");
+        if(data.content[2].content.correct === true) {
+            correctRadioButton3.checked = true;
+            incorrectRadioButton3.checked = false;
+        } else {
+            correctRadioButton3.checked = false;
+            incorrectRadioButton3.checked = true;
+        }
+
+        var answer4 = document.getElementById("answer4");
+        answer4.value = data.content[3].content.answer_text;
+
+        var correctRadioButton4 = document.getElementById("radio_correct4");
+        var incorrectRadioButton4 = document.getElementById("radio_incorrect4");
+        if(data.content[3].content.correct === true) {
+            correctRadioButton4.checked = true;
+            incorrectRadioButton4.checked = false;
+        } else {
+            correctRadioButton4.checked = false;
+            incorrectRadioButton4.checked = true;
+        }
+
+        var answer5 = document.getElementById("answer5");
+        answer5.value = data.content[4].content.answer_text;
+
+        var correctRadioButton5 = document.getElementById("radio_correct5");
+        var incorrectRadioButton5 = document.getElementById("radio_incorrect5");
+        if(data.content[4].content.correct === true) {
+            correctRadioButton5.checked = true;
+            incorrectRadioButton5.checked = false;
+        } else {
+            correctRadioButton5.checked = false;
+            incorrectRadioButton5.checked = true;
+        }
+    })
+})
+
 function testRetake(topic_id,option)
 {
 	$("#retake_button").unbind("click");
@@ -1266,12 +1483,12 @@ function addQuestionTechnologies()
 
 $("#add_question_select_technology").change(function(){
 	var AddTopic = document.getElementById("add_question_select_topic");
-	while (AddTopic.childElementCount != 0) {
-		try {
-			AddTopic.removeChild(AddTopic.childNodes[0]);
+	while(addRequest.closest('tr') != 0){
+		try{
+			addRequest.closest('tr').remove();
 		}
-		catch (e) {
-
+		catch(e){
+			
 		}
 	}
     var selectedTechnology = document.getElementById("add_question_select_technology").value;
@@ -1289,3 +1506,92 @@ $("#add_question_select_technology").change(function(){
 	});
 });
 
+function getDownloadRequests(){
+	console.log("test to see if it gets here ");
+	
+	var addRequest = document.getElementById("downloadRequests");
+	
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: "download_requests"
+	}).then(function(data) {
+		 while (addRequest.childElementCount != 0) {
+		    	try {
+		    		addRequest.removeChild(addRequest.childNodes[0]);
+		    		}
+		    	catch (e) {
+		    		
+		    	}
+		    }
+		var tr = document.createElement("tr");
+		var header1 = document.createElement("th");
+		header1.innerHTML = "Name";
+		tr.appendChild(header1);
+		var header2 = document.createElement("th");
+		header2.innerHTML = "Surname";
+		tr.appendChild(header2);
+		var header3 = document.createElement("th");
+		header3.innerHTML = "Email";
+		tr.appendChild(header3);
+		var header4 = document.createElement("th");
+		header4.innerHTML = "Material";
+		tr.appendChild(header4);
+		addRequest.appendChild(tr);
+		
+		for(i of data.content){
+			var tr1 = document.createElement("tr");
+			var name = document.createElement("th");
+			name.innerHTML = i.content.user.name;
+			tr1.appendChild(name);
+			
+			var surname = document.createElement("th");
+			surname.innerHTML = i.content.user.surname;
+			tr1.appendChild(surname);
+			
+			var email = document.createElement("th");
+			email.innerHTML = i.content.user.email;
+			tr1.appendChild(email);
+			
+			var material = document.createElement("th");
+			material.innerHTML = i.content.material.title;
+			tr1.appendChild(material);
+			
+			var accept = document.createElement("th");
+			var button = document.createElement("button");
+			button.type = "button";
+			button.innerHTML = "Accept";
+			var permissionId = i.content.permission_id;
+			
+			handleButton(button, permissionId);
+			
+			accept.appendChild(button);
+			tr1.appendChild(accept);
+			
+			addRequest.appendChild(tr1);
+		}
+	})
+}
+
+function handleButton(buton, id)
+{
+
+	var addRequest = document.getElementById("downloadRequests");
+	$(buton).unbind();
+	$(buton).bind("click", function(e){
+		var data = { "permission" : "true" }
+		$.ajax({
+			    headers: { 
+			        'Accept': 'application/json',
+			        'Content-Type': 'application/json' 
+			    },
+			    'type': 'PUT',
+			    'url':  "downloadPermissionsUM/" + id,
+			    'data': JSON.stringify(data),
+			    'dataType': 'json'
+			    }).then(function(data){
+			getDownloadRequests();
+		});
+			   
+		});
+}

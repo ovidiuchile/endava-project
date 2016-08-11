@@ -74,7 +74,7 @@ public class UserController {
 			user.setCountry(country);
 			user.setCity(city);
 			user.setAddress(address);
-			user.setUser_type("normal user");
+			user.setUser_type("Normal user");
 			user.setUser_id(((long)(Math.random()*1000000000)));
 			userService.createUser(user);
 			
@@ -105,7 +105,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "change-password", method = RequestMethod.GET)
-	public ModelAndView ghangePassordGet(HttpServletRequest request) {
+	public ModelAndView changePassordGet(HttpServletRequest request) {
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("change_password");

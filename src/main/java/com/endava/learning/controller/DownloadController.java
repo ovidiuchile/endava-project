@@ -13,15 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.endava.learning.model.DownloadPermisions;
+import com.endava.learning.model.DownloadPermissions;
 import com.endava.learning.service.DownloadPermissionsService;
 import com.endava.learning.service.MaterialService;
 import com.endava.learning.service.UserService;
 
 @RestController
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
-public class DownloadPermisionsControler {
+public class DownloadController {
 
 	@Autowired
 	DownloadPermissionsService downloadPermissionsService;
@@ -33,34 +34,34 @@ public class DownloadPermisionsControler {
 	UserService userService;
 
 	@RequestMapping(value = "downloadPermissions", method = RequestMethod.GET)
-	public HttpEntity<Resources<Resource<DownloadPermisions>>> getPermissions() {
+	public HttpEntity<Resources<Resource<DownloadPermissions>>> getPermissions() {
 
-		Resources<Resource<DownloadPermisions>> downloadsResources = Resources
+		Resources<Resource<DownloadPermissions>> downloadsResources = Resources
 				.wrap(downloadPermissionsService.getPermissions());
 
 		return new ResponseEntity<>(downloadsResources, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "downloadPermissionsUM", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public HttpEntity<Resources<Resource<DownloadPermisions>>> getPermisions(
+	public HttpEntity<Resources<Resource<DownloadPermissions>>> getPermisions(
 			@RequestParam(value = "user_id", required = true) Long user_id,
 			@RequestParam(value = "material_id", required = true) Long material_id) {
 
-		Resources<Resource<DownloadPermisions>> downloadsResources = Resources
+		Resources<Resource<DownloadPermissions>> downloadsResources = Resources
 				.wrap(downloadPermissionsService.getPermissions(user_id, material_id));
 
 		return new ResponseEntity<>(downloadsResources, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "downloadPermissionsUM", method = RequestMethod.POST)
-	public HttpEntity<Resource<DownloadPermisions>> addPermissions(
+	public HttpEntity<Resource<DownloadPermissions>> addPermissions(
 			@RequestParam(value = "user_id", required = true) Long user_id,
 			@RequestParam(value = "material_id", required = true) Long material_id) {
 			
-		Resource<DownloadPermisions> permissionResource;
+		Resource<DownloadPermissions> permissionResource;
 		
 		if (downloadPermissionsService.getPermissions(user_id, material_id).isEmpty()) {
-			DownloadPermisions downloadPermisions = new DownloadPermisions();
+			DownloadPermissions downloadPermisions = new DownloadPermissions();
 			downloadPermisions.setPermission_id(((long) (Math.random() * 1000000000)));
 			downloadPermisions.setMaterial(materialService.getMaterialById(material_id));
 			downloadPermisions.setUser(userService.getUserById(user_id));
@@ -75,17 +76,33 @@ public class DownloadPermisionsControler {
 	}
 
 	@RequestMapping(value = "downloadPermissionsUM/{permission_id}", method = RequestMethod.PUT)
-	public HttpEntity<Resource<DownloadPermisions>> updatePermissions(
-			@RequestBody DownloadPermisions downloadPermisions, @PathVariable("permission_id") Long permission_id) {
+	public HttpEntity<Resource<DownloadPermissions>> updatePermissions(
+			@RequestBody DownloadPermissions downloadPermissions, @PathVariable("permission_id") Long permission_id) {
 
-		DownloadPermisions finalDownloadPermisions = downloadPermissionsService.getPermissionsByID(permission_id);
-		if (downloadPermisions.getPermission() != null)
-			finalDownloadPermisions.setPermission(downloadPermisions.getPermission());
+		DownloadPermissions finalDownloadPermissions = downloadPermissionsService.getPermissionsByID(permission_id);
+		if (downloadPermissions.getPermission() != null)
+			finalDownloadPermissions.setPermission(downloadPermissions.getPermission());
 
-		downloadPermissionsService.updatePermission(finalDownloadPermisions);
+		downloadPermissionsService.updatePermission(finalDownloadPermissions);
 
-		Resource<DownloadPermisions> permissionsResouce = new Resource<>(finalDownloadPermisions);
+		Resource<DownloadPermissions> permissionsResource = new Resource<>(finalDownloadPermissions);
 
-		return new ResponseEntity<>(permissionsResouce, HttpStatus.CREATED);
+		return new ResponseEntity<>(permissionsResource, HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "requests", method = RequestMethod.GET)
+	public ModelAndView getRequestsPage(){
+		ModelAndView model = new ModelAndView();
+		model.setViewName("download_requests");
+		return model;
+	}
+	
+	@RequestMapping(value = "download_requests", method = RequestMethod.GET)
+	public HttpEntity<Resources<Resource<DownloadPermissions>>> getRequestsResults() {
+
+		Resources<Resource<DownloadPermissions>> downloadsResources = Resources
+				.wrap(downloadPermissionsService.getRequests());
+
+		return new ResponseEntity<>(downloadsResources, HttpStatus.OK);
 	}
 }

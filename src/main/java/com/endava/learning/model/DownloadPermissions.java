@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "downloads")
-public class DownloadPermisions {
+public class DownloadPermissions {
 	@Id
 	@Column(name="permission_id", unique=true, nullable=false)
 	private Long permission_id;
