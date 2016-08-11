@@ -857,6 +857,7 @@ function searchUser()
  *            The language ID handleButon function - Appends a event handler for
  *            when the user finishes completing the test
  */
+var nrOfQuestionsTest=0;
 function testFunction(topic_id,option)
 {
 	$("#test_input").unbind("click");
@@ -883,6 +884,7 @@ function testFunction(topic_id,option)
 			dataType: 'json',
 			url: url
 		}).then(function (data) {
+			nrOfQuestionsTest=data.content.length;
 			if(data.content.length==0)
 			{
 				var noSearchResult = document.createElement("p");
@@ -998,7 +1000,9 @@ function handleButon(option, topic_id)
 				if(k==0)
 				{
 					result.innerHTML = "You've achieved " + i.content + " points out of 100!";
-					testSpace.appendChild(result);
+					if(nrOfQuestionsTest!=0) {
+						testSpace.appendChild(result);
+					}
 					k++;
 				}
 				else
@@ -1351,7 +1355,12 @@ function testRetake(topic_id,option)
 			dataType: 'json',
 			url: url
 		}).then(function (data) {
-
+			if(data.content.length==0)
+			{
+				var noSearchResult = document.createElement("p");
+				noSearchResult.innerHTML = " No search results were found";
+				testSpace.appendChild(noSearchResult);
+			}
 			var nrofQuestion =0;
 			for(i of data.content)
 			{
