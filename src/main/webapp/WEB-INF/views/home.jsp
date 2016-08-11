@@ -168,7 +168,7 @@
                         <img style = "border:3px solid #1E1E20;" src="${pageContext.request.contextPath}/resources/images/image5.PNG" alt="Flower" >
                     </div>
                 </div>
-
+ 
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="color:#D9CB9E;"></span>

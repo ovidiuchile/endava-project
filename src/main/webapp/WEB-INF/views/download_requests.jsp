@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Appollo</title>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
 
@@ -68,6 +69,7 @@
 		    }
 		});
 	</script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/request.css">
     
 </head>
 <body onload='getDownloadRequests()' style="background-color:#374140;">
@@ -77,11 +79,9 @@
             <a href="${pageContext.request.contextPath}"><img id = "img_logo" src = "${pageContext.request.contextPath}/resources/images/logo.png"></a>
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
-                    <li class="technology_menu" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Technologies</a>
-                    </li>
-                    <li class="" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
+                    
+                    <li class="" style="left:2px;">
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/admin">Users' Management</a>
                     </li>
 
                     <li>
