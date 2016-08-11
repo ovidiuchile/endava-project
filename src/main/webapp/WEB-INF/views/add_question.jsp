@@ -10,7 +10,7 @@
 <meta name="author" content="endava">
 
 <link rel="icon"
-	href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
+	href="${pageContext.request.contextPath}/resources/images/small logo.png">
 
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/default.css">
 
-<title>Appollo</title>
+<title>appollo</title>
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
