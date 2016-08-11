@@ -357,6 +357,12 @@ function handleelement(i,topic,option)
 						div.appendChild(video);
 						handleMaterial(video,source,type,title,desc,material_id);
 					}
+					else if(type==2)
+					{
+						material.src = "http://www.sribu.com/assets/preview-not-available.jpg";
+						div.appendChild(material);
+						handleMaterial(material,source,type,title,desc,material_id);
+					}
                     div.appendChild(captionDiv);
                     captionDiv.appendChild(addMaterialCaption);
 					carousel.appendChild(div);
@@ -388,6 +394,12 @@ function handleelement(i,topic,option)
 						video.src= k.content.link;
 						div2.appendChild(video);
 						handleMaterial(video,source,type,title,desc,material_id);
+					}
+					else if(type==2)
+					{
+						material.src = "http://www.sribu.com/assets/preview-not-available.jpg";
+						div2.appendChild(material);
+						handleMaterial(material,source,type,title,desc,material_id);
 					}
 					div2.className = "item ";
                     div2.appendChild(captionDiv2);
@@ -626,7 +638,7 @@ function search(){
 			resultsTitle.innerHTML = res;
 
 			var str = resultsDescription.innerHTML;
-			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
+			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1 E1E20;background-color:#D9CB9E'>"+ search + "</span>");
 			resultsDescription.innerHTML = res;
 
 
@@ -741,7 +753,7 @@ function searchResult(buton, langId, topicId, materialId)
 				material.width="600";
 				material.height="360";
 				material.src=source;
-				material.oncontextmenu="return false;"
+				material.oncontextmenu="return false;";
 				showMaterial.appendChild(material);
 			}
 			else if ( type == 2 )
@@ -751,7 +763,7 @@ function searchResult(buton, langId, topicId, materialId)
 				material.height="600px";
 				source = source + "#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true; disableprint=true;";
 				material.src=source;
-				material.oncontextmenu="return false;"
+				material.oncontextmenu="return false;";
 				showMaterial.appendChild(material);
 			}
 
