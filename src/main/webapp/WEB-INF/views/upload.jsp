@@ -9,7 +9,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="author" content="endava">
 	
-    <title>Appollo</title>
+    <title>appollo</title>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/small logo.png">
 	
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">

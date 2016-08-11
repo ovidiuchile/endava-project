@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Appollo</title>
+    <title>appollo</title>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/small logo.png">
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">

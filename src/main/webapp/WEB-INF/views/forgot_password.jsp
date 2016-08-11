@@ -7,7 +7,7 @@
 %-->
 <html>
 <head>
-    <title>Appollo</title>
+    <title>appollo</title>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/small logo.png">
     <style>
 		<%@include file="css/style.css"%>

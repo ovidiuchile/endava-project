@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/knowledge.css">
-    <title>Login Page</title>
+    <title>appollo</title>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script>

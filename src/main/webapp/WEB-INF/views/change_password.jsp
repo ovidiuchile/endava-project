@@ -12,7 +12,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="author" content="endava">
 	
-    <title>Appollo</title>
+    <title>appollo</title>
   
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/small logo.png">
 	
