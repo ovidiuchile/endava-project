@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="endava">
 
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/small logo.png">
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/metallic.css">
 
 
-    <title>Appollo</title>
+    <title>appollo</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
@@ -142,26 +142,30 @@
         </div>
 
         <!-- primary container -->
-        <div class="col-md-11 container" id="Carousel_container" >
+        <div class="col-md-11 container" id="Carousel_container">
             <br>
             <div id="myCarousel" class="carousel slide" data-ride="carousel"  oncontextmenu="return false;" style="" >
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox" id="Carusel" style="background-color:transparent;">
                     <div class="item active">
-                        <img src="${pageContext.request.contextPath}/resources/images/img_chania.jpg" alt="Chania" >
+                        <img style = "border:3px solid #1E1E20;" src="${pageContext.request.contextPath}/resources/images/image1.jpg" alt="Chania" >
                     </div>
 
                     <div class="item">
-                        <img src="${pageContext.request.contextPath}/resources/images/img_chania2.jpg" alt="Chania" >
+                        <img style = "border:3px solid #1E1E20;" src="${pageContext.request.contextPath}/resources/images/image2.jpg" alt="Chania" >
                     </div>
 
                     <div class="item">
-                        <img src="${pageContext.request.contextPath}/resources/images/img_flower.jpg" alt="Flower" >
+                        <img style = "border:3px solid #1E1E20;" src="${pageContext.request.contextPath}/resources/images/image3.jpg" alt="Flower" >
                     </div>
 
                     <div class="item">
-                        <img src="${pageContext.request.contextPath}/resources/images/img_flower2.jpg" alt="Flower" >
+                        <img style = "border:3px solid #1E1E20;" src="${pageContext.request.contextPath}/resources/images/image4.PNG" alt="Flower" >
+                    </div>
+                    
+                    <div class="item">
+                        <img style = "border:3px solid #1E1E20;" src="${pageContext.request.contextPath}/resources/images/image5.PNG" alt="Flower" >
                     </div>
                 </div>
  
@@ -207,7 +211,7 @@
 
             </div>
             <button class="test_button" id="answer_button" style=" display:none; position:relative; left:45px; "> Test result</button>
-            <button class="test_button" id="retake_button"style=" display:none; position:relative; left:45px; "> Retake the rest </button>
+            <button class="test_button" id="retake_button"style=" display:none; position:relative; left:45px; "> New Test </button>
             <!-- test space -->
         </div>
 

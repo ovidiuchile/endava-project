@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/AnswerController.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/AnswerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/SearchController.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/SearchController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/TestController.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/TestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UpdateController.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UpdateController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/AnswerDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/AnswerDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/KeywordDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/KeywordDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/service/SearchService.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/service/SearchService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/endava/learning/service/TestService.java" afterPath="$PROJECT_DIR$/src/main/java/com/endava/learning/service/TestService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/target/e-learning-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
     </list>
     <ignored path="e-learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,12 +39,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SearchController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SearchController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/SearchController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="635" column="37" selection-start-line="635" selection-start-column="37" selection-end-line="635" selection-end-column="37" />
+              <folding>
+                <marker date="1470909050367" expanded="true" signature="17290:17342" ph="..." />
+                <marker date="1470909050367" expanded="true" signature="17499:17551" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,7 +77,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/edit_question.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/UserDAO.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/54f7ac15-5779-463b-a2c5-b2fe96baee89/console.sql" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/service/QuestionService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/update_question.jsp" />
@@ -85,13 +85,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UpdateController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/AnswerDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/QuestionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/AnswerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/dao/KeywordDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/SearchController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/service/TestService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/endava/learning/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/54f7ac15-5779-463b-a2c5-b2fe96baee89/console.sql" />
       </list>
     </option>
   </component>
@@ -1127,40 +1128,41 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1470896572687</updated>
-      <workItem from="1470896596440" duration="6505000" />
+      <workItem from="1470896596440" duration="8804000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27641000" />
+    <option name="totallyTimeSpent" value="29940000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29654405" sideWeight="0.5063966" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32829046" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29459903" sideWeight="0.4936034" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26701966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28441754" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29459903" sideWeight="0.4936034" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26701966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -1169,7 +1171,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="JPA Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1228,11 +1229,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/images/img_flower2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/images/img_flower.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1282,13 +1278,6 @@
         <state relative-caret-position="255">
           <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/54f7ac15-5779-463b-a2c5-b2fe96baee89/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="322" column="0" selection-start-line="322" selection-start-column="0" selection-end-line="322" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1561,19 +1550,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1321">
-          <caret line="537" column="63" selection-start-line="537" selection-start-column="63" selection-end-line="537" selection-end-column="63" />
-          <folding>
-            <marker date="1470908292971" expanded="true" signature="16801:16853" ph="..." />
-            <marker date="1470908292971" expanded="true" signature="16861:16913" ph="..." />
-            <marker date="1470908292971" expanded="true" signature="17010:17062" ph="..." />
-            <marker date="1470908292971" expanded="true" signature="17070:17122" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/dao/QuestionDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1595,7 +1571,7 @@
         <state relative-caret-position="187">
           <caret line="51" column="51" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="51" />
           <folding>
-            <element signature="e#857#887#1" expanded="true" />
+            <element signature="e#857#887#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1624,11 +1600,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/learning/controller/SearchController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/54f7ac15-5779-463b-a2c5-b2fe96baee89/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="325" column="0" selection-start-line="325" selection-start-column="0" selection-end-line="325" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="635" column="37" selection-start-line="635" selection-start-column="37" selection-end-line="635" selection-end-column="37" />
+          <folding>
+            <marker date="1470909050367" expanded="true" signature="17290:17342" ph="..." />
+            <marker date="1470909050367" expanded="true" signature="17499:17551" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
