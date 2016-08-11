@@ -50,7 +50,7 @@ public class TestService {
 			catch(IndexOutOfBoundsException e){
 				e.printStackTrace();
 			}
-			return null;
+			return new ArrayList<>();
 		}
 	}
 
