@@ -3,7 +3,7 @@
 <head>
     <title>Appollo</title>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 	
@@ -78,14 +78,11 @@
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
                     <li class="technology_menu" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/">Learn</a>
-                    </li>
-                    <li class="" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/compiler">Try it yourself</a>
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/requests">Download Request</a>
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Upload material</a>
+                        <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
@@ -153,7 +150,7 @@
 				<option value="-1"> Type filter</option>
 				<option value="normal user"> Normal user</option>
 				<option value="content editor"> Content editor</option>
-				<option value="admin"> Administrator</option>
+				<option value="admin"> Admin</option>
 			</select>
 			<button class = "button_sign" onclick="searchUser()" style = "padding:5px;"> Search for users </button>
 		</div>
