@@ -86,10 +86,10 @@
                         <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle img-avatar-cp" height="50px"></span>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle img-avatar-cp" height="50px"></span>
                 <div class="col-md-1  pull-right" style="">
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="javascript:void(0)" class="closebtn">&times;</a>
                         <br>
                         <a href="admin">Admin</a>
 
@@ -119,7 +119,7 @@
 			<!-- Add content -->
 			<div id="addContent">
 				<div id="container" style="margin-left: 0px;">
-				<div id="addTechnology" style="border-bottom:1px solid #D13F32;paddin-top:0px;">
+				<div id="addTechnology" style="padding-bottom:10px;border-bottom:1px solid #D13F32;paddin-top:0px;">
 					<h3 id="h31">Add a new technology:</h3>
 					<p style="color: red;">${error}</p>
 					<p style="color: green;">${success}</p>
@@ -202,7 +202,7 @@
 <!-- Delete content -->
 <div id="deleteContent">
 <div id="container" style="margin-left:0px;">
-				<div id="addTechnology" style="border-bottom:1px solid #D13F32;">
+				<div id="addTechnology" style="padding-bottom:10px;border-bottom:1px solid #D13F32;">
 					<h3 id="h31">Delete technology</h3>
 					<p style="color: red;">${error}</p>
 					<p style="color: green;">${success}</p>
@@ -447,7 +447,7 @@
 		<div id="container" style="margin-left: 0px;">
 
                 <div id="addMaterial" style="">
-                    <h3 id="h33">Edit question:</h3>
+                    <h3 id="h33">Update question:</h3>
                     <form name="materialForm" style=""
                           action=" <c:url value='/update_question' />" method="POST"
                           enctype="multipart/form-data">
