@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="endava">
 
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/small logo.png">
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/metallic.css">
 
 
-    <title>Appollo</title>
+    <title>appollo</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
@@ -182,7 +182,7 @@
 
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
             </div>
-            <div id="material_info">
+            <div id="material_info" oncontextmenu="return false;">
                 <p id="Material_name"> </p>
                 <p id="Material_Desc" align="justify"> </p>
                 <div class="dropdown" id = "drop_notes" style="display:none; position:static; margin-top:10px; margin-bottom">
@@ -211,7 +211,7 @@
 
             </div>
             <button class="test_button" id="answer_button" style=" display:none; position:relative; left:45px; "> Test result</button>
-            <button class="test_button" id="retake_button"style=" display:none; position:relative; left:45px; "> Retake the rest </button>
+            <button class="test_button" id="retake_button"style=" display:none; position:relative; left:45px; "> New Test </button>
             <!-- test space -->
         </div>
 
