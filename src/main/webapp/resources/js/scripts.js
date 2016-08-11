@@ -888,8 +888,9 @@ function testFunction(topic_id,option)
 			if(data.content.length==0)
 			{
 				var noSearchResult = document.createElement("p");
-				noSearchResult.innerHTML = " No search results were found";
+				noSearchResult.innerHTML = " No test questions available for this topic";
 				testSpace.appendChild(noSearchResult);
+				$("#answer_button").hide();
 			}
 			var nrofQuestion =0;
 			for(i of data.content)
@@ -1358,7 +1359,7 @@ function testRetake(topic_id,option)
 			if(data.content.length==0)
 			{
 				var noSearchResult = document.createElement("p");
-				noSearchResult.innerHTML = " No search results were found";
+				noSearchResult.innerHTML = " No test questions available for this topic";
 				testSpace.appendChild(noSearchResult);
 			}
 			var nrofQuestion =0;
