@@ -8,7 +8,7 @@
 <html>
 <head>
     <title>Appollo</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/small logo.png">
     <style>
 		<%@include file="css/style.css"%>
 		
