@@ -132,13 +132,11 @@ $("#select_technology").change(function(){
 			{
 				child=i.content.topic_id;
 				k++;
-				console.log(child);
 			}
 
 			AddTopic.add(topic);
 
 		}
-		console.log(child);
 		$.ajax({
 			type: 'GET',
 			dataType: 'json',
@@ -210,13 +208,11 @@ $("#select_technology_delete_material").change(function(){
 				{
 					child=i.content.topic_id;
 					k++;
-					console.log(child);
 				}
 
 				AddTopic.add(topic);
 
 			}
-			console.log(child);
 			$.ajax({
 				type: 'GET',
 				dataType: 'json',
@@ -432,11 +428,9 @@ function handleelement(i,topic,option)
 		}).then(function (data) {
 			var test=0;
 			var divMats = document.createElement("div");
-			console.log(data.content.length);
 			for(k of data.content) {
 				var title = k.content.title;
 				var desc = k.content.description;
-				console.log(title,desc);
 				var material_id = k.content.material_id;
 				if (test == 0) {
 					var carousel = document.getElementById('Carusel');
@@ -535,14 +529,12 @@ function handleelement(i,topic,option)
  */
 function handleMaterial( img, source, type,title,desc,id)
 {
-	console.log(type);
 	img.addEventListener("click", function (e) {
 		/**
 		 * Doing the download requirement check for the download button
 		 * 
 		 */
 		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
-		console.log(url);
 		$.ajax({
 			type: 'GET',
 			dataType: 'json',
@@ -553,8 +545,6 @@ function handleMaterial( img, source, type,title,desc,id)
 			}
 			catch (e) {
 			}
-			console.log(id);
-			console.log(permision);
 			if(permision == false)
 			{
 				$("#download_button").hide();
@@ -684,13 +674,11 @@ function search(){
 	{
 
 	}
-	console.log(url);
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
 		url: url
 	}).then(function (data) {
-		console.log(data.content.length);
 		if(data.content.length==0)
 		{
 			var noSearchResult = document.createElement("p");
@@ -783,7 +771,6 @@ function search(){
  */
 function searchResult(buton, langId, topicId, materialId)
 {
-	console.log(langId, topicId, materialId);
 	buton.addEventListener("click", function(e)
 	{
 		$("#drop_notes").show();
@@ -795,7 +782,6 @@ function searchResult(buton, langId, topicId, materialId)
 		 *
 		 */
 		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + materialId;
-		console.log(url);
 		$.ajax({
 			type: 'GET',
 			dataType: 'json',
@@ -806,7 +792,6 @@ function searchResult(buton, langId, topicId, materialId)
 			}
 			catch (e) {
 			}
-			console.log(permision);
 			if(permision == false)
 			{
 				$("#download_button").hide();
@@ -1022,7 +1007,6 @@ function testFunction(topic_id,option)
 		}
 		$("#testspace").show();
 		var url = "technologies/" + option + "/topics/" + topic_id + "/test" ;
-		console.log(url);
 		$.ajax({
 			type: 'GET',
 			dataType: 'json',
@@ -1040,12 +1024,10 @@ function testFunction(topic_id,option)
 			for(i of data.content)
 			{
 				var nextId=i.content.question.id;
-				console.log(nextId,prevId);
 				if(nextId!=prevId)
 				{
 					nrofQuestion = nrofQuestion + 1;
 					var Question_numbr = document.createElement("p");
-					console.log("Test");
 					var div = document.createElement("div");
 					Question_numbr.innerHTML = "Question " + nrofQuestion;
 					div.appendChild(Question_numbr);
@@ -1065,7 +1047,6 @@ function testFunction(topic_id,option)
 					div.className="question";
 					if(i.content.answer_text.length!=0)
 					{
-						console.log(i.content.answer_text.length);
 						div.appendChild(div1);
 					}
 					testSpace.appendChild(div);
@@ -1084,7 +1065,6 @@ function testFunction(topic_id,option)
 					div.className="question";
 					if(i.content.answer_text.length!=0)
 					{
-						console.log(i.content.answer_text.length);
 						div.appendChild(div1);
 					}
 					testSpace.appendChild(div);
@@ -1124,7 +1104,6 @@ function handleButon(option, topic_id)
 			test = test + this.value + " ";
 		});
 		var url = "technologies/" + option + "/topics/" + topic_id + "/selectedAnswers?selectedAnswers=" +test;
-		console.log(url);
 		$.ajax({
 			type: 'GET',
 			dataType: 'json',
@@ -1140,7 +1119,6 @@ function handleButon(option, topic_id)
 			}
 			for(i of data.content)
 			{
-				console.log(i.length);
 				test= test+1;
 				if(k==0)
 				{
@@ -1154,7 +1132,6 @@ function handleButon(option, topic_id)
 				{
 					try {
 						var answer = document.getElementById(i.content);
-						console.log(i.content);
 						answer.style.color = "#93FF58";
 					}
 					catch (e)
@@ -1163,7 +1140,6 @@ function handleButon(option, topic_id)
 					}
 				}
 			}
-			console.log(test);
 		});
 	});
 
@@ -1233,12 +1209,10 @@ $("#delete_question_select_technology").change(function(){
 			{
 				child=i.content.topic_id;
 				k++;
-				console.log(child);
 			}
 
 			AddTopic.add(topic);
 		}
-		console.log(child);
 		$.ajax({
 			type: 'GET',
 			dataType: 'json',
@@ -1527,7 +1501,6 @@ function testRetake(topic_id,option)
 		}
 		$("#testspace").show();
 		var url = "technologies/" + option + "/topics/" + topic_id + "/test" ;
-		console.log(url);
 		$.ajax({
 			type: 'GET',
 			dataType: 'json',
@@ -1543,12 +1516,10 @@ function testRetake(topic_id,option)
 			for(i of data.content)
 			{
 				var nextId=i.content.question.id;
-				console.log(nextId,prevId);
 				if(nextId!=prevId)
 				{
 					nrofQuestion = nrofQuestion + 1;
 					var Question_numbr = document.createElement("p");
-					console.log("Test");
 					var div = document.createElement("div");
 					Question_numbr.innerHTML = "Question " + nrofQuestion;
 					div.appendChild(Question_numbr);
@@ -1568,7 +1539,6 @@ function testRetake(topic_id,option)
 					div.className="question";
 					if(i.content.answer_text.length!=0)
 					{
-						console.log(i.content.answer_text.length);
 						div.appendChild(div1);
 					}
 					testSpace.appendChild(div);
@@ -1587,7 +1557,6 @@ function testRetake(topic_id,option)
 					div.className="question";
 					if(i.content.answer_text.length!=0)
 					{
-						console.log(i.content.answer_text.length);
 						div.appendChild(div1);
 					}
 					testSpace.appendChild(div);
@@ -1604,13 +1573,11 @@ function testRetake(topic_id,option)
 function DownloadReq(id)
 {
     var testClick = true;
-	console.log(user_id);
 	var button_down = document.getElementById("download_button");
     $("#download_button").unbind();
     $("#download_button").bind("click", function(e)
 	{
 		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + id;
-		console.log(url);
 		$.ajax({
 			type: 'GET',
 			dataType: 'json',
@@ -1628,12 +1595,8 @@ function DownloadReq(id)
 					url: url
 				}).then(function (data)
 				{
-					console.log("Try");
 				});
-				console.log(1);
 			}
-			console.log(id);
-			console.log(permision);
 			if(permision == false)
 			{
 				$("#download_button").hide();
@@ -1663,7 +1626,6 @@ $("#add_question_select_technology").change(function(){
 	    	}
 	    }
     var selectedTechnology = document.getElementById("add_question_select_technology").value;
-    console.log(selectedTechnology);
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
@@ -1679,8 +1641,6 @@ $("#add_question_select_technology").change(function(){
 });
 
 function getDownloadRequests(){
-	console.log("test to see if it gets here ");
-	
 	var addRequest = document.getElementById("downloadRequests");
 	
 	$.ajax({
