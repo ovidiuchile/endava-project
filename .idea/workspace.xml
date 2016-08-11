@@ -1127,15 +1127,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1470896572687</updated>
-      <workItem from="1470896596440" duration="6416000" />
+      <workItem from="1470896596440" duration="6505000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27552000" />
+    <option name="totallyTimeSpent" value="27641000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1248,7 +1248,7 @@
         <state relative-caret-position="2465">
           <caret line="145" column="16" selection-start-line="145" selection-start-column="16" selection-end-line="145" selection-end-column="16" />
           <folding>
-            <marker date="1470841215431" expanded="true" signature="9591:9611" ph="..." />
+            <marker date="1470908292908" expanded="true" signature="9591:9611" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1566,10 +1566,10 @@
         <state relative-caret-position="-1321">
           <caret line="537" column="63" selection-start-line="537" selection-start-column="63" selection-end-line="537" selection-end-column="63" />
           <folding>
-            <marker date="1470898569643" expanded="true" signature="16801:16853" ph="..." />
-            <marker date="1470898569643" expanded="true" signature="16861:16913" ph="..." />
-            <marker date="1470898569643" expanded="true" signature="17010:17062" ph="..." />
-            <marker date="1470898569643" expanded="true" signature="17070:17122" ph="..." />
+            <marker date="1470908292971" expanded="true" signature="16801:16853" ph="..." />
+            <marker date="1470908292971" expanded="true" signature="16861:16913" ph="..." />
+            <marker date="1470908292971" expanded="true" signature="17010:17062" ph="..." />
+            <marker date="1470908292971" expanded="true" signature="17070:17122" ph="..." />
           </folding>
         </state>
       </provider>

@@ -9,10 +9,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="author" content="endava">
 	
-    <title>Appollo</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
-    
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114x114.png">
+    <title>appollo</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/small logo.png">
 	
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
@@ -70,7 +68,7 @@
 	</script>
 	
 </head>
-<body style="width:100vw;">
+<body style="width:100vw;" onload="add_content();">
 	<img id = "background_image" src = "${pageContext.request.contextPath}/resources/images/background.jpg">
 	<div id = "menu">
         <div id = "logo_div">
@@ -108,19 +106,20 @@
 	<div id = "content-editor-page">
 	
 		<div id = "menu-content-editor">
-			<div class = "buttons-content-editor"><p>Add content</p></div>
-			<div class = "buttons-content-editor"><p>Delete content</p></div>
-			<br/>
-			<div class = "buttons-content-editor"><p>Update question</p></div>
-			<div class = "buttons-content-editor"><p>Add question</p></div>
-			<div class = "buttons-content-editor"><p>Delete question</p></div>
+			<div class = "buttons-content-editor" id="addContent1"><p>Add content</p></div>
+			<div class = "buttons-content-editor" id="deleteContent1"><p>Delete content</p></div>
+			
+			<div class = "buttons-content-editor" id="updateQuestion1"><p>Update question</p></div>
+			<div class = "buttons-content-editor" id="addQuestion1"><p>Add question</p></div>
+			<div class = "buttons-content-editor" id="deleteQuestion1"><p>Delete question</p></div>
 		</div>
 		
 		<div id = "pages-content-editor">
 		
 			<!-- Add content -->
-				<div id="container" style="">
-				<div id="addTechnology" style="padding:10px;border-bottom:1px solid #D13F32;paddin-top:0px;">
+			<div id="addContent">
+				<div id="container" style="margin-left: 0px;">
+				<div id="addTechnology" style="border-bottom:1px solid #D13F32;paddin-top:0px;">
 					<h3 id="h31">Add a new technology:</h3>
 					<p style="color: red;">${error}</p>
 					<p style="color: green;">${success}</p>
@@ -199,10 +198,11 @@
 			
 		</form>
 	</div>
-</div>
+</div></div>
 <!-- Delete content -->
+<div id="deleteContent">
 <div id="container" style="margin-left:0px;">
-				<div id="addTechnology" style="padding:10px;border-bottom:1px solid #D13F32;">
+				<div id="addTechnology" style="border-bottom:1px solid #D13F32;">
 					<h3 id="h31">Delete technology</h3>
 					<p style="color: red;">${error}</p>
 					<p style="color: green;">${success}</p>
@@ -299,8 +299,9 @@
 			</table>
 		</form>
 	</div>
-</div>
+</div></div>
 <!-- Add question -->
+<div id="addQuestion">
 			<div id="container" style="margin-left: 0px;">
 					<div id="addMaterial" style="">
 						<h3 id="h33">Add question:</h3>
@@ -402,8 +403,9 @@
 							
 						</form>
 					</div>
-				</div>			
+				</div></div>			
 <!-- Delete questions -->
+<div id="deleteQuestion">
 <div id="container" style="margin-left: 0px;">
 
 					<div id="addMaterial" style="">
@@ -439,9 +441,119 @@
 										name="_method" value="DELETE">
 						</form>
 					</div>
-				</div>
-<!-- end -->
-		
+				</div></div>
+<!-- Update question -->
+   <div id = "updateQuestion">
+		<div id="container" style="margin-left: 0px;">
+
+                <div id="addMaterial" style="">
+                    <h3 id="h33">Edit question:</h3>
+                    <form name="materialForm" style=""
+                          action=" <c:url value='/update_question' />" method="POST"
+                          enctype="multipart/form-data">
+                        <table style="">
+                            <tr style="">
+                                <td style=""><p class="td_text" style = "margin-right:10px;">Name of technology:</p></td>
+                                <td><select class="topic-form field-content-editor" name="technology"
+                                            id="edit_question_select_technology" style="" required>
+                                    <option value="">Select language</option>
+                                </select></td>
+                            </tr>
+                            <tr>
+                                <td><p class="td_text">Name of topic:</p></td>
+                                <td><select class="topic-form field-content-editor" name="topic" style=""
+                                            id="edit_question_select_topic" required>
+                                    <option value="">Select topic</option>
+                                </select></td>
+                            </tr>
+                            <tr>
+                                <td><p class="td_text">Question:</p></td>
+                                <td><select class="topic-form field-content-editor" name="question" style=""
+                                            id="edit_question_select" required>
+                                    <option value="">Select question</option>
+                                </select></td>
+                            </tr>
+                            <tr>
+                                <td><p class="td_text">Question body:</p></td>
+                                <td><input class = "field-content-editor" type='text' name='edited_question' value=''
+                                           style="" required id="question_body"/></td>
+                            </tr>
+                            <tr>
+                                <td><p class="td_text">Start date:</p> </td>
+                                <td><input class = "field-content-editor" id="datepicker1" type='text' name='start_date' value='' style="height:26px;" required /></td>
+                            </tr>
+                            <tr>
+                                <td><p class="td_text">Expiration date:</p> </td>
+                                <td><input class = "field-content-editor" id="datepicker2" type='text' name='end_date' value=''  style="height:26px;" required /></td>
+                            </tr>
+                            <tr>
+                                <td><p class="td_text">Answer 1:</p></td>
+                                <td><input class = "field-content-editor" type='text' name='answer 1' value='' id = "answer1"
+                                           style="" required /></td>
+                            </tr>
+                            <tr>
+                                <td style="height:26px;"></td>
+                                <td style="height:26px;">
+                                    <input id="radio_correct1" type="radio" name="answer1" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;"><p style="width:50px; display:inline-block;">Correct  </p>
+                                    <input id="radio_incorrect1" type="radio" name="answer1" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"><p style="width:50px; display:inline-block;">Incorrect</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><p class="td_text">Answer 2:</p></td>
+                                <td><input class = "field-content-editor" type='text' name='answer 2' value='' id = "answer2"
+                                           style="" required /></td>
+                            </tr>
+                            <tr>
+                                <td style="height:26px;"></td>
+                                <td style="height:26px;">
+                                    <input id="radio_correct2" type="radio" name="answer2" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Correct  </p>
+                                    <input id="radio_incorrect2" type="radio" name="answer2" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
+                                </td>
+                            </tr><tr>
+                            <td><p class="td_text">Answer 3:</p></td>
+                            <td><input class = "field-content-editor" type='text' name='answer 3' value='' id = "answer3"
+                                       style="" /></td>
+                        </tr>
+                            <tr>
+                                <td style="height:26px;"></td>
+                                <td style="height:26px;">
+                                    <input id="radio_correct3" type="radio" name="answer3" class="radio" value = "correct" style="height:12px; width:12px;display:inline-block;"/><p style="width:50px; display:inline-block;">Correct  </p>
+                                    <input id="radio_incorrect3" type="radio" name="answer3" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
+                                </td>
+                            </tr><tr>
+                            <td><p class="td_text">Answer 4:</p></td>
+                            <td><input class = "field-content-editor" type='text' name='answer 4' value='' id = "answer4"
+                                       style="" /></td>
+                        </tr>
+                            <tr>
+                                <td style="height:26px;"></td>
+                                <td style="height:26px;">
+                                    <input id="radio_correct4" type="radio" name="answer4" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Correct  </p>
+                                    <input id="radio_incorrect4" type="radio" name="answer4" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
+                                </td>
+                            </tr><tr>
+                            <td><p class="td_text">Answer 5:</p></td>
+                            <td><input class = "field-content-editor" type='text' name='answer 5' value='' id = "answer5"
+                                       style="" /></td>
+                        </tr>
+                            <tr>
+                                <td style="height:26px;"></td>
+                                <td style="height:26px;">
+                                    <input id="radio_correct5" type="radio" name="answer5" class="radio" value = "correct" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Correct  </p>
+                                    <input id="radio_incorrect5" type="radio" name="answer5" class="radio" value = "incorrect" style="height:12px; width:12px; display:inline-block;"/><p style="width:50px; display:inline-block;">Incorrect</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><input class="button_sign" name="submit" id="submitt3"
+                                           type="submit" value="Edit question" />
+                                    <input type="hidden" name="_method" value="PUT"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div></div>
+            <!-- end -->
 		</div>
 		
 </div>	
@@ -493,7 +605,50 @@
 		closeNav();
 	});
 </script> 
-
+<script>
+$(document).ready(function(){
+	$("#addContent").show();
+	$("#deleteContent").hide();
+	$("#addQuestion").hide();
+	$("#deleteQuestion").hide();
+	$("#updateQuestion").hide();
+	$("#addContent1").click(function(){
+			$("#addContent").show();
+			$("#deleteContent").hide();
+			$("#addQuestion").hide();
+			$("#deleteQuestion").hide();
+			$("#updateQuestion").hide();
+	});
+	$("#deleteContent1").click(function(){
+			$("#addContent").hide();
+			$("#deleteContent").show();
+			$("#addQuestion").hide();
+			$("#deleteQuestion").hide();
+			$("#updateQuestion").hide();
+	});
+	$("#addQuestion1").click(function(){
+			$("#addContent").hide();
+			$("#deleteContent").hide();
+			$("#addQuestion").show();
+			$("#deleteQuestion").hide();
+			$("#updateQuestion").hide();
+	});
+	$("#deleteQuestion1").click(function(){
+			$("#addContent").hide();
+			$("#deleteContent").hide();
+			$("#addQuestion").hide();
+			$("#deleteQuestion").show();
+			$("#updateQuestion").hide();
+	});
+	$("#updateQuestion1").click(function(){
+			$("#addContent").hide();
+			$("#deleteContent").hide();
+			$("#addQuestion").hide();
+			$("#deleteQuestion").hide();
+			$("#updateQuestion").show();
+	});
+});
+	</script>
 </body>
 
 </html>

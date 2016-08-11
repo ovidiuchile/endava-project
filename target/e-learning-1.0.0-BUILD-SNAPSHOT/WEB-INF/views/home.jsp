@@ -178,7 +178,7 @@
 
             <div id="material" align="center" style="padding-left:0px; display:none; height:450px;" oncontextmenu="return false;">
             </div>
-            <div id="material_info">
+            <div id="material_info" oncontextmenu="return false;">
                 <p id="Material_name"> </p>
                 <p id="Material_Desc" align="justify"> </p>
                 <div class="dropdown" id = "drop_notes" style="display:none; position:static; margin-top:10px; margin-bottom">
