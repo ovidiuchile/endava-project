@@ -192,7 +192,9 @@ div#search-container{
 		    max-width:670px;
 		}
 		#menu-content-editor{
-			width:100%;
+			width:100px;
+			margin-left:-99px;
+			margin-bottom:-290px;
 		}
 		.buttons-content-editor{
 			border:1px solid #D13F32;
@@ -201,19 +203,19 @@ div#search-container{
 			text-align:center;
 			margin-bottom:-1px;
 			background-color:#1E1E20;
-			width:calc( 100% / 3 );
+			width:100px;
 			display:inline-block;
 			margin-left:-5px;
+			border-radius: 10px 0px 0px 10px ;
 		}
 		.buttons-content-editor:hover{
 			background-color:#D13F32;
 		}
 		#pages-content-editor{
-			margin-top:15px;
 			width:100%;
 		    border:1px solid #D13F32;
 		    background-color:#1E1E20;
-		    padding:10px;
+		    padding:20px;
 		    padding-top:0px;
 		    margin-left:-5px;
 		    height:65vh;
@@ -225,6 +227,8 @@ div#search-container{
 			margin-top:10px;
 			text-align:center;
 		}
+		
+		
 		@media screen and (max-width: 991px) {
 			#content-editor-page{
 	            width:calc( 96vw - 20px);
@@ -234,6 +238,7 @@ div#search-container{
 	            left:15px;
 	            transform: translate(0%, 0%);
 	            max-width: 991px;
+	            padding:0px;
         	}
 			#search-users-box {
 	            width:calc( 96vw - 20px);
@@ -256,4 +261,26 @@ div#search-container{
         		margin-left:2px;
         		margin-bottom:-1px;
         	}
+        	#menu-content-editor{
+			width:calc( 96vw - 20px);
+			margin-left:0px;
+			margin-bottom:0px;
+			}
+			.buttons-content-editor{
+			display:inline-block;
+			margin-left:-5px;
+			border-radius: 10px 10px 0px 0px ;
+			}
+		}
+		@media screen and (max-width: 551px) {
+			
+			.buttons-content-editor{
+			width:calc( 96vw - 20px);
+			display:inline-block;
+			margin-left:-5px;
+			border-radius: 10px 10px 10px 10px ;
+			}
+			#pages-content-editor{
+				border-radius: 10px 10px 0px 0px ;
+			}
 		}

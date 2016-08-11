@@ -883,6 +883,12 @@ function testFunction(topic_id,option)
 			dataType: 'json',
 			url: url
 		}).then(function (data) {
+			if(data.content.length==0)
+			{
+				var noSearchResult = document.createElement("p");
+				noSearchResult.innerHTML = " No search results were found";
+				testSpace.appendChild(noSearchResult);
+			}
 			var nrofQuestion =0;
 			for(i of data.content)
 			{
