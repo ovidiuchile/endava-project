@@ -86,10 +86,10 @@
                         <a href="upload"  id="uploadbttn"> Update content</a>
                     </li>
                 </ul>
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle img-avatar-cp" height="50px"></span>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle img-avatar-cp" height="50px"></span>
                 <div class="col-md-1  pull-right" style="">
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="javascript:void(0)" class="closebtn">&times;</a>
                         <br>
                         <a href="admin">Admin</a>
 
