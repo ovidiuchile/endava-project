@@ -566,7 +566,7 @@ function handleMaterial( img, source, type,title,desc,id)
 				download.href = data.content[0].content.material.link;
 				download.setAttribute('download','');
 			}
-		})
+		});
 
 		/**
 		 * Doing the rest of the things
@@ -749,7 +749,7 @@ function search(){
 			resultsTitle.innerHTML = res;
 
 			var str = resultsDescription.innerHTML;
-			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1 E1E20;background-color:#D9CB9E'>"+ search + "</span>");
+			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>"+ search + "</span>");
 			resultsDescription.innerHTML = res;
 
 
@@ -789,6 +789,39 @@ function searchResult(buton, langId, topicId, materialId)
 		$("#drop_notes").show();
 		$("#material_info").show();
 		$("#download_button").show();
+		DownloadReq(materialId);
+		/**
+		 * Doing the download requirement check for the download button
+		 *
+		 */
+		var url = "downloadPermissionsUM?user_id=" + user_id + "&material_id=" + materialId;
+		console.log(url);
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: url
+		}).then(function (data) {
+			try {
+				var permision = data.content[0].content.permission;
+			}
+			catch (e) {
+			}
+			console.log(permision);
+			if(permision == false)
+			{
+				$("#download_button").hide();
+			}
+			else if ( permision == true)
+			{
+				var download = document.getElementById("download_button");
+				$("#download_button").show();
+				download.href = data.content[0].content.material.link;
+				download.setAttribute('download','');
+			}
+		});
+
+
+
 		var materialCont = document.getElementById("material");
 		var searchCont = document.getElementById("search-container");
 		try

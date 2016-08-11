@@ -191,7 +191,7 @@
                 </div>
             </div>
             <div>
-                <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
+                <input id="test_input" style="display:none; margin-top:0px;" class="btn btn-default" value="Test your knowledge" type="submit" >
             </div>
 
 
