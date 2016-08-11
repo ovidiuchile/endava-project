@@ -78,7 +78,7 @@
             <div class="col-md-89" style="">
                 <ul class="nav nav-pills" id="nav_pills" >
                     <li class="technology_menu" style="">
-                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/requests">Download Request</a>
+                        <a style="z-index:99988;"href="${pageContext.request.contextPath}/requests">Download Requests</a>
                     </li>
 
                     <li>
