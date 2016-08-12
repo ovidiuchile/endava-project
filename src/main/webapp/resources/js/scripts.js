@@ -50,6 +50,16 @@ $(document).ready(function(){
 		$("#datepicker1").Zebra_DatePicker();
 		$("#datepicker2").Zebra_DatePicker();
 	}
+	if($("#datepicker1_add").length>0)
+    {
+        $("#datepicker1_add").Zebra_DatePicker();
+        $("#datepicker2_add").Zebra_DatePicker();
+    }
+    if($("#datepicker1_edit").length>0)
+    {
+        $("#datepicker1_edit").Zebra_DatePicker();
+        $("#datepicker2_edit").Zebra_DatePicker();
+    }
 
 
 });
@@ -632,14 +642,27 @@ function search(){
 			buton.innerHTML= "Go to material";
 			buton.className = "result-search-button";
 
-			var str = resultsTitle.innerHTML;
-			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
+            function getIndicesOf(searchStr, str) {
+                var startIndex = 0, searchStrLen = searchStr.length;
+                var index, indices = [];
+                    str = str.toLowerCase();
+                    searchStr = searchStr.toLowerCase();
+                while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+                    indices.push(index);
+                    startIndex = index + searchStrLen;
+                }
+                return indices;
+            }
+
+            var str = resultsTitle.innerHTML;
+            var res = str.split(search.ignoreCase).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
 
 			resultsTitle.innerHTML = res;
 
 			var str = resultsDescription.innerHTML;
-			var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>"+ search + "</span>");
-			resultsDescription.innerHTML = res;
+            var res = str.split(search).join("<span style = 'color:#D9CB9E;color:#1E1E20;background-color:#D9CB9E'>" + search + "</span>");
+
+            resultsDescription.innerHTML = res;
 
 
 			div.appendChild(resultsTitle);
