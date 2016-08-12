@@ -116,6 +116,11 @@ public class JavaCompiler {
 			result += e.getMessage();
 		}
 		deleteFiles();
+		
+		if (result.length()>2000){
+			result = "Output too long or timeout";
+		}
+		
 		return result;
 	}
 }

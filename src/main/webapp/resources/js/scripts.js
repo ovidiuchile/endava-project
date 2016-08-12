@@ -248,6 +248,62 @@ $("#select_technology_delete_material").change(function(){
 		});
 
 	});
+$("#select_topic_delete_material").change(function(){
+	var grandparent_height = $('.col-md-9').width();
+	$('#notes').width( grandparent_height );
+	$('#button_notes').click(function(){
+		$("#div_notes").fadeToggle(0);
+	});
+	$("#div_notes").fadeToggle(0);
+
+
+
+	var AddTopic = document.getElementById("select_material_delete_material");
+	while (AddTopic.childElementCount != 0) {
+		try {
+			AddTopic.removeChild(AddTopic.childNodes[0]);
+		}
+		catch (e) {
+
+		}
+	}
+	var child= document.getElementById("select_topic_delete_material").value;
+	
+	var Select_Tech = document.getElementById("select_technology_delete_material").value;
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: "technologies/" + Select_Tech + "/topics/" + child + "/materials"
+		}).then(function (data) {
+			var AddMaterial = document.getElementById("select_material_delete_material");
+			try
+			{
+				while (AddMaterial.childElementCount != 0) {
+					try {
+						AddMaterial.removeChild(AddMaterial.childNodes[0]);
+					}
+					catch (e) {
+
+					}
+				}
+			}
+			catch(e)
+			{
+
+			}
+			for (i of data.content) {
+				var material = document.createElement("option");
+
+				material.value = i.content.material_id;
+				material.innerHTML = i.content.title;
+
+
+				AddMaterial.add(material);
+
+			}
+		});
+
+});
 // topic dropdown - delete page
 $("#select_technology_delete").change(function(){
 	var grandparent_height = $('.col-md-9').width();
