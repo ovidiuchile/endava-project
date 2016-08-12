@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp" />
     </list>
     <ignored path="e-learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,11 +46,11 @@
       <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14858">
-              <caret line="874" column="13" selection-start-line="874" selection-start-column="13" selection-end-line="874" selection-end-column="13" />
+            <state relative-caret-position="-501">
+              <caret line="859" column="63" selection-start-line="859" selection-start-column="63" selection-end-line="859" selection-end-column="63" />
               <folding>
-                <marker date="1470997811697" expanded="true" signature="218:255" ph="{...}" />
-                <marker date="1470997811697" expanded="true" signature="48540:50286" ph="{...}" />
+                <marker date="1470997811697" expanded="true" signature="22139:22191" ph="..." />
+                <marker date="1470997811697" expanded="true" signature="22357:22409" ph="..." />
               </folding>
             </state>
           </provider>
@@ -104,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="upload.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="93" column="78" selection-start-line="93" selection-start-column="78" selection-end-line="93" selection-end-column="78" />
+            <state relative-caret-position="327">
+              <caret line="102" column="14" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -117,18 +116,18 @@
       <file leaf-file-name="tryit.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/tryit.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="27" column="17" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="17" />
+            <state relative-caret-position="234">
+              <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compiler.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="compiler.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="132" column="97" selection-start-line="132" selection-start-column="97" selection-end-line="132" selection-end-column="97" />
+            <state relative-caret-position="268">
+              <caret line="131" column="79" selection-start-line="131" selection-start-column="79" selection-end-line="131" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -137,7 +136,7 @@
       <file leaf-file-name="add_question.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/add_question.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-510">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -160,8 +159,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/tryit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp" />
       </list>
     </option>
   </component>
@@ -816,12 +815,12 @@
       <option name="presentableId" value="Default" />
       <updated>1470898819254</updated>
       <workItem from="1470898835681" duration="9532000" />
-      <workItem from="1470984883359" duration="1902000" />
+      <workItem from="1470984883359" duration="2163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21376000" />
+    <option name="totallyTimeSpent" value="21637000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1167,30 +1166,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/add_question.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/update_question.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14858">
-          <caret line="874" column="13" selection-start-line="874" selection-start-column="13" selection-end-line="874" selection-end-column="13" />
-          <folding>
-            <marker date="1470997811697" expanded="true" signature="218:255" ph="{...}" />
-            <marker date="1470997811697" expanded="true" signature="48540:50286" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1202,26 +1182,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="102" column="14" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/tryit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="17" />
+        <state relative-caret-position="234">
+          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-501">
+          <caret line="859" column="63" selection-start-line="859" selection-start-column="63" selection-end-line="859" selection-end-column="63" />
+          <folding>
+            <marker date="1470997811697" expanded="true" signature="22139:22191" ph="..." />
+            <marker date="1470997811697" expanded="true" signature="22357:22409" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/add_question.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="132" column="97" selection-start-line="132" selection-start-column="97" selection-end-line="132" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="93" column="78" selection-start-line="93" selection-start-column="78" selection-end-line="93" selection-end-column="78" />
+        <state relative-caret-position="268">
+          <caret line="131" column="79" selection-start-line="131" selection-start-column="79" selection-end-line="131" selection-end-column="79" />
           <folding />
         </state>
       </provider>
