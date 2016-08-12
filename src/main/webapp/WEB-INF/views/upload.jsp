@@ -91,7 +91,7 @@
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
                         <a href="javascript:void(0)" class="closebtn">&times;</a>
                         <br>
-                        <a href="admin" style="display:none">Admin</a>
+                        <a href="admin" style="display:none" id="admin_button">Admin</a>
 
                         <a href="change-password">Change Password</a>
 

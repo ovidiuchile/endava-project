@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d66f334a-4af4-4e1b-a45b-08be84368a86" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/tryit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/tryit.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp" />
     </list>
     <ignored path="e-learning.iws" />
@@ -105,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="upload.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="656" column="36" selection-start-line="656" selection-start-column="36" selection-end-line="656" selection-end-column="36" />
+            <state relative-caret-position="174">
+              <caret line="93" column="78" selection-start-line="93" selection-start-column="78" selection-end-line="93" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -125,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compiler.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="compiler.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="134" column="55" selection-start-line="134" selection-start-column="55" selection-end-line="134" selection-end-column="55" />
+            <state relative-caret-position="234">
+              <caret line="132" column="97" selection-start-line="132" selection-start-column="97" selection-end-line="132" selection-end-column="97" />
               <folding />
             </state>
           </provider>
@@ -160,9 +159,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/tryit.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp" />
       </list>
     </option>
   </component>
@@ -817,12 +816,12 @@
       <option name="presentableId" value="Default" />
       <updated>1470898819254</updated>
       <workItem from="1470898835681" duration="9532000" />
-      <workItem from="1470984883359" duration="1634000" />
+      <workItem from="1470984883359" duration="1902000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21108000" />
+    <option name="totallyTimeSpent" value="21376000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1203,14 +1202,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="656" column="36" selection-start-line="656" selection-start-column="36" selection-end-line="656" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/tryit.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -1221,8 +1212,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/compiler.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="134" column="55" selection-start-line="134" selection-start-column="55" selection-end-line="134" selection-end-column="55" />
+        <state relative-caret-position="234">
+          <caret line="132" column="97" selection-start-line="132" selection-start-column="97" selection-end-line="132" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="93" column="78" selection-start-line="93" selection-start-column="78" selection-end-line="93" selection-end-column="78" />
           <folding />
         </state>
       </provider>
