@@ -136,7 +136,7 @@ public class UpdateController {
 			}
 		}
 		ModelAndView model = new ModelAndView();
-		model.setViewName("redirect:/delete");
+		model.setViewName("redirect:/upload");
 		return model;
 	}
 	@RequestMapping(value = "/delete-topic", method = RequestMethod.POST)
@@ -152,7 +152,7 @@ public class UpdateController {
 			}
 		}
 		ModelAndView model = new ModelAndView();
-		model.setViewName("redirect:/delete");
+		model.setViewName("redirect:/upload");
 		return model;
 	}
 	
@@ -160,7 +160,7 @@ public class UpdateController {
 	public ModelAndView deleteMaterial(@RequestParam("technology")String technology, @RequestParam("topic")String topic, @RequestParam("material")String material){
 		materialService.deleteMaterial(Long.parseLong(material));
 		ModelAndView model = new ModelAndView();
-		model.setViewName("redirect:/delete");
+		model.setViewName("redirect:/upload");
 		return model;
 	}
 }

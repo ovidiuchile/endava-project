@@ -68,7 +68,7 @@
 	</script>
 	
 </head>
-<body style="width:100vw;" onload="add_content();">
+<body style="width:100vw;">
 	<img id = "background_image" src = "${pageContext.request.contextPath}/resources/images/background.jpg">
 	<div id = "menu">
         <div id = "logo_div">
@@ -143,7 +143,7 @@
 					<tr>
 						<td><p class="td_text" style = "margin-right:10px;">Name of technology:</p></td>
 						<td>
-							<select class="topic-form field-content-editor" name = 'technology' id="select_tech" class = "field-content-editor"  required>
+							<select class="topic-form field-content-editor" name = 'technology' id="select_technology_add" class = "field-content-editor"  required>
 								<option value = "">Select language</option>
 							</select>
 						</td>
@@ -235,7 +235,7 @@
 					<tr style="">
 					<td style=""><p class="td_text"  style="margin-right:10px;">Name of technology:</p></td>
 					<td>
-						<select class="topic-form field-content-editor" name = "technology" id="select_tech" class = "field-content-editor"  required>
+						<select class="topic-form field-content-editor" name = "technology" id="select_technology_delete" class = "field-content-editor"  required>
 							<option value = "">Select language</option>
 						</select>
 					</td>
@@ -243,7 +243,7 @@
 				<tr>
 					<td><p class="td_text">Name of topic:</p></td>
 					<td>
-						<select class="topic-form field-content-editor" name = "topic" class = "field-content-editor"  id="selecttopic" required>
+						<select class="topic-form field-content-editor" name = "topic" class = "field-content-editor"  id="select_topic_delete" required>
 							<option value = "">Select topic</option>
 						</select>
 					</td>
@@ -267,7 +267,7 @@
 				<tr style="">
 					<td style=""><p class="td_text" style="margin-right:10px;">Name of technology:</p></td>
 					<td>
-						<select class="topic-form field-content-editor" name = "technology" id="select_technology" class = "field-content-editor"  required>
+						<select class="topic-form field-content-editor" name = "technology" id="select_technology_delete_material" class = "field-content-editor"  required>
 							<option value = "">Select language</option>
 						</select>
 					</td>
@@ -275,7 +275,7 @@
 				<tr>
 					<td><p class="td_text">Name of topic:</p></td>
 					<td>
-						<select class="topic-form field-content-editor" name = "topic" class = "field-content-editor"  id="select_topic" required>
+						<select class="topic-form field-content-editor" name = "topic" class = "field-content-editor"  id="select_topic_delete_material" required>
 							<option value = "">Select topic</option>
 						</select>
 					</td>
@@ -283,7 +283,7 @@
 				<tr>
 					<td><p class="td_text">Name of material:</p></td>
 					<td>
-						<select class="topic-form field-content-editor" name = "material" class = "field-content-editor"  id="select_material" required>
+						<select class="topic-form field-content-editor" name = "material" class = "field-content-editor"  id="select_material_delete_material" required>
 							<option value = "">Select material</option>
 						</select>
 					</td>
@@ -330,11 +330,11 @@
 								</tr>
 								<tr>
 									<td><p class="td_text">Start date:</p> </td>
-									<td><input id="datepicker1" type='text' name='start_date' value='' class = "field-content-editor"  required /></td>
+									<td><input id="datepicker1_add" type='text' name='start_date' value='' class = "field-content-editor"  required /></td>
 								</tr>
 								<tr>
 									<td><p class="td_text">Expiration date:</p> </td>
-									<td><input id="datepicker2" type='text' name='end_date' value=''  class = "field-content-editor"  required /></td>
+									<td><input id="datepicker2_add" type='text' name='end_date' value=''  class = "field-content-editor"  required /></td>
 								</tr>
 								<tr>
 									<td><p class="td_text">Answer 1:</p></td>
@@ -417,21 +417,21 @@
 								<tr style="">
 									<td style=""><p class="td_text" style = "margin-right:10px;">Name of technology:</p></td>
 									<td><select class="topic-form field-content-editor" name="technology"
-										id="question_select_technology" class = "field-content-editor"  required>
+										id="delete_question_select_technology" class = "field-content-editor"  required>
 											<option value="">Select language</option>
 									</select></td>
 								</tr>
 								<tr>
 									<td><p class="td_text">Name of topic:</p></td>
 									<td><select class="topic-form field-content-editor" name="topic" class = "field-content-editor" 
-										id="question_select_topic" required>
+										id="delete_question_select_topic" required>
 											<option value="">Select topic</option>
 									</select></td>
 								</tr>
 								<tr>
 									<td><p class="td_text">Question:</p></td>
 									<td><select class="topic-form field-content-editor" name="question" class = "field-content-editor" 
-										id="question_select" required>
+										id="delete_question_select" required>
 											<option value="">Select question</option>
 									</select></td>
 								</tr>
@@ -469,7 +469,7 @@
                             <tr>
                                 <td><p class="td_text">Question:</p></td>
                                 <td><select class="topic-form field-content-editor" name="question" style=""
-                                            id="edit_question_select" required>
+                                            id="edit_question_select_question" required>
                                     <option value="">Select question</option>
                                 </select></td>
                             </tr>
@@ -480,11 +480,11 @@
                             </tr>
                             <tr>
                                 <td><p class="td_text">Start date:</p> </td>
-                                <td><input class = "field-content-editor" id="datepicker1" type='text' name='start_date' value='' style="height:26px;" required /></td>
+                                <td><input class = "field-content-editor" id="datepicker1_edit" type='text' name='start_date' style="height:26px;" required /></td>
                             </tr>
                             <tr>
                                 <td><p class="td_text">Expiration date:</p> </td>
-                                <td><input class = "field-content-editor" id="datepicker2" type='text' name='end_date' value=''  style="height:26px;" required /></td>
+                                <td><input class = "field-content-editor" id="datepicker2_edit" type='text' name='end_date' style="height:26px;" required /></td>
                             </tr>
                             <tr>
                                 <td><p class="td_text">Answer 1:</p></td>
