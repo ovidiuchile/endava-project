@@ -17,7 +17,29 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css">
 	
 	<title>appollo</title>
-	
+	<script>
+		var user_type = "<%= session.getAttribute("user_type") %>";
+		var user_id = "<%= session.getAttribute("id") %>";
+		console.log(user_type);
+		$("#admin_button").hide();
+		if(user_type=="normal user")
+		{
+			console.log("test");
+			$("#uploadbttn").hide();
+		}
+		else if(user_type=="content editor")
+		{
+			console.log("test1");
+			$("#uploadbttn").show();
+		}
+		else if(user_type=="admin")
+		{
+			$("#admin_button").show();
+			console.log("test2");
+			$("#uploadbttn").show();
+		}
+
+	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){

@@ -83,7 +83,7 @@
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Update content</a>
+                        <a href="upload"  id="uploadbttn" style="display:none"> Update content</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle img-avatar-cp" height="50px"></span>
@@ -91,7 +91,7 @@
                     <div id="mySidenav" class="sidenav" style="z-index:99999;">
                         <a href="javascript:void(0)" class="closebtn">&times;</a>
                         <br>
-                        <a href="admin">Admin</a>
+                        <a href="admin" style="display:none">Admin</a>
 
                         <a href="change-password">Change Password</a>
 
@@ -648,6 +648,29 @@ $(document).ready(function(){
 			$("#updateQuestion").show();
 	});
 });
+	</script>
+	<script>
+		var user_type = "<%= session.getAttribute("user_type") %>";
+		var user_id = "<%= session.getAttribute("id") %>";
+		console.log(user_type);
+		$("#admin_button").hide();
+		if(user_type=="normal user")
+		{
+			console.log("test");
+			$("#uploadbttn").hide();
+		}
+		else if(user_type=="content editor")
+		{
+			console.log("test1");
+			$("#uploadbttn").show();
+		}
+		else if(user_type=="admin")
+		{
+			$("#admin_button").show();
+			console.log("test2");
+			$("#uploadbttn").show();
+		}
+
 	</script>
 </body>
 
