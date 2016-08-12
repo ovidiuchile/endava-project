@@ -81,7 +81,7 @@
                     </li>
 
                     <li>
-                        <a href="upload"  id="uploadbttn"> Update content</a>
+                        <a href="upload"  id="uploadbttn" style="display:none"> Update content</a>
                     </li>
                 </ul>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()" id = "sideNav"><img id = "img-avatar" alt="Bootstrap Image Preview" src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="img-circle" height="50px"></span>
@@ -191,7 +191,7 @@
                 </div>
             </div>
             <div>
-                <input id="test_input" style="display:none" class="btn btn-default" value="Test your knowledge" type="submit" >
+                <input id="test_input" style="display:none; margin-top:0px;" class="btn btn-default" value="Test your knowledge" type="submit" >
             </div>
 
 
