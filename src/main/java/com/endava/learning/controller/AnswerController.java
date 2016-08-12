@@ -33,7 +33,7 @@ public class AnswerController {
         Float score = answerService.getScore(answers);
         correctAnswers.add(score);
         correctAnswers.addAll(answerService.getCorrectAnswers());
-;        Resources<Resource<Float>> answerResource = Resources.wrap(correctAnswers);
+        Resources<Resource<Float>> answerResource = Resources.wrap(correctAnswers);
 
         return new ResponseEntity<>(answerResource, HttpStatus.OK);
     }

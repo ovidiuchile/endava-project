@@ -25,7 +25,7 @@ public class TestController {
 	
 	@RequestMapping(value = "technologies/{technology_id}/topics/{topic_id}/test", method = RequestMethod.GET)
 	public HttpEntity<Resources<Resource<Answer>>> getTest(@PathVariable("technology_id") Long technology_id, @PathVariable("topic_id") Long topic_id){
-		List<Answer> questions = testService.getTestByTopic(topic_id);		
+		List<Answer> questions = testService.getTestByTopic(topic_id);
 		Resources<Resource<Answer>> testResource = Resources.wrap(questions);
 		return new ResponseEntity<>(testResource, HttpStatus.OK);
 	}
